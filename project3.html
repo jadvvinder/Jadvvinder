@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appystore Kids Learning Platform | Jadvindder Daudhria</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        light: '#FFFFFF',
+                        dark: '#0A0A0A',
+                        textLight: '#171717',
+                        textDark: '#E5E5E5',
+                        grayLight: '#FAFAFA',
+                        grayDark: '#1A1A1A'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                    },
+                    spacing: {
+                        '18': '4.5rem',
+                        '88': '22rem',
+                        '128': '32rem',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            letter-spacing: -0.011em;
+        }
+        
+        .prose {
+            font-size: 1.125rem;
+            line-height: 1.7;
+        }
+        
+        .prose p {
+            margin-top: 1.5em;
+            margin-bottom: 1.5em;
+        }
+        
+        .prose ul {
+            margin-top: 1.5em;
+            margin-bottom: 1.5em;
+        }
+        
+        .prose li {
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+        }
+        
+        .section-padding {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #f59e0b 0%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .dark .card-hover:hover {
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .metric-card {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+        }
+        
+        .dark .metric-card {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.2) 0%, rgba(236, 72, 153, 0.2) 100%);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+        
+        .sticky-sidebar {
+            position: sticky;
+            top: 6rem;
+        }
+        
+        .age-group-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        
+        .age-group-card:hover {
+            border-left-color: currentColor;
+        }
+        
+        .age-group-card-2-4 { color: #f59e0b; }
+        .age-group-card-5-7 { color: #ec4899; }
+        .age-group-card-8-10 { color: #8b5cf6; }
+        
+        .learning-progress {
+            height: 6px;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .learning-progress-fill {
+            height: 100%;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="bg-light dark:bg-dark text-textLight dark:text-textDark font-sans transition-colors duration-300">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-light/95 dark:bg-dark/95 backdrop-blur-lg z-50 border-b border-gray-200/50 dark:border-gray-800/50">
+        <div class="max-w-7xl mx-auto px-8 py-5">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="text-xl font-semibold tracking-tight hover:opacity-80 transition-opacity">← Back to Portfolio</a>
+                <div class="flex items-center space-x-10">
+                    <button id="themeToggle" class="p-2.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                        <svg id="sunIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                        <svg id="moonIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Case Study Content -->
+    <main class="pt-24">
+        <!-- Hero Section -->
+        <section class="section-padding">
+            <div class="max-w-7xl mx-auto px-8">
+                <div class="mb-12">
+                    <div class="inline-flex items-center px-4 py-2 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 rounded-full text-sm font-medium mb-6">
+                        People Group • 2015–2017
+                    </div>
+                    <h1 class="text-5xl font-light mb-8 tracking-tight leading-[1.1]">
+                        Appystore: India's <span class="hero-gradient font-semibold">#1 Kids Learning Platform</span>
+                    </h1>
+                    <p class="text-2xl text-gray-600 dark:text-gray-400 max-w-4xl leading-relaxed">
+                        Led design for India's top educational app reaching 
+                        <span class="font-semibold text-textLight dark:text-textDark">1M+ users</span>, driving 
+                        <span class="font-semibold text-textLight dark:text-textDark">30% revenue growth</span> through research-driven, age-appropriate design.
+                    </p>
+                </div>
+
+                <div class="bg-gray-100 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 mb-8">
+					<center><p class="text-gray-500 dark:text-gray-400"><img src="img/apy_img1.png" alt="Research Synthesis - Child behavior patterns, parental concerns, educational requirements by age group, and usability testing sessions" title="Research Synthesis - Child behavior patterns, parental concerns, educational requirements by age group, and usability testing sessions"></img></center>
+				</div>
+            </div>
+        </section>
+
+        <!-- Content Sections -->
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                <!-- Main Content -->
+                <div class="lg:col-span-2">
+                    <!-- Strategic Context -->
+                    <section class="mb-16">
+                        <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800">
+                            <h2 class="text-3xl font-semibold mb-8">Strategic Context</h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <div>
+                                    <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Role</h3>
+                                    <p class="text-lg">Associate Director - UX Design</p>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Industry</h3>
+                                    <p class="text-lg">EdTech & Digital Learning</p>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Timeline</h3>
+                                    <p class="text-lg">18 months (2015-2017)</p>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Team</h3>
+                                    <p class="text-lg">6 UX Designers, Product Managers, Content Team, Engineering</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- The Core Problem -->
+                    <section class="mb-16">
+                        <h2 class="text-4xl font-light mb-8">The Core Problem</h2>
+                        <div class="prose max-w-none">
+                            <p>
+                                The kids' educational app market in India was crowded with products that failed to balance educational value with child engagement. Most apps either focused purely on entertainment or were too academic, missing the sweet spot that both children and parents wanted.
+                            </p>
+                            <div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-6 my-8">
+                                <h3 class="text-lg font-semibold text-red-800 dark:text-red-300 mb-4">Market & User Challenges</h3>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start">
+                                        <span class="mr-3">•</span>
+                                        <span><strong>Engagement vs Education:</strong> Apps were either too game-like (low educational value) or too academic (low child engagement)</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="mr-3">•</span>
+                                        <span><strong>Age Inappropriateness:</strong> Lack of content differentiation for different developmental stages (2-4, 5-7, 8-10)</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="mr-3">•</span>
+                                        <span><strong>Parental Concerns:</strong> Poor parental controls and monitoring features</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="mr-3">•</span>
+                                        <span><strong>Inconsistent Experience:</strong> Different interaction patterns across age groups causing confusion</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="mr-3">•</span>
+                                        <span><strong>High Churn:</strong> Limited content discovery and progression paths</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <p>
+                                The challenge was to create a platform that children would love to use while giving parents confidence in its educational value—all within the constraints of varying device capabilities across India.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- Strategic Goals -->
+                    <section class="mb-16">
+                        <h2 class="text-4xl font-light mb-8">Strategic Goals</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="bg-gradient-to-br from-yellow-50 to-amber-100 dark:from-yellow-900/20 dark:to-amber-800/20 rounded-2xl p-8 border border-yellow-200 dark:border-yellow-800 card-hover">
+                                <div class="text-3xl mb-4">⚖️</div>
+                                <h3 class="text-xl font-semibold mb-3">Balanced Engagement</h3>
+                                <p class="text-gray-600 dark:text-gray-400">
+                                    Create experience that equally prioritizes educational value and child engagement
+                                </p>
+                            </div>
+                            <div class="bg-gradient-to-br from-pink-50 to-rose-100 dark:from-pink-900/20 dark:to-rose-800/20 rounded-2xl p-8 border border-pink-200 dark:border-pink-800 card-hover">
+                                <div class="text-3xl mb-4">👶</div>
+                                <h3 class="text-xl font-semibold mb-3">Age-appropriate Design</h3>
+                                <p class="text-gray-600 dark:text-gray-400">
+                                    Develop distinct interfaces for different age groups (2-4, 5-7, 8-10)
+                                </p>
+                            </div>
+                            <div class="bg-gradient-to-br from-purple-50 to-violet-100 dark:from-purple-900/20 dark:to-violet-800/20 rounded-2xl p-8 border border-purple-200 dark:border-purple-800 card-hover">
+                                <div class="text-3xl mb-4">👨‍👩‍👧</div>
+                                <h3 class="text-xl font-semibold mb-3">Parental Partnership</h3>
+                                <p class="text-gray-600 dark:text-gray-400">
+                                    Design comprehensive parental controls and progress tracking
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Age-Appropriate Design System -->
+                    <section class="mb-16">
+                        <h2 class="text-4xl font-light mb-8">Age-Appropriate Design System</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <!-- Age 2-4 -->
+                            <div class="age-group-card age-group-card-2-4 bg-gradient-to-br from-yellow-50 to-amber-50 dark:from-yellow-900/10 dark:to-amber-900/10 rounded-2xl p-6 border border-yellow-200 dark:border-yellow-800">
+                                <div class="text-4xl mb-4">👶</div>
+                                <h3 class="text-xl font-semibold mb-3">Ages 2-4</h3>
+                                <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                                    <li class="flex items-center">
+                                        <span class="mr-2">•</span>
+                                        <span>Simple tap interactions</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span class="mr-2">•</span>
+                                        <span>Large touch targets</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span class="mr-2">•</span>
+                                        <span>Audio instructions</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span class="mr-2">•</span>
+                                        <span>Immediate feedback</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Age 5-7 -->
+                            <div class="age-group-card age-group-card-5-7 bg-gradient-to-br from-pink-50 to-rose-50 dark:from-pink-900/10 dark:to-rose-900/10 rounded-2xl p-6 border border-pink-200 dark:border-pink-800">
+                                <div class="text-4xl mb-4">🧒</div>
+                                <h3 class="text-xl font-semibold mb-3">Ages 5-7</h3>
+                                <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                                    <li class="flex items-center">
+                                        <span class="mr-2">•</span>
+                                        <span>Guided exploration</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span class="mr-2">•</span>
+                                        <span>Simple drag & drop</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span class="mr-2">•</span>
+                                        <span>Basic reading required</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span class="mr-2">•</span>
+                                        <span>Progressive challenges</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Age 8-10 -->
+                            <div class="age-group-card age-group-card-8-10 bg-gradient-to-br from-purple-50 to-violet-50 dark:from-purple-900/10 dark:to-violet-900/10 rounded-2xl p-6 border border-purple-200 dark:border-purple-800">
+                                <div class="text-4xl mb-4">👦</div>
+                                <h3 class="text-xl font-semibold mb-3">Ages 8-10</h3>
+                                <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                                    <li class="flex items-center">
+                                        <span class="mr-2">•</span>
+                                        <span>Complex problem-solving</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span class="mr-2">•</span>
+                                        <span>Multi-step interactions</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span class="mr-2">•</span>
+                                        <span>Advanced reading required</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <span class="mr-2">•</span>
+                                        <span>Creative expression</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="prose max-w-none mt-8">
+                            <p>
+                                Each age group required fundamentally different interaction patterns, visual complexity, and cognitive challenges. We conducted extensive usability testing with children in each age bracket to validate our design decisions and refine the interfaces.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- Discovery Phase -->
+                    <section class="mb-16">
+						 <div class="bg-gray-100 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 mb-8">
+							<center><p class="text-gray-500 dark:text-gray-400"><img src="img/apy_img2.png" alt="Research Synthesis - Child behavior patterns, parental concerns, educational requirements by age group, and usability testing sessions" title="Research Synthesis - Child behavior patterns, parental concerns, educational requirements by age group, and usability testing sessions"></img></center>
+						</div>
+                        <div class="prose max-w-none">
+                            <h3 class="text-2xl font-semibold mb-4">Research Methodology</h3>
+                            <p>
+                                We conducted over 200 hours of observation and testing with children across India, coupled with interviews with parents and educators. Key insights included understanding motor skill development timelines, attention span variations by age, and the types of feedback that motivated continued learning.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- Key Design Decisions -->
+                    <section class="mb-16">
+                        <h2 class="text-4xl font-light mb-8">Key Design Decisions</h2>
+                        
+                        <div class="space-y-8">
+                            <!-- Decision 1 -->
+                            <div class="bg-gradient-to-br from-yellow-50 to-amber-50 dark:from-yellow-900/10 dark:to-amber-900/10 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800">
+                                <div class="p-8">
+                                    <div class="flex items-start mb-6">
+                                        <div class="flex-shrink-0 w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-xl flex items-center justify-center mr-4">
+                                            <span class="text-red-600 dark:text-red-400 text-xl">❌</span>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-xl font-semibold mb-2">Problem</h3>
+                                            <p class="text-gray-600 dark:text-gray-400">
+                                                One-size-fits-all interface failed to accommodate different cognitive abilities, motor skills, and attention spans across age groups 2-10, leading to frustration and disengagement.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="flex-shrink-0 w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center mr-4">
+                                            <span class="text-green-600 dark:text-green-400 text-xl">✅</span>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-xl font-semibold mb-2">Solution</h3>
+                                            <p class="text-gray-600 dark:text-gray-400">
+                                                Created three distinct design systems: Simple tap interactions for ages 2-4, guided exploration for 5-7, and complex problem-solving interfaces for 8-10. Each system included age-appropriate feedback mechanisms and progression patterns.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Decision 2 -->
+                            <div class="bg-gradient-to-br from-pink-50 to-rose-50 dark:from-pink-900/10 dark:to-rose-900/10 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800">
+                                <div class="p-8">
+                                    <div class="flex items-start mb-6">
+                                        <div class="flex-shrink-0 w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-xl flex items-center justify-center mr-4">
+                                            <span class="text-red-600 dark:text-red-400 text-xl">❌</span>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-xl font-semibold mb-2">Problem</h3>
+                                            <p class="text-gray-600 dark:text-gray-400">
+                                                Parents wanted visibility into their child's learning progress but existing controls were either too complex (overwhelming) or too limited (lacking meaningful insights).
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="flex-shrink-0 w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center mr-4">
+                                            <span class="text-green-600 dark:text-green-400 text-xl">✅</span>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-xl font-semibold mb-2">Solution</h3>
+                                            <p class="text-gray-600 dark:text-gray-400">
+                                                Designed a comprehensive parental dashboard with progress tracking, time limits, content filtering, and achievement summaries in a simple interface. Included "learning insights" that translated raw data into meaningful educational milestones.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- UI Implementation -->
+                    <section class="mb-16">
+                      <div class="bg-gray-100 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 mb-8">
+							<center><p class="text-gray-500 dark:text-gray-400"><img src="img/apy_img3.png" alt="Research Synthesis - Child behavior patterns, parental concerns, educational requirements by age group, and usability testing sessions" title="Research Synthesis - Child behavior patterns, parental concerns, educational requirements by age group, and usability testing sessions"></img></center>
+						</div>
+                        <div class="prose max-w-none">
+                            <h3 class="text-2xl font-semibold mb-4">Scalable Design Processes</h3>
+                            <p>
+                                Managing three distinct user interfaces while maintaining brand consistency required establishing scalable design processes early. We created a core design system with shared components that could be adapted for each age group, enabling faster iteration while ensuring consistency.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- Measured Outcome -->
+                    <section class="mb-16">
+                        <h2 class="text-4xl font-light mb-8">Measured Outcome</h2>
+                        
+                        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                            <div class="metric-card rounded-2xl p-6 text-center">
+                                <div class="text-3xl font-bold mb-2">#1</div>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Rank in India's educational app store</p>
+                            </div>
+                            <div class="metric-card rounded-2xl p-6 text-center">
+                                <div class="text-3xl font-bold mb-2">1M+</div>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Active users achieved</p>
+                            </div>
+                            <div class="metric-card rounded-2xl p-6 text-center">
+                                <div class="text-3xl font-bold mb-2">30%</div>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Revenue growth</p>
+                            </div>
+                            <div class="metric-card rounded-2xl p-6 text-center">
+                                <div class="text-3xl font-bold mb-2">25%</div>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Reduction in time-to-market</p>
+                            </div>
+                        </div>
+
+                        <!-- User Engagement Metrics -->
+                        <div class="mb-12">
+                            <h3 class="text-2xl font-semibold mb-6">User Engagement Metrics</h3>
+                            <div class="space-y-6">
+                                <div>
+                                    <div class="flex justify-between mb-2">
+                                        <span class="font-medium">Daily Active Users (DAU)</span>
+                                        <span class="font-semibold">65%</span>
+                                    </div>
+                                    <div class="learning-progress bg-gray-200 dark:bg-gray-700">
+                                        <div class="learning-progress-fill bg-yellow-500" style="width: 65%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-2">
+                                        <span class="font-medium">Session Duration</span>
+                                        <span class="font-semibold">22 min</span>
+                                    </div>
+                                    <div class="learning-progress bg-gray-200 dark:bg-gray-700">
+                                        <div class="learning-progress-fill bg-pink-500" style="width: 73%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-2">
+                                        <span class="font-medium">Parental Engagement</span>
+                                        <span class="font-semibold">78%</span>
+                                    </div>
+                                    <div class="learning-progress bg-gray-200 dark:bg-gray-700">
+                                        <div class="learning-progress-fill bg-purple-500" style="width: 78%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-800">
+                            <h3 class="text-2xl font-semibold mb-6">📈 Lessons Learned</h3>
+                            <div class="prose max-w-none">
+                                <p>
+                                    <strong>Designing for three user groups simultaneously:</strong> Children's products require balancing the needs of children (primary users), parents (purchasers and supervisors), and educators (content validators). Each group has different priorities that must be harmonized in the design.
+                                </p>
+                                <p class="mt-4">
+                                    <strong>Age-appropriate design is non-negotiable:</strong> The dramatic differences in cognitive abilities, motor skills, and attention spans across age groups 2-10 mean that a single interface cannot effectively serve all users. Creating distinct but related design systems was key to engagement.
+                                </p>
+                                <p class="mt-4">
+                                    <strong>Educational value must be measurable:</strong> In edtech, engagement metrics alone are insufficient. We developed methods to track learning outcomes alongside usage patterns, creating a more complete picture of the product's impact.
+                                </p>
+                                <p class="mt-4">
+                                    <strong>Scalable processes enable quality at scale:</strong> By establishing reusable patterns and clear design guidelines early, we maintained quality and consistency while rapidly expanding content and features. This systematic approach was crucial in a competitive market.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Navigation -->
+                    <div class="pt-8 border-t border-gray-200 dark:border-gray-800">
+                        <div class="flex justify-between items-center">
+                          <!--   <a href="project2.html" class="px-6 py-3 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg transition-colors font-medium">
+                                ← Previous Project
+                            </a> -->
+                            <a href="index.html" class="px-6 py-3 bg-yellow-600 hover:bg-yellow-700 text-white rounded-lg transition-colors font-medium">
+                                Back to Portfolio
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="lg:col-span-1">
+                    <div class="sticky-sidebar">
+                        <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800 mb-8">
+                            <h3 class="text-lg font-semibold mb-6">Project Highlights</h3>
+                            <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <span class="mr-3 text-yellow-600 dark:text-yellow-400">✓</span>
+                                    <span>India's #1 educational app</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="mr-3 text-yellow-600 dark:text-yellow-400">✓</span>
+                                    <span>Age-appropriate design systems</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="mr-3 text-yellow-600 dark:text-yellow-400">✓</span>
+                                    <span>Parental dashboard design</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="mr-3 text-yellow-600 dark:text-yellow-400">✓</span>
+                                    <span>Learning outcome tracking</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="mr-3 text-yellow-600 dark:text-yellow-400">✓</span>
+                                    <span>Team leadership (6 designers)</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800">
+                            <h3 class="text-lg font-semibold mb-6">Tools & Technologies</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm">Figma</span>
+                                <span class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm">Sketch</span>
+                                <span class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm">InVision</span>
+                                <span class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm">React Native</span>
+                                <span class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm">Firebase</span>
+                                <span class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm">Mixpanel</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800 mt-8">
+                            <h3 class="text-lg font-semibold mb-6">Content & Scale</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="text-sm text-gray-500 dark:text-gray-400">Learning Activities</div>
+                                    <div class="text-2xl font-bold mt-1">5,000+</div>
+                                </div>
+                                <div>
+                                    <div class="text-sm text-gray-500 dark:text-gray-400">Educational Topics</div>
+                                    <div class="text-2xl font-bold mt-1">50+</div>
+                                </div>
+                                <div>
+                                    <div class="text-sm text-gray-500 dark:text-gray-400">Content Languages</div>
+                                    <div class="text-2xl font-bold mt-1">3</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800 mt-8">
+                            <h3 class="text-lg font-semibold mb-6">Timeline</h3>
+                            <div class="space-y-3">
+                                <div>
+                                    <div class="text-sm text-gray-500 dark:text-gray-400 mb-1">Research & Planning</div>
+                                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                        <div class="bg-yellow-600 h-2 rounded-full" style="width: 20%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="text-sm text-gray-500 dark:text-gray-400 mb-1">Design & Testing</div>
+                                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                        <div class="bg-pink-600 h-2 rounded-full" style="width: 40%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="text-sm text-gray-500 dark:text-gray-400 mb-1">Launch & Growth</div>
+                                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                        <div class="bg-purple-600 h-2 rounded-full" style="width: 40%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-gray-200 dark:border-gray-800 mt-20">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div>
+                    <div class="text-2xl font-semibold mb-2">Jadvindder Daudhria</div>
+                    <p class="text-gray-600 dark:text-gray-400">Strategic Senior Product Designer</p>
+                </div>
+                
+                <div class="flex items-center space-x-8">
+                    <a href="mailto:j.daudhria@gmail.com" class="text-gray-600 dark:text-gray-400 hover:text-textLight dark:hover:text-textDark transition-colors">
+                        j.daudhria@gmail.com
+                    </a>
+                    <a href="tel:+31684723103" class="text-gray-600 dark:text-gray-400 hover:text-textLight dark:hover:text-textDark transition-colors">
+                        +31 6 84723103
+                    </a>
+                </div>
+                
+                <div class="text-sm text-gray-500 dark:text-gray-400">
+                    © 2024. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const sunIcon = document.getElementById('sunIcon');
+        const moonIcon = document.getElementById('moonIcon');
+        
+        const currentTheme = localStorage.getItem('theme');
+        
+        if (currentTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+            moonIcon.classList.remove('hidden');
+        } else {
+            sunIcon.classList.remove('hidden');
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            
+            if (document.documentElement.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+            } else {
+                localStorage.setItem('theme', 'light');
+                moonIcon.classList.add('hidden');
+                sunIcon.classList.remove('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

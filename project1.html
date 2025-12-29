@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B.xom A/B Testing Platform | Jadvindder Daudhria</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        light: '#FFFFFF',
+                        dark: '#0A0A0A',
+                        textLight: '#171717',
+                        textDark: '#E5E5E5',
+                        grayLight: '#FAFAFA',
+                        grayDark: '#1A1A1A'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                    },
+                    spacing: {
+                        '18': '4.5rem',
+                        '88': '22rem',
+                        '128': '32rem',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            letter-spacing: -0.011em;
+        }
+        
+        .prose {
+            font-size: 1.125rem;
+            line-height: 1.7;
+        }
+        
+        .prose p {
+            margin-top: 1.5em;
+            margin-bottom: 1.5em;
+        }
+        
+        .prose ul {
+            margin-top: 1.5em;
+            margin-bottom: 1.5em;
+        }
+        
+        .prose li {
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+        }
+        
+        .section-padding {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .dark .card-hover:hover {
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .metric-card {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+        
+        .dark .metric-card {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+        
+        .sticky-sidebar {
+            position: sticky;
+            top: 6rem;
+        }
+    </style>
+</head>
+<body class="bg-light dark:bg-dark text-textLight dark:text-textDark font-sans transition-colors duration-300">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-light/95 dark:bg-dark/95 backdrop-blur-lg z-50 border-b border-gray-200/50 dark:border-gray-800/50">
+        <div class="max-w-7xl mx-auto px-8 py-5">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="text-xl font-semibold tracking-tight hover:opacity-80 transition-opacity">← Back to Portfolio</a>
+                <div class="flex items-center space-x-10">
+                    <button id="themeToggle" class="p-2.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                        <svg id="sunIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                        <svg id="moonIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Case Study Content -->
+    <main class="pt-24">
+        <!-- Hero Section -->
+        <section class="section-padding">
+            <div class="max-w-7xl mx-auto px-8">
+                <div class="mb-12">
+                    <div class="inline-flex items-center px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full text-sm font-medium mb-6">
+                        B.xom
+                    </div>
+                    <h1 class="text-5xl font-light mb-8 tracking-tight leading-[1.1]">
+                        Internal A/B Testing Platform
+                    </h1>
+                    <p class="text-2xl text-gray-600 dark:text-gray-400 max-w-4xl leading-relaxed">
+                        Translated complex data-testing workflows into an intuitive platform, 
+                        <span class="font-semibold text-textLight dark:text-textDark">reducing experiment setup time by 40%</span> and 
+                        <span class="font-semibold text-textLight dark:text-textDark">increasing test success rates by 30%</span>.
+                    </p>
+                </div>
+                 <div class="bg-gray-100 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 mb-8">
+					<center><img src="img/ab_img1.png" alt=" Internal A/B Testing Platform" class="aspect-[16/9] object-cover"></center>
+				</div>
+            </div>
+        </section>
+
+        <!-- Content Sections -->
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                <!-- Main Content -->
+                <div class="lg:col-span-2">
+                    <!-- Strategic Context -->
+                    <section class="mb-16">
+                        <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800">
+                            <h2 class="text-3xl font-semibold mb-8">Strategic Context</h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <div>
+                                    <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Role</h3>
+                                    <p class="text-lg">Lead UX Designer</p>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Industry</h3>
+                                    <p class="text-lg">Travel Technology</p>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Timeline</h3>
+                                    <p class="text-lg">12 months (2018-2019)</p>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Team</h3>
+                                    <p class="text-lg">Product Manager, 3 Engineers, UX Researcher</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- The Core Problem -->
+                    <section class="mb-16">
+                        <h2 class="text-4xl font-light mb-8">The Core Problem</h2>
+                        <div class="prose max-w-none">
+                            <p>
+                                B.xom's experimentation workflow was fragmented across multiple tools, requiring teams to navigate between different systems for setup, monitoring, and analysis. This complexity led to significant operational inefficiencies and inconsistent results.
+                            </p>
+                            <div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-6 my-8">
+                                <h3 class="text-lg font-semibold text-red-800 dark:text-red-300 mb-4">Key Challenges Identified</h3>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start">
+                                        <span class="mr-3">•</span>
+                                        <span><strong>High learning curve:</strong> 2-3 weeks for new team members to become proficient</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="mr-3">•</span>
+                                        <span><strong>Inconsistent setups:</strong> Varied configurations causing unreliable data</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="mr-3">•</span>
+                                        <span><strong>Administrative burden:</strong> Significant time spent on setup rather than analysis</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="mr-3">•</span>
+                                        <span><strong>Limited visibility:</strong> No centralized view of ongoing experiments</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Strategic Goals -->
+                    <section class="mb-16">
+                        <h2 class="text-4xl font-light mb-8">Strategic Goals</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 rounded-2xl p-8 border border-blue-200 dark:border-blue-800 card-hover">
+                                <div class="text-3xl mb-4">🎯</div>
+                                <h3 class="text-xl font-semibold mb-3">Streamline Experimentation</h3>
+                                <p class="text-gray-600 dark:text-gray-400">
+                                    Create a unified platform that simplifies the entire A/B testing workflow from setup to analysis
+                                </p>
+                            </div>
+                            <div class="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 rounded-2xl p-8 border border-purple-200 dark:border-purple-800 card-hover">
+                                <div class="text-3xl mb-4">📊</div>
+                                <h3 class="text-xl font-semibold mb-3">Improve Data Quality</h3>
+                                <p class="text-gray-600 dark:text-gray-400">
+                                    Reduce setup errors and increase test reliability through guided, validated workflows
+                                </p>
+                            </div>
+                            <div class="bg-gradient-to-br from-indigo-50 to-indigo-100 dark:from-indigo-900/20 dark:to-indigo-800/20 rounded-2xl p-8 border border-indigo-200 dark:border-indigo-800 card-hover">
+                                <div class="text-3xl mb-4">⚙️</div>
+                                <h3 class="text-xl font-semibold mb-3">Scale Design System</h3>
+                                <p class="text-gray-600 dark:text-gray-400">
+                                    Establish reusable components adopted across 50+ product teams
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Discovery Phase -->
+                    <section class="mb-16">
+					    <div class="bg-gray-100 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 mb-8">
+							<center><img src="img/ab_img1.png" alt=" Internal A/B Testing Platform" class="aspect-[16/9] object-cover"></center>
+						</div>
+                        <div class="prose max-w-none">
+                            <h3 class="text-2xl font-semibold mb-4">Research & Discovery</h3>
+                            <p>
+                                Through extensive user interviews and workflow analysis, we identified that the fragmented tooling wasn't just an inconvenience—it was actively hindering innovation. Teams were avoiding experimentation due to the perceived complexity and risk of setup errors.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- Key Design Decisions -->
+                    <section class="mb-16">
+                        <h2 class="text-4xl font-light mb-8">Key Design Decisions</h2>
+                        
+                        <div class="space-y-8">
+                            <!-- Decision 1 -->
+                            <div class="bg-gradient-to-br from-red-50 to-orange-50 dark:from-red-900/10 dark:to-orange-900/10 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800">
+                                <div class="p-8">
+                                    <div class="flex items-start mb-6">
+                                        <div class="flex-shrink-0 w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-xl flex items-center justify-center mr-4">
+                                            <span class="text-red-600 dark:text-red-400 text-xl">❌</span>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-xl font-semibold mb-2">Problem</h3>
+                                            <p class="text-gray-600 dark:text-gray-400">
+                                                Users struggled with inconsistent experiment configurations across different teams, leading to unreliable test results and wasted resources.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="flex-shrink-0 w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center mr-4">
+                                            <span class="text-green-600 dark:text-green-400 text-xl">✅</span>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-xl font-semibold mb-2">Solution</h3>
+                                            <p class="text-gray-600 dark:text-gray-400">
+                                                Created a guided, step-by-step setup wizard with validation at each stage, ensuring consistency and catching errors early in the process. Implemented smart defaults based on experiment type.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Decision 2 -->
+                            <div class="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/10 dark:to-cyan-900/10 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800">
+                                <div class="p-8">
+                                    <div class="flex items-start mb-6">
+                                        <div class="flex-shrink-0 w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-xl flex items-center justify-center mr-4">
+                                            <span class="text-red-600 dark:text-red-400 text-xl">❌</span>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-xl font-semibold mb-2">Problem</h3>
+                                            <p class="text-gray-600 dark:text-gray-400">
+                                                Teams lacked visibility into ongoing experiments, leading to duplicate efforts and missed learning opportunities across the organization.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="flex-shrink-0 w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center mr-4">
+                                            <span class="text-green-600 dark:text-green-400 text-xl">✅</span>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-xl font-semibold mb-2">Solution</h3>
+                                            <p class="text-gray-600 dark:text-gray-400">
+                                                Designed a centralized experiment dashboard with search, filtering, and tagging capabilities, providing organization-wide transparency. Added collaboration features for team coordination.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- UI Implementation -->
+                    <section class="mb-16">
+                        <div class="bg-gray-100 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 mb-8">
+					<center><img src="img/ab_img3.png" alt=" Internal A/B Testing Platform" class="aspect-[16/9] object-cover"></center>
+                        </div>
+                        <div class="prose max-w-none">
+                            <h3 class="text-2xl font-semibold mb-4">Design System Implementation</h3>
+                            <p>
+                                The platform served as the foundation for a company-wide design system. We established reusable components and tokens that accelerated feature development while ensuring UI consistency across all product teams.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- Measured Outcome -->
+                    <section class="mb-16">
+                        <h2 class="text-4xl font-light mb-8">Measured Outcome</h2>
+                        
+                        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                            <div class="metric-card rounded-2xl p-6 text-center">
+                                <div class="text-3xl font-bold mb-2">40%</div>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Reduction in experiment setup time</p>
+                            </div>
+                            <div class="metric-card rounded-2xl p-6 text-center">
+                                <div class="text-3xl font-bold mb-2">30%</div>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Increase in test success rates</p>
+                            </div>
+                            <div class="metric-card rounded-2xl p-6 text-center">
+                                <div class="text-3xl font-bold mb-2">50+</div>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Teams adopting design system</p>
+                            </div>
+                            <div class="metric-card rounded-2xl p-6 text-center">
+                                <div class="text-3xl font-bold mb-2">60%</div>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Acceleration in feature development</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-800">
+                            <h3 class="text-2xl font-semibold mb-6">📈 Lessons Learned</h3>
+                            <div class="prose max-w-none">
+                                <p>
+                                    <strong>Internal tools deserve first-class design treatment:</strong> The success of this project demonstrated that investing in internal tool design has multiplicative effects on organizational productivity. By treating internal platforms with the same rigor as customer-facing products, we not only improved specific workflows but also established design patterns that scaled across the entire organization.
+                                </p>
+                                <p class="mt-4">
+                                    <strong>Design systems for varying expertise levels:</strong> Internal tools require special consideration for different user segments—from power users needing advanced features to occasional users requiring guided simplicity. Creating adaptable components that could scale in complexity was key to adoption.
+                                </p>
+                                <p class="mt-4">
+                                    <strong>Quantitative impact drives organizational buy-in:</strong> The clear metrics around time savings and success rates were crucial for securing continued investment and expanding the design system's scope beyond the initial platform.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Navigation -->
+                    <div class="pt-8 border-t border-gray-200 dark:border-gray-800">
+                        <div class="flex justify-between items-center">
+                            <a href="index.html" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors font-medium">
+                                Back to Portfolio
+                            </a>
+                            <!-- <a href="project2.html" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors font-medium">
+                                Next Project →
+                            </a> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="lg:col-span-1">
+                    <div class="sticky-sidebar">
+                        <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800 mb-8">
+                            <h3 class="text-lg font-semibold mb-6">Project Highlights</h3>
+                            <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <span class="mr-3 text-blue-600 dark:text-blue-400">✓</span>
+                                    <span>End-to-end platform design</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="mr-3 text-blue-600 dark:text-blue-400">✓</span>
+                                    <span>Design system scaling</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="mr-3 text-blue-600 dark:text-blue-400">✓</span>
+                                    <span>Data visualization design</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="mr-3 text-blue-600 dark:text-blue-400">✓</span>
+                                    <span>Complex workflow simplification</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="mr-3 text-blue-600 dark:text-blue-400">✓</span>
+                                    <span>Enterprise UX patterns</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800">
+                            <h3 class="text-lg font-semibold mb-6">Tools & Technologies</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm">Figma</span>
+                                <span class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm">React</span>
+                                <span class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm">TypeScript</span>
+                                <span class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm">D3.js</span>
+                                <span class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm">Jira</span>
+                                <span class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm">Confluence</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800 mt-8">
+                            <h3 class="text-lg font-semibold mb-6">Timeframe</h3>
+                            <div class="space-y-3">
+                                <div>
+                                    <div class="text-sm text-gray-500 dark:text-gray-400 mb-1">Discovery & Research</div>
+                                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                        <div class="bg-blue-600 h-2 rounded-full" style="width: 25%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="text-sm text-gray-500 dark:text-gray-400 mb-1">Design & Prototyping</div>
+                                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                        <div class="bg-purple-600 h-2 rounded-full" style="width: 40%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="text-sm text-gray-500 dark:text-gray-400 mb-1">Implementation & Testing</div>
+                                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                        <div class="bg-green-600 h-2 rounded-full" style="width: 35%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-gray-200 dark:border-gray-800 mt-20">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div>
+                    <div class="text-2xl font-semibold mb-2">Jadvindder Daudhria</div>
+                    <p class="text-gray-600 dark:text-gray-400">Strategic Senior Product Designer</p>
+                </div>
+                
+                <div class="flex items-center space-x-8">
+                    <a href="mailto:j.daudhria@gmail.com" class="text-gray-600 dark:text-gray-400 hover:text-textLight dark:hover:text-textDark transition-colors">
+                        j.daudhria@gmail.com
+                    </a>
+                    <a href="tel:+31684723103" class="text-gray-600 dark:text-gray-400 hover:text-textLight dark:hover:text-textDark transition-colors">
+                        +31 6 84723103
+                    </a>
+                </div>
+                
+                <div class="text-sm text-gray-500 dark:text-gray-400">
+                    © 2024. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const sunIcon = document.getElementById('sunIcon');
+        const moonIcon = document.getElementById('moonIcon');
+        
+        const currentTheme = localStorage.getItem('theme');
+        
+        if (currentTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+            moonIcon.classList.remove('hidden');
+        } else {
+            sunIcon.classList.remove('hidden');
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            
+            if (document.documentElement.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+            } else {
+                localStorage.setItem('theme', 'light');
+                moonIcon.classList.add('hidden');
+                sunIcon.classList.remove('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

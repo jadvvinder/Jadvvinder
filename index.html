@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadvvinder Daudhria | Senior Product Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        light: '#FFFFFF',
+                        dark: '#0A0A0A',
+                        textLight: '#171717',
+                        textDark: '#E5E5E5',
+                        grayLight: '#FAFAFA',
+                        grayDark: '#1A1A1A',
+                        surface: 'rgba(250, 250, 250, 0.8)',
+                        surfaceDark: 'rgba(10, 10, 10, 0.8)'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                    },
+                    spacing: {
+                        '18': '4.5rem',
+                        '88': '22rem',
+                        '128': '32rem',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            letter-spacing: -0.011em;
+        }
+        
+        .prose {
+            font-size: 1.125rem;
+            line-height: 1.7;
+        }
+        
+        .prose p {
+            margin-top: 1.5em;
+            margin-bottom: 1.5em;
+        }
+        
+        .section-padding {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .dark .card-hover:hover {
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .metric-card {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+        
+        .dark .metric-card {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+        
+        .sticky-sidebar {
+            position: sticky;
+            top: 6rem;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        .stagger-delay-1 { animation-delay: 0.1s; opacity: 0; }
+        .stagger-delay-2 { animation-delay: 0.2s; opacity: 0; }
+        .stagger-delay-3 { animation-delay: 0.3s; opacity: 0; }
+        .stagger-delay-4 { animation-delay: 0.4s; opacity: 0; }
+        
+        .contact-item-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item-hover:hover {
+            transform: translateX(8px);
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+        }
+        
+        .dark .contact-item-hover:hover {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+        }
+        
+        .social-link-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .social-link-hover:hover {
+            transform: translateY(-4px) scale(1.1);
+        }
+        
+        .btn-download {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(102, 126, 234, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-light dark:bg-dark text-textLight dark:text-textDark font-sans transition-colors duration-300">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-light/95 dark:bg-dark/95 backdrop-blur-lg z-50 border-b border-gray-200/50 dark:border-gray-800/50">
+        <div class="max-w-6xl mx-auto px-8 py-5">
+            <div class="flex items-center justify-between">
+                <a href="#hero" class="text-xl font-semibold tracking-tight hover:opacity-80 transition-opacity">JD</a>
+                <div class="flex items-center space-x-10">
+                    <a href="#work" class="text-base font-medium hover:text-gray-600 dark:hover:text-gray-300 transition-colors">Work</a>
+                    <a href="#about" class="text-base font-medium hover:text-gray-600 dark:hover:text-gray-300 transition-colors">About</a>
+                    <a href="#contact" class="text-base font-medium hover:text-gray-600 dark:hover:text-gray-300 transition-colors">Contact</a>
+                    <button id="themeToggle" class="p-2.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                        <svg id="sunIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                        <svg id="moonIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="pt-20 md:pt-32 pb-16 md:pb-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="animate-fadeInUp">
+                <div class="mb-8 md:mb-10">
+<!--                     <span class="px-2.5 py-1 text-xs md:text-sm bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 rounded-full">Available for opportunities</span>
+ -->                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-light mb-6 md:mb-8 tracking-tight leading-[1.1]">
+                        Strategic <span class="hero-gradient font-semibold">Product Designer</span>
+                        <span class="block mt-2">turning complexity into clarity</span>
+                    </h1>
+                    <p class="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-8 md:mb-12 leading-relaxed max-w-4xl">
+                        Partnering with Product and Engineering to transform complex technical and business challenges 
+                        into intuitive, scalable user experiences that drive measurable impact.
+                    </p>
+                </div>
+                
+                <!-- Metrics Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-12 md:mb-16">
+                    <div class="p-4 sm:p-5 md:p-6 bg-grayLight dark:bg-grayDark rounded-xl md:rounded-2xl border border-gray-200 dark:border-gray-800 card-hover">
+                        <div class="text-2xl sm:text-3xl font-semibold mb-1 sm:mb-2">40%</div>
+                        <p class="text-sm sm:text-base text-gray-600 dark:text-gray-400">Reduction in experiment setup time</p>
+                    </div>
+                    <div class="p-4 sm:p-5 md:p-6 bg-grayLight dark:bg-grayDark rounded-xl md:rounded-2xl border border-gray-200 dark:border-gray-800 card-hover">
+                        <div class="text-2xl sm:text-3xl font-semibold mb-1 sm:mb-2">80%</div>
+                        <p class="text-sm sm:text-base text-gray-600 dark:text-gray-400">Increase in team efficiency</p>
+                    </div>
+                    <div class="p-4 sm:p-5 md:p-6 bg-grayLight dark:bg-grayDark rounded-xl md:rounded-2xl border border-gray-200 dark:border-gray-800 card-hover sm:col-span-2 lg:col-span-1">
+                        <div class="text-2xl sm:text-3xl font-semibold mb-1 sm:mb-2">1M+</div>
+                        <p class="text-sm sm:text-base text-gray-600 dark:text-gray-400">Users reached with #1 educational app</p>
+                    </div>
+                </div>
+                
+                <!-- Status Bar -->
+                <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 md:gap-6 text-gray-600 dark:text-gray-400 text-sm sm:text-base">
+                    
+                    <div class="flex items-center space-x-2 sm:space-x-3 md:space-x-4">
+						<span class="px-2.5 py-1 text-xs md:text-sm bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 rounded-full">Available for opportunities</span>
+					</div>                    
+                    <div class="hidden sm:block h-4 w-px bg-gray-300 dark:bg-gray-700"></div>
+					<div class="flex items-center space-x-2 sm:space-x-3 md:space-x-4">
+                        <!-- <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse flex-shrink-0"></div> -->
+                        <span class="font-medium whitespace-nowrap">20 Years Experience</span>
+                    </div>
+                    
+                    <div class="sm:hidden w-full h-px bg-gray-200 dark:bg-gray-800 my-1"></div>
+                    
+                    <div class="whitespace-nowrap">Based in Netherlands</div>
+                    
+                    <div class="hidden sm:block h-4 w-px bg-gray-300 dark:bg-gray-700"></div>
+                    
+                    <div class="sm:hidden w-full h-px bg-gray-200 dark:bg-gray-800 my-1"></div>
+                    
+                    <div class="whitespace-nowrap">EU Citizen (No Sponsorship Required)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="work" class="py-16 md:py-20 bg-grayLight dark:bg-grayDark">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12 md:mb-16 animate-fadeInUp stagger-delay-1">
+                <h2 class="text-3xl sm:text-4xl font-light mb-4 md:mb-6">Selected Projects</h2>
+                <p class="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl">
+                    End-to-end product design leadership across diverse industries and scale.
+                </p>
+            </div>
+            
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">   
+			<!-- Project 5 -->
+                <a href="project5.html" class="group block animate-fadeInUp">
+                    <div class="bg-light dark:bg-dark rounded-xl md:rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 card-hover h-full">
+                       <!--  <div class="aspect-[16/9] bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 flex items-center justify-center">
+                            <div class="text-center p-6 md:p-8">
+                                <div class="text-4xl md:text-5xl mb-3 md:mb-4">⚙️</div>
+                                <p class="text-gray-500 dark:text-gray-400 text-xs md:text-sm">[Design System Dashboard]</p>
+                            </div>
+                        </div> -->
+                        <div class="p-6 md:p-8">
+                            <div class="flex items-center justify-between mb-3 md:mb-4">
+                                <span class="text-xs md:text-sm font-medium text-gray-500 dark:text-gray-400">B.xom</span>
+                                <span class="group-hover:translate-x-1 md:group-hover:translate-x-2 transition-transform text-lg md:text-xl">→</span>
+                            </div>
+                            <h3 class="text-xl md:text-2xl font-semibold mb-2 md:mb-3">Enterprise Design System</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm md:text-base mb-4 md:mb-6">
+                                Scaled design across 200+ product teams, reducing development time by 65% while increasing UI consistency to 94%.
+                            </p>
+                            <div class="flex flex-wrap gap-1.5 md:gap-2">
+                                <span class="px-2.5 py-1 text-xs md:text-sm bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full">Design Systems</span>
+                                <span class="px-2.5 py-1 text-xs md:text-sm bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full">Enterprise UX</span>
+                                <span class="px-2.5 py-1 text-xs md:text-sm bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 rounded-full">Design Ops</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+			   
+                <!-- Project 1 -->
+                <a href="project1.html" class="group block animate-fadeInUp stagger-delay-2">
+                    <div class="bg-light dark:bg-dark rounded-xl md:rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 card-hover h-full">
+                        <!-- <div class="aspect-[16/9] bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 flex items-center justify-center">
+                            <div class="text-center p-6 md:p-8">
+                                <div class="text-4xl md:text-5xl mb-3 md:mb-4">🧪</div>
+                                <p class="text-gray-500 dark:text-gray-400 text-xs md:text-sm">[A/B Testing Platform Dashboard]</p>
+                            </div>
+                        </div> -->
+                        <div class="p-6 md:p-8">
+                            <div class="flex items-center justify-between mb-3 md:mb-4">
+                                <span class="text-xs md:text-sm font-medium text-gray-500 dark:text-gray-400">B.xom</span>
+                                <span class="group-hover:translate-x-1 md:group-hover:translate-x-2 transition-transform text-lg md:text-xl">→</span>
+                            </div>
+                            <h3 class="text-xl md:text-2xl font-semibold mb-2 md:mb-3">Internal A/B Testing Platform</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm md:text-base mb-4 md:mb-6">
+                                Transformed complex data-testing workflows into an intuitive platform, reducing experiment setup time by 40% and increasing success rates by 30%.
+                            </p>
+                            <div class="flex flex-wrap gap-1.5 md:gap-2">
+                                <span class="px-2.5 py-1 text-xs md:text-sm bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full">Design Systems</span>
+                                <span class="px-2.5 py-1 text-xs md:text-sm bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full">Data Visualization</span>
+                                <span class="px-2.5 py-1 text-xs md:text-sm bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 rounded-full">Enterprise UX</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project 2 -->
+                <a href="project2.html" class="group block animate-fadeInUp stagger-delay-3">
+                    <div class="bg-light dark:bg-dark rounded-xl md:rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 card-hover h-full">
+                        <!-- <div class="aspect-[16/9] bg-gradient-to-br from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 flex items-center justify-center">
+                            <div class="text-center p-6 md:p-8">
+                                <div class="text-4xl md:text-5xl mb-3 md:mb-4">🚖</div>
+                                <p class="text-gray-500 dark:text-gray-400 text-xs md:text-sm">[Operations Management Dashboard]</p>
+                            </div>
+                        </div> -->
+                        <div class="p-6 md:p-8">
+                            <div class="flex items-center justify-between mb-3 md:mb-4">
+                                <span class="text-xs md:text-sm font-medium text-gray-500 dark:text-gray-400">Ola Cabs</span>
+                                <span class="group-hover:translate-x-1 md:group-hover:translate-x-2 transition-transform text-lg md:text-xl">→</span>
+                            </div>
+                            <h3 class="text-xl md:text-2xl font-semibold mb-2 md:mb-3">Operations Digitalization</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm md:text-base mb-4 md:mb-6">
+                                Digitized paper-based operations management, increasing team efficiency by 80% through intuitive workflow design and streamlined processes.
+                            </p>
+                            <div class="flex flex-wrap gap-1.5 md:gap-2">
+                                <span class="px-2.5 py-1 text-xs md:text-sm bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-300 rounded-full">Digital Transformation</span>
+                                <span class="px-2.5 py-1 text-xs md:text-sm bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300 rounded-full">Process Optimization</span>
+                                <span class="px-2.5 py-1 text-xs md:text-sm bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full">Mobile Design</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+				<!-- Project 3 -->
+                <a href="project3.html" class="group block animate-fadeInUp stagger-delay-3">
+                   <div class="bg-light dark:bg-dark rounded-xl md:rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 card-hover h-full">
+                   <!--   <div class="aspect-[16/9] lg:aspect-auto lg:h-full bg-gradient-to-br from-yellow-50 to-pink-50 dark:from-yellow-900/20 dark:to-pink-900/20 flex items-center justify-center">
+                                <div class="text-center p-6 md:p-8">
+                                    <div class="text-4xl md:text-5xl mb-3 md:mb-4">🎓</div>
+                                    <p class="text-gray-500 dark:text-gray-400 text-xs md:text-sm">[Kids Learning Platform Interface]</p>
+                                </div>
+                            </div> -->
+                        <div class="p-6 md:p-8">
+                            <div class="flex items-center justify-between mb-3 md:mb-4">
+                                <span class="text-xs md:text-sm font-medium text-gray-500 dark:text-gray-400">People Group</span>
+                                <span class="group-hover:translate-x-1 md:group-hover:translate-x-2 transition-transform text-lg md:text-xl">→</span>
+                            </div>
+                            <h3 class="text-xl md:text-2xl font-semibold mb-2 md:mb-3">Appystore Kids Learning Platform</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm md:text-base mb-4 md:mb-6">
+                                 Led design for India's #1 educational app reaching 1M+ users, driving 30% revenue growth through research-driven, age-appropriate design.
+                            </p>
+                            <div class="flex flex-wrap gap-1.5 md:gap-2">
+                                    <span class="px-2.5 py-1 text-xs md:text-sm bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 rounded-full">EdTech</span>
+                                    <span class="px-2.5 py-1 text-xs md:text-sm bg-pink-100 dark:bg-pink-900/30 text-pink-800 dark:text-pink-300 rounded-full">Children's UX</span>
+                                    <span class="px-2.5 py-1 text-xs md:text-sm bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full">Product Strategy</span>
+                                    <span class="px-2.5 py-1 text-xs md:text-sm bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 rounded-full">Revenue Growth</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Project 4 -->
+                <a href="project4.html" class="group block animate-fadeInUp">
+                    <div class="bg-light dark:bg-dark rounded-xl md:rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 card-hover h-full">
+                     <!--    <div class="aspect-[16/9] bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 flex items-center justify-center">
+                            <div class="text-center p-6 md:p-8">
+                                <div class="text-4xl md:text-5xl mb-3 md:mb-4">🌾</div>
+                                <p class="text-gray-500 dark:text-gray-400 text-xs md:text-sm">[Rural Banking App Interface]</p>
+                            </div>
+                        </div> -->
+                        <div class="p-6 md:p-8">
+                            <div class="flex items-center justify-between mb-3 md:mb-4">
+                                <span class="text-xs md:text-sm font-medium text-gray-500 dark:text-gray-400">Retail Bank Concept</span>
+                                <span class="group-hover:translate-x-1 md:group-hover:translate-x-2 transition-transform text-lg md:text-xl">→</span>
+                            </div>
+                            <h3 class="text-xl md:text-2xl font-semibold mb-2 md:mb-3">Rural Banking Mobile App</h3>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm md:text-base mb-4 md:mb-6">
+                                Mobile banking app concept for rural farmers that simplifies loan applications and ATM discovery using intuitive design and chatbot assistance.
+                            </p>
+                            <div class="flex flex-wrap gap-1.5 md:gap-2">
+                                <span class="px-2.5 py-1 text-xs md:text-sm bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full">FinTech</span>
+                                <span class="px-2.5 py-1 text-xs md:text-sm bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 rounded-full">Rural UX</span>
+                                <span class="px-2.5 py-1 text-xs md:text-sm bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full">Mobile Banking</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding">
+        <div class="max-w-6xl mx-auto px-8">
+            <div class="animate-fadeInUp">
+                <h2 class="text-4xl font-light mb-12">About Me</h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                    <!-- Main Content -->
+                    <div class="lg:col-span-2">
+                        <div class="space-y-8">
+                            <div>
+                                <h3 class="text-2xl font-semibold mb-4">
+                                    Senior Product Designer with extensive experience in B2B and technically complex products
+                                </h3>
+                                <div class="text-3xl text-gray-600 dark:text-gray-400 mb-6 italic">
+                                    Turning ambiguity into clear, scalable solutions
+                                </div>
+                                <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+                                    I partner closely with Product and Engineering to transform complex requirements into intuitive, user-centered designs. 
+                                    With over two decades of experience, I specialize in designing B2B platforms and internal tools that drive measurable business impact.
+                                </p>
+                                <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mt-6">
+                                    My approach combines deep user research with practical business understanding to create solutions that are both elegant and effective.
+                                </p>
+                            </div>
+                            
+                            <!-- Enhanced Skills Section with Pill Design -->
+                            <div class="mt-12">
+                                <div class="mb-8">
+                                    <h4 class="text-xl font-semibold mb-6">Strategic Design Leadership</h4>
+                                    <div class="flex flex-wrap gap-3">
+                                        <span class="px-4 py-2.5 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 text-green-800 dark:text-green-300 border border-green-200 dark:border-green-800 rounded-full font-medium text-sm">
+                                            Product Strategy & Vision
+                                        </span>
+                                        <span class="px-4 py-2.5 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 text-green-800 dark:text-green-300 border border-green-200 dark:border-green-800 rounded-full font-medium text-sm">
+                                            Design System Architecture
+                                        </span>
+                                        <span class="px-4 py-2.5 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 text-green-800 dark:text-green-300 border border-green-200 dark:border-green-800 rounded-full font-medium text-sm">
+                                            Cross-functional Leadership
+                                        </span>
+                                        <span class="px-4 py-2.5 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 text-green-800 dark:text-green-300 border border-green-200 dark:border-green-800 rounded-full font-medium text-sm">
+                                            Stakeholder Management
+                                        </span>
+                                        <span class="px-4 py-2.5 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 text-green-800 dark:text-green-300 border border-green-200 dark:border-green-800 rounded-full font-medium text-sm">
+                                            Design Thinking Facilitation
+                                        </span>
+                                        <span class="px-4 py-2.5 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 text-green-800 dark:text-green-300 border border-green-200 dark:border-green-800 rounded-full font-medium text-sm">
+                                            UX Research Strategy
+                                        </span>
+                                        <span class="px-4 py-2.5 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 text-green-800 dark:text-green-300 border border-green-200 dark:border-green-800 rounded-full font-medium text-sm">
+                                            Team Building & Mentorship
+                                        </span>
+                                        <span class="px-4 py-2.5 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 text-green-800 dark:text-green-300 border border-green-200 dark:border-green-800 rounded-full font-medium text-sm">
+                                            Design Operations
+                                        </span>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-8">
+                                    <h4 class="text-xl font-semibold mb-6">Technical & Business Impact</h4>
+                                    <div class="flex flex-wrap gap-3">
+                                        <span class="px-4 py-2.5 bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 text-blue-800 dark:text-blue-300 border border-blue-200 dark:border-blue-800 rounded-full font-medium text-sm">
+                                            B2B & Enterprise SaaS
+                                        </span>
+                                        <span class="px-4 py-2.5 bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 text-blue-800 dark:text-blue-300 border border-blue-200 dark:border-blue-800 rounded-full font-medium text-sm">
+                                            Complex Workflow Design
+                                        </span>
+                                        <span class="px-4 py-2.5 bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 text-blue-800 dark:text-blue-300 border border-blue-200 dark:border-blue-800 rounded-full font-medium text-sm">
+                                            Data-Informed Decision Making
+                                        </span>
+                                        <span class="px-4 py-2.5 bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 text-blue-800 dark:text-blue-300 border border-blue-200 dark:border-blue-800 rounded-full font-medium text-sm">
+                                            ROI & KPI Measurement
+                                        </span>
+                                        <span class="px-4 py-2.5 bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 text-blue-800 dark:text-blue-300 border border-blue-200 dark:border-blue-800 rounded-full font-medium text-sm">
+                                            Scalable System Design
+                                        </span>
+                                        <span class="px-4 py-2.5 bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 text-blue-800 dark:text-blue-300 border border-blue-200 dark:border-blue-800 rounded-full font-medium text-sm">
+                                            Technical Product Strategy
+                                        </span>
+                                        <span class="px-4 py-2.5 bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 text-blue-800 dark:text-blue-300 border border-blue-200 dark:border-blue-800 rounded-full font-medium text-sm">
+                                            A/B Testing & Experimentation
+                                        </span>
+                                        <span class="px-4 py-2.5 bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 text-blue-800 dark:text-blue-300 border border-blue-200 dark:border-blue-800 rounded-full font-medium text-sm">
+                                            Conversion Rate Optimization
+                                        </span>
+                                        <span class="px-4 py-2.5 bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 text-blue-800 dark:text-blue-300 border border-blue-200 dark:border-blue-800 rounded-full font-medium text-sm">
+                                            Accessibility Compliance (WCAG)
+                                        </span>
+                                        <span class="px-4 py-2.5 bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 text-blue-800 dark:text-blue-300 border border-blue-200 dark:border-blue-800 rounded-full font-medium text-sm">
+                                            Performance Optimization
+                                        </span>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <h4 class="text-xl font-semibold mb-6">Methodologies & Tools</h4>
+                                    <div class="flex flex-wrap gap-3">
+                                        <span class="px-4 py-2.5 bg-gradient-to-r from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20 text-purple-800 dark:text-purple-300 border border-purple-200 dark:border-purple-800 rounded-full font-medium text-sm">
+                                            Agile & Scrum
+                                        </span>
+                                        <span class="px-4 py-2.5 bg-gradient-to-r from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20 text-purple-800 dark:text-purple-300 border border-purple-200 dark:border-purple-800 rounded-full font-medium text-sm">
+                                            Design Sprints
+                                        </span>
+                                        <span class="px-4 py-2.5 bg-gradient-to-r from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20 text-purple-800 dark:text-purple-300 border border-purple-200 dark:border-purple-800 rounded-full font-medium text-sm">
+                                            User-Centered Design
+                                        </span>
+                                        <span class="px-4 py-2.5 bg-gradient-to-r from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20 text-purple-800 dark:text-purple-300 border border-purple-200 dark:border-purple-800 rounded-full font-medium text-sm">
+                                            Jobs-to-be-Done
+                                        </span>
+                                        <span class="px-4 py-2.5 bg-gradient-to-r from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20 text-purple-800 dark:text-purple-300 border border-purple-200 dark:border-purple-800 rounded-full font-medium text-sm">
+                                            Figma & Design Tools
+                                        </span>
+                                        <span class="px-4 py-2.5 bg-gradient-to-r from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20 text-purple-800 dark:text-purple-300 border border-purple-200 dark:border-purple-800 rounded-full font-medium text-sm">
+                                            Prototyping & Testing
+                                        </span>
+                                        <span class="px-4 py-2.5 bg-gradient-to-r from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20 text-purple-800 dark:text-purple-300 border border-purple-200 dark:border-purple-800 rounded-full font-medium text-sm">
+                                            HTML/CSS/JS Fundamentals
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Sidebar/Stats -->
+                    <div class="lg:col-span-1">
+                        <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800">
+                            <h4 class="text-lg font-semibold mb-6">By the Numbers</h4>
+                            
+                            <div class="space-y-6">
+                                <div>
+                                    <div class="text-3xl font-bold mb-2">20+</div>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Years in Product Design</p>
+                                </div>
+                                
+                                <div>
+                                    <div class="text-3xl font-bold mb-2">50+</div>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Product Teams Supported</p>
+                                </div>
+                                
+                                <div>
+                                    <div class="text-3xl font-bold mb-2">1M+</div>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Users Impacted</p>
+                                </div>
+                                
+                                <div>
+                                    <div class="text-3xl font-bold mb-2">40%</div>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">Average Efficiency Gain</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding bg-grayLight dark:bg-grayDark">
+        <div class="max-w-6xl mx-auto px-8">
+            <div class="animate-fadeInUp">
+                <h2 class="text-4xl font-light mb-6">Get In Touch</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400 mb-12 max-w-3xl">
+                    Interested in collaborating or have a project in mind? Let's connect.
+                </p>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <!-- Contact Information -->
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
+                            Based in Amsterdam, Netherlands. Available for remote opportunities worldwide. No sponsorship required.
+                        </p>
+                        
+                        <div class="space-y-6">
+                            <!-- Email -->
+                            <div class="contact-item-hover p-6 rounded-2xl border border-gray-200 dark:border-gray-800 bg-light dark:bg-dark">
+                                <div class="flex items-start">
+                                    <div class="mr-4 text-blue-600 dark:text-blue-400">
+                                        <i class="fas fa-envelope text-2xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold mb-1">Email</h4>
+                                        <p class="text-gray-600 dark:text-gray-400">j.daudhria@gmail.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Phone -->
+                            <div class="contact-item-hover p-6 rounded-2xl border border-gray-200 dark:border-gray-800 bg-light dark:bg-dark">
+                                <div class="flex items-start">
+                                    <div class="mr-4 text-green-600 dark:text-green-400">
+                                        <i class="fas fa-phone text-2xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold mb-1">Phone</h4>
+                                        <p class="text-gray-600 dark:text-gray-400">+31 684723103</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Location -->
+                            <div class="contact-item-hover p-6 rounded-2xl border border-gray-200 dark:border-gray-800 bg-light dark:bg-dark">
+                                <div class="flex items-start">
+                                    <div class="mr-4 text-purple-600 dark:text-purple-400">
+                                        <i class="fas fa-map-marker-alt text-2xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold mb-1">Location</h4>
+                                        <p class="text-gray-600 dark:text-gray-400">Amsterdam, Netherlands</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Social Links -->
+                        <div class="mt-10">
+                            <h4 class="text-lg font-semibold mb-6">Connect with me</h4>
+                            <div class="flex space-x-6">
+                                <a href="https://linkedin.com/in/jadvinderdaudhria" target="_blank" rel="noopener noreferrer" 
+                                   class="social-link-hover text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 p-3 rounded-full bg-light dark:bg-dark border border-gray-200 dark:border-gray-800">
+                                    <i class="fab fa-linkedin-in text-xl"></i>
+                                </a>
+                                <a href="bit.ly/Jadvinder-Portfolio" target="_blank" rel="noopener noreferrer" 
+                                   class="social-link-hover text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 p-3 rounded-full bg-light dark:bg-dark border border-gray-200 dark:border-gray-800">
+                                    <i class="fas fa-briefcase text-xl"></i>
+                                </a>
+                                <a href="mailto:j.daudhria@gmail.com" 
+                                   class="social-link-hover text-gray-600 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-400 p-3 rounded-full bg-light dark:bg-dark border border-gray-200 dark:border-gray-800">
+                                    <i class="fas fa-envelope text-xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Current Status & Resume -->
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-6">Current Status</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">
+                            Senior Product Designer at Booking.com, Amsterdam
+                        </p>
+                        <p class="text-gray-600 dark:text-gray-400 mb-10">
+                            Open to consulting opportunities and design leadership roles.
+                        </p>
+                        <!-- Professional Experience -->
+                        <div class="p-8 rounded-2xl border border-gray-200 dark:border-gray-800 bg-light dark:bg-dark">
+                            <h4 class="text-xl font-semibold mb-6">Professional Experience</h4>
+                            <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <span class="text-gray-600 dark:text-gray-400">
+                                        <span class="font-bold">Booking.com</span> <br />Senior UX Designer (2018 - Present)
+                                    </span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-gray-600 dark:text-gray-400">
+                                        <span class="font-bold">Ola (ANI Technologies)</span> <br />Senior Product Designer (2017 - 2018)
+                                    </span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-gray-600 dark:text-gray-400">
+                                        <span class="font-bold">People Group</span> <br />Associate Director – UX Design (2015 - 2017)
+                                    </span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-gray-600 dark:text-gray-400">
+                                        <span class="font-bold">Times Internet Limited</span> <br /> Senior UI/UX Manager (2009 - 2015)
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+						<br />
+						  <!-- Download Resume Button -->
+                        <a href="Jd-aligned Senior Product Designer Resume.pdf" download 
+                           class="btn-download inline-flex items-center px-6 py-4 text-white font-semibold rounded-xl mb-10">
+                            <i class="fas fa-download mr-3"></i>
+                            Download Resume
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-gray-200 dark:border-gray-800">
+        <div class="max-w-6xl mx-auto px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div>
+                    <div class="text-2xl font-semibold mb-2">Jadvvinder Daudhria</div>
+                    <p class="text-gray-600 dark:text-gray-400">Strategic Senior Product Designer</p>
+                </div>
+                
+                <!-- Footer Icon Links -->
+                <div class="flex items-center space-x-6">
+                    <!-- LinkedIn -->
+                    <div class="relative group">
+                        <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" 
+                           class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg inline-block"
+                           aria-label="LinkedIn Profile">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <!-- Tooltip -->
+                        <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1.5 bg-gray-900 dark:bg-gray-700 text-white text-xs font-medium rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+                            My LinkedIn Profile
+                            <div class="absolute top-full left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-700 rotate-45"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Email -->
+                    <div class="relative group">
+                        <a href="mailto:j.daudhria@gmail.com" 
+                           class="text-gray-600 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition-colors p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg inline-block"
+                           aria-label="Send Email">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                        </a>
+                        <!-- Tooltip -->
+                        <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1.5 bg-gray-900 dark:bg-gray-700 text-white text-xs font-medium rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+                            Email to me
+                            <div class="absolute top-full left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-700 rotate-45"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Download Resume -->
+                    <div class="relative group">
+                        <a href="path/to/your-resume.pdf" download="Jadvindder_Daudhria_Resume.pdf"
+                           class="text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition-colors p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg inline-block"
+                           aria-label="Download Resume">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" 
+                                      d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                        </a>
+                        <!-- Tooltip -->
+                        <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1.5 bg-gray-900 dark:bg-gray-700 text-white text-xs font-medium rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+                            Download my resume
+                            <div class="absolute top-full left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-700 rotate-45"></div>
+                        </div>
+                    </div>
+                </div>
+                
+             <!--    <div class="text-sm text-gray-500 dark:text-gray-400 text-center md:text-right">
+                    © 2026. All rights reserved.
+                </div> -->
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const sunIcon = document.getElementById('sunIcon');
+        const moonIcon = document.getElementById('moonIcon');
+        
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        const currentTheme = localStorage.getItem('theme');
+        
+        if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
+            document.documentElement.classList.add('dark');
+            moonIcon.classList.remove('hidden');
+        } else {
+            sunIcon.classList.remove('hidden');
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            
+            if (document.documentElement.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+            } else {
+                localStorage.setItem('theme', 'light');
+                moonIcon.classList.add('hidden');
+                sunIcon.classList.remove('hidden');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Initialize animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeInUp');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.animate-fadeInUp').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
