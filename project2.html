@@ -51,23 +51,13 @@
             margin-bottom: 1.5em;
         }
         
-        .prose ul {
-            margin-top: 1.5em;
-            margin-bottom: 1.5em;
-        }
-        
-        .prose li {
-            margin-top: 0.5em;
-            margin-bottom: 0.5em;
-        }
-        
         .section-padding {
             padding-top: 6rem;
             padding-bottom: 6rem;
         }
         
         .hero-gradient {
-            background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
+            background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -87,45 +77,22 @@
         }
         
         .metric-card {
-            background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(220, 38, 38, 0.1) 100%);
-            border: 1px solid rgba(249, 115, 22, 0.2);
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+            border: 1px solid rgba(139, 92, 246, 0.2);
         }
         
         .dark .metric-card {
-            background: linear-gradient(135deg, rgba(249, 115, 22, 0.2) 0%, rgba(220, 38, 38, 0.2) 100%);
-            border: 1px solid rgba(249, 115, 22, 0.3);
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(59, 130, 246, 0.2) 100%);
+            border: 1px solid rgba(139, 92, 246, 0.3);
         }
         
         .sticky-sidebar {
             position: sticky;
             top: 6rem;
         }
-        
-        .process-step {
-            counter-increment: step-counter;
-            position: relative;
-            padding-left: 3.5rem;
-        }
-        
-        .process-step::before {
-            content: counter(step-counter);
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 2.5rem;
-            height: 2.5rem;
-            background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-        }
     </style>
 </head>
 <body class="bg-light dark:bg-dark text-textLight dark:text-textDark font-sans transition-colors duration-300">
-    <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 bg-light/95 dark:bg-dark/95 backdrop-blur-lg z-50 border-b border-gray-200/50 dark:border-gray-800/50">
         <div class="max-w-7xl mx-auto px-8 py-5">
             <div class="flex items-center justify-between">
@@ -144,387 +111,172 @@
         </div>
     </nav>
 
-    <!-- Case Study Content -->
     <main class="pt-24">
-        <!-- Hero Section -->
         <section class="section-padding">
             <div class="max-w-7xl mx-auto px-8">
                 <div class="mb-12">
-                    <div class="inline-flex items-center px-4 py-2 bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-300 rounded-full text-sm font-medium mb-6">
+                    <div class="inline-flex items-center px-4 py-2 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-sm font-medium mb-6">
                         Ola Cabs
                     </div>
                     <h1 class="text-5xl font-light mb-8 tracking-tight leading-[1.1]">
-                        Operations Management <span class="hero-gradient font-semibold">Digital Transformation</span>
+                        Digitalizing Operations: 
+                        <span class="hero-gradient font-semibold">Scaling Fleet Management</span>
                     </h1>
                     <p class="text-2xl text-gray-600 dark:text-gray-400 max-w-4xl leading-relaxed">
-                        Transformed paper-based operations management into a digital product, 
-                        <span class="font-semibold text-textLight dark:text-textDark">increasing team efficiency by 80%</span> and 
-                        <span class="font-semibold text-textLight dark:text-textDark">improving driver onboarding completion by 20%</span>.
+                        Redesigning mission-critical workflows for India's largest ride-hailing platform, 
+                        <span class="text-textLight dark:text-textDark font-semibold">improving process efficiency by 80%</span> through strategic automation and high-density data visualization.
                     </p>
                 </div>
-
-               <!--  <div class="bg-gradient-to-br from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 rounded-3xl overflow-hidden border border-gray-200 dark:border-gray-800">
-                    <div class="aspect-[21/9] flex items-center justify-center p-12">
-                        <div class="text-center max-w-3xl">
-                            <div class="text-7xl mb-8">🚖</div>
-                            <p class="text-gray-600 dark:text-gray-400 text-lg">
-                                [Operations Dashboard showing fleet management, driver allocation, real-time monitoring, and performance analytics]
-                            </p>
-                        </div>
-                    </div>
-                </div> -->
-				<div class="bg-gray-100 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 mb-8">
-					<center><p class="text-gray-500 dark:text-gray-400"><img src="img/ola_img1.png"></img></center>
-				</div>
+                 <div class="bg-gray-100 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 mb-8">
+                     <center><img src="img/ola_img1.png" alt="Fleet Management Dashboard Design"></img></center>
+                </div>
             </div>
         </section>
 
-        <!-- Content Sections -->
         <div class="max-w-7xl mx-auto px-8">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-                <!-- Main Content -->
                 <div class="lg:col-span-2">
-                    <!-- Strategic Context -->
                     <section class="mb-16">
                         <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800">
-                            <h2 class="text-3xl font-semibold mb-8">Strategic Context</h2>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <h2 class="text-3xl font-semibold mb-8">Executive Summary</h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm md:text-base">
                                 <div>
-                                    <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Role</h3>
-                                    <p class="text-lg">Senior Product Designer</p>
+                                    <h3 class="text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">The Mission</h3>
+                                    <p>Transform fragmented, paper-based fleet operations into a real-time digital command center.</p>
                                 </div>
                                 <div>
-                                    <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Industry</h3>
-                                    <p class="text-lg">Transportation & Mobility</p>
+                                    <h3 class="text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Complexity</h3>
+                                    <p>Managing high-density data for non-technical operations staff in high-pressure environments.</p>
                                 </div>
                                 <div>
-                                    <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Timeline</h3>
-                                    <p class="text-lg">9 months (2017-2018)</p>
+                                    <h3 class="text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Methodology</h3>
+                                    <p>Direct field research with drivers and strategic design workshops with executive leadership.</p>
                                 </div>
                                 <div>
-                                    <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Team</h3>
-                                    <p class="text-lg">Product Manager, 4 Engineers, Operations Team</p>
+                                    <h3 class="text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Outcome</h3>
+                                    <p>80% faster processing of fleet management tasks and significant reduction in manual errors.</p>
                                 </div>
                             </div>
                         </div>
                     </section>
 
-                    <!-- The Core Problem -->
                     <section class="mb-16">
-                        <h2 class="text-4xl font-light mb-8">The Core Problem</h2>
-                        <div class="prose max-w-none">
-                            <p>
-                                Ola Cabs' operations management relied heavily on manual, paper-based processes that were inefficient, error-prone, and impossible to scale as the company grew rapidly across India.
-                            </p>
-                            <div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-6 my-8">
-                                <h3 class="text-lg font-semibold text-red-800 dark:text-red-300 mb-4">Critical Operational Challenges</h3>
-                                <ul class="space-y-3">
-                                    <li class="flex items-start">
-                                        <span class="mr-3">•</span>
-                                        <span><strong>Manual processes:</strong> Driver assignment and scheduling done via paper sheets and phone calls</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <span class="mr-3">•</span>
-                                        <span><strong>Data loss:</strong> Paper-based documentation leading to incomplete records and inaccuracies</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <span class="mr-3">•</span>
-                                        <span><strong>No real-time visibility:</strong> Operations teams couldn't monitor fleet activity in real-time</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <span class="mr-3">•</span>
-                                        <span><strong>Complex onboarding:</strong> 7-step driver onboarding process with 35% abandonment rate</span>
-                                    </li>
-                                    <li class="flex items-start">
-                                        <span class="mr-3">•</span>
-                                        <span><strong>Inefficient communication:</strong> Disjointed communication between operations teams and drivers</span>
-                                    </li>
+                        <h2 class="text-4xl font-light mb-8">Behavioral Shift: From Chaos to Control</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 prose max-w-none">
+                            <div class="bg-red-50 dark:bg-red-900/10 p-6 rounded-xl border border-red-100 dark:border-red-900/30">
+                                <h3 class="text-red-800 dark:text-red-400 font-bold m-0 mb-4">Before (Legacy Friction)</h3>
+                                <ul class="text-sm space-y-2 m-0 p-0 list-none">
+                                    <li>• Critical fleet data tracked on physical whiteboards and spreadsheets.</li>
+                                    <li>• Operations teams overwhelmed by complex, non-intuitive legacy software.</li>
+                                    <li>• High latency in identifying and resolving driver-partner issues.</li>
                                 </ul>
                             </div>
-                            <p>
-                                These inefficiencies were costing the company significant operational expenses and limiting their ability to scale effectively across new cities.
-                            </p>
+                            <div class="bg-green-50 dark:bg-green-900/10 p-6 rounded-xl border border-green-100 dark:border-green-900/30">
+                                <h3 class="text-green-800 dark:text-green-400 font-bold m-0 mb-4">After (Digital Precision)</h3>
+                                <ul class="text-sm space-y-2 m-0 p-0 list-none">
+                                    <li>• Real-time data visualization allowed for immediate operational decisions.</li>
+                                    <li>• Streamlined interfaces optimized for rapid-fire task completion.</li>
+                                    <li>• Automated workflows removed 80% of manual data entry steps.</li>
+                                </ul>
+                            </div>
                         </div>
                     </section>
 
-                    <!-- Strategic Goals -->
                     <section class="mb-16">
-                        <h2 class="text-4xl font-light mb-8">Strategic Goals</h2>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <div class="bg-gradient-to-br from-orange-50 to-amber-100 dark:from-orange-900/20 dark:to-amber-800/20 rounded-2xl p-8 border border-orange-200 dark:border-orange-800 card-hover">
-                                <div class="text-3xl mb-4">🔄</div>
-                                <h3 class="text-xl font-semibold mb-3">Digital Transformation</h3>
-                                <p class="text-gray-600 dark:text-gray-400">
-                                    Replace all paper-based processes with a unified digital operations platform
-                                </p>
+                        <h2 class="text-4xl font-light mb-8">Strategic Execution</h2>
+                        <div class="space-y-12 prose max-w-none text-gray-700 dark:text-gray-300">
+                            <div class="bg-grayLight dark:bg-grayDark p-8 rounded-2xl border border-gray-200 dark:border-gray-800">
+                                <h3 class="text-xl font-bold mb-4 text-textLight dark:text-textDark">1. Immersive Field Research</h3>
+                                <p>I conducted extensive field studies at driver hubs and operations centers. By shadowing fleet managers, I identified that the "human problem" wasn't lack of data—it was <strong>cognitive overload</strong>. The solution required ruthless prioritization of information.</p>
                             </div>
-                            <div class="bg-gradient-to-br from-red-50 to-rose-100 dark:from-red-900/20 dark:to-rose-800/20 rounded-2xl p-8 border border-red-200 dark:border-red-800 card-hover">
-                                <div class="text-3xl mb-4">👨‍✈️</div>
-                                <h3 class="text-xl font-semibold mb-3">Simplify Onboarding</h3>
-                                <p class="text-gray-600 dark:text-gray-400">
-                                    Reduce driver onboarding steps and increase completion rates significantly
-                                </p>
+                            
+                            <div class="bg-grayLight dark:bg-grayDark p-8 rounded-2xl border border-gray-200 dark:border-gray-800">
+                                <h3 class="text-xl font-bold mb-4 text-textLight dark:text-textDark">2. High-Density Data Visualization</h3>
+                                <p>Designed customized dashboards that balanced large datasets with clear hierarchy. I used progressive disclosure to ensure fleet managers only saw critical alerts while keeping deep-dive data just one click away.</p>
                             </div>
-                            <div class="bg-gradient-to-br from-amber-50 to-yellow-100 dark:from-amber-900/20 dark:to-yellow-800/20 rounded-2xl p-8 border border-amber-200 dark:border-amber-800 card-hover">
-                                <div class="text-3xl mb-4">📱</div>
-                                <h3 class="text-xl font-semibold mb-3">Real-time Operations</h3>
-                                <p class="text-gray-600 dark:text-gray-400">
-                                    Enable live monitoring and management of fleet operations across cities
-                                </p>
+
+                            <div class="bg-grayLight dark:bg-grayDark p-8 rounded-2xl border border-gray-200 dark:border-gray-800">
+                                <h3 class="text-xl font-bold mb-4 text-textLight dark:text-textDark">3. Executive Alignment</h3>
+                                <p>Facilitated design thinking workshops with VPs and Product Directors. This ensured the operational redesign aligned with the broader business goal of reducing churn and increasing fleet uptime.</p>
                             </div>
                         </div>
                     </section>
 
-                    <!-- Digital Transformation Process -->
                     <section class="mb-16">
-                        <h2 class="text-4xl font-light mb-8">Digital Transformation Process</h2>
-                        <div class="space-y-6">
-                            <div class="process-step">
-                                <h3 class="text-xl font-semibold mb-3">Discovery & Analysis</h3>
-                                <p class="text-gray-600 dark:text-gray-400">
-                                    Conducted extensive fieldwork with operations teams across 3 cities, mapping existing paper workflows, identifying pain points, and understanding the unique challenges of each regional team.
-                                </p>
+                        <h2 class="text-4xl font-light mb-8">Strategic Assessment (SWOT)</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                            <div class="p-6 border border-gray-200 dark:border-gray-800 rounded-xl">
+                                <h4 class="font-bold text-purple-600 mb-2 underline">Strengths</h4>
+                                <p class="text-gray-500">Unmatched speed in task completion; built specifically for the high-pressure ops environment.</p>
                             </div>
-                            <div class="process-step">
-                                <h3 class="text-xl font-semibold mb-3">Workflow Digitization</h3>
-                                <p class="text-gray-600 dark:text-gray-400">
-                                    Designed digital equivalents of paper forms with smart validations, auto-save functionality, and offline capability to ensure smooth transition for operations staff.
-                                </p>
+                            <div class="p-6 border border-gray-200 dark:border-gray-800 rounded-xl">
+                                <h4 class="font-bold text-blue-600 mb-2 underline">Opportunities</h4>
+                                <p class="text-gray-500">Potential to integrate predictive AI to flag vehicle maintenance needs before they occur.</p>
                             </div>
-                            <div class="process-step">
-                                <h3 class="text-xl font-semibold mb-3">Real-time Dashboard</h3>
-                                <p class="text-gray-600 dark:text-gray-400">
-                                    Created comprehensive dashboard showing fleet status, driver availability, city performance metrics, and real-time alerts for operational issues.
-                                </p>
+                            <div class="p-6 border border-gray-200 dark:border-gray-800 rounded-xl">
+                                <h4 class="font-bold text-amber-600 mb-2 underline">Weaknesses</h4>
+                                <p class="text-gray-500">Initial resistance from long-term staff accustomed to manual paper-based tracking.</p>
+                            </div>
+                            <div class="p-6 border border-gray-200 dark:border-gray-800 rounded-xl">
+                                <h4 class="font-bold text-red-600 mb-2 underline">Threats</h4>
+                                <p class="text-gray-500">Dependency on reliable network connectivity in remote fleet hubs.</p>
                             </div>
                         </div>
                     </section>
 
-                    <!-- Discovery Phase -->
                     <section class="mb-16">
                         <div class="bg-gray-100 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 mb-8">
-							<center><p class="text-gray-500 dark:text-gray-400"><img src="img/ola_img2.png"></img></center>
-						</div>
-                        <div class="prose max-w-none">
-                            <h3 class="text-2xl font-semibold mb-4">Field Research Insights</h3>
-                            <p>
-                                Spending weeks with operations teams revealed that paper wasn't just a medium it was part of their muscle memory. The challenge wasn't just digitizing forms but preserving the intuitive aspects of their existing workflow while removing the pain points.
-                            </p>
+                            <center><img src="img/ola_img2.png" alt="Operational Workflow Redesign"></img></center>
                         </div>
                     </section>
 
-                    <!-- Key Design Decisions -->
-                    <section class="mb-16">
-                        <h2 class="text-4xl font-light mb-8">Key Design Decisions</h2>
-                        
-                        <div class="space-y-8">
-                            <!-- Decision 1 -->
-                            <div class="bg-gradient-to-br from-red-50 to-orange-50 dark:from-red-900/10 dark:to-orange-900/10 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800">
-                                <div class="p-8">
-                                    <div class="flex items-start mb-6">
-                                        <div class="flex-shrink-0 w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-xl flex items-center justify-center mr-4">
-                                            <span class="text-red-600 dark:text-red-400 text-xl">❌</span>
-                                        </div>
-                                        <div>
-                                            <h3 class="text-xl font-semibold mb-2">Problem</h3>
-                                            <p class="text-gray-600 dark:text-gray-400">
-                                                7-step paper-based driver onboarding process had 35% abandonment rate due to complexity, time requirements, and documentation challenges.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="flex items-start">
-                                        <div class="flex-shrink-0 w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center mr-4">
-                                            <span class="text-green-600 dark:text-green-400 text-xl">✅</span>
-                                        </div>
-                                        <div>
-                                            <h3 class="text-xl font-semibold mb-2">Solution</h3>
-                                            <p class="text-gray-600 dark:text-gray-400">
-                                                Redesigned onboarding into 4 intuitive digital steps with progress tracking, document scanning via mobile camera, and real-time validation. Added offline capability for areas with poor connectivity.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Decision 2 -->
-                            <div class="bg-gradient-to-br from-orange-50 to-amber-50 dark:from-orange-900/10 dark:to-amber-900/10 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800">
-                                <div class="p-8">
-                                    <div class="flex items-start mb-6">
-                                        <div class="flex-shrink-0 w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-xl flex items-center justify-center mr-4">
-                                            <span class="text-red-600 dark:text-red-400 text-xl">❌</span>
-                                        </div>
-                                        <div>
-                                            <h3 class="text-xl font-semibold mb-2">Problem</h3>
-                                            <p class="text-gray-600 dark:text-gray-400">
-                                                Operations teams spent excessive time on manual data entry and coordination, limiting their strategic impact and ability to manage larger territories.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="flex items-start">
-                                        <div class="flex-shrink-0 w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center mr-4">
-                                            <span class="text-green-600 dark:text-green-400 text-xl">✅</span>
-                                        </div>
-                                        <div>
-                                            <h3 class="text-xl font-semibold mb-2">Solution</h3>
-                                            <p class="text-gray-600 dark:text-gray-400">
-                                                Created automated workflows and real-time dashboards that prioritized critical information, reduced manual intervention by 80%, and provided predictive insights for resource allocation.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- UI Implementation -->
-                    <section class="mb-16">
-                         <div class="bg-gray-100 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 mb-8">
-							<center><p class="text-gray-500 dark:text-gray-400"><img src="img/ola_img3.png"></img></center>
-						</div>
-                        <div class="prose max-w-none">
-                            <h3 class="text-2xl font-semibold mb-4">Design System for Scale</h3>
-                            <p>
-                                Built a reusable component library early in the process, enabling consistent experience across web and mobile interfaces while accelerating development. The system was designed to accommodate regional variations while maintaining core usability standards.
-                            </p>
-                        </div>
-                    </section>
-
-                    <!-- Measured Outcome -->
-                    <section class="mb-16">
-                        <h2 class="text-4xl font-light mb-8">Measured Outcome</h2>
-                        
-                        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-                            <div class="metric-card rounded-2xl p-6 text-center">
-                                <div class="text-3xl font-bold mb-2">80%</div>
-                                <p class="text-sm text-gray-600 dark:text-gray-400">Increase in team efficiency</p>
-                            </div>
-                            <div class="metric-card rounded-2xl p-6 text-center">
-                                <div class="text-3xl font-bold mb-2">20%</div>
-                                <p class="text-sm text-gray-600 dark:text-gray-400">Increase in driver sign-up completion</p>
-                            </div>
-                            <div class="metric-card rounded-2xl p-6 text-center">
-                                <div class="text-3xl font-bold mb-2">7 → 4</div>
-                                <p class="text-sm text-gray-600 dark:text-gray-400">Reduced onboarding steps</p>
-                            </div>
-                            <div class="metric-card rounded-2xl p-6 text-center">
-                                <div class="text-3xl font-bold mb-2">80%</div>
-                                <p class="text-sm text-gray-600 dark:text-gray-400">Reduction in design update time</p>
-                            </div>
-                        </div>
-
-                        <div class="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-800">
-                            <h3 class="text-2xl font-semibold mb-6">📈 Lessons Learned</h3>
-                            <div class="prose max-w-none">
-                                <p>
-                                    <strong>Empathy for analog-to-digital transitions:</strong> Digital transformation projects require deep empathy for users transitioning from familiar analog workflows. Success came from balancing digital efficiency with the intuitive aspects of existing processes that users valued.
-                                </p>
-                                <p class="mt-4">
-                                    <strong>Design for varying connectivity scenarios:</strong> In emerging markets, designing for poor or intermittent connectivity is as important as the core features. Offline capabilities and smart sync mechanisms were crucial for adoption.
-                                </p>
-                                <p class="mt-4">
-                                    <strong>Component libraries accelerate scaling:</strong> Building a reusable component library early enabled rapid expansion to new cities while maintaining consistency. This approach proved especially valuable for a company scaling as rapidly as Ola.
-                                </p>
-                                <p class="mt-4">
-                                    <strong>Field research validates assumptions:</strong> Time spent observing actual operations revealed workflow nuances that would never have emerged in conference room discussions. This grounded the design in real-world constraints and opportunities.
-                                </p>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- Navigation -->
                     <div class="pt-8 border-t border-gray-200 dark:border-gray-800">
                         <div class="flex justify-between items-center">
-                           <!--  <a href="project1.html" class="px-6 py-3 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg transition-colors font-medium">
-                                ← Previous Project
-                            </a> -->
-                            <a href="index.html" class="px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white rounded-lg transition-colors font-medium">
+                            <a href="index.html" class="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors font-medium">
                                 Back to Portfolio
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Sidebar -->
                 <div class="lg:col-span-1">
                     <div class="sticky-sidebar">
                         <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800 mb-8">
-                            <h3 class="text-lg font-semibold mb-6">Project Highlights</h3>
+                            <h3 class="text-lg font-semibold mb-6">Strategic Weight</h3>
                             <ul class="space-y-4">
                                 <li class="flex items-start">
-                                    <span class="mr-3 text-orange-600 dark:text-orange-400">✓</span>
-                                    <span>Complete digital transformation</span>
+                                    <span class="mr-3 text-purple-600 dark:text-purple-400">✓</span>
+                                    <span>80% Increase in process efficiency</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <span class="mr-3 text-orange-600 dark:text-orange-400">✓</span>
-                                    <span>Field research & workflow analysis</span>
+                                    <span class="mr-3 text-purple-600 dark:text-purple-400">✓</span>
+                                    <span>Direct Field & Driver Research</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <span class="mr-3 text-orange-600 dark:text-orange-400">✓</span>
-                                    <span>Component library development</span>
+                                    <span class="mr-3 text-purple-600 dark:text-purple-400">✓</span>
+                                    <span>Executive Stakeholder Alignment</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <span class="mr-3 text-orange-600 dark:text-orange-400">✓</span>
-                                    <span>Mobile-first responsive design</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="mr-3 text-orange-600 dark:text-orange-400">✓</span>
-                                    <span>Offline capability design</span>
+                                    <span class="mr-3 text-purple-600 dark:text-purple-400">✓</span>
+                                    <span>Complex Data Visualization</span>
                                 </li>
                             </ul>
                         </div>
 
                         <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800">
-                            <h3 class="text-lg font-semibold mb-6">Tools & Technologies</h3>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm">Figma</span>
-                                <span class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm">React Native</span>
-                                <span class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm">JavaScript</span>
-                                <span class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm">MongoDB</span>
-                                <span class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm">AWS</span>
-                                <span class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm">Jira</span>
-                            </div>
-                        </div>
-
-                        <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800 mt-8">
-                            <h3 class="text-lg font-semibold mb-6">Project Scale</h3>
+                            <h3 class="text-lg font-semibold mb-6">Key Lesson</h3>
                             <div class="space-y-4">
-                                <div>
-                                    <div class="text-sm text-gray-500 dark:text-gray-400">Cities Covered</div>
-                                    <div class="text-2xl font-bold mt-1">12+</div>
-                                </div>
-                                <div>
-                                    <div class="text-sm text-gray-500 dark:text-gray-400">Operations Teams</div>
-                                    <div class="text-2xl font-bold mt-1">50+</div>
-                                </div>
-                                <div>
-                                    <div class="text-sm text-gray-500 dark:text-gray-400">Drivers Onboarded</div>
-                                    <div class="text-2xl font-bold mt-1">10,000+</div>
-                                </div>
+                                <p class="text-sm italic text-gray-500">
+                                    "When designing internal tools for 24/7 operations, aesthetics are secondary to reliability and speed. The best UI is the one that gets out of the user's way during a crisis."
+                                </p>
                             </div>
                         </div>
 
                         <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800 mt-8">
-                            <h3 class="text-lg font-semibold mb-6">Timeline</h3>
-                            <div class="space-y-3">
-                                <div>
-                                    <div class="text-sm text-gray-500 dark:text-gray-400 mb-1">Research & Discovery</div>
-                                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                        <div class="bg-orange-600 h-2 rounded-full" style="width: 30%"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="text-sm text-gray-500 dark:text-gray-400 mb-1">Design & Prototyping</div>
-                                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                        <div class="bg-red-600 h-2 rounded-full" style="width: 35%"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="text-sm text-gray-500 dark:text-gray-400 mb-1">Implementation & Rollout</div>
-                                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                        <div class="bg-amber-600 h-2 rounded-full" style="width: 35%"></div>
-                                    </div>
-                                </div>
-                            </div>
+                            <h3 class="text-lg font-semibold mb-6 italic text-purple-600 dark:text-purple-400">"Designing for the Ground Level."</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">
+                                You cannot design for scale from an office. To fix the efficiency of Ola's fleet, I had to spend weeks in the hubs where the real work happens.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -532,7 +284,6 @@
         </div>
     </main>
 
-   <!-- Footer -->
     <footer class="py-12 border-t border-gray-200 dark:border-gray-800 mt-20">
         <div class="max-w-7xl mx-auto px-8">
             <div class="flex flex-col md:flex-row justify-between items-center gap-8">
@@ -541,9 +292,7 @@
                     <p class="text-gray-600 dark:text-gray-400">Strategic Senior Product Designer</p>
                 </div>
                 
-                <!-- Footer Icon Links -->
                 <div class="flex items-center space-x-6">
-                    <!-- LinkedIn -->
                     <div class="relative group">
                         <a href="https://www.linkedin.com/in/jadvvinder-daudhria-541a3111/" target="_blank" rel="noopener noreferrer" 
                            class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg inline-block"
@@ -552,14 +301,12 @@
                                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                             </svg>
                         </a>
-                        <!-- Tooltip -->
                         <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1.5 bg-gray-900 dark:bg-gray-700 text-white text-xs font-medium rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
                             My LinkedIn Profile
                             <div class="absolute top-full left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-700 rotate-45"></div>
                         </div>
                     </div>
                     
-                    <!-- Email -->
                     <div class="relative group">
                         <a href="mailto:j.daudhria@gmail.com" 
                            class="text-gray-600 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition-colors p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg inline-block"
@@ -568,14 +315,12 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                             </svg>
                         </a>
-                        <!-- Tooltip -->
                         <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1.5 bg-gray-900 dark:bg-gray-700 text-white text-xs font-medium rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
                             Email to me
                             <div class="absolute top-full left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-700 rotate-45"></div>
                         </div>
                     </div>
                     
-                    <!-- Download Resume -->
                     <div class="relative group">
                         <a href="path/to/your-resume.pdf" download="Jadvindder_Daudhria_Resume.pdf"
                            class="text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition-colors p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg inline-block"
@@ -585,23 +330,17 @@
                                       d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
                             </svg>
                         </a>
-                        <!-- Tooltip -->
                         <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1.5 bg-gray-900 dark:bg-gray-700 text-white text-xs font-medium rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
                             Download my resume
                             <div class="absolute top-full left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-700 rotate-45"></div>
                         </div>
                     </div>
                 </div>
-                
-             <!--    <div class="text-sm text-gray-500 dark:text-gray-400 text-center md:text-right">
-                    © 2026. All rights reserved.
-                </div> -->
             </div>
         </div>
     </footer>
 
     <script>
-        // Theme Toggle
         const themeToggle = document.getElementById('themeToggle');
         const sunIcon = document.getElementById('sunIcon');
         const moonIcon = document.getElementById('moonIcon');
@@ -628,16 +367,6 @@
                 sunIcon.classList.remove('hidden');
             }
         });
-        
-        // Initialize numbered steps
-        const stepsContainer = document.querySelector('.space-y-6');
-        if (stepsContainer) {
-            stepsContainer.style.counterReset = 'step-counter';
-        }
     </script>
 </body>
-
 </html>
-
-
-
