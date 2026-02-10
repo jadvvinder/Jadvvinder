@@ -68,31 +68,50 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+
+        /* Accessibility: skip to main content for keyboard users */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #8B5CF6;
+            color: white;
+            padding: 8px;
+            z-index: 100;
+            transition: top 0.3s;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
     </style>
 </head>
 <body class="bg-light dark:bg-dark text-textLight dark:text-textDark font-sans transition-colors duration-300">
-    <nav class="fixed top-0 left-0 right-0 glass bg-light/80 dark:bg-dark/80 z-50 border-b border-gray-200/50 dark:border-gray-800/50">
-        <div class="max-w-7xl mx-auto px-8 py-5">
-            <div class="flex items-center justify-between">
-                <a href="#" class="text-xl font-bold tracking-tight hover:opacity-80 transition-opacity">JD<span class="text-purple-600">.</span></a>
-                
-                <div class="flex items-center space-x-10">
-                    <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
-                        <a href="#work" class="hover:text-purple-600 transition-colors">Work</a>
-                        <a href="#expertise" class="hover:text-purple-600 transition-colors">Expertise</a>
-                        <a href="#about" class="hover:text-purple-600 transition-colors">About</a>
-                    </div>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header role="banner">
+        <nav class="fixed top-0 left-0 right-0 glass bg-light/80 dark:bg-dark/80 z-50 border-b border-gray-200/50 dark:border-gray-800/50" aria-label="Main Navigation">
+            <div class="max-w-7xl mx-auto px-8 py-5">
+                <div class="flex items-center justify-between">
+                    <a href="#" class="text-xl font-bold tracking-tight hover:opacity-80 transition-opacity" aria-label="Jadvinder Daudhria Home">JD<span class="text-purple-600">.</span></a>
                     
-                    <button id="themeToggle" class="p-2.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                        <i id="sunIcon" class="fa-solid fa-sun hidden"></i>
-                        <i id="moonIcon" class="fa-solid fa-moon hidden"></i>
-                    </button>
+                    <div class="flex items-center space-x-10">
+                        <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                            <a href="#work" class="hover:text-purple-600 transition-colors">Work</a>
+                            <a href="#expertise" class="hover:text-purple-600 transition-colors">Expertise</a>
+                            <a href="#about" class="hover:text-purple-600 transition-colors">About</a>
+                        </div>
+                        
+                        <button id="themeToggle" class="p-2.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle Dark Mode">
+                            <i id="sunIcon" class="fa-solid fa-sun hidden" aria-hidden="true"></i>
+                            <i id="moonIcon" class="fa-solid fa-moon hidden" aria-hidden="true"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
-    <div>
+    <main id="main-content">
         <section id="hero" class="min-h-screen flex items-center pt-20 px-8">
             <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 <div class="lg:col-span-8 animate-fadeInUp">
@@ -112,7 +131,7 @@
                     </div>
                 </div>
                 
-                <div class="lg:col-span-4 hidden lg:block animate-fadeInUp" style="animation-delay: 0.2s">
+                <div class="lg:col-span-4 hidden lg:block animate-fadeInUp" style="animation-delay: 0.2s" aria-hidden="true">
                     <div class="relative">
                         <div class="absolute inset-0 bg-gradient-to-tr from-purple-500/20 to-blue-500/20 rounded-3xl blur-3xl"></div>
                         <div class="relative aspect-square bg-grayLight dark:bg-grayDark rounded-3xl border border-gray-200 dark:border-gray-800 flex items-center justify-center overflow-hidden">
@@ -123,100 +142,100 @@
             </div>
         </section>
 
-        <section id="work" class="py-32 px-8 bg-grayLight dark:bg-grayDark/50">
+        <section id="work" class="py-32 px-8 bg-grayLight dark:bg-grayDark/50" aria-labelledby="work-heading">
             <div class="max-w-7xl mx-auto">
                 <div class="flex justify-between items-end mb-20">
                     <div class="animate-fadeInUp">
-                        <h2 class="text-4xl font-light tracking-tight">Selected <span class="font-bold">Work</span></h2>
+                        <h2 id="work-heading" class="text-4xl font-light tracking-tight">Selected <span class="font-bold">Work</span></h2>
                     </div>
                     <p class="text-gray-500 hidden md:block italic animate-fadeInUp">Focusing on impact and scale</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="group relative bg-light dark:bg-dark rounded-3xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 hover:border-purple-500/50 transition-all animate-fadeInUp">
+                    <article class="group relative bg-light dark:bg-dark rounded-3xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 hover:border-purple-500/50 transition-all animate-fadeInUp">
                         <div class="aspect-[16/10] overflow-hidden">
-                            <img src="img/ds_img1.png" alt="Booking.com Design System" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <img src="img/ds_img1.png" alt="Visual representation of Booking.com Design System components" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                         </div>
                         <div class="p-8">
                             <div class="flex items-center gap-2 mb-4">
                                 <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs font-bold rounded-full uppercase tracking-wider">Design Systems</span>
-                                <span class="text-gray-400 text-xs">•</span>
+                                <span class="text-gray-400 text-xs" aria-hidden="true">•</span>
                                 <span class="text-gray-400 text-xs font-medium">Booking.com</span>
                             </div>
                             <h3 class="text-2xl font-bold mb-2">Enterprise Design System</h3>
                             <p class="text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">Scaling adoption and operational efficiency for 200+ global product teams.</p>
-                            <a href="project5.html" class="inline-flex items-center text-purple-600 font-bold group-hover:translate-x-2 transition-transform">
-                                View Case Study <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+                            <a href="project5.html" class="inline-flex items-center text-purple-600 font-bold group-hover:translate-x-2 transition-transform" aria-label="View Booking.com Design System Case Study">
+                                View Case Study <i class="fa-solid fa-arrow-right ml-2 text-sm" aria-hidden="true"></i>
                             </a>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="group relative bg-light dark:bg-dark rounded-3xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 hover:border-purple-500/50 transition-all animate-fadeInUp" style="animation-delay: 0.1s">
+                    <article class="group relative bg-light dark:bg-dark rounded-3xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 hover:border-purple-500/50 transition-all animate-fadeInUp" style="animation-delay: 0.1s">
                         <div class="aspect-[16/10] overflow-hidden">
-                            <img src="img/ab_img1.png" alt="A/B Testing Infrastructure" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <img src="img/ab_img1.png" alt="A/B Testing Infrastructure platform dashboard" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                         </div>
                         <div class="p-8">
                             <div class="flex items-center gap-2 mb-4">
                                 <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-bold rounded-full uppercase tracking-wider">Platform</span>
-                                <span class="text-gray-400 text-xs">•</span>
+                                <span class="text-gray-400 text-xs" aria-hidden="true">•</span>
                                 <span class="text-gray-400 text-xs font-medium">Booking.com</span>
                             </div>
                             <h3 class="text-2xl font-bold mb-2">A/B Testing Infrastructure</h3>
                             <p class="text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">Democratizing data science through a self-service experimentation hub for rapid iteration.</p>
-                            <a href="project1.html" class="inline-flex items-center text-purple-600 font-bold group-hover:translate-x-2 transition-transform">
-                                View Case Study <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+                            <a href="project1.html" class="inline-flex items-center text-purple-600 font-bold group-hover:translate-x-2 transition-transform" aria-label="View A/B Testing Case Study">
+                                View Case Study <i class="fa-solid fa-arrow-right ml-2 text-sm" aria-hidden="true"></i>
                             </a>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="group relative bg-light dark:bg-dark rounded-3xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 hover:border-purple-500/50 transition-all animate-fadeInUp">
+                    <article class="group relative bg-light dark:bg-dark rounded-3xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 hover:border-purple-500/50 transition-all animate-fadeInUp">
                         <div class="aspect-[16/10] overflow-hidden">
-                            <img src="img/ola_img1.png" alt="Ola Cabs Ops Dashboard" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <img src="img/ola_img1.png" alt="Ola Cabs Fleet Management Dashboard interface" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                         </div>
                         <div class="p-8">
                             <div class="flex items-center gap-2 mb-4">
                                 <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-xs font-bold rounded-full uppercase tracking-wider">Operations</span>
-                                <span class="text-gray-400 text-xs">•</span>
+                                <span class="text-gray-400 text-xs" aria-hidden="true">•</span>
                                 <span class="text-gray-400 text-xs font-medium">Ola Cabs</span>
                             </div>
                             <h3 class="text-2xl font-bold mb-2">Fleet Management Platform</h3>
                             <p class="text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">Digitalizing complex workflows for India's largest ride-sharing marketplace.</p>
-                            <a href="project2.html" class="inline-flex items-center text-purple-600 font-bold group-hover:translate-x-2 transition-transform">
-                                View Case Study <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+                            <a href="project2.html" class="inline-flex items-center text-purple-600 font-bold group-hover:translate-x-2 transition-transform" aria-label="View Ola Cabs Case Study">
+                                View Case Study <i class="fa-solid fa-arrow-right ml-2 text-sm" aria-hidden="true"></i>
                             </a>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="group relative bg-light dark:bg-dark rounded-3xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 hover:border-purple-500/50 transition-all animate-fadeInUp" style="animation-delay: 0.1s">
+                    <article class="group relative bg-light dark:bg-dark rounded-3xl overflow-hidden border border-gray-200/50 dark:border-gray-800/50 hover:border-purple-500/50 transition-all animate-fadeInUp" style="animation-delay: 0.1s">
                         <div class="aspect-[16/10] overflow-hidden">
-                            <img src="img/apps_img1.png" alt="AppyStore EdTech Platform" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <img src="img/apps_img1.png" alt="AppyStore Educational platform interface for kids" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                         </div>
                         <div class="p-8">
                             <div class="flex items-center gap-2 mb-4">
                                 <span class="px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-xs font-bold rounded-full uppercase tracking-wider">Leadership</span>
-                                <span class="text-gray-400 text-xs">•</span>
+                                <span class="text-gray-400 text-xs" aria-hidden="true">•</span>
                                 <span class="text-gray-400 text-xs font-medium">People Group</span>
                             </div>
                             <h3 class="text-2xl font-bold mb-2">UX Lead: AppyStore</h3>
                             <p class="text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">Leading design strategy for a million-user EdTech portfolio focused on inclusive learning.</p>
-                            <a href="project3.html" class="inline-flex items-center text-purple-600 font-bold group-hover:translate-x-2 transition-transform">
-                                View Case Study <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+                            <a href="project3.html" class="inline-flex items-center text-purple-600 font-bold group-hover:translate-x-2 transition-transform" aria-label="View AppyStore Case Study">
+                                View Case Study <i class="fa-solid fa-arrow-right ml-2 text-sm" aria-hidden="true"></i>
                             </a>
                         </div>
-                    </div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <section id="expertise" class="py-32 px-8">
+        <section id="expertise" class="py-32 px-8" aria-labelledby="expertise-heading">
             <div class="max-w-7xl mx-auto">
                 <div class="animate-fadeInUp mb-20">
-                    <h2 class="text-4xl font-light tracking-tight">Core <span class="font-bold underline decoration-purple-600 decoration-4 underline-offset-8">Expertise</span></h2>
+                    <h2 id="expertise-heading" class="text-4xl font-light tracking-tight">Core <span class="font-bold underline decoration-purple-600 decoration-4 underline-offset-8">Expertise</span></h2>
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                     <div class="space-y-4 animate-fadeInUp">
-                        <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center text-purple-600">
+                        <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center text-purple-600" aria-hidden="true">
                             <i class="fa-solid fa-layer-group text-xl"></i>
                         </div>
                         <h3 class="text-xl font-bold">Design Systems</h3>
@@ -226,7 +245,7 @@
                     </div>
 
                     <div class="space-y-4 animate-fadeInUp" style="animation-delay: 0.1s">
-                        <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center text-blue-600">
+                        <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center text-blue-600" aria-hidden="true">
                             <i class="fa-solid fa-universal-access text-xl"></i>
                         </div>
                         <h3 class="text-xl font-bold">Accessibility (A11y)</h3>
@@ -236,7 +255,7 @@
                     </div>
 
                     <div class="space-y-4 animate-fadeInUp" style="animation-delay: 0.2s">
-                        <div class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center text-green-600">
+                        <div class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center text-green-600" aria-hidden="true">
                             <i class="fa-solid fa-chart-line text-xl"></i>
                         </div>
                         <h3 class="text-xl font-bold">Design Operations</h3>
@@ -247,9 +266,9 @@
                 </div>
             </div>
         </section>
-    </div>
+    </main>
 
-    <footer class="py-20 border-t border-gray-200 dark:border-gray-800">
+    <footer class="py-20 border-t border-gray-200 dark:border-gray-800" aria-label="Site Footer">
         <div class="max-w-7xl mx-auto px-8">
             <div class="flex flex-col md:flex-row justify-between items-center gap-12">
                 <div class="text-center md:text-left">
@@ -258,11 +277,11 @@
                 </div>
                 
                 <div class="flex items-center space-x-6">
-                    <a href="https://www.linkedin.com/in/jadvvinder-daudhria-541a3111/" target="_blank" rel="noopener" class="text-2xl hover:text-purple-600 transition-colors">
-                        <i class="fa-brands fa-linkedin"></i>
+                    <a href="https://www.linkedin.com/in/jadvvinder-daudhria-541a3111/" target="_blank" rel="noopener" class="text-2xl hover:text-purple-600 transition-colors" aria-label="LinkedIn Profile">
+                        <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
                     </a>
-                    <a href="mailto:j.daudhria@gmail.com" class="text-2xl hover:text-purple-600 transition-colors">
-                        <i class="fa-solid fa-envelope"></i>
+                    <a href="mailto:j.daudhria@gmail.com" class="text-2xl hover:text-purple-600 transition-colors" aria-label="Send Email">
+                        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
                     </a>
                     <a href="J_Daudhria_Senior_Product_Designer.pdf" download class="px-6 py-2 border-2 border-purple-600 text-purple-600 rounded-full font-bold hover:bg-purple-600 hover:text-white transition-all">
                         Resume
