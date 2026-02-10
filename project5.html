@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scaling Design Adoption | Jadvinder Daudhria Portfolio</title>
-    <meta name="description" content="Case study on scaling a design system for 200+ teams at B.xom through advocacy, support systems, and complex component architecture.">
+    <title>Enterprise Design System | Booking.com Case Study | Jadvinder Daudhria</title>
+    <meta name="description" content="Strategic case study on scaling design adoption for 200+ teams at Booking.com.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,222 +19,200 @@
                     colors: {
                         light: '#FFFFFF',
                         dark: '#0A0A0A',
+                        bookingBlue: '#003580',
                         textLight: '#171717',
                         textDark: '#E5E5E5',
                         grayLight: '#FAFAFA',
                         grayDark: '#1A1A1A'
                     },
                     fontFamily: {
-                        'sans': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
     <style>
-        body {
-            font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
-            -webkit-font-smoothing: antialiased;
-            letter-spacing: -0.011em;
-        }
-        .prose { font-size: 1.125rem; line-height: 1.7; }
+        body { font-feature-settings: 'kern' 1, 'liga' 1; -webkit-font-smoothing: antialiased; }
         .hero-gradient {
-            background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 100%);
+            background: linear-gradient(135deg, #003580 0%, #006ce4 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
-        .metric-card {
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
-            border: 1px solid rgba(139, 92, 246, 0.2);
-        }
-        .dark .metric-card {
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(59, 130, 246, 0.2) 100%);
-        }
+        .metric-card { background: rgba(0, 53, 128, 0.05); border: 1px solid rgba(0, 53, 128, 0.1); }
+        .dark .metric-card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); }
+        /* High contrast focus states for accessibility */
+        a:focus, button:focus { outline: 3px solid #006ce4; outline-offset: 2px; }
     </style>
 </head>
-<body class="bg-light dark:bg-dark text-textLight dark:text-textDark font-sans transition-colors duration-300">
+<body class="bg-light dark:bg-dark text-textLight dark:text-textDark transition-colors duration-300">
 
     <header role="banner">
-        <nav class="fixed top-0 left-0 right-0 bg-light/95 dark:bg-dark/95 backdrop-blur-lg z-50 border-b border-gray-200/50 dark:border-gray-800/50" aria-label="Main Navigation">
-            <div class="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
-                <a href="index.html" class="text-xl font-semibold tracking-tight hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-purple-500 rounded">
-                    ← Back to Portfolio
-                </a>
-                <button id="themeToggle" class="p-2.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500" aria-label="Toggle dark mode">
-                    <svg id="sunIcon" class="w-5 h-5 hidden" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                    </svg>
-                    <svg id="moonIcon" class="w-5 h-5 hidden" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-                    </svg>
+        <nav class="fixed top-0 w-full bg-light/90 dark:bg-dark/90 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-800" aria-label="Breadcrumb">
+            <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+                <a href="index.html" class="font-medium hover:text-bookingBlue dark:hover:text-blue-400 transition-colors">← Back to Projects</a>
+                <button id="themeToggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="Switch between dark and light mode">
+                    <span id="themeIcon">🌓</span>
                 </button>
             </div>
         </nav>
     </header>
 
-    <main class="pt-32" id="main-content">
-        <section class="pb-16" aria-labelledby="hero-heading">
-            <div class="max-w-7xl mx-auto px-8">
-                <div class="mb-12">
-                    <span class="inline-flex items-center px-4 py-2 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-sm font-medium mb-6">
-                        Case Study: B.xom
-                    </span>
-                    <h1 id="hero-heading" class="text-5xl font-light mb-8 tracking-tight leading-[1.1]">
-                        Scaling a Moving Train: <span class="hero-gradient font-semibold">Building Adoption for 200+ Teams</span>
-                    </h1>
-                    <p class="text-2xl text-gray-600 dark:text-gray-400 max-w-4xl leading-relaxed">
-                        Joined mid-project to turn a library of parts into a core company asset, 
-                        <strong>reducing development time by 65%</strong> while bridging the gap between design standards and product needs.
-                    </p>
-                </div>
-                <div class="bg-gray-100 dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800">
-                    <img src="img/ds_img1.png" alt="Visual representation of the Enterprise Design System component library and token architecture" class="w-full h-auto">
-                </div>
+    <main id="main-content" class="pt-24 pb-20">
+        <section class="max-w-7xl mx-auto px-6 py-12" aria-labelledby="case-study-title">
+            <div class="max-w-4xl">
+                <p class="text-bookingBlue dark:text-blue-400 font-bold tracking-widest uppercase text-sm mb-4">Booking.com | Design Systems</p>
+                <h1 id="case-study-title" class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+                    Scaling Design for <span class="hero-gradient">200+ Global Teams</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-400 leading-relaxed">
+                    I joined the Design System team mid-stream to solve an adoption crisis. By building a <strong>proactive support infrastructure</strong> and tackling high-complexity components, we unified 40+ localized experiences and slashed dev cycles by 65%.
+                </p>
             </div>
         </section>
 
-        <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-3 gap-12">
-            
-            <div class="lg:col-span-2">
+        <div class="max-w-7xl mx-auto px-6 mb-20">
+            <div class="aspect-video bg-gray-100 dark:bg-gray-900 rounded-3xl overflow-hidden border border-gray-200 dark:border-gray-800 flex items-center justify-center text-gray-400 text-sm">
                 
-                <section class="mb-16" aria-labelledby="challenge-heading">
-                    <h2 id="challenge-heading" class="text-4xl font-light mb-8">The Human Challenge</h2>
-                    <div class="prose dark:prose-invert max-w-none">
-                        <p>
-                            B.xom had the foundations, but we had a "last mile" problem. 200+ product teams were working in silos because the existing system felt too rigid. This wasn't just a design problem; it was an <strong>adoption crisis</strong>.
-                        </p>
-                        <div class="bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 rounded-r-xl p-6 my-8">
-                            <h3 class="text-lg font-semibold text-red-800 dark:text-red-300 mb-2">The Cost of Fragmentation</h3>
-                            <ul class="list-disc ml-5 space-y-2">
-                                <li><strong>Engineering Waste:</strong> Developers spent 30% of their time rebuilding basic components.</li>
-                                <li><strong>Inconsistency:</strong> Over 37 button variations across 40+ localized experiences.</li>
-                            </ul>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16">
+            
+            <div class="lg:col-span-8 space-y-20">
+                
+                <section aria-labelledby="challenge-header">
+                    <h2 id="challenge-header" class="text-3xl font-bold mb-8">The Scaling Mess (Honest Context)</h2>
+                    <div class="prose dark:prose-invert prose-lg max-w-none text-gray-700 dark:text-gray-300">
+                        <p>Booking.com was moving fast, but design was lagging. Teams were working in silos, creating <strong>37+ variations of a single button</strong>. My challenge wasn't just fixing the library; it was fixing the <strong>trust</strong> between the System team and the Product teams.</p>
+                        
+                        <div class="grid md:grid-cols-2 gap-8 my-10">
+                            <div class="p-6 border-l-4 border-red-500 bg-red-50 dark:bg-red-900/10">
+                                <h3 class="font-bold text-red-800 dark:text-red-400 mb-2">The Efficiency Drain</h3>
+                                <p class="text-sm">Engineering teams wasted 30% of their sprints rebuilding UI components from scratch.</p>
+                            </div>
+                            <div class="p-6 border-l-4 border-amber-500 bg-amber-50 dark:bg-amber-900/10">
+                                <h3 class="font-bold text-amber-800 dark:text-amber-400 mb-2">The Adoption Wall</h3>
+                                <p class="text-sm">Teams felt the central system was a "bottleneck" that didn't understand their local market needs.</p>
+                            </div>
                         </div>
                     </div>
                 </section>
 
-                <section class="mb-16" aria-labelledby="playbook-heading">
-                    <h2 id="playbook-heading" class="text-4xl font-light mb-8">The Strategic Playbook</h2>
-                    
-                    <div class="space-y-12 prose dark:prose-invert max-w-none">
-                        <div>
-                            <h3 class="text-2xl font-semibold mb-4">1. From "Police" to "Partners"</h3>
-                            <p>
-                                I focused on building trust through <strong>real-time support</strong>. I launched a dedicated help desk and office hours to resolve implementation queries immediately, shifting the team's perception from "gatekeepers" to "enablers."
-                            </p>
+                <section aria-labelledby="strategy-header">
+                    <h2 id="strategy-header" class="text-3xl font-bold mb-8">Strategic Execution</h2>
+                    <div class="space-y-12">
+                        <div class="flex gap-6">
+                            <div class="shrink-0 w-12 h-12 rounded-full bg-bookingBlue text-white flex items-center justify-center font-bold">1</div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">DesignOps: A Support Ecosystem</h3>
+                                <p class="text-gray-600 dark:text-gray-400 leading-relaxed">I established "Office Hours" and a real-time support tier. We stopped being the "Design Police" and became consultants. This reduced frustration and turned 200+ teams into advocates.</p>
+                            </div>
                         </div>
-
-                        <div>
-                            <h3 class="text-2xl font-semibold mb-4">2. Building for the Extremes</h3>
-                            <p>
-                                To prove the system's value, I designed the <strong>Adaptive Date Picker</strong>—our most complex component. It needed to handle ranges and pricing overlays across 40+ locales. By solving this "beast," we reduced implementation time from <strong>3 weeks to 2 hours</strong>.
-                            </p>
-                            
+                        
+                        <div class="flex gap-6">
+                            <div class="shrink-0 w-12 h-12 rounded-full bg-bookingBlue text-white flex items-center justify-center font-bold">2</div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Architecting "The Beast" (Adaptive Date Picker)</h3>
+                                <p class="text-gray-600 dark:text-gray-400 leading-relaxed">I designed the most complex component in the library. It had to handle ranges, pricing overlays, and 40+ languages. By modularizing this, we cut implementation time from <strong>3 weeks to 2 hours</strong>.</p>
+                            </div>
                         </div>
-
-                        <div>
-                            <h3 class="text-2xl font-semibold mb-4">3. Creating a "Watering Hole"</h3>
-                            <p>
-                                I established a collaborative platform where teams could <strong>brainstorm new patterns</strong> before they became official. This sense of collective ownership led to an 89% component reuse rate.
-                            </p>
+                        
+                        <div class="flex gap-6">
+                            <div class="shrink-0 w-12 h-12 rounded-full bg-bookingBlue text-white flex items-center justify-center font-bold">3</div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Collaborative Brainstorming Platform</h3>
+                                <p class="text-gray-600 dark:text-gray-400 leading-relaxed">I created a platform where teams could pitch new patterns. If a pattern worked in an A/B test, we promoted it to the core library. This turned the Design System into a living organism.</p>
+                            </div>
                         </div>
                     </div>
                 </section>
 
-                <section class="mb-16" aria-labelledby="impact-heading">
-                    <h2 id="impact-heading" class="text-4xl font-light mb-8">Measured Impact</h2>
-                    <div class="grid grid-cols-2 gap-6">
-                        <div class="metric-card rounded-2xl p-8 text-center">
-                            <div class="text-4xl font-bold mb-2">65%</div>
-                            <p class="text-sm uppercase tracking-wider text-gray-500">Faster Development</p>
+                <section class="bg-grayLight dark:bg-grayDark p-8 rounded-3xl border border-gray-200 dark:border-gray-800" aria-labelledby="swot-header">
+                    <h2 id="swot-header" class="text-2xl font-bold mb-6 italic">SWOT Analysis: The System in Reality</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm">
+                        <div>
+                            <h4 class="font-bold text-green-600 mb-2 underline">Strengths</h4>
+                            <p>High adoption (94%) and extreme speed in launching experiments.</p>
                         </div>
-                        <div class="metric-card rounded-2xl p-8 text-center">
-                            <div class="text-4xl font-bold mb-2">94%</div>
-                            <p class="text-sm uppercase tracking-wider text-gray-500">UI Consistency</p>
+                        <div>
+                            <h4 class="font-bold text-blue-600 mb-2 underline">Opportunities</h4>
+                            <p>Automating design tokens directly into the CI/CD pipeline for engineers.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-amber-600 mb-2 underline">Weaknesses</h4>
+                            <p>Documentation was initially hard to search, requiring constant human support.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-red-600 mb-2 underline">Threats</h4>
+                            <p>Rapid tech shifts in mobile required frequent component refactors.</p>
                         </div>
                     </div>
                 </section>
             </div>
 
-            <aside class="lg:col-span-1">
-                <div class="sticky top-24 space-y-8">
+            <div class="lg:col-span-4 space-y-8">
+                <div class="sticky top-24 space-y-6">
                     
-                    <div class="bg-purple-600 text-white rounded-2xl p-8 shadow-xl">
-                        <h3 class="text-xl font-bold mb-4 italic">"Adoption is the only metric that matters."</h3>
-                        <p class="text-purple-100">
-                            A technically perfect library is useless if your support system is a bottleneck. I learned that a design system is 10% pixels and 90% people.
-                        </p>
+                    <div class="metric-card rounded-3xl p-8 space-y-6">
+                        <h3 class="text-lg font-bold uppercase tracking-widest text-gray-500">The ROI</h3>
+                        <div>
+                            <p class="text-4xl font-black text-bookingBlue dark:text-blue-400">65%</p>
+                            <p class="text-sm font-medium">Reduction in design-to-dev cycle time</p>
+                        </div>
+                        <div>
+                            <p class="text-4xl font-black text-bookingBlue dark:text-blue-400">94%</p>
+                            <p class="text-sm font-medium">Visual consistency across 40+ markets</p>
+                        </div>
+                        <div>
+                            <p class="text-4xl font-black text-bookingBlue dark:text-blue-400">89%</p>
+                            <p class="text-sm font-medium">Component reuse rate across new launches</p>
+                        </div>
                     </div>
 
-                    <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800">
-                        <h3 class="font-semibold mb-6">Project Context</h3>
-                        <dl class="space-y-4 text-sm">
-                            <div>
-                                <dt class="text-gray-500">Role</dt>
-                                <dd class="font-medium">Senior Product Designer & System Lead</dd>
-                            </div>
-                            <div>
-                                <dt class="text-gray-500">Scale</dt>
-                                <dd class="font-medium">200+ Teams | 40+ Locales</dd>
-                            </div>
-                            <div>
-                                <dt class="text-gray-500">Tools</dt>
-                                <dd class="flex flex-wrap gap-2 mt-2">
-                                    <span class="px-2 py-1 bg-white dark:bg-black border rounded text-xs">Figma</span>
-                                    <span class="px-2 py-1 bg-white dark:bg-black border rounded text-xs">Tokens</span>
-                                    <span class="px-2 py-1 bg-white dark:bg-black border rounded text-xs">Storybook</span>
-                                </dd>
-                            </div>
-                        </dl>
+                    <div class="bg-grayLight dark:bg-grayDark rounded-3xl p-8 border border-gray-200 dark:border-gray-800 space-y-4 text-sm">
+                        <div>
+                            <span class="block text-gray-500 font-bold mb-1 uppercase text-xs tracking-tighter">My Role</span>
+                            <span class="font-medium">System Evolution & Advocacy Lead</span>
+                        </div>
+                        <div>
+                            <span class="block text-gray-500 font-bold mb-1 uppercase text-xs tracking-tighter">Scope</span>
+                            <span class="font-medium">200+ Independent Product Teams</span>
+                        </div>
+                        <div>
+                            <span class="block text-gray-500 font-bold mb-1 uppercase text-xs tracking-tighter">Tools</span>
+                            <span class="font-medium italic text-bookingBlue dark:text-blue-400">Figma (Tokens), Storybook, TypeScript</span>
+                        </div>
                     </div>
+
+                    <div class="p-8 border-2 border-dashed border-bookingBlue/30 rounded-3xl">
+                        <h4 class="font-bold mb-2">Key Senior Insight</h4>
+                        <p class="text-sm italic text-gray-600 dark:text-gray-400">"A design system is only as good as the support channel. If a designer gets stuck for more than 30 minutes, they'll build a custom component. My job was to ensure they never got stuck."</p>
+                    </div>
+
                 </div>
-            </aside>
+            </div>
         </div>
     </main>
 
-    <footer class="py-20 mt-20 border-t border-gray-200 dark:border-gray-800" role="contentinfo">
-        <div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-8">
-            <div>
-                <p class="text-2xl font-semibold">Jadvinder Daudhria</p>
-                <p class="text-gray-600 dark:text-gray-400">Strategic Senior Product Designer</p>
-            </div>
-            <div class="flex space-x-6">
-                <a href="mailto:j.daudhria@gmail.com" class="hover:text-purple-600 transition-colors" aria-label="Email Jadvinder">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-width="1.5"/></svg>
-                </a>
-                <a href="https://linkedin.com/..." class="hover:text-blue-600 transition-colors" aria-label="LinkedIn Profile">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                </a>
-            </div>
-        </div>
+    <footer class="max-w-7xl mx-auto px-6 py-20 border-t border-gray-200 dark:border-gray-800 text-center">
+        <h2 class="text-2xl font-bold mb-4 italic">Next: Re-architecting the Booking.com A/B Platform</h2>
+        <a href="project6.html" class="inline-block bg-bookingBlue text-white px-10 py-4 rounded-full font-bold hover:scale-105 transition-transform">View Next Case Study →</a>
     </footer>
 
     <script>
+        // Theme Toggle Script
         const themeToggle = document.getElementById('themeToggle');
-        const sunIcon = document.getElementById('sunIcon');
-        const moonIcon = document.getElementById('moonIcon');
-        
-        const setTheme = (theme) => {
-            if (theme === 'dark') {
-                document.documentElement.classList.add('dark');
-                moonIcon.classList.remove('hidden');
-                sunIcon.classList.add('hidden');
-            } else {
-                document.documentElement.classList.remove('dark');
-                sunIcon.classList.remove('hidden');
-                moonIcon.classList.add('hidden');
-            }
-        };
-
-        const currentTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        setTheme(currentTheme);
-        
         themeToggle.addEventListener('click', () => {
-            const isDark = document.documentElement.classList.toggle('dark');
+            document.documentElement.classList.toggle('dark');
+            const isDark = document.documentElement.classList.contains('dark');
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
-            setTheme(isDark ? 'dark' : 'light');
         });
+
+        // Check for saved theme
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark');
+        }
     </script>
 </body>
 </html>
