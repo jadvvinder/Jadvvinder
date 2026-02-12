@@ -1,23 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-	<!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F127DXH209"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-F127DXH209');
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jadvvinder Daudhria | Senior Product Designer - Portfolio</title>
-    <meta name="description" content="Portfolio of Jadvvinder Daudhria, Senior Product Designer showcasing 10+ case studies and 18+ website projects across various industries.">
+    <title>AI-Powered Dynamic Travel Itinerary | Jadvvinder Daudhria</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -30,15 +19,7 @@
                         textLight: '#171717',
                         textDark: '#E5E5E5',
                         grayLight: '#FAFAFA',
-                        grayDark: '#1A1A1A',
-                        surface: 'rgba(250, 250, 250, 0.8)',
-                        surfaceDark: 'rgba(10, 10, 10, 0.8)',
-                        enterprise: '#3B82F6',
-                        consumer: '#EC4899',
-                        edtech: '#F59E0B',
-                        mobility: '#F97316',
-                        designSystem: '#8B5CF6',
-                        research: '#10B981'
+                        grayDark: '#1A1A1A'
                     },
                     fontFamily: {
                         'sans': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
@@ -47,25 +28,6 @@
                         '18': '4.5rem',
                         '88': '22rem',
                         '128': '32rem',
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 0.5s ease-out',
-                        'slide-up': 'slideUp 0.6s ease-out',
-                        'scale-in': 'scaleIn 0.4s ease-out'
-                    },
-                    keyframes: {
-                        fadeIn: {
-                            '0%': { opacity: '0' },
-                            '100%': { opacity: '1' }
-                        },
-                        slideUp: {
-                            '0%': { transform: 'translateY(20px)', opacity: '0' },
-                            '100%': { transform: 'translateY(0)', opacity: '1' }
-                        },
-                        scaleIn: {
-                            '0%': { transform: 'scale(0.95)', opacity: '0' },
-                            '100%': { transform: 'scale(1)', opacity: '1' }
-                        }
                     }
                 }
             }
@@ -89,6 +51,16 @@
             margin-bottom: 1.5em;
         }
         
+        .prose ul {
+            margin-top: 1.5em;
+            margin-bottom: 1.5em;
+        }
+        
+        .prose li {
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+        }
+        
         .section-padding {
             padding-top: 6rem;
             padding-bottom: 6rem;
@@ -102,890 +74,484 @@
         }
         
         .card-hover {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease;
         }
         
         .card-hover:hover {
             transform: translateY(-4px);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .dark .card-hover:hover {
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
         }
         
         .metric-card {
             background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border: 1px solid rgba(102, 126, 234, 0.2);
         }
         
         .dark .metric-card {
             background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
+            border: 1px solid rgba(102, 126, 234, 0.3);
         }
         
-        /* Modern, clean project cards */
-        .project-card {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            height: 100%;
-            position: relative;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-        }
-        
-        .dark .project-card {
-            background: rgba(26, 26, 26, 0.7);
-        }
-        
-        .project-card:hover {
-            transform: translateY(-6px);
-        }
-        
-        .project-icon-container {
-            transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.9);
-        }
-        
-        .dark .project-icon-container {
-            background: rgba(26, 26, 26, 0.9);
-        }
-        
-        .project-card:hover .project-icon-container {
-            transform: scale(1.05);
-        }
-        
-        .website-card {
-            transition: all 0.3s ease;
-            height: 100%;
-        }
-        
-        .website-card:hover {
-            transform: translateY(-2px);
-        }
-        
-        /* Modern link styling */
-        .case-study-link {
-            position: relative;
-            display: inline-flex;
-            align-items: center;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        
-        .case-study-link::after {
-            content: '→';
-            margin-left: 6px;
-            transition: transform 0.3s ease;
-        }
-        
-        .case-study-link:hover::after {
-            transform: translateX(4px);
-        }
-        
-        /* Subtle accent colors */
-        .accent-border {
-            position: relative;
-        }
-        
-        .accent-border::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .accent-border:hover::before {
-            opacity: 1;
-        }
-        
-        /* Glass morphism effect */
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .dark .glass-effect {
-            background: rgba(26, 26, 26, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        /* Focus styles for accessibility */
-        :focus-visible {
-            outline: 3px solid #3B82F6;
-            outline-offset: 3px;
-            border-radius: 4px;
-        }
-        
-        /* Skip to main content link */
-        .skip-to-main {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: #3B82F6;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 4px;
-            z-index: 1001;
-            text-decoration: none;
-        }
-        
-        .skip-to-main:focus {
-            top: 0;
-        }
-        
-        /* Reduced motion support */
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-            
-            .project-card,
-            .website-card,
-            .case-study-link::after {
-                transition: none !important;
-            }
-            
-            .project-card:hover,
-            .website-card:hover {
-                transform: none !important;
-            }
-        }
-        
-        /* High contrast mode support */
-        @media (prefers-contrast: high) {
-            .project-card,
-            .website-card {
-                border: 2px solid currentColor;
-            }
-            
-            .glass-effect {
-                background: rgba(255, 255, 255, 0.95);
-            }
-            
-            .dark .glass-effect {
-                background: rgba(26, 26, 26, 0.95);
-            }
+        .sticky-sidebar {
+            position: sticky;
+            top: 6rem;
         }
     </style>
 </head>
 <body class="bg-light dark:bg-dark text-textLight dark:text-textDark font-sans transition-colors duration-300">
-    <!-- Skip to main content for keyboard users -->
-    <a href="#main-content" class="skip-to-main">Skip to main content</a>
-
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 bg-light/95 dark:bg-dark/95 backdrop-blur-lg z-50 border-b border-gray-200/50 dark:border-gray-800/50" aria-label="Main navigation">
-        <div class="max-w-6xl mx-auto px-8 py-5">
+    <nav class="fixed top-0 left-0 right-0 bg-light/95 dark:bg-dark/95 backdrop-blur-lg z-50 border-b border-gray-200/50 dark:border-gray-800/50">
+        <div class="max-w-7xl mx-auto px-8 py-5">
             <div class="flex items-center justify-between">
-                <a href="index.html#hero" class="text-xl font-semibold tracking-tight hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded">
-                    <span class="sr-only">Home</span>
-                    <span aria-hidden="true">JD</span>
-                </a>
+                <a href="index.html" class="text-xl font-semibold tracking-tight hover:opacity-80 transition-opacity">← Back to Portfolio</a>
                 <div class="flex items-center space-x-10">
-                    <a href="index.html#work" class="text-base font-medium hover:text-gray-600 dark:hover:text-gray-300 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded px-2 py-1">Work</a>
-                    <a href="index.html#about" class="text-base font-medium hover:text-gray-600 dark:hover:text-gray-300 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded px-2 py-1">About</a>
-                    <a href="index.html#contact" class="text-base font-medium hover:text-gray-600 dark:hover:text-gray-300 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded px-2 py-1">Contact</a>
-                    <button id="themeToggle" class="p-2.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" aria-label="Toggle dark mode">
-                        <svg id="sunIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <title>Light mode icon</title>
+                    <button id="themeToggle" class="p-2.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                        <svg id="sunIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
                         </svg>
-                        <svg id="moonIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <title>Dark mode icon</title>
+                        <svg id="moonIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
                         </svg>
-                        <span class="sr-only">Current theme: </span>
-                        <span id="themeStatus" class="sr-only"></span>
                     </button>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Quick Stats Banner -->
-    <div class="bg-gray-50 dark:bg-gray-900 border-y border-gray-200 dark:border-gray-800 mt-16" role="region" aria-label="Portfolio Statistics">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <h2 class="sr-only">Portfolio Statistics</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-                <div>
-                    <div class="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white" aria-label="10 plus case studies">10+</div>
-                    <div class="text-sm text-gray-600 dark:text-gray-400">Case Studies</div>
+    <!-- Case Study Content -->
+    <main class="pt-24">
+        <!-- Hero Section -->
+        <section class="section-padding">
+            <div class="max-w-7xl mx-auto px-8">
+                <div class="mb-12">
+                    <div class="inline-flex items-center px-4 py-2 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-sm font-medium mb-6">
+                        🏆 Hackathon Winner
+                    </div>
+                    <h1 class="text-5xl font-light mb-8 tracking-tight leading-[1.1]">
+                        AI-Powered Dynamic Travel Itinerary Generator
+                    </h1>
+                    <p class="text-2xl text-gray-600 dark:text-gray-400 max-w-4xl leading-relaxed">
+                        Using AI to transform scattered travel information into 
+                        <span class="font-semibold text-textLight dark:text-textDark">personalized, comprehensive itineraries</span>, 
+                        reducing planning time from hours to minutes.
+                    </p>
                 </div>
-                <div>
-                    <div class="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white" aria-label="18 plus websites">18+</div>
-                    <div class="text-sm text-gray-600 dark:text-gray-400">Websites</div>
+            </div>
+        </section>
+
+        <!-- Content Sections -->
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                <!-- Main Content -->
+                <div class="lg:col-span-2">
+                    <!-- Strategic Context -->
+                    <section class="mb-16">
+                        <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800">
+                            <h2 class="text-3xl font-semibold mb-8">Strategic Context</h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <div>
+                                    <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Role</h3>
+                                    <p class="text-lg">Lead Designer & AI Strategist</p>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Industry</h3>
+                                    <p class="text-lg">Travel Technology</p>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Timeline</h3>
+                                    <p class="text-lg">48-hour Hackathon</p>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Team</h3>
+                                    <p class="text-lg">Product Manager, 3 Engineers, Copywriter, Data Analyst</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- The Core Problem -->
+                    <section class="mb-16">
+                        <h2 class="text-4xl font-light mb-8">The Core Problem</h2>
+                        <div class="prose max-w-none">
+                            <p>
+                                When travelers search Google for queries like <em>"2 day itinerary for family of 4 in Tuscany Italy"</em>, they're overwhelmed with scattered information across dozens of websites. Hotel guides are on one site, restaurant recommendations on another, activity suggestions elsewhere. Each piece of content addresses only one aspect of trip planning, forcing users to manually piece together a complete itinerary across multiple sources.
+                            </p>
+                            <div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-6 my-8">
+                                <h3 class="text-lg font-semibold text-red-800 dark:text-red-300 mb-4">Key Pain Points Identified</h3>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start">
+                                        <span class="mr-3">•</span>
+                                        <span><strong>Information fragmentation:</strong> Users must visit 10+ sites to plan one trip</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="mr-3">•</span>
+                                        <span><strong>Generic recommendations:</strong> Content isn't tailored to specific traveler profiles (e.g., "family of 4")</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="mr-3">•</span>
+                                        <span><strong>Cognitive overload:</strong> Too many choices without clear prioritization</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="mr-3">•</span>
+                                        <span><strong>Time-consuming manual synthesis:</strong> Users spend hours compiling and organizing information</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Strategic Goals -->
+                    <section class="mb-16">
+                        <h2 class="text-4xl font-light mb-8">Strategic Goals</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 rounded-2xl p-8 border border-blue-200 dark:border-blue-800 card-hover">
+                                <div class="text-3xl mb-4">🎯</div>
+                                <h3 class="text-xl font-semibold mb-3">Consolidate Information</h3>
+                                <p class="text-gray-600 dark:text-gray-400">
+                                    Replace 50 browser tabs with one comprehensive, personalized itinerary page
+                                </p>
+                            </div>
+                            <div class="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 rounded-2xl p-8 border border-purple-200 dark:border-purple-800 card-hover">
+                                <div class="text-3xl mb-4">🤖</div>
+                                <h3 class="text-xl font-semibold mb-3">Leverage AI</h3>
+                                <p class="text-gray-600 dark:text-gray-400">
+                                    Use AI strategically across research, design, and prototyping to accelerate delivery
+                                </p>
+                            </div>
+                            <div class="bg-gradient-to-br from-indigo-50 to-indigo-100 dark:from-indigo-900/20 dark:to-indigo-800/20 rounded-2xl p-8 border border-indigo-200 dark:border-indigo-800 card-hover">
+                                <div class="text-3xl mb-4">👥</div>
+                                <h3 class="text-xl font-semibold mb-3">Enable Team Alignment</h3>
+                                <p class="text-gray-600 dark:text-gray-400">
+                                    Create rapid prototypes that align cross-functional teams on vision
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- AI-Augmented Process -->
+                    <section class="mb-16">
+                        <h2 class="text-4xl font-light mb-8">AI-Augmented Design Process</h2>
+                        
+                        <!-- Phase 1 -->
+                        <div class="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/10 dark:to-emerald-900/10 rounded-2xl p-8 mb-8 border border-gray-200 dark:border-gray-800">
+                            <div class="flex items-center mb-6">
+                                <div class="flex-shrink-0 w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center mr-4">
+                                    <span class="text-green-600 dark:text-green-400 text-xl font-bold">1</span>
+                                </div>
+                                <h3 class="text-2xl font-semibold">AI-Powered Research & Pattern Discovery</h3>
+                            </div>
+                            <div class="mb-6">
+                                <div class="inline-flex items-center px-3 py-1 bg-green-200 dark:bg-green-900/50 text-green-800 dark:text-green-300 rounded-full text-sm font-medium mb-4">
+                                    Tools: Google Gemini, NotebookLM
+                                </div>
+                            </div>
+                            <div class="prose max-w-none">
+                                <p class="mb-4">
+                                    I used <strong>Google Gemini</strong> to analyze common travel search patterns and user intent. I fed it dozens of real user queries to identify key patterns:
+                                </p>
+                                <ul class="space-y-2 ml-6">
+                                    <li><strong>Traveler profile:</strong> Family size, age groups, travel style (luxury/budget/adventure)</li>
+                                    <li><strong>Trip parameters:</strong> Duration, season, budget range</li>
+                                    <li><strong>Core needs:</strong> Accommodations, dining, activities, transportation, logistics</li>
+                                    <li><strong>Context-specific requirements:</strong> Accessibility needs, dietary restrictions, kid-friendly options</li>
+                                </ul>
+                                <p class="mt-4">
+                                    Next, I used <strong>Google NotebookLM</strong> to synthesize research from top travel sites (TripAdvisor, Lonely Planet, travel blogs) and competitive itinerary builders. NotebookLM helped me extract common content structures, identify information hierarchy patterns, map out content types needed, and analyze gaps in existing solutions.
+                                </p>
+                                <div class="bg-white dark:bg-gray-800 border border-green-200 dark:border-green-800 rounded-lg p-4 mt-6">
+                                    <p class="text-sm font-semibold text-green-700 dark:text-green-300 mb-2">💡 Key Insight from AI Analysis:</p>
+                                    <p class="text-sm">Users need a single, scannable page with clear day-by-day structure, personalized recommendations, and actionable next steps. Generic listicles don't solve the planning problem – context-aware, synthesized itineraries do.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Phase 2 -->
+                        <div class="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/10 dark:to-cyan-900/10 rounded-2xl p-8 mb-8 border border-gray-200 dark:border-gray-800">
+                            <div class="flex items-center mb-6">
+                                <div class="flex-shrink-0 w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mr-4">
+                                    <span class="text-blue-600 dark:text-blue-400 text-xl font-bold">2</span>
+                                </div>
+                                <h3 class="text-2xl font-semibold">Rapid Wireframing with Figma AI</h3>
+                            </div>
+                            <div class="mb-6">
+                                <div class="inline-flex items-center px-3 py-1 bg-blue-200 dark:bg-blue-900/50 text-blue-800 dark:text-blue-300 rounded-full text-sm font-medium mb-4">
+                                    Tools: Figma AI, FigJam
+                                </div>
+                            </div>
+                            <div class="prose max-w-none">
+                                <p class="mb-4">
+                                    Armed with research insights, I used <strong>Figma AI</strong> to generate initial wireframe concepts rapidly. Instead of spending hours sketching layouts manually, I prompted Figma AI with structure requirements from NotebookLM.
+                                </p>
+                                <p>
+                                    Figma AI produced 5-6 layout variations in minutes. I refined the most promising concepts, focusing on:
+                                </p>
+                                <ul class="space-y-2 ml-6">
+                                    <li><strong>Scannable hierarchy:</strong> Clear day headers, collapsible sections, visual timeline</li>
+                                    <li><strong>Personalization indicators:</strong> Tags like "Perfect for families" or "Budget-friendly"</li>
+                                    <li><strong>Actionable design:</strong> Prominent booking CTAs, add-to-calendar buttons, share functionality</li>
+                                    <li><strong>Mobile-first approach:</strong> Thumb-friendly navigation, progressive disclosure, fast load times</li>
+                                </ul>
+                                <div class="bg-white dark:bg-gray-800 border border-blue-200 dark:border-blue-800 rounded-lg p-4 mt-6">
+                                    <p class="text-sm font-semibold text-blue-700 dark:text-blue-300 mb-2">⚡ Impact:</p>
+                                    <p class="text-sm">FigJam brainstorming session aligned the entire team in under 2 hours. Copywriters knew what tone was needed, engineers understood data requirements, and PMs could prioritize MVP features.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Phase 3 -->
+                        <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/10 dark:to-pink-900/10 rounded-2xl p-8 mb-8 border border-gray-200 dark:border-gray-800">
+                            <div class="flex items-center mb-6">
+                                <div class="flex-shrink-0 w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center mr-4">
+                                    <span class="text-purple-600 dark:text-purple-400 text-xl font-bold">3</span>
+                                </div>
+                                <h3 class="text-2xl font-semibold">High-Fidelity Mockups & AI Content</h3>
+                            </div>
+                            <div class="mb-6">
+                                <div class="inline-flex items-center px-3 py-1 bg-purple-200 dark:bg-purple-900/50 text-purple-800 dark:text-purple-300 rounded-full text-sm font-medium mb-4">
+                                    Tools: Figma AI, Google Gemini
+                                </div>
+                            </div>
+                            <div class="prose max-w-none">
+                                <p>
+                                    With the wireframe validated, I used <strong>Figma AI</strong> to generate high-fidelity mockups. I iterated on visual design, component consistency (reusable cards for hotels, restaurants, activities), and responsive layouts for mobile and desktop.
+                                </p>
+                                <p class="mt-4">
+                                    I used <strong>Google Gemini</strong> to generate realistic sample content (hotel descriptions, restaurant reviews, activity details) that matched the tone and length requirements. This made the prototype feel real and helped stakeholders visualize the final experience.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Phase 4 -->
+                        <div class="bg-gradient-to-br from-orange-50 to-red-50 dark:from-orange-900/10 dark:to-red-900/10 rounded-2xl p-8 border border-gray-200 dark:border-gray-800">
+                            <div class="flex items-center mb-6">
+                                <div class="flex-shrink-0 w-12 h-12 bg-orange-100 dark:bg-orange-900/30 rounded-xl flex items-center justify-center mr-4">
+                                    <span class="text-orange-600 dark:text-orange-400 text-xl font-bold">4</span>
+                                </div>
+                                <h3 class="text-2xl font-semibold">Functional Prototype with AI-Generated Code</h3>
+                            </div>
+                            <div class="mb-6">
+                                <div class="inline-flex items-center px-3 py-1 bg-orange-200 dark:bg-orange-900/50 text-orange-800 dark:text-orange-300 rounded-full text-sm font-medium mb-4">
+                                    Tools: Google AI Studio, HTML/CSS/JS
+                                </div>
+                            </div>
+                            <div class="prose max-w-none">
+                                <p>
+                                    To bring the design to life within the 48-hour deadline, we used <strong>Google AI</strong> to generate a working HTML prototype. I provided the Figma mockups and design specifications, and AI generated:
+                                </p>
+                                <ul class="space-y-2 ml-6">
+                                    <li>Semantic HTML structure with accessibility best practices (ARIA labels, keyboard navigation)</li>
+                                    <li>Responsive CSS matching the design system (flexbox layouts, mobile breakpoints)</li>
+                                    <li>Interactive JavaScript for collapsible sections, map integration, and booking CTAs</li>
+                                </ul>
+                                <p class="mt-4">
+                                    I reviewed and refined the code to ensure WCAG 2.1 AA compliance, performance optimization (lazy loading images, efficient CSS), and design fidelity (pixel-perfect match to mockups).
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Measured Outcome -->
+                    <section class="mb-16">
+                        <h2 class="text-4xl font-light mb-8">Impact & Results</h2>
+                        
+                        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                            <div class="metric-card rounded-2xl p-6 text-center">
+                                <div class="text-3xl font-bold mb-2">🏆</div>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Top 3 Hackathon Winner</p>
+                            </div>
+                            <div class="metric-card rounded-2xl p-6 text-center">
+                                <div class="text-3xl font-bold mb-2">70%</div>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Faster design process with AI</p>
+                            </div>
+                            <div class="metric-card rounded-2xl p-6 text-center">
+                                <div class="text-3xl font-bold mb-2">&lt;8h</div>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Full team alignment time</p>
+                            </div>
+                            <div class="metric-card rounded-2xl p-6 text-center">
+                                <div class="text-3xl font-bold mb-2">100%</div>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">WCAG 2.1 AA compliant</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-800">
+                            <h3 class="text-2xl font-semibold mb-6">💡 Key Takeaways & Skills Demonstrated</h3>
+                            <div class="prose max-w-none">
+                                <ul class="space-y-4">
+                                    <li><strong>AI-augmented design process:</strong> Strategically used AI tools (Gemini, NotebookLM, Figma AI) at every stage – research, ideation, design, prototyping</li>
+                                    <li><strong>Rapid prototyping:</strong> Delivered a high-fidelity, functional prototype in 48 hours through smart tool usage and team collaboration</li>
+                                    <li><strong>Systems thinking:</strong> Designed a scalable solution that could adapt to any destination, traveler profile, or trip duration</li>
+                                    <li><strong>Accessibility-first approach:</strong> Ensured WCAG compliance even in fast-paced hackathon environment</li>
+                                    <li><strong>Cross-functional leadership:</strong> Aligned diverse stakeholders (design, engineering, content, product) around a shared vision</li>
+                                    <li><strong>User-centered problem solving:</strong> Started with real user pain points (information overload) and designed a solution that directly addressed them</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Reflection -->
+                    <section class="mb-16">
+                        <div class="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-2xl p-8 border border-gray-200 dark:border-gray-800">
+                            <h2 class="text-3xl font-semibold mb-6">🎯 Reflection</h2>
+                            <div class="prose max-w-none">
+                                <p>
+                                    This project reinforced my belief that AI is a powerful accelerator for designers – not a replacement. By using AI strategically for research synthesis, rapid concept generation, and code prototyping, I freed up time for the work that truly requires human judgment: understanding user needs, making strategic design decisions, and ensuring accessibility and quality.
+                                </p>
+                                <p class="mt-4">
+                                    The key is knowing when to use AI (pattern discovery, generating options, automating repetitive tasks) and when to rely on human expertise (synthesizing insights, making trade-offs, ensuring inclusive design). This balanced approach allowed us to move fast without compromising on craft or user experience.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Navigation -->
+                    <div class="pt-8 border-t border-gray-200 dark:border-gray-800">
+                        <div class="flex justify-between items-center">
+                            <a href="index.html" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors font-medium">
+                                Back to Portfolio
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <div class="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white" aria-label="8 plus industries">8+</div>
-                    <div class="text-sm text-gray-600 dark:text-gray-400">Industries</div>
-                </div>
-                <div>
-                    <div class="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white" aria-label="12 plus years experience">12+</div>
-                    <div class="text-sm text-gray-600 dark:text-gray-400">Years Experience</div>
+
+                <!-- Sidebar -->
+                <div class="lg:col-span-1">
+                    <div class="sticky-sidebar">
+                        <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800 mb-8">
+                            <h3 class="text-lg font-semibold mb-6">Project Highlights</h3>
+                            <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <span class="mr-3 text-purple-600 dark:text-purple-400">✓</span>
+                                    <span>AI-augmented design process</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="mr-3 text-purple-600 dark:text-purple-400">✓</span>
+                                    <span>48-hour rapid prototyping</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="mr-3 text-purple-600 dark:text-purple-400">✓</span>
+                                    <span>Cross-functional team alignment</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="mr-3 text-purple-600 dark:text-purple-400">✓</span>
+                                    <span>Accessibility compliance (WCAG 2.1 AA)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="mr-3 text-purple-600 dark:text-purple-400">✓</span>
+                                    <span>Travel industry innovation</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800">
+                            <h3 class="text-lg font-semibold mb-6">AI Tools Used</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm">Google Gemini</span>
+                                <span class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm">NotebookLM</span>
+                                <span class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm">Figma AI</span>
+                                <span class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm">Google AI Studio</span>
+                                <span class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm">FigJam</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800 mt-8">
+                            <h3 class="text-lg font-semibold mb-6">Project Phases</h3>
+                            <div class="space-y-3">
+                                <div>
+                                    <div class="text-sm text-gray-500 dark:text-gray-400 mb-1">Research & Pattern Discovery</div>
+                                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                        <div class="bg-green-600 h-2 rounded-full" style="width: 25%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="text-sm text-gray-500 dark:text-gray-400 mb-1">Wireframing & Concept</div>
+                                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                        <div class="bg-blue-600 h-2 rounded-full" style="width: 25%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="text-sm text-gray-500 dark:text-gray-400 mb-1">High-Fi Design</div>
+                                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                        <div class="bg-purple-600 h-2 rounded-full" style="width: 25%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="text-sm text-gray-500 dark:text-gray-400 mb-1">Prototyping & Delivery</div>
+                                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                        <div class="bg-orange-600 h-2 rounded-full" style="width: 25%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- Main Content -->
-    <main id="main-content" tabindex="-1">
-        <!-- Case Studies & Projects Section -->
-        <section id="case-studies" class="py-20 md:py-28" aria-labelledby="case-studies-heading">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <!-- Section header -->
-                <header class="mb-12 md:mb-16 animate-slide-up">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-12 h-0.5 bg-gray-300 dark:bg-gray-700" aria-hidden="true"></div>
-                        <span class="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Featured Work</span>
-                    </div>
-                    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
-                        <div>
-                            <h2 id="case-studies-heading" class="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 text-gray-900 dark:text-white">Case Studies</h2>
-                            <p class="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl">
-                                Strategic UX design across diverse domains with measurable impact.
-                            </p>
-                        </div>
-                        <div class="text-sm text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-4 py-2 rounded-full">
-                            10 Projects • 6 Industries • 4-8 min read each
-                        </div>
-                    </div>
-                </header>
-                
-                <!-- Filter chips for quick scanning -->
-                <div class="mb-8" role="group" aria-label="Filter projects by category">
-                    <h3 class="sr-only">Project Categories</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <button class="px-3 py-1.5 text-xs font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500" aria-pressed="true" data-filter="all">All Projects</button>
-                        <button class="px-3 py-1.5 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500" aria-pressed="false" data-filter="ecommerce">E-commerce</button>
-                        <button class="px-3 py-1.5 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500" aria-pressed="false" data-filter="fintech">Fintech</button>
-                        <button class="px-3 py-1.5 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500" aria-pressed="false" data-filter="mobility">Mobility</button>
-                        <button class="px-3 py-1.5 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500" aria-pressed="false" data-filter="edtech">EdTech</button>
-                        <button class="px-3 py-1.5 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500" aria-pressed="false" data-filter="media">Media</button>
-                    </div>
-                </div>
-                
-                <!-- Grid of case studies -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16" role="list" aria-label="Case studies list">
-                    <!-- Row 1 -->
-                    <!-- Parking App -->
-                    <article class="project-card glass-effect rounded-2xl p-6 animate-fade-in accent-border" role="listitem" style="--accent-color: #F97316;">
-                        <div class="flex items-start justify-between mb-6">
-                            <div class="project-icon-container w-12 h-12 rounded-xl flex items-center justify-center mb-4" aria-hidden="true">
-                                <span class="text-xl" role="img" aria-label="Car icon">🚗</span>
-                            </div>
-                            <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">Mobility</span>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">Parking App Concept</h3>
-                        <p class="text-gray-600 dark:text-gray-400 mb-5 text-base leading-relaxed">
-                            Proposed parking app solution for Ola Cabs with seamless user experience for finding and booking parking.
-                        </p>
-                        <a href="https://bit.ly/35513Jo" class="case-study-link text-gray-900 dark:text-white hover:text-mobility dark:hover:text-mobility focus:outline-none focus:ring-2 focus:ring-mobility focus:ring-offset-2 rounded" target="_blank" rel="noopener noreferrer">
-                            View Case Study <span class="sr-only">for Parking App Concept</span>
-                        </a>
-                    </article>
-                    
-                    <!-- Retail Shop -->
-                    <article class="project-card glass-effect rounded-2xl p-6 animate-fade-in accent-border" role="listitem" style="--accent-color: #EC4899; animation-delay: 0.1s;">
-                        <div class="flex items-start justify-between mb-6">
-                            <div class="project-icon-container w-12 h-12 rounded-xl flex items-center justify-center mb-4" aria-hidden="true">
-                                <span class="text-xl" role="img" aria-label="Shopping cart icon">🛒</span>
-                            </div>
-                            <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">E-commerce</span>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">Retail Shop Mobile Site</h3>
-                        <p class="text-gray-600 dark:text-gray-400 mb-5 text-base leading-relaxed">
-                            Redesigned desktop and mobile experience for India's largest retail shop, improving conversion by 35%.
-                        </p>
-                        <a href="https://pluss.in/" class="case-study-link text-gray-900 dark:text-white hover:text-consumer dark:hover:text-consumer focus:outline-none focus:ring-2 focus:ring-consumer focus:ring-offset-2 rounded" target="_blank" rel="noopener noreferrer">
-                            Visit website <span class="sr-only">for Retail Shop Mobile Site</span>
-                        </a>
-                    </article>
-                    
-                    <!-- News Channel App -->
-                    <article class="project-card glass-effect rounded-2xl p-6 animate-fade-in accent-border" role="listitem" style="--accent-color: #3B82F6; animation-delay: 0.2s;">
-                        <div class="flex items-start justify-between mb-6">
-                            <div class="project-icon-container w-12 h-12 rounded-xl flex items-center justify-center mb-4" aria-hidden="true">
-                                <span class="text-xl" role="img" aria-label="Television icon">📺</span>
-                            </div>
-                            <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">Media</span>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">News Channel App</h3>
-                        <p class="text-gray-600 dark:text-gray-400 mb-5 text-base leading-relaxed">
-                            Mobile experience redesign for 'Aajtak' news channel focusing on personalized content delivery.
-                        </p>
-                        <a href="https://marvelapp.com/prototype/gf3ibg6/screen/27321278" class="case-study-link text-gray-900 dark:text-white hover:text-enterprise dark:hover:text-enterprise focus:outline-none focus:ring-2 focus:ring-enterprise focus:ring-offset-2 rounded" target="_blank" rel="noopener noreferrer">
-                            View Case Study <span class="sr-only">for News Channel App</span>
-                        </a>
-                    </article>
-                    
-                    <!-- Row 2 -->
-                    <!-- Fitness App -->
-                    <article class="project-card glass-effect rounded-2xl p-6 animate-fade-in accent-border" role="listitem" style="--accent-color: #EC4899; animation-delay: 0.3s;">
-                        <div class="flex items-start justify-between mb-6">
-                            <div class="project-icon-container w-12 h-12 rounded-xl flex items-center justify-center mb-4" aria-hidden="true">
-                                <span class="text-xl" role="img" aria-label="Weightlifting icon">🏋️</span>
-                            </div>
-                            <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">Health & Fitness</span>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">Fitness App Onboarding</h3>
-                        <p class="text-gray-600 dark:text-gray-400 mb-5 text-base leading-relaxed">
-                            Designed multiple onboarding flows increasing user retention by 42% in the first week.
-                        </p>
-                        <a href="https://tinyurl.com/42dcutt5" class="case-study-link text-gray-900 dark:text-white hover:text-consumer dark:hover:text-consumer focus:outline-none focus:ring-2 focus:ring-consumer focus:ring-offset-2 rounded" target="_blank" rel="noopener noreferrer">
-                            View Case Study <span class="sr-only">for Fitness App Onboarding</span>
-                        </a>
-                    </article>
-                    
-                    <!-- Retail Banking App -->
-                    <article class="project-card glass-effect rounded-2xl p-6 animate-fade-in accent-border" role="listitem" style="--accent-color: #3B82F6; animation-delay: 0.4s;">
-                        <div class="flex items-start justify-between mb-6">
-                            <div class="project-icon-container w-12 h-12 rounded-xl flex items-center justify-center mb-4" aria-hidden="true">
-                                <span class="text-xl" role="img" aria-label="Bank icon">🏦</span>
-                            </div>
-                            <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">Fintech</span>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">Rural Banking App</h3>
-                        <p class="text-gray-600 dark:text-gray-400 mb-5 text-base leading-relaxed">
-                            UX-focused mobile banking app designed specifically for rural markets with simplified navigation.
-                        </p>
-                        <a href="project4.html" class="case-study-link text-gray-900 dark:text-white hover:text-enterprise dark:hover:text-enterprise focus:outline-none focus:ring-2 focus:ring-enterprise focus:ring-offset-2 rounded" target="_blank" rel="noopener noreferrer">
-                            View Case Study <span class="sr-only">for Rural Banking App</span>
-                        </a>
-                    </article>
-                    
-                    <!-- Kids Educational App -->
-                    <article class="project-card glass-effect rounded-2xl p-6 animate-fade-in accent-border" role="listitem" style="--accent-color: #F59E0B; animation-delay: 0.5s;">
-                        <div class="flex items-start justify-between mb-6">
-                            <div class="project-icon-container w-12 h-12 rounded-xl flex items-center justify-center mb-4" aria-hidden="true">
-                                <span class="text-xl" role="img" aria-label="Graduation cap icon">🎓</span>
-                            </div>
-                            <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">EdTech</span>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">Kids Educational App</h3>
-                        <p class="text-gray-600 dark:text-gray-400 mb-5 text-base leading-relaxed">
-                            Educational video app for children aged 1-5 years with age-appropriate content and parental controls.
-                        </p>
-                        <a href="project3.html" class="case-study-link text-gray-900 dark:text-white hover:text-edtech dark:hover:text-edtech focus:outline-none focus:ring-2 focus:ring-edtech focus:ring-offset-2 rounded" target="_blank" rel="noopener noreferrer">
-                            View Case Study <span class="sr-only">for Kids Educational App</span>
-                        </a>
-                    </article>
-                    
-                    <!-- Row 3 -->
-                    <!-- Child Safety App -->
-                    <article class="project-card glass-effect rounded-2xl p-6 animate-fade-in accent-border" role="listitem" style="--accent-color: #EC4899; animation-delay: 0.6s;">
-                        <div class="flex items-start justify-between mb-6">
-                            <div class="project-icon-container w-12 h-12 rounded-xl flex items-center justify-center mb-4" aria-hidden="true">
-                                <span class="text-xl" role="img" aria-label="Baby icon">👶</span>
-                            </div>
-                            <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">Safety</span>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">Child Safety App</h3>
-                        <p class="text-gray-600 dark:text-gray-400 mb-5 text-base leading-relaxed">
-                            Safe digital experience for children to search the internet without exposure to questionable content.
-                        </p>
-                        <a href="https://tinyurl.com/4jmdpp8k" class="case-study-link text-gray-900 dark:text-white hover:text-consumer dark:hover:text-consumer focus:outline-none focus:ring-2 focus:ring-consumer focus:ring-offset-2 rounded" target="_blank" rel="noopener noreferrer">
-                            View Case Study <span class="sr-only">for Child Safety App</span>
-                        </a>
-                    </article>
-                    
-                    <!-- Tata CLiQ -->
-                    <article class="project-card glass-effect rounded-2xl p-6 animate-fade-in accent-border" role="listitem" style="--accent-color: #EC4899; animation-delay: 0.7s;">
-                        <div class="flex items-start justify-between mb-6">
-                            <div class="project-icon-container w-12 h-12 rounded-xl flex items-center justify-center mb-4" aria-hidden="true">
-                                <span class="text-xl" role="img" aria-label="Magnifying glass icon">🔍</span>
-                            </div>
-                            <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">E-commerce</span>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">Tata CLiQ UX Audit</h3>
-                        <p class="text-gray-600 dark:text-gray-400 mb-5 text-base leading-relaxed">
-                            Comprehensive UX analysis with actionable suggestions to improve site performance and conversion.
-                        </p>
-                        <a href="https://tinyurl.com/4umrnpv8" class="case-study-link text-gray-900 dark:text-white hover:text-consumer dark:hover:text-consumer focus:outline-none focus:ring-2 focus:ring-consumer focus:ring-offset-2 rounded" target="_blank" rel="noopener noreferrer">
-                            View Case Study <span class="sr-only">for Tata CLiQ UX Audit</span>
-                        </a>
-                    </article>
-                    
-                    <!-- Pizza Delivery App -->
-                    <article class="project-card glass-effect rounded-2xl p-6 animate-fade-in accent-border" role="listitem" style="--accent-color: #EC4899; animation-delay: 0.8s;">
-                        <div class="flex items-start justify-between mb-6">
-                            <div class="project-icon-container w-12 h-12 rounded-xl flex items-center justify-center mb-4" aria-hidden="true">
-                                <span class="text-xl" role="img" aria-label="Pizza icon">🍕</span>
-                            </div>
-                            <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">Food Delivery</span>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">Pizza Delivery App</h3>
-                        <p class="text-gray-600 dark:text-gray-400 mb-5 text-base leading-relaxed">
-                            Enhanced UX flow reducing order completion time by 45% and improving customer satisfaction.
-                        </p>
-                        <a href="https://bit.ly/3eNGmK" class="case-study-link text-gray-900 dark:text-white hover:text-consumer dark:hover:text-consumer focus:outline-none focus:ring-2 focus:ring-consumer focus:ring-offset-2 rounded" target="_blank" rel="noopener noreferrer">
-                            View Case Study <span class="sr-only">for Pizza Delivery App</span>
-                        </a>
-                    </article>
-                </div>
-                
-                <!-- Featured case study separator -->
-                <div class="relative mb-10" aria-hidden="true">
-                    <div class="absolute inset-0 flex items-center">
-                        <div class="w-full border-t border-gray-200 dark:border-gray-800"></div>
-                    </div>
-                    <div class="relative flex justify-center">
-                        <span class="px-4 bg-light dark:bg-dark text-sm text-gray-500 dark:text-gray-400">Featured Case Study</span>
-                    </div>
-                </div>
-                
-                <!-- Featured case study -->
-                <article class="project-card glass-effect rounded-2xl p-6 md:p-8 animate-fade-in mb-16" role="article" style="animation-delay: 0.9s;">
-                    <div class="flex flex-col md:flex-row md:items-start gap-6">
-                        <div class="md:w-1/3">
-                            <div class="flex items-center gap-4 mb-6">
-                                <div class="project-icon-container w-16 h-16 rounded-2xl flex items-center justify-center" aria-hidden="true">
-                                    <span class="text-2xl" role="img" aria-label="Airplane icon">✈️</span>
-                                </div>
-                                <div>
-                                    <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">Travel</span>
-                                    <h3 class="text-xl font-semibold mt-2 text-gray-900 dark:text-white">Booking.com Improvements</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="md:w-2/3">
-                            <p class="text-gray-600 dark:text-gray-400 mb-6 text-base leading-relaxed">
-                                Proposed three strategic, actionable changes to enhance the user experience on Booking.com, focusing on booking flow optimization, search result presentation, and mobile checkout experience.
-                            </p>
-                            <a href="https://bit.ly/2k4Qkw" class="case-study-link text-gray-900 dark:text-white hover:text-consumer dark:hover:text-consumer inline-flex items-center focus:outline-none focus:ring-2 focus:ring-consumer focus:ring-offset-2 rounded" target="_blank" rel="noopener noreferrer">
-                                View Detailed Case Study <span class="sr-only">for Booking.com Improvements</span>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-                
-                <!-- NDA Notice -->
-                <aside class="mt-12 p-6 border border-gray-200 dark:border-gray-800 rounded-2xl bg-gray-50/50 dark:bg-gray-900/30" role="note" aria-label="NDA notice">
-                    <div class="flex items-start">
-                        <svg class="w-5 h-5 text-gray-400 dark:text-gray-500 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                        <div>
-                            <p class="text-gray-600 dark:text-gray-400 text-sm">
-                                <span class="font-medium">Note:</span> Some case studies may not include detailed mockups due to <span class="font-medium">NDA (Non-disclosure agreement)</span> restrictions. Please feel free to reach out to discuss any project in detail.
-                            </p>
-                        </div>
-                    </div>
-                </aside>
-            </div>
-        </section>
-
-        <!-- Website Projects Section -->
-        <section id="websites" class="py-16 md:py-20 bg-gray-50/50 dark:bg-gray-900/30" aria-labelledby="websites-heading">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <!-- Section header -->
-                <header class="mb-12 md:mb-16 animate-slide-up">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-12 h-0.5 bg-gray-300 dark:bg-gray-700" aria-hidden="true"></div>
-                        <span class="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Product Portfolio</span>
-                    </div>
-                    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
-                        <div>
-                            <h2 id="websites-heading" class="text-3xl sm:text-4xl font-bold mb-3 text-gray-900 dark:text-white">Website Projects</h2>
-                            <p class="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl">
-                                18+ major platforms where I've applied UX, UI, and product design expertise.
-                            </p>
-                        </div>
-                        <div class="text-sm text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 px-4 py-2 rounded-full">
-                            18 Websites • 8 Domains • 5-15M+ users
-                        </div>
-                    </div>
-                    
-                    <!-- Quick stat chips -->
-                    <div class="mt-8 flex flex-wrap gap-3" role="list" aria-label="Project highlights">
-                        <div class="flex items-center gap-2" role="listitem">
-                            <div class="w-2 h-2 rounded-full bg-green-500" aria-hidden="true"></div>
-                            <span class="text-sm text-gray-600 dark:text-gray-400">High-traffic platforms</span>
-                        </div>
-                        <div class="flex items-center gap-2" role="listitem">
-                            <div class="w-2 h-2 rounded-full bg-blue-500" aria-hidden="true"></div>
-                            <span class="text-sm text-gray-600 dark:text-gray-400">End-to-end design</span>
-                        </div>
-                        <div class="flex items-center gap-2" role="listitem">
-                            <div class="w-2 h-2 rounded-full bg-purple-500" aria-hidden="true"></div>
-                            <span class="text-sm text-gray-600 dark:text-gray-400">User research & testing</span>
-                        </div>
-                    </div>
-                </header>
-                
-                <!-- Grid of websites -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4" role="list" aria-label="Website projects list">
-                    <!-- Row 1 -->
-                    <div class="p-4 bg-white dark:bg-grayDark rounded-lg website-card border border-gray-200 dark:border-gray-800" role="listitem">
-                        <div class="font-semibold text-sm mb-2 text-gray-900 dark:text-white">
-                            <a href="https://gaana.com/" class="dark:text-white hover:text-consumer dark:hover:text-consumer inline-flex items-center focus:outline-none focus:ring-2 focus:ring-consumer focus:ring-offset-2 rounded" target="_blank" rel="noopener noreferrer">
-                                www.gaana.com
-                            </a>
-                        </div>
-                        <div class="text-xs text-gray-600 dark:text-gray-400">User research, Product designing, UX, UI & Visual Designing</div>
-                    </div>
-                    
-                    <div class="p-4 bg-white dark:bg-grayDark rounded-lg website-card border border-gray-200 dark:border-gray-800" role="listitem">
-                        <div class="font-semibold text-sm mb-2 text-gray-900 dark:text-white">
-                            <a href="https://property.magicbricks.com/" class="dark:text-white hover:text-consumer dark:hover:text-consumer inline-flex items-center focus:outline-none focus:ring-2 focus:ring-consumer focus:ring-offset-2 rounded" target="_blank" rel="noopener noreferrer">
-                                www.magicbricks.com
-                            </a>
-                        </div>
-                        <div class="text-xs text-gray-600 dark:text-gray-400">User research, Product designing, UX strategy, AI & Visual enhancement, Prototyping, user testing</div>
-                    </div>
-                    
-                    <div class="p-4 bg-white dark:bg-grayDark rounded-lg website-card border border-gray-200 dark:border-gray-800" role="listitem">
-                        <div class="font-semibold text-sm mb-2 text-gray-900 dark:text-white">
-                            <a href="https://www.idiva.com/" class="dark:text-white hover:text-consumer dark:hover:text-consumer inline-flex items-center focus:outline-none focus:ring-2 focus:ring-consumer focus:ring-offset-2 rounded" target="_blank" rel="noopener noreferrer">
-                                www.idiva.com
-                            </a>
-                        </div>
-                        <div class="text-xs text-gray-600 dark:text-gray-400">UX, UI, and Defining the guidelines for Sales Marketing</div>
-                    </div>
-                    
-                    <div class="p-4 bg-white dark:bg-grayDark rounded-lg website-card border border-gray-200 dark:border-gray-800" role="listitem">
-                        <div class="font-semibold text-sm mb-2 text-gray-900 dark:text-white">
-                            <a href="https://timesofindia.indiatimes.com/travel/" class="dark:text-white hover:text-consumer dark:hover:text-consumer inline-flex items-center focus:outline-none focus:ring-2 focus:ring-consumer focus:ring-offset-2 rounded" target="_blank" rel="noopener noreferrer">
-                                www.happytrips.com
-                            </a>
-                        </div>
-                        <div class="text-xs text-gray-600 dark:text-gray-400">Product designing, UX & Defining the guidelines for Sales Marketing</div>
-                    </div>
-                    
-                    <!-- Row 2 -->
-                    <div class="p-4 bg-white dark:bg-grayDark rounded-lg website-card border border-gray-200 dark:border-gray-800" role="listitem">
-                        <div class="font-semibold text-sm mb-2 text-gray-900 dark:text-white">
-                            <a href="https://timesofindia.indiatimes.com/" class="dark:text-white hover:text-consumer dark:hover:text-consumer inline-flex items-center focus:outline-none focus:ring-2 focus:ring-consumer focus:ring-offset-2 rounded" target="_blank" rel="noopener noreferrer">
-                                www.timesofindia.com
-                            </a>
-                        </div>
-                        <div class="text-xs text-gray-600 dark:text-gray-400">UX, UI & Visual Designing, Prototype, user testing</div>
-                    </div>
-                    
-                    <div class="p-4 bg-white dark:bg-grayDark rounded-lg website-card border border-gray-200 dark:border-gray-800" role="listitem">
-                        <div class="font-semibold text-sm mb-2 text-gray-900 dark:text-white">
-                            <a href="https://economictimes.indiatimes.com/" class="dark:text-white hover:text-consumer dark:hover:text-consumer inline-flex items-center focus:outline-none focus:ring-2 focus:ring-consumer focus:ring-offset-2 rounded" target="_blank" rel="noopener noreferrer">
-                                www.economictimes.com
-                            </a>
-                        </div>
-                        <div class="text-xs text-gray-600 dark:text-gray-400">UX, UI & Visual Designing, Prototype, user testing</div>
-                    </div>
-                    
-                    <div class="p-4 bg-white dark:bg-grayDark rounded-lg website-card border border-gray-200 dark:border-gray-800" role="listitem">
-                        <div class="font-semibold text-sm mb-2 text-gray-900 dark:text-white">Appystore.in</div>
-                        <div class="text-xs text-gray-600 dark:text-gray-400">User research, Product designing, Prototype, user testing</div>
-                    </div>
-                    
-                    <div class="p-4 bg-white dark:bg-grayDark rounded-lg website-card border border-gray-200 dark:border-gray-800" role="listitem">
-                        <div class="font-semibold text-sm mb-2 text-gray-900 dark:text-white">
-                            <a href="https://www.zigwheels.com" class="dark:text-white hover:text-consumer dark:hover:text-consumer inline-flex items-center focus:outline-none focus:ring-2 focus:ring-consumer focus:ring-offset-2 rounded" target="_blank" rel="noopener noreferrer">
-                                www.zigwheels.com
-                            </a>
-                        </div>
-                        <div class="text-xs text-gray-600 dark:text-gray-400">User research, wireframes, prototype, user testing, UX, UI & Visual enhancement</div>
-                    </div>
-                    
-                    <div class="p-4 bg-white dark:bg-grayDark rounded-lg website-card border border-gray-200 dark:border-gray-800" role="listitem">
-                        <div class="font-semibold text-sm mb-2 text-gray-900 dark:text-white">www.indiatimes.com</div>
-                        <div class="text-xs text-gray-600 dark:text-gray-400">UX, UI & Visual enhancement</div>
-                    </div>
-                    
-                    <!-- Row 3 -->
-                    <div class="p-4 bg-white dark:bg-grayDark rounded-lg website-card border border-gray-200 dark:border-gray-800" role="listitem">
-                        <div class="font-semibold text-sm mb-2 text-gray-900 dark:text-white">www.mensxp.com</div>
-                        <div class="text-xs text-gray-600 dark:text-gray-400">UX, UI & Visual enhancement</div>
-                    </div>
-                    
-                    <div class="p-4 bg-white dark:bg-grayDark rounded-lg website-card border border-gray-200 dark:border-gray-800" role="listitem">
-                        <div class="font-semibold text-sm mb-2 text-gray-900 dark:text-white">www.luxpresso.com</div>
-                        <div class="text-xs text-gray-600 dark:text-gray-400">UX, UI & Visual enhancement</div>
-                    </div>
-                    
-                    <div class="p-4 bg-white dark:bg-grayDark rounded-lg website-card border border-gray-200 dark:border-gray-800" role="listitem">
-                        <div class="font-semibold text-sm mb-2 text-gray-900 dark:text-white">www.etportfolio.com</div>
-                        <div class="text-xs text-gray-600 dark:text-gray-400">Wireframes, prototype, UX, UI & Visual enhancement</div>
-                    </div>
-                    
-                    <div class="p-4 bg-white dark:bg-grayDark rounded-lg website-card border border-gray-200 dark:border-gray-800" role="listitem">
-                        <div class="font-semibold text-sm mb-2 text-gray-900 dark:text-white">www.etspeed.com</div>
-                        <div class="text-xs text-gray-600 dark:text-gray-400">UI & Visual Designing</div>
-                    </div>
-                    
-                    <div class="p-4 bg-white dark:bg-grayDark rounded-lg website-card border border-gray-200 dark:border-gray-800" role="listitem">
-                        <div class="font-semibold text-sm mb-2 text-gray-900 dark:text-white">Mobango.com</div>
-                        <div class="text-xs text-gray-600 dark:text-gray-400">UX strategy, AI & Visual enhancement</div>
-                    </div>
-                    
-                    <!-- Row 4 -->
-                    <div class="p-4 bg-white dark:bg-grayDark rounded-lg website-card border border-gray-200 dark:border-gray-800" role="listitem">
-                        <div class="font-semibold text-sm mb-2 text-gray-900 dark:text-white">www.dineout.co.in</div>
-                        <div class="text-xs text-gray-600 dark:text-gray-400">Wireframes, prototype, UX, UI & Visual enhancement</div>
-                    </div>
-                    
-                    <div class="p-4 bg-white dark:bg-grayDark rounded-lg website-card border border-gray-200 dark:border-gray-800" role="listitem">
-                        <div class="font-semibold text-sm mb-2 text-gray-900 dark:text-white">www.gamesbond.com</div>
-                        <div class="text-xs text-gray-600 dark:text-gray-400">User research, Product designing, UX strategy, AI & Visual enhancement, Prototyping, user testing</div>
-                    </div>
-                </div>
-                
-                <!-- Summary footer -->
-                <footer class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
-                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                        <p class="text-sm text-gray-600 dark:text-gray-400">
-                            <span class="font-medium">Note:</span> Projects include both responsive web and mobile app experiences
-                        </p>
-                        <div class="text-xs text-gray-500 dark:text-gray-400 px-3 py-1.5 bg-gray-100 dark:bg-gray-800 rounded-full">
-                            Design roles: Research • Strategy • UX • UI • Testing • Implementation
-                        </div>
-                    </div>
-                </footer>
-            </div>
-        </section>
     </main>
 
     <!-- Footer -->
-    <footer class="py-12 border-t border-gray-200 dark:border-gray-800" role="contentinfo">
-        <div class="max-w-6xl mx-auto px-8">
+    <footer class="py-12 border-t border-gray-200 dark:border-gray-800 mt-20">
+        <div class="max-w-7xl mx-auto px-8">
             <div class="flex flex-col md:flex-row justify-between items-center gap-8">
                 <div>
-                    <div class="text-2xl font-semibold mb-2 text-gray-900 dark:text-white">Jadvvinder Daudhria</div>
-                    <p class="text-gray-600 dark:text-gray-400">Strategic Senior Product Designer</p>
+                    <div class="text-2xl font-semibold mb-2">Jadvvinder Daudhria</div>
+                    <p class="text-gray-600 dark:text-gray-400">Senior Design Systems Designer</p>
                 </div>
                 
-                <!-- Footer Icon Links -->
-                <div class="flex items-center space-x-6" role="list" aria-label="Contact links">
-                    <!-- LinkedIn -->
-                    <div class="relative group" role="listitem">
-                        <a href="https://www.linkedin.com/in/jadvvinder-daudhria-541a3111/" target="_blank" rel="noopener noreferrer" 
-                           class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg inline-block focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                           aria-label="LinkedIn Profile (opens in new tab)">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <div class="flex items-center space-x-6">
+                    <div class="relative group">
+                        <a href="https://www.linkedin.com/in/jadvinderd/" target="_blank" rel="noopener noreferrer" 
+                           class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg inline-block"
+                           aria-label="LinkedIn Profile">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                             </svg>
                         </a>
                     </div>
                     
-                    <!-- Email -->
-                    <div class="relative group" role="listitem">
+                    <div class="relative group">
                         <a href="mailto:j.daudhria@gmail.com" 
-                           class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg inline-block focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                           aria-label="Send email to j.daudhria@gmail.com">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                           class="text-gray-600 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition-colors p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg inline-block"
+                           aria-label="Send Email">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                            </svg>
-                        </a>
-                    </div>
-                    
-                    <!-- Download Resume -->
-                    <div class="relative group" role="listitem">
-                        <a href="path/to/your-resume.pdf" download="Jadvindder_Daudhria_Resume.pdf"
-                           class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg inline-block focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                           aria-label="Download Resume PDF">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" 
-                                      d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
                             </svg>
                         </a>
                     </div>
                 </div>
             </div>
-            
-            <!-- Accessibility statement -->
-            <div class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800">
-                <p class="text-xs text-gray-500 dark:text-gray-400 text-center">
-                    This website is designed to be accessible to all users, including those with disabilities.
-                    <a href="#accessibility-feedback" class="underline hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded">Provide accessibility feedback</a>
-                </p>
-            </div>
         </div>
     </footer>
-
-    <!-- Hidden accessibility feedback form -->
-    <div id="accessibility-feedback" class="sr-only">
-        <h2>Accessibility Feedback</h2>
-        <p>If you encounter any accessibility issues on this site, please contact <a href="mailto:j.daudhria@gmail.com">j.daudhria@gmail.com</a>.</p>
-    </div>
 
     <script>
         // Theme Toggle
         const themeToggle = document.getElementById('themeToggle');
         const sunIcon = document.getElementById('sunIcon');
         const moonIcon = document.getElementById('moonIcon');
-        const themeStatus = document.getElementById('themeStatus');
         
-        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
         const currentTheme = localStorage.getItem('theme');
         
-        // Set initial theme and announce
-        function setTheme(isDark) {
-            if (isDark) {
-                document.documentElement.classList.add('dark');
-                localStorage.setItem('theme', 'dark');
-                sunIcon.classList.add('hidden');
-                moonIcon.classList.remove('hidden');
-                themeStatus.textContent = 'dark mode';
-            } else {
-                document.documentElement.classList.remove('dark');
-                localStorage.setItem('theme', 'light');
-                moonIcon.classList.add('hidden');
-                sunIcon.classList.remove('hidden');
-                themeStatus.textContent = 'light mode';
-            }
-            
-            // Announce theme change for screen readers
-            announceThemeChange(isDark ? 'dark' : 'light');
-        }
-        
-        if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
-            setTheme(true);
+        if (currentTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+            moonIcon.classList.remove('hidden');
         } else {
-            setTheme(false);
+            sunIcon.classList.remove('hidden');
         }
         
         themeToggle.addEventListener('click', () => {
-            const isDark = !document.documentElement.classList.contains('dark');
-            setTheme(isDark);
-        });
-        
-        // Announce theme change for screen readers
-        function announceThemeChange(theme) {
-            const announcement = document.createElement('div');
-            announcement.setAttribute('aria-live', 'polite');
-            announcement.setAttribute('aria-atomic', 'true');
-            announcement.classList.add('sr-only');
-            announcement.textContent = `Theme changed to ${theme} mode`;
-            document.body.appendChild(announcement);
-            setTimeout(() => {
-                document.body.removeChild(announcement);
-            }, 1000);
-        }
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    // Focus the target element
-                    targetElement.setAttribute('tabindex', '-1');
-                    targetElement.focus();
-                    
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Remove tabindex after focus
-                    setTimeout(() => {
-                        targetElement.removeAttribute('tabindex');
-                    }, 1000);
-                }
-            });
-        });
-        
-        // Initialize animations with reduced motion support
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-        
-        if (!prefersReducedMotion.matches) {
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
+            document.documentElement.classList.toggle('dark');
             
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animate-slide-up');
-                    }
-                });
-            }, observerOptions);
-            
-            document.querySelectorAll('.animate-slide-up').forEach(el => {
-                observer.observe(el);
-            });
-        }
-        
-        // Add hover effect to project cards with keyboard support
-        document.querySelectorAll('.accent-border').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                const accentColor = getComputedStyle(this).getPropertyValue('--accent-color');
-                this.style.borderColor = accentColor;
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.borderColor = '';
-            });
-            
-            // Keyboard focus support
-            card.addEventListener('focus', function() {
-                const accentColor = getComputedStyle(this).getPropertyValue('--accent-color');
-                this.style.borderColor = accentColor;
-            });
-            
-            card.addEventListener('blur', function() {
-                this.style.borderColor = '';
-            });
-        });
-        
-        // Filter functionality for project categories
-        document.querySelectorAll('[data-filter]').forEach(button => {
-            button.addEventListener('click', function() {
-                const filter = this.getAttribute('data-filter');
-                
-                // Update button states
-                document.querySelectorAll('[data-filter]').forEach(btn => {
-                    btn.setAttribute('aria-pressed', 'false');
-                    btn.classList.remove('bg-blue-100', 'dark:bg-blue-900/30', 'text-blue-800', 'dark:text-blue-300');
-                    btn.classList.add('bg-gray-100', 'dark:bg-gray-800', 'text-gray-700', 'dark:text-gray-300');
-                });
-                
-                this.setAttribute('aria-pressed', 'true');
-                this.classList.remove('bg-gray-100', 'dark:bg-gray-800', 'text-gray-700', 'dark:text-gray-300');
-                this.classList.add('bg-blue-100', 'dark:bg-blue-900/30', 'text-blue-800', 'dark:text-blue-300');
-                
-                // Announce filter change for screen readers
-                const filterName = this.textContent;
-                announceFilterChange(filterName);
-            });
-        });
-        
-        // Announce filter change for screen readers
-        function announceFilterChange(filterName) {
-            const announcement = document.createElement('div');
-            announcement.setAttribute('aria-live', 'polite');
-            announcement.setAttribute('aria-atomic', 'true');
-            announcement.classList.add('sr-only');
-            announcement.textContent = `Filtered to show ${filterName}`;
-            document.body.appendChild(announcement);
-            setTimeout(() => {
-                document.body.removeChild(announcement);
-            }, 1000);
-        }
-        
-        // Handle external links announcement for screen readers
-        document.querySelectorAll('a[target="_blank"]').forEach(link => {
-            link.addEventListener('focus', function() {
-                const existingAriaLabel = this.getAttribute('aria-label');
-                if (!existingAriaLabel || !existingAriaLabel.includes('opens in new tab')) {
-                    this.setAttribute('aria-label', (existingAriaLabel || this.textContent) + ' (opens in new tab)');
-                }
-            });
-        });
-        
-        // Handle reduced motion
-        if (prefersReducedMotion.matches) {
-            document.documentElement.classList.add('reduce-motion');
-        }
-        
-        // Listen for reduced motion preference changes
-        prefersReducedMotion.addEventListener('change', (e) => {
-            if (e.matches) {
-                document.documentElement.classList.add('reduce-motion');
+            if (document.documentElement.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
             } else {
-                document.documentElement.classList.remove('reduce-motion');
+                localStorage.setItem('theme', 'light');
+                moonIcon.classList.add('hidden');
+                sunIcon.classList.remove('hidden');
             }
         });
     </script>
