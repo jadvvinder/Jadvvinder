@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      B.charges: Making Hidden Tax Logic Visible | Jadvvinder Daudhria
+    </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              light: "#FFFFFF",
+              dark: "#0A0A0A",
+              textLight: "#171717",
+              textDark: "#E5E5E5",
+              grayLight: "#FAFAFA",
+              grayDark: "#1A1A1A",
+            },
+            fontFamily: {
+              sans: ["Inter", "system-ui", "-apple-system", "sans-serif"],
+            },
+            spacing: {
+              18: "4.5rem",
+              88: "22rem",
+              128: "32rem",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-feature-settings:
+          "kern" 1,
+          "liga" 1,
+          "calt" 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        letter-spacing: -0.011em;
+      }
+
+      .prose {
+        font-size: 1.125rem;
+        line-height: 1.7;
+      }
+
+      .prose p {
+        margin-top: 1.5em;
+        margin-bottom: 1.5em;
+      }
+
+      .section-padding {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+      }
+
+      .hero-gradient {
+        background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .card-hover {
+        transition: all 0.3s ease;
+      }
+
+      .card-hover:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
+      }
+
+      .dark .card-hover:hover {
+        box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
+      }
+
+      .metric-card {
+        background: linear-gradient(
+          135deg,
+          rgba(139, 92, 246, 0.1) 0%,
+          rgba(59, 130, 246, 0.1) 100%
+        );
+        border: 1px solid rgba(139, 92, 246, 0.2);
+      }
+
+      .dark .metric-card {
+        background: linear-gradient(
+          135deg,
+          rgba(139, 92, 246, 0.2) 0%,
+          rgba(59, 130, 246, 0.2) 100%
+        );
+        border: 1px solid rgba(139, 92, 246, 0.3);
+      }
+
+      .sticky-sidebar {
+        position: sticky;
+        top: 6rem;
+      }
+
+      .explore-card {
+        border-left: 4px solid;
+      }
+
+      .explore-rejected {
+        border-left-color: #ef4444;
+      }
+
+      .explore-winner {
+        border-left-color: #10b981;
+      }
+
+      .evidence-tag {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        padding: 3px 10px;
+        border-radius: 100px;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-light dark:bg-dark text-textLight dark:text-textDark font-sans transition-colors duration-300"
+  >
+    <!-- Navigation -->
+    <nav
+      class="fixed top-0 left-0 right-0 bg-light/95 dark:bg-dark/95 backdrop-blur-lg z-50 border-b border-gray-200/50 dark:border-gray-800/50"
+    >
+      <div class="max-w-7xl mx-auto px-8 py-5">
+        <div class="flex items-center justify-between">
+          <a
+            href="index.html"
+            class="text-xl font-semibold tracking-tight hover:opacity-80 transition-opacity"
+            >← Back to Portfolio</a
+          >
+          <div class="flex items-center space-x-10">
+            <button
+              id="themeToggle"
+              class="p-2.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            >
+              <svg
+                id="sunIcon"
+                class="w-5 h-5 hidden"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+                ></path>
+              </svg>
+              <svg
+                id="moonIcon"
+                class="w-5 h-5 hidden"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Case Study Content -->
+    <main class="pt-24">
+      <!-- Hero Section -->
+      <section class="section-padding">
+        <div class="max-w-7xl mx-auto px-8">
+          <div class="mb-12">
+            <div
+              class="inline-flex items-center px-4 py-2 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-sm font-medium mb-6"
+            >
+              Booking.com
+            </div>
+            <h1 class="text-5xl font-light mb-8 tracking-tight leading-[1.1]">
+              B.charges:
+              <span class="hero-gradient font-semibold"
+                >Making Hidden Tax Logic Visible</span
+              >
+            </h1>
+            <p
+              class="text-2xl text-gray-600 dark:text-gray-400 max-w-4xl leading-relaxed"
+            >
+              Designed a tool that turned an unexplainable billing problem into
+              a
+              <span class="font-semibold text-textLight dark:text-textDark"
+                >traceable, single-screen answer</span
+              >, cutting escalated charge disputes and giving Customer Service a
+              source of truth that didn't exist before.
+            </p>
+          </div>
+          <div
+            class="bg-gray-100 dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 mb-8"
+          >
+            <img
+              src="img/shipped-hotel-page.jpg"
+              alt="B.charges shipped hotel page showing charge and tax details"
+              class="w-full"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Content Sections -->
+      <div class="max-w-7xl mx-auto px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <!-- Main Content Column -->
+          <div class="lg:col-span-2">
+            <!-- Strategic Context -->
+            <section class="mb-16">
+              <div
+                class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800"
+              >
+                <h2 class="text-3xl font-semibold mb-8">Strategic Context</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                    <h3
+                      class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2"
+                    >
+                      Role
+                    </h3>
+                    <p class="text-lg">
+                      Senior Product Designer, led design end-to-end with a PM,
+                      Engineer, and Data partner
+                    </p>
+                  </div>
+                  <div>
+                    <h3
+                      class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2"
+                    >
+                      Scope
+                    </h3>
+                    <p class="text-lg">
+                      Internal Customer Service tool, informing partner-facing
+                      charge clarity
+                    </p>
+                  </div>
+                  <div>
+                    <h3
+                      class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2"
+                    >
+                      Users
+                    </h3>
+                    <p class="text-lg">
+                      CS agents resolving billing disputes, often new to the
+                      company
+                    </p>
+                  </div>
+                  <div>
+                    <h3
+                      class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2"
+                    >
+                      Challenge
+                    </h3>
+                    <p class="text-lg">
+                      City tax rates changed without warning, invoices and
+                      website prices didn't match
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- The Core Problem -->
+            <section class="mb-16">
+              <h2 class="text-4xl font-light mb-8">The Messy Problem</h2>
+              <div class="prose max-w-none">
+                <p>
+                  City and local tax rates changed, sometimes with little
+                  warning. When they did, the price a guest saw on the website
+                  at booking time didn't always match what showed up on their
+                  final invoice. Guests didn't understand why. Customer Service
+                  couldn't explain it clearly either, because the information
+                  that would have answered the question wasn't surfaced anywhere
+                  usable.
+                </p>
+                <div
+                  class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-6 my-8"
+                >
+                  <h3
+                    class="text-lg font-semibold text-red-800 dark:text-red-300 mb-4"
+                  >
+                    What This Looked Like Day to Day
+                  </h3>
+                  <ul class="space-y-3">
+                    <li class="flex items-start">
+                      <span class="mr-3">•</span>
+                      <span
+                        ><strong>No single source of truth:</strong> charge
+                        breakdowns existed in the system but weren't structured
+                        for anyone to explain quickly</span
+                      >
+                    </li>
+                    <li class="flex items-start">
+                      <span class="mr-3">•</span>
+                      <span
+                        ><strong>Fragmented path:</strong> an agent had to move
+                        across homepage, reservation page, and hotel page just
+                        to start piecing together one charge</span
+                      >
+                    </li>
+                    <li class="flex items-start">
+                      <span class="mr-3">•</span>
+                      <span
+                        ><strong>No timing logic visible:</strong> a guest
+                        booking before a tax change and being invoiced after
+                        looked like an error, not a policy</span
+                      >
+                    </li>
+                    <li class="flex items-start">
+                      <span class="mr-3">•</span>
+                      <span
+                        ><strong>Recurring support load:</strong> "extra charge"
+                        disputes were a steady, repeat category of contact</span
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <p>
+                  This wasn't a missing feature. It was a missing single source
+                  of truth, charges existed, they just weren't structured for
+                  anyone, agent or guest, to understand at a glance.
+                </p>
+              </div>
+            </section>
+
+            <!-- Discovery: Starting with Questions -->
+            <section class="mb-16">
+              <h2 class="text-4xl font-light mb-8">
+                Discovery: Starting With Questions, Not Screens
+              </h2>
+              <div class="prose max-w-none text-gray-700 dark:text-gray-300">
+                <p>
+                  Before designing a single screen, I wrote down what I actually
+                  needed to know. Who are the users? How does this help them?
+                  What are the action points? What's the biggest challenge we're
+                  trying to solve? Those four questions shaped everything that
+                  followed.
+                </p>
+              </div>
+              <div
+                class="bg-gray-100 dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 my-8"
+              >
+                <img
+                  src="img/discovery-notes.jpg"
+                  alt="Handwritten discovery notes including persona and scenario mapping"
+                  class="w-full"
+                />
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div
+                  class="bg-gradient-to-br from-purple-50 to-violet-100 dark:from-purple-900/20 dark:to-violet-800/20 rounded-2xl p-8 border border-purple-200 dark:border-purple-800 card-hover"
+                >
+                  <div class="text-3xl mb-4">👤</div>
+                  <h3 class="text-xl font-semibold mb-3">The Persona</h3>
+                  <p class="text-gray-600 dark:text-gray-400">
+                    A Customer Service team member, new to the company, still
+                    learning the system, currently handling five complaints
+                    about charges.
+                  </p>
+                </div>
+                <div
+                  class="bg-gradient-to-br from-blue-50 to-cyan-100 dark:from-blue-900/20 dark:to-cyan-800/20 rounded-2xl p-8 border border-blue-200 dark:border-blue-800 card-hover"
+                >
+                  <div class="text-3xl mb-4">🎯</div>
+                  <h3 class="text-xl font-semibold mb-3">The Scenario</h3>
+                  <p class="text-gray-600 dark:text-gray-400">
+                    A guest complains about an unexpected charge. The agent
+                    needs to find the breakdown, understand it themselves, and
+                    explain it clearly, without escalating or guessing.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <!-- Mapping the Real Flow -->
+            <section class="mb-16">
+              <h2 class="text-4xl font-light mb-8">Mapping the Real Flow</h2>
+              <div class="prose max-w-none text-gray-700 dark:text-gray-300">
+                <p>
+                  Once I mapped the actual path an agent had to follow, the
+                  problem became obvious. To explain one extra charge, an agent
+                  might move through a homepage, a reservation page, and a hotel
+                  page, then manually compare numbers against what
+                  Booking.com's own backend said, with no single place pulling
+                  it together.
+                </p>
+              </div>
+              <div class="token-architecture my-8 pl-8">
+                <div class="space-y-6">
+                  <div class="component-layer layer-foundation">
+                    <h4 class="font-semibold">Bookmark / Office Link</h4>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                      Entry point, usually saved or shared internally
+                    </p>
+                  </div>
+                  <div class="component-layer layer-atoms">
+                    <h4 class="font-semibold">
+                      Homepage → Reservation Page / Hotel Page
+                    </h4>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                      Two disconnected paths depending on what the agent knew
+                      first
+                    </p>
+                  </div>
+                  <div class="component-layer layer-molecules">
+                    <h4 class="font-semibold">Get Breakdown</h4>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                      The step that didn't really exist as a designed feature —
+                      agents pieced it together themselves
+                    </p>
+                  </div>
+                  <div class="component-layer layer-organisms">
+                    <h4 class="font-semibold">
+                      Compare With Booking.com Records → Inform Guest
+                    </h4>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                      The moment that mattered most, and the one with the least
+                      support
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="framework-callout bg-grayLight dark:bg-grayDark border-l-4 border-purple-500 rounded-r-xl p-6"
+              >
+                <p class="text-sm text-gray-600 dark:text-gray-400 m-0">
+                  <strong class="text-textLight dark:text-textDark"
+                    >The reframe:</strong
+                  >
+                  this wasn't a missing feature, it was a missing single source
+                  of truth. The fix wasn't bolting something onto the existing
+                  flow, it was building the thing that should have connected
+                  all of it from the start.
+                </p>
+              </div>
+            </section>
+
+            <!-- Data Model -->
+            <section class="mb-16">
+              <h2 class="text-4xl font-light mb-8">Defining the Data Model</h2>
+              <div class="prose max-w-none text-gray-700 dark:text-gray-300">
+                <p>
+                  This is the part of the work most case studies skip, but it's
+                  where most of the real thinking happened. Before any screen
+                  could be designed, I went through hotel details, reservation
+                  details, and the charges table line by line with engineering,
+                  because the entire UI depends on this structure being right.
+                </p>
+              </div>
+              <div
+                class="bg-gray-100 dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 my-8"
+              >
+                <img
+                  src="img/data-model.jpg"
+                  alt="Handwritten data model notes for booking detail, hotel detail, and charges table"
+                  class="w-full"
+                />
+              </div>
+              <div
+                class="bg-blue-50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-900/30 rounded-xl p-6"
+              >
+                <h3 class="text-blue-800 dark:text-blue-400 font-bold mb-3">
+                  The Structural Decision That Mattered Most
+                </h3>
+                <p class="text-sm text-gray-700 dark:text-gray-300 m-0">
+                  Charges needed to be traceable to three things at once: the
+                  hotel, the specific reservation, and the time window the
+                  charge was valid for. Tax rates aren't static, a charge
+                  correct in March might not be correct in July. The data model
+                  had to carry that <strong>"valid from"</strong> logic, or the
+                  UI built on top of it would always be subtly wrong.
+                </p>
+              </div>
+            </section>
+
+            <!-- From Wireframe to Shipped -->
+            <section class="mb-16">
+              <h2 class="text-4xl font-light mb-8">
+                From Wireframe to Shipped Product
+              </h2>
+              <div class="prose max-w-none text-gray-700 dark:text-gray-300">
+                <p>
+                  Two core pages, Hotel Page and Reservation Detail, each
+                  surfacing a header, the hotel or reservation context, and a
+                  charges table directly beneath it. The idea written directly
+                  on the sketch said everything:
+                  <em>"verify if the charges are charged correctly."</em>
+                </p>
+              </div>
+              <div
+                class="bg-gray-100 dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 my-8"
+              >
+                <img
+                  src="img/wireframes.jpg"
+                  alt="Hand-drawn wireframes for Hotel Page and Reservation Detail"
+                  class="w-full"
+                />
+              </div>
+              <h3 class="text-2xl font-semibold mb-4 mt-10">What Shipped</h3>
+              <div
+                class="bg-gray-100 dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 mb-6"
+              >
+                <img
+                  src="img/shipped-hotel-page.jpg"
+                  alt="Shipped B.charges hotel page with charge and tax details"
+                  class="w-full"
+                />
+              </div>
+              <div
+                class="bg-gray-100 dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 mb-8"
+              >
+                <img
+                  src="img/shipped-reservation-page.jpg"
+                  alt="Shipped B.charges reservation detail page with room-level breakdown"
+                  class="w-full"
+                />
+              </div>
+              <div class="prose max-w-none text-gray-700 dark:text-gray-300">
+                <p>
+                  A clean header shows Hotel ID, country, city, region,
+                  accommodation type, and status, answering "where am I"
+                  instantly. Tabbed navigation, Charge and Tax Details, Room
+                  Reservation Details, Extra Charges, Commissions, lets an
+                  agent move between exactly the views they need. Every charge
+                  ties back to a real Transaction ID, a real Reservation ID, and
+                  real per-night pricing. An agent isn't looking at an
+                  abstraction, they're looking at the exact numbers tied to the
+                  exact guest in front of them.
+                </p>
+              </div>
+            </section>
+
+            <!-- The Core Edge Case -->
+            <section class="mb-16">
+              <h2 class="text-4xl font-light mb-8">
+                The Edge Case That Drove Everything
+              </h2>
+              <div class="prose max-w-none text-gray-700 dark:text-gray-300">
+                <p>
+                  The core problem was never really a UI problem, it was a
+                  timing problem. A guest sees a price on the website at one
+                  moment. Their invoice gets generated at another moment,
+                  sometimes after a local tax rate change has already taken
+                  effect. Same booking, two different numbers, and until this
+                  shipped, no visible explanation for either the guest or the
+                  agent trying to help them.
+                </p>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-8">
+                <div
+                  class="bg-red-50 dark:bg-red-900/10 p-6 rounded-xl border border-red-100 dark:border-red-900/30"
+                >
+                  <h3 class="text-red-800 dark:text-red-400 font-bold mb-4">
+                    Before
+                  </h3>
+                  <p class="text-sm text-gray-600 dark:text-gray-400 m-0">
+                    A rate change looked identical to an error. Agents had no
+                    way to distinguish "this is correct, policy changed" from
+                    "something is wrong." Most defaulted to escalation.
+                  </p>
+                </div>
+                <div
+                  class="bg-green-50 dark:bg-green-900/10 p-6 rounded-xl border border-green-100 dark:border-green-900/30"
+                >
+                  <h3 class="text-green-800 dark:text-green-400 font-bold mb-4">
+                    After
+                  </h3>
+                  <p class="text-sm text-gray-600 dark:text-gray-400 m-0">
+                    The "Valid From" field made the discrepancy explainable. An
+                    agent could point to the exact date a rate changed and
+                    explain it, with the guest's own data on screen.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="bg-grayLight dark:bg-grayDark border-l-4 border-purple-500 rounded-r-xl p-6"
+              >
+                <p class="text-sm text-gray-600 dark:text-gray-400 m-0">
+                  <strong class="text-textLight dark:text-textDark"
+                    >Why this mattered more than it sounds:</strong
+                  >
+                  this turned an "the company overcharged me" conversation into
+                  a "tax rates changed on this date, here's exactly what
+                  changed" conversation. Same number on the invoice, completely
+                  different outcome for trust.
+                </p>
+              </div>
+            </section>
+
+            <!-- Business Impact -->
+            <section class="mb-16">
+              <h2 class="text-4xl font-light mb-8">
+                Business Impact &amp; Outcomes
+              </h2>
+              <div class="prose max-w-none text-gray-700 dark:text-gray-300">
+                <p>
+                  This wasn't a UI problem with a UI solution. It was a trust
+                  problem, and the resolution was making complexity legible —
+                  not removing it. Tax law can't be simplified. What can change
+                  is whether a guest and an agent can both see why a number is
+                  what it is.
+                </p>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+                <div class="metric-card rounded-2xl p-6">
+                  <div class="text-3xl font-bold mb-1">~28%</div>
+                  <div class="text-sm text-gray-600 dark:text-gray-400">
+                    Fewer billing disputes needing escalation, first full
+                    quarter post-launch
+                  </div>
+                </div>
+                <div class="metric-card rounded-2xl p-6">
+                  <div class="text-3xl font-bold mb-1">~3 min</div>
+                  <div class="text-sm text-gray-600 dark:text-gray-400">
+                    Average time to resolve a charge query, down from a
+                    multi-page manual lookup
+                  </div>
+                </div>
+                <div class="metric-card rounded-2xl p-6">
+                  <div class="text-3xl font-bold mb-1">1 screen</div>
+                  <div class="text-sm text-gray-600 dark:text-gray-400">
+                    Replaced a fragmented, multi-page lookup that had no single
+                    source of truth
+                  </div>
+                </div>
+              </div>
+              <div
+                class="bg-amber-50 dark:bg-amber-900/10 border border-amber-100 dark:border-amber-900/30 rounded-xl p-6"
+              >
+                <p class="text-sm text-gray-700 dark:text-gray-300 m-0">
+                  <strong>A note on these numbers:</strong> figures above are
+                  illustrative, reconstructed to represent the scale and
+                  direction of real impact rather than exact reported metrics.
+                  What I can say with full confidence: disputes needing
+                  escalation dropped noticeably after rollout, and CS agents
+                  went from piecing together explanations across disconnected
+                  pages to resolving them on one screen.
+                </p>
+              </div>
+            </section>
+
+            <!-- Strategic Assessment SWOT -->
+            <section class="mb-16">
+              <h2 class="text-4xl font-light mb-8">
+                Strategic Assessment (SWOT)
+              </h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                <div
+                  class="p-6 border border-gray-200 dark:border-gray-800 rounded-xl"
+                >
+                  <h4 class="font-bold text-purple-600 mb-2">Strengths</h4>
+                  <p class="text-gray-500">
+                    Single source of truth for a previously fragmented problem;
+                    grounded in real discovery and a clear persona, not
+                    assumptions.
+                  </p>
+                </div>
+                <div
+                  class="p-6 border border-gray-200 dark:border-gray-800 rounded-xl"
+                >
+                  <h4 class="font-bold text-blue-600 mb-2">Opportunities</h4>
+                  <p class="text-gray-500">
+                    Extend the same "valid from" transparency model directly
+                    into the guest-facing invoice, not just the internal CS
+                    tool.
+                  </p>
+                </div>
+                <div
+                  class="p-6 border border-gray-200 dark:border-gray-800 rounded-xl"
+                >
+                  <h4 class="font-bold text-amber-600 mb-2">Weaknesses</h4>
+                  <p class="text-gray-500">
+                    Built as an internal tool first, guest-facing clarity still
+                    depends on a CS agent as the intermediary rather than full
+                    self-service.
+                  </p>
+                </div>
+                <div
+                  class="p-6 border border-gray-200 dark:border-gray-800 rounded-xl"
+                >
+                  <h4 class="font-bold text-red-600 mb-2">Threats</h4>
+                  <p class="text-gray-500">
+                    Tax regulation changes faster than most internal tools get
+                    re-validated, this needs an owner, not a one-time fix.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <div class="pt-8 border-t border-gray-200 dark:border-gray-800">
+              <div class="flex justify-between items-center">
+                <a
+                  href="index.html"
+                  class="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors font-medium"
+                >
+                  Back to Portfolio
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sidebar -->
+          <div class="lg:col-span-1">
+            <div class="sticky-sidebar">
+              <div
+                class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800 mb-8"
+              >
+                <h3 class="text-lg font-semibold mb-6">Strategic Weight</h3>
+                <ul class="space-y-4">
+                  <li class="flex items-start">
+                    <span class="mr-3 text-purple-600 dark:text-purple-400"
+                      >✓</span
+                    >
+                    <span
+                      >Reframed a "UI complaint" into the real root cause, a
+                      missing source of truth</span
+                    >
+                  </li>
+                  <li class="flex items-start">
+                    <span class="mr-3 text-purple-600 dark:text-purple-400"
+                      >✓</span
+                    >
+                    <span
+                      >Defined the data model before any screen, got the "valid
+                      from" logic right</span
+                    >
+                  </li>
+                  <li class="flex items-start">
+                    <span class="mr-3 text-purple-600 dark:text-purple-400"
+                      >✓</span
+                    >
+                    <span
+                      >Shipped a tool grounded in real discovery, not
+                      assumptions</span
+                    >
+                  </li>
+                  <li class="flex items-start">
+                    <span class="mr-3 text-purple-600 dark:text-purple-400"
+                      >✓</span
+                    >
+                    <span
+                      >Reduced escalations by making a timing problem
+                      explainable, not just visible</span
+                    >
+                  </li>
+                </ul>
+              </div>
+
+              <div
+                class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800"
+              >
+                <h3 class="text-lg font-semibold mb-6">Key Insight</h3>
+                <p class="text-sm italic text-gray-500">
+                  "Guests weren't anxious because the invoice was wrong. They
+                  were anxious because they couldn't tell whether it was right.
+                  The fix wasn't simplifying tax law, it was making complexity
+                  legible."
+                </p>
+              </div>
+
+              <div
+                class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800 mt-8"
+              >
+                <h3
+                  class="text-lg font-semibold mb-6 italic text-purple-600 dark:text-purple-400"
+                >
+                  "The Data Model Is the Design"
+                </h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">
+                  The single sentence written on my own wireframe sketch —
+                  "verify if the charges are charged correctly", was the entire
+                  brief. Everything else was sequencing.
+                </p>
+              </div>
+
+              <div
+                class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800 mt-8"
+              >
+                <h3 class="text-lg font-semibold mb-6">Tools &amp; Methods</h3>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm"
+                    >Discovery Mapping</span
+                  >
+                  <span
+                    class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm"
+                    >Persona Definition</span
+                  >
+                  <span
+                    class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm"
+                    >Data Modeling</span
+                  >
+                  <span
+                    class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm"
+                    >Figma</span
+                  >
+                  <span
+                    class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm"
+                    >Component Library</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800 mt-8"
+              >
+                <h3 class="text-lg font-semibold mb-6">Project Scale</h3>
+                <div class="space-y-4">
+                  <div>
+                    <div class="text-sm text-gray-500 dark:text-gray-400">
+                      Core Team
+                    </div>
+                    <div class="text-2xl font-bold mt-1">
+                      Design + PM + Eng + Data
+                    </div>
+                  </div>
+                  <div>
+                    <div class="text-sm text-gray-500 dark:text-gray-400">
+                      Primary Users
+                    </div>
+                    <div class="text-2xl font-bold mt-1">CS Agents</div>
+                  </div>
+                  <div>
+                    <div class="text-sm text-gray-500 dark:text-gray-400">
+                      Views Shipped
+                    </div>
+                    <div class="text-2xl font-bold mt-1">
+                      4 tabs, 2 core pages
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-gray-200 dark:border-gray-800 mt-20">
+      <div class="max-w-7xl mx-auto px-8">
+        <div
+          class="flex flex-col md:flex-row justify-between items-center gap-8"
+        >
+          <div>
+            <div class="text-2xl font-semibold mb-2">Jadvvinder Daudhria</div>
+            <p class="text-gray-600 dark:text-gray-400">
+              Strategic Senior Product Designer
+            </p>
+          </div>
+
+          <div class="flex items-center space-x-6">
+            <div class="relative group">
+              <a
+                href="https://www.linkedin.com/in/jadvvinder-daudhria-541a3111/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg inline-block"
+                aria-label="LinkedIn Profile"
+              >
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                  />
+                </svg>
+              </a>
+              <div
+                class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1.5 bg-gray-900 dark:bg-gray-700 text-white text-xs font-medium rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none"
+              >
+                My LinkedIn Profile
+                <div
+                  class="absolute top-full left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-700 rotate-45"
+                ></div>
+              </div>
+            </div>
+
+            <div class="relative group">
+              <a
+                href="mailto:j.daudhria@gmail.com"
+                class="text-gray-600 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition-colors p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg inline-block"
+                aria-label="Send Email"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
+                </svg>
+              </a>
+              <div
+                class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1.5 bg-gray-900 dark:bg-gray-700 text-white text-xs font-medium rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none"
+              >
+                Email to me
+                <div
+                  class="absolute top-full left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-700 rotate-45"
+                ></div>
+              </div>
+            </div>
+
+            <div class="relative group">
+              <a
+                href="path/to/your-resume.pdf"
+                download="Jadvindder_Daudhria_Resume.pdf"
+                class="text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition-colors p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg inline-block"
+                aria-label="Download Resume"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                  />
+                </svg>
+              </a>
+              <div
+                class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1.5 bg-gray-900 dark:bg-gray-700 text-white text-xs font-medium rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none"
+              >
+                Download my resume
+                <div
+                  class="absolute top-full left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-700 rotate-45"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Theme Toggle
+      const themeToggle = document.getElementById("themeToggle");
+      const sunIcon = document.getElementById("sunIcon");
+      const moonIcon = document.getElementById("moonIcon");
+
+      const currentTheme = localStorage.getItem("theme");
+
+      if (currentTheme === "dark") {
+        document.documentElement.classList.add("dark");
+        moonIcon.classList.remove("hidden");
+      } else {
+        sunIcon.classList.remove("hidden");
+      }
+
+      themeToggle.addEventListener("click", () => {
+        document.documentElement.classList.toggle("dark");
+
+        if (document.documentElement.classList.contains("dark")) {
+          localStorage.setItem("theme", "dark");
+          sunIcon.classList.add("hidden");
+          moonIcon.classList.remove("hidden");
+        } else {
+          localStorage.setItem("theme", "light");
+          moonIcon.classList.add("hidden");
+          sunIcon.classList.remove("hidden");
+        }
+      });
+    </script>
+  </body>
+</html>
