@@ -1,21 +1,88 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-	<!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-F127DXH209"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-	
-	  gtag('config', 'G-F127DXH209');
-	</script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F127DXH209"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-F127DXH209');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>J. Daudhria | Senior UX Product Designer</title>
+    <title>J. Daudhria | Lead Product Designer & Systems Architect</title>
+    <meta name="description" content="Lead Product Designer & Systems Architect with 15+ years experience building enterprise platforms, DesignOps, and accessible UX across Booking.com and global tech.">
+    <meta name="keywords" content="Product Designer, Senior UX Designer, Design Systems Architect, Booking.com UX, DesignOps Leader, UX Case Studies, Amsterdam Product Designer, Accessible UX, Enterprise UX">
+    <meta name="author" content="Jadvvinder (J.) Daudhria">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#08090E">
+    <link rel="canonical" href="https://jadvvinder.github.io/Jadvvinder/index.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="J. Daudhria Portfolio">
+    <meta property="og:title" content="J. Daudhria | Lead Product Designer & Systems Architect">
+    <meta property="og:description" content="Lead Product Designer & Systems Architect with 15+ years experience building enterprise platforms, DesignOps, and accessible UX.">
+    <meta property="og:url" content="https://jadvvinder.github.io/Jadvvinder/index.html">
+    <meta property="og:image" content="https://jadvvinder.github.io/Jadvvinder/img/ds_img1.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="J. Daudhria | Lead Product Designer & Systems Architect">
+    <meta name="twitter:description" content="Lead Product Designer & Systems Architect with 15+ years experience building enterprise platforms, DesignOps, and accessible UX.">
+    <meta name="twitter:image" content="https://jadvvinder.github.io/Jadvvinder/img/ds_img1.png">
+
+    <!-- JSON-LD Structured Data Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://jadvvinder.github.io/Jadvvinder/#person",
+          "name": "Jadvvinder (J.) Daudhria",
+          "jobTitle": "Lead Product Designer & Systems Architect",
+          "worksFor": {
+            "@type": "Organization",
+            "name": "Booking.com"
+          },
+          "url": "https://jadvvinder.github.io/Jadvvinder/",
+          "sameAs": [
+            "https://www.linkedin.com/in/jadvinderd",
+            "https://www.behance.net/jd132"
+          ],
+          "knowsAbout": [
+            "Enterprise UX",
+            "Design Systems",
+            "DesignOps",
+            "Accessibility (WCAG 2.1 AA)",
+            "A/B Testing",
+            "Product Strategy"
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Almere",
+            "addressCountry": "Netherlands"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://jadvvinder.github.io/Jadvvinder/#website",
+          "url": "https://jadvvinder.github.io/Jadvvinder/",
+          "name": "J. Daudhria Portfolio",
+          "author": {
+            "@id": "https://jadvvinder.github.io/Jadvvinder/#person"
+          }
+        }
+      ]
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -25,21 +92,17 @@
                 extend: {
                     colors: {
                         light: '#FFFFFF',
-                        dark: '#0A0A0A',
-                        textLight: '#171717',
-                        textDark: '#E5E5E5',
-                        grayLight: '#FAFAFA',
-                        grayDark: '#1A1A1A',
-                        surface: 'rgba(250, 250, 250, 0.8)',
-                        surfaceDark: 'rgba(10, 10, 10, 0.8)'
+                        dark: '#08090E',
+                        textLight: '#0F172A',
+                        textDark: '#F1F5F9',
+                        cardLight: '#F8FAFC',
+                        cardDark: '#111422',
+                        borderLight: 'rgba(226, 232, 240, 0.8)',
+                        borderDark: 'rgba(30, 41, 59, 0.7)'
                     },
                     fontFamily: {
                         'sans': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-                    },
-                    spacing: {
-                        '18': '4.5rem',
-                        '88': '22rem',
-                        '128': '32rem',
+                        'heading': ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
                     }
                 }
             }
@@ -50,126 +113,113 @@
             font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            letter-spacing: -0.011em;
         }
-        
-        .prose {
-            font-size: 1.125rem;
-            line-height: 1.7;
+
+        :focus-visible {
+            outline: 2px solid #6366F1 !important;
+            outline-offset: 3px !important;
         }
-        
-        .prose p {
-            margin-top: 1.5em;
-            margin-bottom: 1.5em;
-        }
-        
-        .section-padding {
-            padding-top: 6rem;
-            padding-bottom: 6rem;
+
+        @media (prefers-reduced-motion: reduce) {
+            *, ::before, ::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
         }
         
         .hero-gradient {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #EC4899 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
-        .card-hover {
-            transition: all 0.3s ease;
+
+        .ambient-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(140px);
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 0;
         }
-        
-        .card-hover:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
+
+        .dark .ambient-glow {
+            opacity: 0.18;
         }
-        
-        .dark .card-hover:hover {
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
+
+        .minimal-card {
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        
-        .metric-card {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-            border: 1px solid rgba(102, 126, 234, 0.2);
+
+        .minimal-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(99, 102, 241, 0.4);
+            box-shadow: 0 12px 30px -10px rgba(99, 102, 241, 0.08);
         }
-        
-        .dark .metric-card {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
-            border: 1px solid rgba(102, 126, 234, 0.3);
+
+        .dark .minimal-card:hover {
+            box-shadow: 0 12px 30px -10px rgba(99, 102, 241, 0.15);
         }
-        
-        .sticky-sidebar {
-            position: sticky;
-            top: 6rem;
-        }
-        
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(16px);
             }
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
+
         .animate-fadeInUp {
-            animation: fadeInUp 0.6s ease-out forwards;
+            animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
-        
-        .stagger-delay-1 { animation-delay: 0.1s; opacity: 0; }
-        .stagger-delay-2 { animation-delay: 0.2s; opacity: 0; }
-        .stagger-delay-3 { animation-delay: 0.3s; opacity: 0; }
-        .stagger-delay-4 { animation-delay: 0.4s; opacity: 0; }
-        
-        .contact-item-hover {
-            transition: all 0.3s ease;
-        }
-        
-        .contact-item-hover:hover {
-            transform: translateX(8px);
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
-        }
-        
-        .dark .contact-item-hover:hover {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-        }
-        
-        .social-link-hover {
-            transition: all 0.3s ease;
-        }
-        
-        .social-link-hover:hover {
-            transform: translateY(-4px) scale(1.1);
-        }
-        
-        .btn-download {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            transition: all 0.3s ease;
-        }
-        
-        .btn-download:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px -5px rgba(102, 126, 234, 0.4);
-        }
+
+        .stagger-delay-1 { animation-delay: 0.08s; opacity: 0; }
+        .stagger-delay-2 { animation-delay: 0.16s; opacity: 0; }
+        .stagger-delay-3 { animation-delay: 0.24s; opacity: 0; }
+        .stagger-delay-4 { animation-delay: 0.32s; opacity: 0; }
     </style>
 </head>
-<body class="bg-light dark:bg-dark text-textLight dark:text-textDark font-sans transition-colors duration-300">
-    <nav class="fixed top-0 left-0 right-0 bg-light/95 dark:bg-dark/95 backdrop-blur-lg z-50 border-b border-gray-200/50 dark:border-gray-800/50">
-        <div class="max-w-6xl mx-auto px-8 py-5">
+<body class="bg-light dark:bg-dark text-textLight dark:text-textDark font-sans transition-colors duration-300 relative overflow-x-hidden">
+
+    <!-- Accessibility Skip to Main Content -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-indigo-600 focus:text-white focus:rounded-lg focus:shadow-lg font-medium text-sm transition-all">
+        Skip to main content
+    </a>
+
+    <!-- Ambient Background Glows -->
+    <div class="ambient-glow bg-indigo-500 top-0 left-1/4" aria-hidden="true"></div>
+    <div class="ambient-glow bg-purple-500 top-[1200px] right-10" aria-hidden="true"></div>
+    <div class="ambient-glow bg-blue-500 top-[2600px] left-10" aria-hidden="true"></div>
+
+    <!-- Navigation Header -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/80 dark:bg-dark/80 backdrop-blur-md z-50 border-b border-gray-200/60 dark:border-gray-800/60 transition-colors" aria-label="Main navigation">
+        <div class="max-w-6xl mx-auto px-6 sm:px-8 py-4">
             <div class="flex items-center justify-between">
-                <a href="#hero" class="text-xl font-semibold tracking-tight hover:opacity-80 transition-opacity">JD</a>
-                <div class="flex items-center space-x-10">
-                    <a href="#work" class="text-base font-medium hover:text-gray-600 dark:hover:text-gray-300 transition-colors">Work</a>
-                    <a href="#about" class="text-base font-medium hover:text-gray-600 dark:hover:text-gray-300 transition-colors">About</a>
-                    <a href="#contact" class="text-base font-medium hover:text-gray-600 dark:hover:text-gray-300 transition-colors">Contact</a>
-                    <button id="themeToggle" class="p-2.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                        <svg id="sunIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                <a href="#hero" class="flex items-center space-x-3 group" aria-label="J. Daudhria Homepage">
+                    <span class="text-xl font-bold font-heading tracking-tight text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">JD</span>
+                    <span class="hidden sm:inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border border-emerald-200/60 dark:border-emerald-800/60">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-1.5 animate-pulse" aria-hidden="true"></span>
+                        Available for EU & Remote
+                    </span>
+                </a>
+                <div class="flex items-center space-x-6 sm:space-x-8 text-sm font-medium">
+                    <a href="#work" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Work</a>
+                    <a href="#why-me" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Why Me</a>
+                    <a href="#about" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">About</a>
+                    <a href="#contact" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Contact</a>
+                    <button id="themeToggle" type="button" class="p-2.5 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle light and dark theme">
+                        <svg id="sunIcon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
                         </svg>
-                        <svg id="moonIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        <svg id="moonIcon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
                         </svg>
                     </button>
                 </div>
@@ -177,489 +227,524 @@
         </div>
     </nav>
 
-    <section id="hero" class="pt-20 md:pt-32 pb-16 md:pb-20">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="animate-fadeInUp">
-                <div class="mb-8 md:mb-10">
-                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-light mb-6 md:mb-8 tracking-tight leading-[1.1]">
-                        <span class="hero-gradient font-semibold">Design Leader</span>
-                        <span class="block mt-2"> helping teams build better products and ship them faster.</span>
-                    </h1>
-                    <p class="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-8 md:mb-12 leading-relaxed max-w-4xl">
-                        I have over 15+ years of experience managing design teams and building large-scale software. I focus on bringing designers and engineers together, making products easy for everyone to use, and setting up clean workflows that save companies time and money.
+    <!-- Main Content Container -->
+    <main id="main-content" class="relative z-10">
+
+        <!-- Hero Section -->
+        <section id="hero" class="pt-28 md:pt-36 pb-16 md:pb-20 relative" aria-label="Introduction">
+            <div class="max-w-6xl mx-auto px-6 sm:px-8">
+                <div class="animate-fadeInUp">
+                    <div class="mb-10 md:mb-12">
+                        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold font-heading tracking-tight mb-6 leading-[1.15]">
+                            <span class="hero-gradient">I design products</span>
+                            <span class="block text-gray-900 dark:text-white mt-1">that are simple to use and easy to build.</span>
+                        </h1>
+                        <p class="text-lg sm:text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl">
+                            I have over 15 years of experience designing enterprise products, design systems, and internal tools. I enjoy solving complex problems, working closely with designers and engineers, and helping teams build products that are consistent, accessible, and easier to maintain.
+                        </p>
+                    </div>
+                    
+                    <!-- Key Metrics -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-10 md:mb-12">
+                        <div class="p-5 sm:p-6 bg-cardLight dark:bg-cardDark rounded-2xl border border-gray-200/70 dark:border-gray-800/70 minimal-card">
+                            <div class="text-3xl sm:text-4xl font-bold font-heading text-indigo-600 dark:text-indigo-400 mb-1">60%</div>
+                            <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-300 font-medium">less time spent fixing repetitive UI problems.</p>
+                        </div>
+                        <div class="p-5 sm:p-6 bg-cardLight dark:bg-cardDark rounded-2xl border border-gray-200/70 dark:border-gray-800/70 minimal-card">
+                            <div class="text-3xl sm:text-4xl font-bold font-heading text-indigo-600 dark:text-indigo-400 mb-1">40%</div>
+                            <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-300 font-medium">faster product launches for internal tools.</p>
+                        </div>
+                        <div class="p-5 sm:p-6 bg-cardLight dark:bg-cardDark rounded-2xl border border-gray-200/70 dark:border-gray-800/70 minimal-card">
+                            <div class="text-3xl sm:text-4xl font-bold font-heading text-indigo-600 dark:text-indigo-400 mb-1">200%</div>
+                            <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-300 font-medium">engineering hours saved every single month.</p>
+                        </div>
+                    </div>
+
+                    <!-- Domain Tags -->
+                    <div class="flex flex-wrap items-center gap-2 sm:gap-3 text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-300">
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-100 dark:bg-gray-800/60 border border-gray-200/60 dark:border-gray-700/60">Enterprise UX</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-100 dark:bg-gray-800/60 border border-gray-200/60 dark:border-gray-700/60">Design Systems</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-100 dark:bg-gray-800/60 border border-gray-200/60 dark:border-gray-700/60">Accessibility (WCAG)</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-100 dark:bg-gray-800/60 border border-gray-200/60 dark:border-gray-700/60">AI Workflows</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-100 dark:bg-gray-800/60 border border-gray-200/60 dark:border-gray-700/60">Design Operations</span>
+                        <span class="px-3 py-1.5 rounded-lg bg-gray-100 dark:bg-gray-800/60 border border-gray-200/60 dark:border-gray-700/60">Product Strategy</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Hire Me Section -->
+        <section id="why-me" class="py-16 md:py-20 border-t border-gray-100 dark:border-gray-800/50" aria-label="Why Hire Me">
+            <div class="max-w-6xl mx-auto px-6 sm:px-8">
+                <div class="mb-10 md:mb-12 animate-fadeInUp">
+                    <h2 class="text-2xl sm:text-3xl font-bold font-heading mb-3 tracking-tight text-gray-900 dark:text-white">Why Hire Me</h2>
+                    <p class="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-2xl">
+                        I bring experience across different types of products, teams, and problems. I can help from the early idea through to the final details.
                     </p>
                 </div>
-                
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-12 md:mb-16">
-                    <div class="p-4 sm:p-5 md:p-6 bg-grayLight dark:bg-grayDark rounded-xl md:rounded-2xl border border-gray-200 dark:border-gray-800 card-hover">
-                        <div class="text-2xl sm:text-3xl font-semibold mb-1 sm:mb-2">60%</div>
-                        <p class="text-sm sm:text-base text-gray-600 dark:text-gray-400">less time spent fixing repetitive UI problems.</p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
+                    <!-- Card 1 -->
+                    <div class="p-6 bg-cardLight dark:bg-cardDark rounded-2xl border border-gray-200/70 dark:border-gray-800/70 minimal-card flex flex-col justify-between">
+                        <div>
+                            <div class="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center mb-4 text-base font-bold">01</div>
+                            <h3 class="text-base font-bold font-heading text-gray-900 dark:text-white mb-2">I've worked on many types of products</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-xs sm:text-sm leading-relaxed">
+                                From consumer products to B2B software, SaaS, enterprise tools, and internal products. I adapt to the people, product, and problem I'm working on.
+                            </p>
+                        </div>
                     </div>
-                    <div class="p-4 sm:p-5 md:p-6 bg-grayLight dark:bg-grayDark rounded-xl md:rounded-2xl border border-gray-200 dark:border-gray-800 card-hover">
-                        <div class="text-2xl sm:text-3xl font-semibold mb-1 sm:mb-2">40%</div>
-                        <p class="text-sm sm:text-base text-gray-600 dark:text-gray-400">faster product launches for internal tools.</p>
+
+                    <!-- Card 2 -->
+                    <div class="p-6 bg-cardLight dark:bg-cardDark rounded-2xl border border-gray-200/70 dark:border-gray-800/70 minimal-card flex flex-col justify-between">
+                        <div>
+                            <div class="w-10 h-10 rounded-xl bg-purple-50 dark:bg-purple-950/60 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-4 text-base font-bold">02</div>
+                            <h3 class="text-base font-bold font-heading text-gray-900 dark:text-white mb-2">I think beyond one screen</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-xs sm:text-sm leading-relaxed">
+                                I look for ways to reuse good ideas, reduce repeated work, and make products easier for teams to build and maintain.
+                            </p>
+                        </div>
                     </div>
-                    <div class="p-4 sm:p-5 md:p-6 bg-grayLight dark:bg-grayDark rounded-xl md:rounded-2xl border border-gray-200 dark:border-gray-800 card-hover sm:col-span-2 lg:col-span-1">
-                        <div class="text-2xl sm:text-3xl font-semibold mb-1 sm:mb-2">200%</div>
-                        <p class="text-sm sm:text-base text-gray-600 dark:text-gray-400">engineering hours saved every single month.</p>
+
+                    <!-- Card 3 -->
+                    <div class="p-6 bg-cardLight dark:bg-cardDark rounded-2xl border border-gray-200/70 dark:border-gray-800/70 minimal-card flex flex-col justify-between">
+                        <div>
+                            <div class="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-4 text-base font-bold">03</div>
+                            <h3 class="text-base font-bold font-heading text-gray-900 dark:text-white mb-2">I'm comfortable with complex problems</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-xs sm:text-sm leading-relaxed">
+                                I've worked with complex workflows, large amounts of data, different users, and many teams. I enjoy making complicated things easier to understand.
+                            </p>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 md:gap-6 text-gray-600 dark:text-gray-400 text-sm sm:text-base">
-                    
-                    <!--<div class="flex items-center space-x-2 sm:space-x-3 md:space-x-4">
-						<span class="px-2.5 py-1 text-xs md:text-sm bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 rounded-full">Team Leadership</span>
-					</div>              
-                    <div class="hidden sm:block h-4 w-px bg-gray-300 dark:bg-gray-700"></div>-->
-					<div class="sm:hidden w-full h-px bg-gray-200 dark:bg-gray-800 my-1"></div>
-                     <div class="whitespace-nowrap">Enterprise UX</div>
-                     <div class="hidden sm:block h-4 w-px bg-gray-300 dark:bg-gray-700"></div>
-					 <div class="sm:hidden w-full h-px bg-gray-200 dark:bg-gray-800 my-1"></div>
-                     <div class="whitespace-nowrap">Design Systems</div> 
-                    <div class="hidden sm:block h-4 w-px bg-gray-300 dark:bg-gray-700"></div>
-                    <div class="sm:hidden w-full h-px bg-gray-200 dark:bg-gray-800 my-1"></div>
-                    <div class="whitespace-nowrap">Accessibility (WCAG)</div>
-					 <div class="hidden sm:block h-4 w-px bg-gray-300 dark:bg-gray-700"></div>
-                    <div class="sm:hidden w-full h-px bg-gray-200 dark:bg-gray-800 my-1"></div>
-                    <div class="whitespace-nowrap">AI Workflows</div>
-					 <div class="hidden sm:block h-4 w-px bg-gray-300 dark:bg-gray-700"></div>
-                    <div class="sm:hidden w-full h-px bg-gray-200 dark:bg-gray-800 my-1"></div>
-                    <div class="whitespace-nowrap">Design Operations</div>
-					 <div class="hidden sm:block h-4 w-px bg-gray-300 dark:bg-gray-700"></div>
-                    <div class="sm:hidden w-full h-px bg-gray-200 dark:bg-gray-800 my-1"></div>
-                    <div class="whitespace-nowrap">Product Strategy</div>
+
+                    <!-- Card 4 -->
+                    <div class="p-6 bg-cardLight dark:bg-cardDark rounded-2xl border border-gray-200/70 dark:border-gray-800/70 minimal-card flex flex-col justify-between">
+                        <div>
+                            <div class="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-4 text-base font-bold">04</div>
+                            <h3 class="text-base font-bold font-heading text-gray-900 dark:text-white mb-2">I stay involved from start to finish</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-xs sm:text-sm leading-relaxed">
+                                I can help define the problem, research, design, prototype, work with engineers, check the details, and help get the final product out.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="work" class="py-16 md:py-20 bg-grayLight dark:bg-grayDark">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-12 md:mb-16 animate-fadeInUp stagger-delay-1">
-                <h2 class="text-3xl sm:text-4xl font-light mb-4 md:mb-6">Selected Work</h2>
-                <p class="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl">
-                    Leading end-to-end design for internal platforms, design systems, and consumer marketplace products.
-                </p>
+        <!-- Selected Work Section -->
+        <section id="work" class="py-16 md:py-20 border-t border-gray-100 dark:border-gray-800/50 bg-gray-50/50 dark:bg-dark/40" aria-label="Selected Work Case Studies">
+            <div class="max-w-6xl mx-auto px-6 sm:px-8">
+                <div class="mb-10 md:mb-12 animate-fadeInUp">
+                    <h2 class="text-2xl sm:text-3xl font-bold font-heading mb-3 tracking-tight text-gray-900 dark:text-white">Selected Work</h2>
+                    <p class="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-2xl">
+                        A collection of projects covering design systems, internal tools, operational software, and consumer products.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Project 5: Global Design System -->
+                    <a href="project5.html" class="group block animate-fadeInUp" aria-label="Read Booking.com Global Design System Case Study">
+                        <div class="bg-white dark:bg-cardDark rounded-2xl p-6 border border-gray-200/70 dark:border-gray-800/70 minimal-card h-full flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="text-xs font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">Booking.com</span>
+                                    <span class="text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 group-hover:translate-x-1 transition-all text-lg" aria-hidden="true">→</span>
+                                </div>
+                                <h3 class="text-xl font-bold font-heading text-gray-900 dark:text-white mb-2.5">Global Design System</h3>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-6">
+                                    Built a shared component library and design tokens for Booking.com across web and mobile. Helped 200+ designers and engineers build consistent features 60% faster with fewer design bugs.
+                                </p>
+                            </div>
+                            <div class="flex flex-wrap gap-1.5 pt-4 border-t border-gray-100 dark:border-gray-800/60">
+                                <span class="px-2.5 py-1 text-xs font-medium bg-purple-50 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300 rounded-md">Design Systems</span>
+                                <span class="px-2.5 py-1 text-xs font-medium bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 rounded-md">Component Library</span>
+                                <span class="px-2.5 py-1 text-xs font-medium bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 rounded-md">DesignOps</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Project 1: Internal A/B Platform -->
+                    <a href="project1.html" class="group block animate-fadeInUp stagger-delay-1" aria-label="Read Booking.com Internal A/B Platform Case Study">
+                        <div class="bg-white dark:bg-cardDark rounded-2xl p-6 border border-gray-200/70 dark:border-gray-800/70 minimal-card h-full flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="text-xs font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">Booking.com</span>
+                                    <span class="text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 group-hover:translate-x-1 transition-all text-lg" aria-hidden="true">→</span>
+                                </div>
+                                <h3 class="text-xl font-bold font-heading text-gray-900 dark:text-white mb-2.5">Internal A/B Testing Platform</h3>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-6">
+                                    Redesigned the internal tool used by 1,000+ employees to launch and monitor A/B tests. Simplified setting up experiments and reading statistical results, cutting setup time by 40%.
+                                </p>
+                            </div>
+                            <div class="flex flex-wrap gap-1.5 pt-4 border-t border-gray-100 dark:border-gray-800/60">
+                                <span class="px-2.5 py-1 text-xs font-medium bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 rounded-md">Internal Tools</span>
+                                <span class="px-2.5 py-1 text-xs font-medium bg-purple-50 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300 rounded-md">A/B Testing</span>
+                                <span class="px-2.5 py-1 text-xs font-medium bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 rounded-md">Data Viz</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Project 2: Fleet Operations -->
+                    <a href="project2.html" class="group block animate-fadeInUp stagger-delay-2" aria-label="Read Ola Cabs Fleet Operations Case Study">
+                        <div class="bg-white dark:bg-cardDark rounded-2xl p-6 border border-gray-200/70 dark:border-gray-800/70 minimal-card h-full flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="text-xs font-semibold uppercase tracking-wider text-amber-600 dark:text-amber-400">Ola Cabs</span>
+                                    <span class="text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 group-hover:translate-x-1 transition-all text-lg" aria-hidden="true">→</span>
+                                </div>
+                                <h3 class="text-xl font-bold font-heading text-gray-900 dark:text-white mb-2.5">Fleet Operations & Logistics</h3>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-6">
+                                    Replaced paper logs and spreadsheets with digital tools for Ola's fleet hubs. Spent time on-ground with operators to speed up vehicle check-ins and driver onboarding by 80%.
+                                </p>
+                            </div>
+                            <div class="flex flex-wrap gap-1.5 pt-4 border-t border-gray-100 dark:border-gray-800/60">
+                                <span class="px-2.5 py-1 text-xs font-medium bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 rounded-md">Field Logistics</span>
+                                <span class="px-2.5 py-1 text-xs font-medium bg-rose-50 dark:bg-rose-950/40 text-rose-700 dark:text-rose-300 rounded-md">Workflow Software</span>
+                                <span class="px-2.5 py-1 text-xs font-medium bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 rounded-md">Operations</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Project 3: Appystore EdTech -->
+                    <a href="project3.html" class="group block animate-fadeInUp stagger-delay-2" aria-label="Read Appystore EdTech Learning Ecosystem Case Study">
+                        <div class="bg-white dark:bg-cardDark rounded-2xl p-6 border border-gray-200/70 dark:border-gray-800/70 minimal-card h-full flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="text-xs font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">People Group</span>
+                                    <span class="text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 group-hover:translate-x-1 transition-all text-lg" aria-hidden="true">→</span>
+                                </div>
+                                <h3 class="text-xl font-bold font-heading text-gray-900 dark:text-white mb-2.5">Appystore Early Learning App</h3>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-6">
+                                    Turned a basic kids' video app into an engaging learning platform for 1M+ children and parents. Created picture-based navigation for toddlers and simple progress tracking for parents.
+                                </p>
+                            </div>
+                            <div class="flex flex-wrap gap-1.5 pt-4 border-t border-gray-100 dark:border-gray-800/60">
+                                <span class="px-2.5 py-1 text-xs font-medium bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 rounded-md">EdTech</span>
+                                <span class="px-2.5 py-1 text-xs font-medium bg-pink-50 dark:bg-pink-950/40 text-pink-700 dark:text-pink-300 rounded-md">Kids Product UX</span>
+                                <span class="px-2.5 py-1 text-xs font-medium bg-purple-50 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300 rounded-md">Mobile & Tablet</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Project 8: B.charges Tax Transparency -->
+                    <a href="project8.html" class="group block animate-fadeInUp stagger-delay-3" aria-label="Read Booking.com Tax & Fee Transparency Case Study">
+                        <div class="bg-white dark:bg-cardDark rounded-2xl p-6 border border-gray-200/70 dark:border-gray-800/70 minimal-card h-full flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="text-xs font-semibold uppercase tracking-wider text-cyan-600 dark:text-cyan-400">Booking.com</span>
+                                    <span class="text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 group-hover:translate-x-1 transition-all text-lg" aria-hidden="true">→</span>
+                                </div>
+                                <h3 class="text-xl font-bold font-heading text-gray-900 dark:text-white mb-2.5">Tax & Fee Pricing Transparency</h3>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-6">
+                                    Made hotel pricing clear upfront by showing itemized local taxes and resort fees before checkout. Prevented surprise check-in costs for travelers and boosted booking completion by 15%.
+                                </p>
+                            </div>
+                            <div class="flex flex-wrap gap-1.5 pt-4 border-t border-gray-100 dark:border-gray-800/60">
+                                <span class="px-2.5 py-1 text-xs font-medium bg-cyan-50 dark:bg-cyan-950/40 text-cyan-700 dark:text-cyan-300 rounded-md">Pricing Transparency</span>
+                                <span class="px-2.5 py-1 text-xs font-medium bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 rounded-md">Checkout UX</span>
+                                <span class="px-2.5 py-1 text-xs font-medium bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 rounded-md">Fintech</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Project 6: AI Travel Itinerary -->
+                    <a href="project6.html" class="group block animate-fadeInUp stagger-delay-3" aria-label="Read AI Travel Planner Case Study">
+                        <div class="bg-white dark:bg-cardDark rounded-2xl p-6 border border-gray-200/70 dark:border-gray-800/70 minimal-card h-full flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="text-xs font-semibold uppercase tracking-wider text-purple-600 dark:text-purple-400">🏆 Hackathon Winner</span>
+                                    <span class="text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 group-hover:translate-x-1 transition-all text-lg" aria-hidden="true">→</span>
+                                </div>
+                                <h3 class="text-xl font-bold font-heading text-gray-900 dark:text-white mb-2.5">AI Travel Itinerary Planner</h3>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-6">
+                                    Hackathon-winning project that uses AI to generate custom, day-by-day travel plans in seconds based on individual travel styles and real-time map routes.
+                                </p>
+                            </div>
+                            <div class="flex flex-wrap gap-1.5 pt-4 border-t border-gray-100 dark:border-gray-800/60">
+                                <span class="px-2.5 py-1 text-xs font-medium bg-purple-50 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300 rounded-md">AI UX</span>
+                                <span class="px-2.5 py-1 text-xs font-medium bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 rounded-md">Rapid Prototyping</span>
+                                <span class="px-2.5 py-1 text-xs font-medium bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 rounded-md">Travel Product</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="mt-10 text-center">
+                    <a href="portfolio.html" class="inline-flex items-center px-6 py-3.5 rounded-xl bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-semibold hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors shadow-sm">
+                        View All Projects <span class="ml-2" aria-hidden="true">→</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- What I Bring to a Team Section -->
+        <section id="about" class="py-16 md:py-20 border-t border-gray-100 dark:border-gray-800/50" aria-label="About and Leadership Style">
+            <div class="max-w-6xl mx-auto px-6 sm:px-8">
+                <div class="animate-fadeInUp">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-12">
+                        <div class="lg:col-span-2">
+                            <h2 class="text-2xl sm:text-3xl font-bold font-heading mb-3 tracking-tight text-gray-900 dark:text-white">What I Bring to a Team</h2>
+                            <p class="text-base sm:text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+                                Every team has different goals, but the challenges are often the same. I help teams solve complex problems, improve collaboration, and build products that are easier to use, easier to build, and easier to maintain.
+                            </p>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                <!-- Card 1 -->
+                                <div class="p-6 bg-cardLight dark:bg-cardDark rounded-2xl border border-gray-200/70 dark:border-gray-800/70 minimal-card">
+                                    <h3 class="text-base font-bold font-heading text-gray-900 dark:text-white mb-2 flex items-center">
+                                        <span class="mr-2" aria-hidden="true">🎯</span> Solve the Right Problem
+                                    </h3>
+                                    <p class="text-gray-600 dark:text-gray-300 text-xs sm:text-sm leading-relaxed">
+                                        I take time to understand the problem before designing solutions. By asking the right questions and understanding user and business needs, I help teams focus on solving the problems that matter most.
+                                    </p>
+                                </div>
+
+                                <!-- Card 2 -->
+                                <div class="p-6 bg-cardLight dark:bg-cardDark rounded-2xl border border-gray-200/70 dark:border-gray-800/70 minimal-card">
+                                    <h3 class="text-base font-bold font-heading text-gray-900 dark:text-white mb-2 flex items-center">
+                                        <span class="mr-2" aria-hidden="true">🤝</span> Better Collaboration
+                                    </h3>
+                                    <p class="text-gray-600 dark:text-gray-300 text-xs sm:text-sm leading-relaxed">
+                                        I enjoy working closely with designers, engineers, product managers, researchers, and stakeholders. Building a shared understanding early leads to better decisions and smoother delivery.
+                                    </p>
+                                </div>
+
+                                <!-- Card 3 -->
+                                <div class="p-6 bg-cardLight dark:bg-cardDark rounded-2xl border border-gray-200/70 dark:border-gray-800/70 minimal-card">
+                                    <h3 class="text-base font-bold font-heading text-gray-900 dark:text-white mb-2 flex items-center">
+                                        <span class="mr-2" aria-hidden="true">📦</span> Scalable Solutions
+                                    </h3>
+                                    <p class="text-gray-600 dark:text-gray-300 text-xs sm:text-sm leading-relaxed">
+                                        I create reusable patterns, design systems, and practical workflows that improve consistency, reduce repeated work, and make products easier to maintain as they grow.
+                                    </p>
+                                </div>
+
+                                <!-- Card 4 -->
+                                <div class="p-6 bg-cardLight dark:bg-cardDark rounded-2xl border border-gray-200/70 dark:border-gray-800/70 minimal-card">
+                                    <h3 class="text-base font-bold font-heading text-gray-900 dark:text-white mb-2 flex items-center">
+                                        <span class="mr-2" aria-hidden="true">♿</span> Accessible by Design
+                                    </h3>
+                                    <p class="text-gray-600 dark:text-gray-300 text-xs sm:text-sm leading-relaxed">
+                                        Accessibility is part of my design process from the beginning. I design products that work for more people while keeping the experience practical for both users and development teams.
+                                    </p>
+                                </div>
+
+                                <!-- Card 5 -->
+                                <div class="p-6 bg-cardLight dark:bg-cardDark rounded-2xl border border-gray-200/70 dark:border-gray-800/70 minimal-card">
+                                    <h3 class="text-base font-bold font-heading text-gray-900 dark:text-white mb-2 flex items-center">
+                                        <span class="mr-2" aria-hidden="true">⚡</span> Simpler Ways of Working
+                                    </h3>
+                                    <p class="text-gray-600 dark:text-gray-300 text-xs sm:text-sm leading-relaxed">
+                                        Beyond designing interfaces, I improve how teams work by simplifying workflows, reducing unnecessary complexity, and creating processes that save time and improve quality.
+                                    </p>
+                                </div>
+
+                                <!-- Card 6 -->
+                                <div class="p-6 bg-cardLight dark:bg-cardDark rounded-2xl border border-gray-200/70 dark:border-gray-800/70 minimal-card">
+                                    <h3 class="text-base font-bold font-heading text-gray-900 dark:text-white mb-2 flex items-center">
+                                        <span class="mr-2" aria-hidden="true">🌱</span> Helping Others Grow
+                                    </h3>
+                                    <p class="text-gray-600 dark:text-gray-300 text-xs sm:text-sm leading-relaxed">
+                                        I enjoy coaching designers through design reviews, feedback, and mentoring. Helping people grow strengthens teams and leads to better products.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="mt-8 p-6 bg-indigo-50/50 dark:bg-indigo-950/20 rounded-2xl border border-indigo-100 dark:border-indigo-900/40">
+                                <p class="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed font-medium">
+                                    Whether I'm working on a customer-facing product, an internal tool, or a design system, my goal is always the same: help teams build products with confidence by making them simpler, more consistent, and accessible to everyone.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Sidebar Stats -->
+                        <div class="lg:col-span-1">
+                            <div class="bg-cardLight dark:bg-cardDark rounded-2xl p-6 sm:p-8 border border-gray-200/70 dark:border-gray-800/70 sticky top-24">
+                                <h3 class="text-lg font-bold font-heading mb-6 tracking-tight text-gray-900 dark:text-white">By the Numbers</h3>
+                                
+                                <div class="space-y-6">
+                                    <div>
+                                        <div class="text-3xl font-bold font-heading text-indigo-600 dark:text-indigo-400 mb-1">15+</div>
+                                        <p class="text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-300">Years in Product Design</p>
+                                    </div>
+                                    <div class="pt-4 border-t border-gray-200/60 dark:border-gray-800/60">
+                                        <div class="text-3xl font-bold font-heading text-indigo-600 dark:text-indigo-400 mb-1">8</div>
+                                        <p class="text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-300">Years at Booking.com</p>
+                                    </div>
+                                    <div class="pt-4 border-t border-gray-200/60 dark:border-gray-800/60">
+                                        <div class="text-3xl font-bold font-heading text-indigo-600 dark:text-indigo-400 mb-1">1M+</div>
+                                        <p class="text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-300">Users Impacted Globally</p>
+                                    </div>
+                                    <div class="pt-4 border-t border-gray-200/60 dark:border-gray-800/60">
+                                        <div class="text-3xl font-bold font-heading text-indigo-600 dark:text-indigo-400 mb-1">3</div>
+                                        <p class="text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-300">Internal Hackathons Won</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact & Experience Section -->
+        <section id="contact" class="py-16 md:py-20 border-t border-gray-100 dark:border-gray-800/50 bg-gray-50/50 dark:bg-dark/40" aria-label="Contact Information and Experience">
+            <div class="max-w-6xl mx-auto px-6 sm:px-8">
+                <div class="animate-fadeInUp">
+                    <div class="mb-10 md:mb-12">
+                        <h2 class="text-3xl sm:text-4xl font-bold font-heading tracking-tight mb-3 text-gray-900 dark:text-white">Let's build better products together.</h2>
+                        <p class="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-3xl">
+                            I'm currently available for Senior Product Design, Design Systems, Accessibility, AI-driven Design, and Consulting opportunities across Europe.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12">
+                        <!-- Left: Contact Details -->
+                        <div>
+                            <h3 class="text-xl font-bold font-heading mb-3 text-gray-900 dark:text-white">Contact Information</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                                Based in Almere, Netherlands. Available for hybrid or remote opportunities within the EU. Dutch Citizen.
+                            </p>
+
+                            <div class="space-y-4 mb-8">
+                                <a href="mailto:j.daudhria@gmail.com" class="block p-4 rounded-xl bg-white dark:bg-cardDark border border-gray-200/70 dark:border-gray-800/70 minimal-card group" aria-label="Send Email to j.daudhria@gmail.com">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center mr-4" aria-hidden="true">
+                                            <i class="fas fa-envelope"></i>
+                                        </div>
+                                        <div>
+                                            <div class="text-xs text-gray-500 dark:text-gray-400 font-medium uppercase tracking-wider">Email</div>
+                                            <div class="text-sm font-semibold text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">j.daudhria@gmail.com</div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <a href="tel:+31684723103" class="block p-4 rounded-xl bg-white dark:bg-cardDark border border-gray-200/70 dark:border-gray-800/70 minimal-card group" aria-label="Call +31 684723103">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mr-4" aria-hidden="true">
+                                            <i class="fas fa-phone"></i>
+                                        </div>
+                                        <div>
+                                            <div class="text-xs text-gray-500 dark:text-gray-400 font-medium uppercase tracking-wider">Phone</div>
+                                            <div class="text-sm font-semibold text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">+31 684723103</div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <div class="p-4 rounded-xl bg-white dark:bg-cardDark border border-gray-200/70 dark:border-gray-800/70 minimal-card">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 rounded-lg bg-purple-50 dark:bg-purple-950/60 text-purple-600 dark:text-purple-400 flex items-center justify-center mr-4" aria-hidden="true">
+                                            <i class="fas fa-location-dot"></i>
+                                        </div>
+                                        <div>
+                                            <div class="text-xs text-gray-500 dark:text-gray-400 font-medium uppercase tracking-wider">Location</div>
+                                            <div class="text-sm font-semibold text-gray-900 dark:text-white">Almere, Netherlands</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3">Connect</div>
+                                <div class="flex items-center space-x-3">
+                                    <a href="https://www.linkedin.com/in/jadvinderd" target="_blank" rel="noopener noreferrer" 
+                                       class="w-10 h-10 rounded-xl bg-white dark:bg-cardDark border border-gray-200/70 dark:border-gray-800/70 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:border-indigo-400 transition-colors" aria-label="LinkedIn Profile">
+                                        <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="https://www.behance.net/jd132" target="_blank" rel="noopener noreferrer" 
+                                       class="w-10 h-10 rounded-xl bg-white dark:bg-cardDark border border-gray-200/70 dark:border-gray-800/70 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:border-indigo-400 transition-colors" aria-label="Behance Portfolio">
+                                        <i class="fab fa-behance" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="mailto:j.daudhria@gmail.com" 
+                                       class="w-10 h-10 rounded-xl bg-white dark:bg-cardDark border border-gray-200/70 dark:border-gray-800/70 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:border-indigo-400 transition-colors" aria-label="Send Email">
+                                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Experience History -->
+                        <div>
+                            <h3 class="text-xl font-bold font-heading mb-3 text-gray-900 dark:text-white">Experience History</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                                Accomplished tenure at high-scale travel and ride-hailing marketplaces, specializing in enterprise-level products and Design Operations.
+                            </p>
+
+                            <div class="bg-white dark:bg-cardDark rounded-2xl p-6 border border-gray-200/70 dark:border-gray-800/70 mb-6">
+                                <ul class="space-y-4">
+                                    <li class="flex items-start justify-between pb-4 border-b border-gray-100 dark:border-gray-800/60">
+                                        <div>
+                                            <div class="font-bold text-gray-900 dark:text-white text-base">Booking.com</div>
+                                            <div class="text-xs text-gray-600 dark:text-gray-300">Product Designer</div>
+                                        </div>
+                                        <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">2018 - 2026</span>
+                                    </li>
+                                    <li class="flex items-start justify-between pb-4 border-b border-gray-100 dark:border-gray-800/60">
+                                        <div>
+                                            <div class="font-bold text-gray-900 dark:text-white text-base">Ola Cabs</div>
+                                            <div class="text-xs text-gray-600 dark:text-gray-300">Senior Product Designer</div>
+                                        </div>
+                                        <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">2017 - 2018</span>
+                                    </li>
+                                    <li class="flex items-start justify-between pb-4 border-b border-gray-100 dark:border-gray-800/60">
+                                        <div>
+                                            <div class="font-bold text-gray-900 dark:text-white text-base">People Group</div>
+                                            <div class="text-xs text-gray-600 dark:text-gray-300">UX Design Lead</div>
+                                        </div>
+                                        <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">2015 - 2017</span>
+                                    </li>
+                                    <li class="flex items-start justify-between">
+                                        <div>
+                                            <div class="font-bold text-gray-900 dark:text-white text-base">Times Internet</div>
+                                            <div class="text-xs text-gray-600 dark:text-gray-300">Senior UI/UX Manager</div>
+                                        </div>
+                                        <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">2009 - 2015</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <a href="J_Daudhria_Senior_Product_Designer.pdf" download 
+                               class="inline-flex items-center justify-center w-full px-6 py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold text-sm hover:from-indigo-500 hover:to-purple-500 transition-all shadow-md shadow-indigo-500/10">
+                                <i class="fas fa-download mr-2.5" aria-hidden="true"></i>
+                                Download Resume
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+        <!-- Footer -->
+    <footer class="py-12 border-t border-gray-200/60 dark:border-gray-800/60 transition-colors mt-20 md:mt-28 relative z-10" aria-label="Site footer">
+        <div class="max-w-6xl mx-auto px-6 sm:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div>
+                    <div class="text-lg font-bold font-heading text-gray-900 dark:text-white">J. Daudhria</div>
+                    <p class="text-xs text-gray-600 dark:text-gray-400 mt-1">Lead Product Designer & Systems Architect</p>
+                </div>
+                
+                <div class="flex items-center space-x-6 text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-medium">
+                    <a href="https://www.linkedin.com/in/jadvinderd" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">LinkedIn</a>
+                    <span aria-hidden="true">•</span>
+                    <a href="https://www.behance.net/jd132" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Behance</a>
+                    <span aria-hidden="true">•</span>
+                    <a href="mailto:j.daudhria@gmail.com" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Email</a>
+                </div>
             </div>
             
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">   
-			<a href="project5.html" class="group block animate-fadeInUp">
-                    <div class="bg-light dark:bg-dark rounded-xl md:rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 card-hover h-full">
-                        <div class="p-6 md:p-8">
-                            <div class="flex items-center justify-between mb-3 md:mb-4">
-                                <span class="text-xs md:text-sm font-medium text-gray-500 dark:text-gray-400">Booking.com</span>
-                                <span class="group-hover:translate-x-1 md:group-hover:translate-x-2 transition-transform text-lg md:text-xl">→</span>
-                            </div>
-                            <h3 class="text-xl md:text-2xl font-semibold mb-2 md:mb-3">Global Design System</h3>
-                            <p class="text-gray-600 dark:text-gray-400 text-sm md:text-base mb-4 md:mb-6">
-                                Built a scalable multi-platform design system that enabled product teams to design and ship consistent experiences faster across global products. 80+ Components; 200+ 									Designers; 15+ Teams; 60% Faster Delivery
-							</p>
-                            <div class="flex flex-wrap gap-1.5 md:gap-2">
-                                <span class="px-2.5 py-1 text-xs md:text-sm bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full">Design Systems</span>
-                                <span class="px-2.5 py-1 text-xs md:text-sm bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full">Design Ops</span>
-                                <span class="px-2.5 py-1 text-xs md:text-sm bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 rounded-full">Scalable UI</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-			    
-                <a href="project1.html" class="group block animate-fadeInUp stagger-delay-2">
-                    <div class="bg-light dark:bg-dark rounded-xl md:rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 card-hover h-full">
-                        <div class="p-6 md:p-8">
-                            <div class="flex items-center justify-between mb-3 md:mb-4">
-                                <span class="text-xs md:text-sm font-medium text-gray-500 dark:text-gray-400">Booking.com</span>
-                                <span class="group-hover:translate-x-1 md:group-hover:translate-x-2 transition-transform text-lg md:text-xl">→</span>
-                            </div>
-                            <h3 class="text-xl md:text-2xl font-semibold mb-2 md:mb-3">Internal A/B Platform</h3>
-                            <p class="text-gray-600 dark:text-gray-400 text-sm md:text-base mb-4 md:mb-6">
-                                Redesigned the enterprise experimentation dashboard using data-driven insights, cutting experiment setup time by 40% for rapid product iteration.
-                            </p>
-                            <div class="flex flex-wrap gap-1.5 md:gap-2">
-                                <span class="px-2.5 py-1 text-xs md:text-sm bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full">B2B SaaS</span>
-                                <span class="px-2.5 py-1 text-xs md:text-sm bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full">Data Viz</span>
-                                <span class="px-2.5 py-1 text-xs md:text-sm bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 rounded-full">A/B Testing</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="project2.html" class="group block animate-fadeInUp stagger-delay-3">
-                    <div class="bg-light dark:bg-dark rounded-xl md:rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 card-hover h-full">
-                        <div class="p-6 md:p-8">
-                            <div class="flex items-center justify-between mb-3 md:mb-4">
-                                <span class="text-xs md:text-sm font-medium text-gray-500 dark:text-gray-400">Ola Cabs</span>
-                                <span class="group-hover:translate-x-1 md:group-hover:translate-x-2 transition-transform text-lg md:text-xl">→</span>
-                            </div>
-                            <h3 class="text-xl md:text-2xl font-semibold mb-2 md:mb-3">Operations & Logistics</h3>
-                            <p class="text-gray-600 dark:text-gray-400 text-sm md:text-base mb-4 md:mb-6">
-                                Digitized fleet management workflows at India's largest ride-hailing platform, increasing operational efficiency by 80% through user research.
-                            </p>
-                            <div class="flex flex-wrap gap-1.5 md:gap-2">
-                                <span class="px-2.5 py-1 text-xs md:text-sm bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-300 rounded-full">Marketplaces</span>
-                                <span class="px-2.5 py-1 text-xs md:text-sm bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300 rounded-full">Workflow Optimization</span>
-                                <span class="px-2.5 py-1 text-xs md:text-sm bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full">Enterprise</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-				<a href="project3.html" class="group block animate-fadeInUp stagger-delay-3">
-                       <div class="bg-light dark:bg-dark rounded-xl md:rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 card-hover h-full">
-                        <div class="p-6 md:p-8">
-                            <div class="flex items-center justify-between mb-3 md:mb-4">
-                                <span class="text-xs md:text-sm font-medium text-gray-500 dark:text-gray-400">People Group</span>
-                                <span class="group-hover:translate-x-1 md:group-hover:translate-x-2 transition-transform text-lg md:text-xl">→</span>
-                            </div>
-                            <h3 class="text-xl md:text-2xl font-semibold mb-2 md:mb-3">EdTech Learning Ecosystem Transformation</h3>
-                            <p class="text-gray-600 dark:text-gray-400 text-sm md:text-base mb-4 md:mb-6">
-                                  Orchestrated the UX vision for Appystore, evolving it from a kids’ video app into a holistic learning platform built on trust, safety, and active engagement for over 1M young learners.
-                            </p>
-                            <div class="flex flex-wrap gap-1.5 md:gap-2">
-                                    <span class="px-2.5 py-1 text-xs md:text-sm bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 rounded-full">UX Strategy</span>
-                                    <span class="px-2.5 py-1 text-xs md:text-sm bg-pink-100 dark:bg-pink-900/30 text-pink-800 dark:text-pink-300 rounded-full">EdTech</span>
-                                    <span class="px-2.5 py-1 text-xs md:text-sm bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full">Cross‑Functional Collaboration</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-				
-				<a href="project6.html" class="group block animate-fadeInUp">
-				    <div class="bg-light dark:bg-dark rounded-xl md:rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 card-hover h-full">
-				        <div class="p-6 md:p-8">
-				            <div class="flex items-center justify-between mb-3 md:mb-4">
-				                <span class="text-xs md:text-sm font-medium text-gray-500 dark:text-gray-400">🏆 Hackathon Winner</span>
-				                <span class="group-hover:translate-x-1 md:group-hover:translate-x-2 transition-transform text-lg md:text-xl">→</span>
-				            </div>
-				            <h3 class="text-xl md:text-2xl font-semibold mb-2 md:mb-3">AI-Powered Dynamic Travel Itinerary</h3>
-				            <p class="text-gray-600 dark:text-gray-400 text-sm md:text-base mb-4 md:mb-6">
-				                Using AI strategically across research, design, and prototyping to deliver a personalized itinerary generator in 48 hours—reducing design time by 70%.
-				            </p>
-				            <div class="flex flex-wrap gap-1.5 md:gap-2">
-				                <span class="px-2.5 py-1 text-xs md:text-sm bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full">AI Design</span>
-				                <span class="px-2.5 py-1 text-xs md:text-sm bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full">Rapid Prototyping</span>
-				                <span class="px-2.5 py-1 text-xs md:text-sm bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 rounded-full">Accessibility</span>
-				            </div>
-				        </div>
-				    </div>
-				</a>
-               <!-- <a href="project4.html" class="group block animate-fadeInUp">
-                    <div class="bg-light dark:bg-dark rounded-xl md:rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 card-hover h-full">
-                        <div class="p-6 md:p-8">
-                            <div class="flex items-center justify-between mb-3 md:mb-4">
-                                <span class="text-xs md:text-sm font-medium text-gray-500 dark:text-gray-400">Internationalization</span>
-                                <span class="group-hover:translate-x-1 md:group-hover:translate-x-2 transition-transform text-lg md:text-xl">→</span>
-                            </div>
-                            <h3 class="text-xl md:text-2xl font-semibold mb-2 md:mb-3">Localized Market Design</h3>
-                            <p class="text-gray-600 dark:text-gray-400 text-sm md:text-base mb-4 md:mb-6">
-                                Shipping high-impact features across 40+ localized experiences, balancing global brand consistency with regional user needs.
-                            </p>
-                            <div class="flex flex-wrap gap-1.5 md:gap-2">
-                                <span class="px-2.5 py-1 text-xs md:text-sm bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full">Localization</span>
-                                <span class="px-2.5 py-1 text-xs md:text-sm bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 rounded-full">Product Strategy</span>
-                                <span class="px-2.5 py-1 text-xs md:text-sm bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full">Marketplaces</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>-->
-            </div>
-        </div><br /><br />
-		<div class="max-w-6xl mx-auto px-8">
-			<center><a href="portfolio.html" class="px-6 py-3 bg-blue-900/30 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg transition-colors font-medium">
-                  view all projects
-               </a></center>
-		</div>
-    </section>
-
-    <section id="about" class="section-padding">
-        <div class="max-w-6xl mx-auto px-8">
-            <div class="animate-fadeInUp">
-                <h2 class="text-4xl font-light mb-12">About Me</h2>
-                
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-                    <div class="lg:col-span-2">
-                        <div class="space-y-8">
-                            <div>
-                                <h3 class="text-2xl font-semibold mb-4">
-                                    Design leader focused on systems, accessibility, and smart workflows.
-                                </h3>
-                                <div class="text-3xl text-gray-600 dark:text-gray-400 mb-6 italic">
-                                    Turning complex product requirements into clean, manageable systems that scale.
-                                </div>
-	                                <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
-										<B>Leading Teams:</B> 20+ years of managing designers, setting product direction, and making sure design goals line up with what the business actually needs.</p>
-	
-									<p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
-																		<B>Design Systems:</B> Building central component libraries that help developers and designers work together instead of wasting time on repetitive tasks.</p>
-									
-									<p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
-																		<B>Accessibility:</B> Making sure products meet WCAG standards. I look at the actual code and design details at the component level, rather than just talking about it at a high level.</p>
-									
-									<p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
-																		<B>AI in Design:</B> Using tools like Gemini and NotebookLM to speed up research and documentation so we can get to the final design faster.</p>
-									
-									<p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
-										<B>Coaching:</B> Mentoring designers on how to think about systems, handle stakeholders, and successfully transition into management roles.</P>
-	                                </p>
-                            </div>
-                            
-                            <div class="mt-12">
-                                <div class="mb-8">
-                                    <h4 class="text-xl font-semibold mb-6">Leadership & Strategy</h4>
-                                    <div class="flex flex-wrap gap-3">
-                                        <span class="px-4 py-2.5 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 text-green-800 dark:text-green-300 border border-green-200 dark:border-green-800 rounded-full font-medium text-sm">
-                                            Product Strategy & Vision
-                                        </span>
-                                        <span class="px-4 py-2.5 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 text-green-800 dark:text-green-300 border border-green-200 dark:border-green-800 rounded-full font-medium text-sm">
-                                            Design System Architecture
-                                        </span>
-                                        <span class="px-4 py-2.5 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 text-green-800 dark:text-green-300 border border-green-200 dark:border-green-800 rounded-full font-medium text-sm">
-                                            End-to-End Product Design
-                                        </span>
-                                        <span class="px-4 py-2.5 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 text-green-800 dark:text-green-300 border border-green-200 dark:border-green-800 rounded-full font-medium text-sm">
-                                            Stakeholder Management
-                                        </span>
-                                        <span class="px-4 py-2.5 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 text-green-800 dark:text-green-300 border border-green-200 dark:border-green-800 rounded-full font-medium text-sm">
-                                            User Research & Testing
-                                        </span>
-                                        <span class="px-4 py-2.5 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 text-green-800 dark:text-green-300 border border-green-200 dark:border-green-800 rounded-full font-medium text-sm">
-                                            Mentorship & Critique
-                                        </span>
-                                    </div>
-                                </div>
-                                
-                                <div class="mb-8">
-                                    <h4 class="text-xl font-semibold mb-6">Specialties</h4>
-                                    <div class="flex flex-wrap gap-3">
-                                        <span class="px-4 py-2.5 bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 text-blue-800 dark:text-blue-300 border border-blue-200 dark:border-blue-800 rounded-full font-medium text-sm">
-                                            WCAG 2.1/2.2 Compliance
-                                        </span>
-                                        <span class="px-4 py-2.5 bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 text-blue-800 dark:text-blue-300 border border-blue-200 dark:border-blue-800 rounded-full font-medium text-sm">
-                                            Complex Data & Dashboards
-                                        </span>
-                                        <span class="px-4 py-2.5 bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 text-blue-800 dark:text-blue-300 border border-blue-200 dark:border-blue-800 rounded-full font-medium text-sm">
-                                            B2B Enterprise Software
-                                        </span>
-                                        <span class="px-4 py-2.5 bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 text-blue-800 dark:text-blue-300 border border-blue-200 dark:border-blue-800 rounded-full font-medium text-sm">
-                                            ROI & KPI Alignment
-                                        </span>
-                                        <span class="px-4 py-2.5 bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 text-blue-800 dark:text-blue-300 border border-blue-200 dark:border-blue-800 rounded-full font-medium text-sm">
-                                            Internationalization (i18n)
-                                        </span>
-                                    </div>
-                                </div>
-                                
-                                <div>
-                                    <h4 class="text-xl font-semibold mb-6">Tools & Technology</h4>
-                                    <div class="flex flex-wrap gap-3">
-                                        <span class="px-4 py-2.5 bg-gradient-to-r from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20 text-purple-800 dark:text-purple-300 border border-purple-200 dark:border-purple-800 rounded-full font-medium text-sm">
-                                            Figma Expert (Tokens, Al)
-                                        </span>
-                                        <span class="px-4 py-2.5 bg-gradient-to-r from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20 text-purple-800 dark:text-purple-300 border border-purple-200 dark:border-purple-800 rounded-full font-medium text-sm">
-                                            AI Tools (Gemini, NotebookLM)
-                                        </span>
-                                        <span class="px-4 py-2.5 bg-gradient-to-r from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20 text-purple-800 dark:text-purple-300 border border-purple-200 dark:border-purple-800 rounded-full font-medium text-sm">
-                                            Rapid Prototyping
-                                        </span>
-                                        <span class="px-4 py-2.5 bg-gradient-to-r from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20 text-purple-800 dark:text-purple-300 border border-purple-200 dark:border-purple-800 rounded-full font-medium text-sm">
-                                            HTML/CSS/JS Basics
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="lg:col-span-1">
-                        <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800">
-                            <h4 class="text-lg font-semibold mb-6">By the Numbers</h4>
-                            
-                            <div class="space-y-6">
-                                <div>
-                                    <div class="text-3xl font-bold mb-2">15+</div>
-                                    <p class="text-sm text-gray-600 dark:text-gray-400">Years in Product Design</p>
-                                </div>
-                                
-                                <div>
-                                    <div class="text-3xl font-bold mb-2">8</div>
-                                    <p class="text-sm text-gray-600 dark:text-gray-400">Years at Booking.com</p>
-                                </div>
-                                
-                                <div>
-                                    <div class="text-3xl font-bold mb-2">1M+</div>
-                                    <p class="text-sm text-gray-600 dark:text-gray-400">Users Impacted Globally</p>
-                                </div>
-                                
-                                <div>
-                                    <div class="text-3xl font-bold mb-2">3</div>
-                                    <p class="text-sm text-gray-600 dark:text-gray-400">Internal Hackathons Won</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="section-padding bg-grayLight dark:bg-grayDark">
-        <div class="max-w-6xl mx-auto px-8">
-            <div class="animate-fadeInUp">
-                <h2 class="text-4xl font-light mb-6">Let's build better products together.</h2>
-                <p class="text-xl text-gray-600 dark:text-gray-400 mb-12 max-w-3xl">
-                    I'm currently available for Senior Product Design, Design Systems, Accessibility, AI-driven Design, and Consulting opportunities across Europe.
-                </p>
-                
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                    <div>
-                        <h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
-                        <p class="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
-                            Based in Almere, Netherlands. Available for hybrid or remote opportunities within the EU. Dutch Citizen.
-                        </p>
-                        
-                        <div class="space-y-6">
-                            <div class="contact-item-hover p-6 rounded-2xl border border-gray-200 dark:border-gray-800 bg-light dark:bg-dark">
-                                <div class="flex items-start">
-                                    <div class="mr-4 text-blue-600 dark:text-blue-400">
-                                        <i class="fas fa-envelope text-2xl"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="text-lg font-semibold mb-1">Email</h4>
-                                        <p class="text-gray-600 dark:text-gray-400">j.daudhria@gmail.com</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="contact-item-hover p-6 rounded-2xl border border-gray-200 dark:border-gray-800 bg-light dark:bg-dark">
-                                <div class="flex items-start">
-                                    <div class="mr-4 text-green-600 dark:text-green-400">
-                                        <i class="fas fa-phone text-2xl"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="text-lg font-semibold mb-1">Phone</h4>
-                                        <p class="text-gray-600 dark:text-gray-400">+31 684723103</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="contact-item-hover p-6 rounded-2xl border border-gray-200 dark:border-gray-800 bg-light dark:bg-dark">
-                                <div class="flex items-start">
-                                    <div class="mr-4 text-purple-600 dark:text-purple-400">
-                                        <i class="fas fa-map-marker-alt text-2xl"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="text-lg font-semibold mb-1">Location</h4>
-                                        <p class="text-gray-600 dark:text-gray-400">Almere, Netherlands</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="mt-10">
-                            <h4 class="text-lg font-semibold mb-6">Connect with me</h4>
-                            <div class="flex space-x-6">
-                                <a href="https://www.linkedin.com/in/jadvinderd" target="_blank" rel="noopener noreferrer" 
-                                   class="social-link-hover text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 p-3 rounded-full bg-light dark:bg-dark border border-gray-200 dark:border-gray-800">
-                                    <i class="fab fa-linkedin-in text-xl"></i>
-                                </a>
-                                <a href="https://www.behance.net/jd132" target="_blank" rel="noopener noreferrer" 
-                                   class="social-link-hover text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 p-3 rounded-full bg-light dark:bg-dark border border-gray-200 dark:border-gray-800">
-                                    <i class="fas fa-briefcase text-xl"></i>
-                                </a>
-                                <a href="mailto:j.daudhria@gmail.com" 
-                                   class="social-link-hover text-gray-600 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-400 p-3 rounded-full bg-light dark:bg-dark border border-gray-200 dark:border-gray-800">
-                                    <i class="fas fa-envelope text-xl"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <h3 class="text-2xl font-semibold mb-6">Experience History</h3>
-                        <p class="text-gray-600 dark:text-gray-400 mb-4">
-                            Accomplished tenure at high-scale travel and ride-hailing marketplaces.
-                        </p>
-                        <p class="text-gray-600 dark:text-gray-400 mb-10">
-                            Specializing in Enterprise-level products and Design Operations.
-                        </p>
-                        <div class="p-8 rounded-2xl border border-gray-200 dark:border-gray-800 bg-light dark:bg-dark">
-                            <h4 class="text-xl font-semibold mb-6">Professional Experience</h4>
-                            <ul class="space-y-4">
-                                <li class="flex items-start">
-                                    <span class="text-gray-600 dark:text-gray-400">
-                                        <span class="font-bold">Booking.com</span> <br /> Product Designer (2018 - 2026)
-                                    </span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-gray-600 dark:text-gray-400">
-                                        <span class="font-bold">Ola Cabs</span> <br />Senior Product Designer (2017 - 2018)
-                                    </span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-gray-600 dark:text-gray-400">
-                                        <span class="font-bold">People Group</span> <br />UX Design Lead (2015 - 2017)
-                                    </span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-gray-600 dark:text-gray-400">
-                                        <span class="font-bold">Times Internet</span> <br /> Senior UI/UX Manager (2009 - 2015)
-                                    </span>
-                                </li>
-                            </ul>
-                        </div>
-						<br />
-						  <a href="J_Daudhria_Senior_Product_Designer.pdf" download 
-                           class="btn-download inline-flex items-center px-6 py-4 text-white font-semibold rounded-xl mb-10">
-                            <i class="fas fa-download mr-3"></i>
-                            Download Senior Resume
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="py-12 border-t border-gray-200 dark:border-gray-800">
-        <div class="max-w-6xl mx-auto px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
-                <div>
-                    <div class="text-2xl font-semibold mb-2">J. Daudhria</div>
-                    <p class="text-gray-600 dark:text-gray-400">Senior Product Designer & Design Systems Architect</p>
-                </div>
-                
-                <div class="flex items-center space-x-6">
-                    <div class="relative group">
-                        <a href="https://www.linkedin.com/in/jadvinderd" target="_blank" rel="noopener noreferrer" 
-                           class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg inline-block"
-                           aria-label="LinkedIn Profile">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                            </svg>
-                        </a>
-                        <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1.5 bg-gray-900 dark:bg-gray-700 text-white text-xs font-medium rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
-                            View LinkedIn
-                            <div class="absolute top-full left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-700 rotate-45"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="relative group">
-                        <a href="mailto:j.daudhria@gmail.com" 
-                           class="text-gray-600 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition-colors p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg inline-block"
-                           aria-label="Send Email">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                            </svg>
-                        </a>
-                        <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1.5 bg-gray-900 dark:bg-gray-700 text-white text-xs font-medium rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
-                            Contact Me
-                            <div class="absolute top-full left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-700 rotate-45"></div>
-                        </div>
-                    </div>
-                </div>
+            <div class="mt-8 pt-6 border-t border-gray-100 dark:border-gray-800/40 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400 dark:text-gray-500 gap-3">
+                <p>© 2026 J. Daudhria. All rights reserved.</p>
+                <p>Designed for accessibility and performance.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Interactive Scripts -->
     <script>
-        // Theme Toggle
+        // Theme Toggle Logic
         const themeToggle = document.getElementById('themeToggle');
         const sunIcon = document.getElementById('sunIcon');
         const moonIcon = document.getElementById('moonIcon');
@@ -669,52 +754,59 @@
         
         if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
             document.documentElement.classList.add('dark');
-            moonIcon.classList.remove('hidden');
+            if (sunIcon) sunIcon.classList.remove('hidden');
         } else {
-            sunIcon.classList.remove('hidden');
+            if (moonIcon) moonIcon.classList.remove('hidden');
         }
         
-        themeToggle.addEventListener('click', () => {
-            document.documentElement.classList.toggle('dark');
-            
-            if (document.documentElement.classList.contains('dark')) {
-                localStorage.setItem('theme', 'dark');
-                sunIcon.classList.add('hidden');
-                moonIcon.classList.remove('hidden');
-            } else {
-                localStorage.setItem('theme', 'light');
-                moonIcon.classList.add('hidden');
-                sunIcon.classList.remove('hidden');
-            }
-        });
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark');
+                
+                if (document.documentElement.classList.contains('dark')) {
+                    localStorage.setItem('theme', 'dark');
+                    if (moonIcon) moonIcon.classList.add('hidden');
+                    if (sunIcon) sunIcon.classList.remove('hidden');
+                } else {
+                    localStorage.setItem('theme', 'light');
+                    if (sunIcon) sunIcon.classList.add('hidden');
+                    if (moonIcon) moonIcon.classList.remove('hidden');
+                }
+            });
+        }
         
-        // Smooth scrolling for anchor links
+        // Smooth scrolling for internal anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
                 
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
+                    e.preventDefault();
+                    const headerOffset = 70;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80,
+                        top: offsetPosition,
                         behavior: 'smooth'
                     });
                 }
             });
         });
         
-        // Initialize animations
+        // Scroll Animations with IntersectionObserver
         const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            threshold: 0.08,
+            rootMargin: '0px 0px -40px 0px'
         };
         
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('animate-fadeInUp');
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
@@ -725,6 +817,3 @@
     </script>
 </body>
 </html>
-
-
-

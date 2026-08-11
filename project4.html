@@ -12,10 +12,53 @@
 	</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rural Banking Mobile App | Jadvindder Daudhria</title>
+    <meta name="description" content="Designing an inclusive mobile banking experience for rural and low-literacy users: High contrast, icon-first navigation, and voice-assisted banking workflows.">
+    <meta name="keywords" content="Rural Banking UX, Financial Inclusion Design, Accessible Fintech App, Low Literacy UX, India Banking UX, Senior Product Designer">
+    <meta name="author" content="Jadvvinder (J.) Daudhria">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#08090E">
+    <link rel="canonical" href="https://jadvvinder.github.io/Jadvvinder/project4.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="J. Daudhria Portfolio">
+    <meta property="og:title" content="Rural Banking Mobile App Case Study | J. Daudhria">
+    <meta property="og:description" content="Designing an inclusive mobile banking experience for rural and low-literacy users: High contrast, icon-first navigation, and voice-assisted banking workflows.">
+    <meta property="og:url" content="https://jadvvinder.github.io/Jadvvinder/project4.html">
+    <meta property="og:image" content="https://jadvvinder.github.io/Jadvvinder/img/RU_img1.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Rural Banking Mobile App Case Study | J. Daudhria">
+    <meta name="twitter:description" content="Designing an inclusive mobile banking experience for rural and low-literacy users: High contrast, icon-first navigation, and voice-assisted banking workflows.">
+    <meta name="twitter:image" content="https://jadvvinder.github.io/Jadvvinder/img/RU_img1.png">
+
+    <!-- JSON-LD Structured Data Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Rural Banking Mobile App Financial Inclusion UX Case Study",
+      "description": "Designing an inclusive mobile banking experience for rural and low-literacy users: High contrast, icon-first navigation, and voice-assisted banking workflows.",
+      "image": "https://jadvvinder.github.io/Jadvvinder/img/RU_img1.png",
+      "author": {
+        "@type": "Person",
+        "name": "Jadvvinder (J.) Daudhria"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "J. Daudhria Portfolio"
+      },
+      "mainEntityOfPage": "https://jadvvinder.github.io/Jadvvinder/project4.html"
+    }
+    </script>
+
+    <title>Rural Banking Mobile App Case Study | J. Daudhria</title>
+    <meta name="description" content="Case study on designing a mobile banking app concept for rural farmers in India, focusing on accessibility and financial inclusion.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -24,19 +67,17 @@
                 extend: {
                     colors: {
                         light: '#FFFFFF',
-                        dark: '#0A0A0A',
-                        textLight: '#171717',
-                        textDark: '#E5E5E5',
-                        grayLight: '#FAFAFA',
-                        grayDark: '#1A1A1A'
+                        dark: '#08090E',
+                        textLight: '#0F172A',
+                        textDark: '#F1F5F9',
+                        cardLight: '#F8FAFC',
+                        cardDark: '#111422',
+                        borderLight: 'rgba(226, 232, 240, 0.8)',
+                        borderDark: 'rgba(30, 41, 59, 0.7)'
                     },
                     fontFamily: {
                         'sans': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-                    },
-                    spacing: {
-                        '18': '4.5rem',
-                        '88': '22rem',
-                        '128': '32rem',
+                        'heading': ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
                     }
                 }
             }
@@ -47,111 +88,112 @@
             font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            letter-spacing: -0.011em;
         }
-        
-        .prose {
-            font-size: 1.125rem;
-            line-height: 1.7;
-        }
-        
-        .prose p {
-            margin-top: 1.5em;
-            margin-bottom: 1.5em;
-        }
-        
-        .prose ul {
-            margin-top: 1.5em;
-            margin-bottom: 1.5em;
-        }
-        
-        .prose li {
-            margin-top: 0.5em;
-            margin-bottom: 0.5em;
-        }
-        
-        .section-padding {
-            padding-top: 6rem;
-            padding-bottom: 6rem;
-        }
-        
+
         .hero-gradient {
-            background: linear-gradient(135deg, #10B981 0%, #3B82F6 100%);
+            background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #EC4899 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .dark .card-hover:hover {
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
-        }
-        
-        .metric-card {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
-            border: 1px solid rgba(16, 185, 129, 0.2);
-        }
-        
-        .dark .metric-card {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(59, 130, 246, 0.2) 100%);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-        }
-        
-        .sticky-sidebar {
-            position: sticky;
-            top: 6rem;
-        }
-        
-        .persona-card {
-            transition: all 0.3s ease;
-            border-top: 4px solid transparent;
-        }
-        
-        .persona-card:hover {
-            transform: translateY(-2px);
-        }
-        
-        .persona-1 { border-top-color: #10B981; }
-        .persona-2 { border-top-color: #3B82F6; }
-        .persona-3 { border-top-color: #8B5CF6; }
-        
-        .comparison-card {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .comparison-card::before {
-            content: '';
+
+        .ambient-glow {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #EF4444, #10B981);
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(140px);
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 0;
         }
+
+        .dark .ambient-glow {
+            opacity: 0.18;
+        }
+
+        .minimal-card {
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .minimal-card:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            box-shadow: 0 12px 30px -10px rgba(99, 102, 241, 0.08);
+            transform: translateY(-3px);
+        }
+
+        .dark .minimal-card:hover {
+            box-shadow: 0 12px 30px -10px rgba(99, 102, 241, 0.15);
+        }
+
+        .persona-card {
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+    
+        :focus-visible {
+            outline: 2px solid #6366F1 !important;
+            outline-offset: 3px !important;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, ::before, ::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
     </style>
 </head>
-<body class="bg-light dark:bg-dark text-textLight dark:text-textDark font-sans transition-colors duration-300">
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 bg-light/95 dark:bg-dark/95 backdrop-blur-lg z-50 border-b border-gray-200/50 dark:border-gray-800/50">
-        <div class="max-w-7xl mx-auto px-8 py-5">
+<body class="bg-light dark:bg-dark text-textLight dark:text-textDark font-sans transition-colors duration-300 relative overflow-x-hidden">
+
+    <!-- Accessibility Skip Link -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-indigo-600 focus:text-white focus:rounded-lg focus:shadow-lg font-medium text-sm transition-all">
+        Skip to main content
+    </a>
+
+
+    <!-- Ambient Background Glows -->
+    <div class="ambient-glow bg-indigo-500 top-0 left-1/4"></div>
+    <div class="ambient-glow bg-purple-500 top-[1000px] right-10"></div>
+    <div class="ambient-glow bg-blue-500 top-[2200px] left-10"></div>
+
+    <!-- Navigation Header -->
+    <nav  class="fixed top-0 left-0 right-0 bg-white/80 dark:bg-dark/80 backdrop-blur-md z-50 border-b border-gray-200/60 dark:border-gray-800/60 transition-colors" aria-label="Main navigation">
+        <div class="max-w-6xl mx-auto px-6 sm:px-8 py-4">
             <div class="flex items-center justify-between">
-                <a href="index.html" class="text-xl font-semibold tracking-tight hover:opacity-80 transition-opacity">← Back to Portfolio</a>
-                <div class="flex items-center space-x-10">
-                    <button id="themeToggle" class="p-2.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                        <svg id="sunIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                <a href="index.html" class="flex items-center space-x-3 group">
+                    <span class="text-xl font-bold font-heading tracking-tight text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">JD</span>
+                    <span class="text-xs text-gray-500 dark:text-gray-400 font-medium hidden sm:inline-block">/ Case Study</span>
+                </a>
+                <div class="flex items-center space-x-6 sm:space-x-8 text-sm font-medium">
+                    <a href="portfolio.html" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors flex items-center gap-1.5">
+                        <span>←</span> All Projects
+                    </a>
+                    <a href="index.html#hero" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors hidden sm:inline-block">Home</a>
+                    <a href="index.html#contact" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Contact</a>
+                    <button id="themeToggle" aria-label="Toggle light and dark theme" class="p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle theme">
+                        <svg id="sunIcon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
                         </svg>
-                        <svg id="moonIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        <svg id="moonIcon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
                         </svg>
                     </button>
                 </div>
@@ -160,89 +202,84 @@
     </nav>
 
     <!-- Case Study Content -->
-    <main class="pt-24">
-        <!-- Hero Section -->
-        <section class="section-padding">
-            <div class="max-w-7xl mx-auto px-8">
-                <div class="mb-12">
-                    <div class="inline-flex items-center px-4 py-2 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 rounded-full text-sm font-medium mb-6">
-                        Retail Banking Concept • 2022 (Pitch)
-                    </div>
-                    <h1 class="text-5xl font-light mb-8 tracking-tight leading-[1.1]">
-                        Rural Banking Mobile App: 
-                        <span class="hero-gradient font-semibold">Financial Inclusion for Farmers</span>
-                    </h1>
-                    <p class="text-2xl text-gray-600 dark:text-gray-400 max-w-4xl leading-relaxed">
-                        A mobile banking app concept designed specifically for rural farmers in India, focusing on 
-                        <span class="font-semibold text-textLight dark:text-textDark">accessibility, trust-building, and reducing operational costs</span> 
-                        through intuitive self-service features and chatbot assistance.
-                    </p>
+    <main id="main-content"  class="pt-28 md:pt-36 pb-20 md:pb-28 relative z-10">
+        <div class="max-w-6xl mx-auto px-6 sm:px-8">
+            
+            <!-- Hero Section -->
+            <div class="animate-fadeInUp mb-16 md:mb-20 max-w-4xl">
+                <div class="inline-flex items-center px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 border border-indigo-200/60 dark:border-indigo-800/60 mb-6">
+                    Retail Banking Concept • 2022 (Pitch)
                 </div>
-
-                <div class="bg-gray-100 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 mb-8">
-					<center><p class="text-gray-500 dark:text-gray-400"><img src="img/RU_img1.png" alt="Research Synthesis - Child behavior patterns, parental concerns, educational requirements by age group, and usability testing sessions" title="Research Synthesis - Child behavior patterns, parental concerns, educational requirements by age group, and usability testing sessions"></img></center>
-				</div>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold font-heading tracking-tight mb-8 leading-[1.15] text-gray-900 dark:text-white">
+                    Rural Banking Mobile App: <span class="hero-gradient">Financial Inclusion for Farmers</span>
+                </h1>
+                <p class="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed font-light">
+                    A mobile banking app concept designed specifically for rural farmers in India, focusing on <span class="font-semibold text-gray-900 dark:text-white">accessibility, trust-building, and reducing operational costs</span> through intuitive self-service features and chatbot assistance.
+                </p>
             </div>
-        </section>
 
-        <!-- Content Sections -->
-        <div class="max-w-7xl mx-auto px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <!-- Hero Image -->
+            <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl overflow-hidden border border-gray-200/60 dark:border-gray-800/60 p-4 sm:p-6 mb-20 md:mb-28 animate-fadeInUp shadow-sm">
+                <center><img src="img/RU_img1.png" alt="Research Synthesis - Child behavior patterns, parental concerns, educational requirements by age group, and usability testing sessions" title="Research Synthesis - Child behavior patterns, parental concerns, educational requirements by age group, and usability testing sessions" class="w-full h-auto rounded-xl md:rounded-2xl"></img></center>
+            </div>
+
+            <!-- Content Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+                
                 <!-- Main Content Column -->
-                <div class="lg:col-span-2">
+                <div class="lg:col-span-2 space-y-20 md:space-y-28">
+
                     <!-- Strategic Context -->
-                    <section class="mb-16">
-                        <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800">
-                            <h2 class="text-3xl font-semibold mb-8">Strategic Context</h2>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                <div>
-                                    <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Role</h3>
-                                    <p class="text-lg">Lead UX Designer & Strategist</p>
-                                </div>
-                                <div>
-                                    <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Industry</h3>
-                                    <p class="text-lg">Financial Services / Rural Banking</p>
-                                </div>
-                                <div>
-                                    <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Timeline</h3>
-                                    <p class="text-lg">Concept Development & Pitch (2022)</p>
-                                </div>
-                                <div>
-                                    <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Challenge</h3>
-                                    <p class="text-lg">Pitching mobile banking to traditional rural bank stakeholders</p>
-                                </div>
+                    <section class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 sm:p-10 md:p-12 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                        <h2 class="text-2xl sm:text-3xl font-bold font-heading mb-8 tracking-tight text-gray-900 dark:text-white">Strategic Context</h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-10 text-sm sm:text-base leading-relaxed">
+                            <div>
+                                <div class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Role</div>
+                                <p class="text-gray-600 dark:text-gray-300">Lead UX Designer & Strategist</p>
+                            </div>
+                            <div>
+                                <div class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Industry</div>
+                                <p class="text-gray-600 dark:text-gray-300">Financial Services / Rural Banking</p>
+                            </div>
+                            <div>
+                                <div class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Timeline</div>
+                                <p class="text-gray-600 dark:text-gray-300">Concept Development & Pitch (2022)</p>
+                            </div>
+                            <div>
+                                <div class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Challenge</div>
+                                <p class="text-gray-600 dark:text-gray-300">Pitching mobile banking to traditional rural bank stakeholders</p>
                             </div>
                         </div>
                     </section>
 
                     <!-- The Core Problem -->
-                    <section class="mb-16">
-                        <h2 class="text-4xl font-light mb-8">The Core Problem</h2>
-                        <div class="prose max-w-none">
+                    <section class="space-y-8">
+                        <h2 class="text-3xl sm:text-4xl font-bold font-heading tracking-tight text-gray-900 dark:text-white">The Core Problem</h2>
+                        <div class="prose max-w-none text-gray-600 dark:text-gray-300 space-y-6 text-base sm:text-lg leading-relaxed">
                             <p>
                                 Rural farmers in India faced significant challenges accessing banking services due to geographic isolation, language barriers, and complex bureaucratic processes. Traditional banking required extensive travel, paperwork, and time away from farms resources that rural communities couldn't afford to lose.
                             </p>
-                            <div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-6 my-8">
-                                <h3 class="text-lg font-semibold text-red-800 dark:text-red-300 mb-4">Rural Banking Pain Points Identified</h3>
-                                <ul class="space-y-3">
+                            <div class="bg-rose-50/60 dark:bg-rose-950/20 border border-rose-200/60 dark:border-rose-900/40 rounded-2xl md:rounded-3xl p-8 my-8 minimal-card">
+                                <h3 class="text-xl font-bold font-heading text-rose-700 dark:text-rose-400 mb-4">Rural Banking Pain Points Identified</h3>
+                                <ul class="space-y-4 text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
                                     <li class="flex items-start">
-                                        <span class="mr-3">•</span>
+                                        <span class="mr-3 text-rose-500 font-bold">•</span>
                                         <span><strong>Geographic isolation:</strong> Banks located far from rural areas, requiring full-day travel</span>
                                     </li>
                                     <li class="flex items-start">
-                                        <span class="mr-3">•</span>
+                                        <span class="mr-3 text-rose-500 font-bold">•</span>
                                         <span><strong>Language barriers:</strong> Complex financial terminology not accessible to rural users</span>
                                     </li>
                                     <li class="flex items-start">
-                                        <span class="mr-3">•</span>
+                                        <span class="mr-3 text-rose-500 font-bold">•</span>
                                         <span><strong>Time constraints:</strong> Farmers couldn't spare entire days for banking tasks</span>
                                     </li>
                                     <li class="flex items-start">
-                                        <span class="mr-3">•</span>
+                                        <span class="mr-3 text-rose-500 font-bold">•</span>
                                         <span><strong>Documentation complexity:</strong> Multiple documents required for simple services</span>
                                     </li>
                                     <li class="flex items-start">
-                                        <span class="mr-3">•</span>
+                                        <span class="mr-3 text-rose-500 font-bold">•</span>
                                         <span><strong>Technology gap:</strong> Limited digital literacy among rural populations</span>
                                     </li>
                                 </ul>
@@ -254,27 +291,27 @@
                     </section>
 
                     <!-- Strategic Goals -->
-                    <section class="mb-16">
-                        <h2 class="text-4xl font-light mb-8">Strategic Goals</h2>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <div class="bg-gradient-to-br from-green-50 to-emerald-100 dark:from-green-900/20 dark:to-emerald-800/20 rounded-2xl p-8 border border-green-200 dark:border-green-800 card-hover">
+                    <section class="space-y-8">
+                        <h2 class="text-3xl sm:text-4xl font-bold font-heading tracking-tight text-gray-900 dark:text-white">Strategic Goals</h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+                            <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
                                 <div class="text-3xl mb-4">👨‍🌾</div>
-                                <h3 class="text-xl font-semibold mb-3">Farmers First</h3>
-                                <p class="text-gray-600 dark:text-gray-400">
+                                <h3 class="text-lg font-bold font-heading mb-3 text-gray-900 dark:text-white">Farmers First</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                                     Design for rural users with limited digital literacy and specific agricultural needs
                                 </p>
                             </div>
-                            <div class="bg-gradient-to-br from-blue-50 to-cyan-100 dark:from-blue-900/20 dark:to-cyan-800/20 rounded-2xl p-8 border border-blue-200 dark:border-blue-800 card-hover">
+                            <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
                                 <div class="text-3xl mb-4">💰</div>
-                                <h3 class="text-xl font-semibold mb-3">Reduce Operational Costs</h3>
-                                <p class="text-gray-600 dark:text-gray-400">
+                                <h3 class="text-lg font-bold font-heading mb-3 text-gray-900 dark:text-white">Reduce Operational Costs</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                                     Decrease call center volume and branch visits through self-service features
                                 </p>
                             </div>
-                            <div class="bg-gradient-to-br from-purple-50 to-violet-100 dark:from-purple-900/20 dark:to-violet-800/20 rounded-2xl p-8 border border-purple-200 dark:border-purple-800 card-hover">
+                            <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
                                 <div class="text-3xl mb-4">🤖</div>
-                                <h3 class="text-xl font-semibold mb-3">Intelligent Assistance</h3>
-                                <p class="text-gray-600 dark:text-gray-400">
+                                <h3 class="text-lg font-bold font-heading mb-3 text-gray-900 dark:text-white">Intelligent Assistance</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                                     Implement chatbots for basic queries while maintaining human support options
                                 </p>
                             </div>
@@ -282,77 +319,77 @@
                     </section>
 
                     <!-- User Personas -->
-                    <section class="mb-16">
-                        <h2 class="text-4xl font-light mb-8">Understanding Rural Users</h2>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <section class="space-y-8">
+                        <h2 class="text-3xl sm:text-4xl font-bold font-heading tracking-tight text-gray-900 dark:text-white">Understanding Rural Users</h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-8">
                             <!-- Persona 1 -->
-                            <div class="persona-card persona-1 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/10 dark:to-emerald-900/10 rounded-2xl p-6 border border-gray-200 dark:border-gray-800">
+                            <div class="persona-card bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
                                 <div class="text-4xl mb-4">👨‍💼</div>
-                                <h3 class="text-xl font-semibold mb-3">Amrit Singh</h3>
-                                <div class="text-sm text-gray-500 dark:text-gray-400 mb-3">Landlord, late 30s, tech-savvy</div>
-                                <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 italic">"Today's world you get everything on mobile"</p>
-                                <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                                <h3 class="text-lg font-bold font-heading mb-1 text-gray-900 dark:text-white">Amrit Singh</h3>
+                                <div class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">Landlord, late 30s, tech-savvy</div>
+                                <p class="text-gray-600 dark:text-gray-400 text-xs sm:text-sm mb-4 italic leading-relaxed">"Today's world you get everything on mobile"</p>
+                                <ul class="space-y-3 text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                                     <li class="flex items-center">
-                                        <span class="mr-2">•</span>
+                                        <span class="mr-2.5 text-indigo-500 font-bold">•</span>
                                         <span>Owns large land, employs workers</span>
                                     </li>
                                     <li class="flex items-center">
-                                        <span class="mr-2">•</span>
+                                        <span class="mr-2.5 text-indigo-500 font-bold">•</span>
                                         <span>Wants all info on phone</span>
                                     </li>
                                     <li class="flex items-center">
-                                        <span class="mr-2">•</span>
+                                        <span class="mr-2.5 text-indigo-500 font-bold">•</span>
                                         <span>Avoids travel for small tasks</span>
                                     </li>
                                 </ul>
                             </div>
                             
                             <!-- Persona 2 -->
-                            <div class="persona-card persona-2 bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/10 dark:to-cyan-900/10 rounded-2xl p-6 border border-gray-200 dark:border-gray-800">
+                            <div class="persona-card bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
                                 <div class="text-4xl mb-4">👨‍🌾</div>
-                                <h3 class="text-xl font-semibold mb-3">Sunil Kumar</h3>
-                                <div class="text-sm text-gray-500 dark:text-gray-400 mb-3">Small farmer, late 20s</div>
-                                <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 italic">"One day I will have more production in my small field"</p>
-                                <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                                <h3 class="text-lg font-bold font-heading mb-1 text-gray-900 dark:text-white">Sunil Kumar</h3>
+                                <div class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">Small farmer, late 20s</div>
+                                <p class="text-gray-600 dark:text-gray-400 text-xs sm:text-sm mb-4 italic leading-relaxed">"One day I will have more production in my small field"</p>
+                                <ul class="space-y-3 text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                                     <li class="flex items-center">
-                                        <span class="mr-2">•</span>
+                                        <span class="mr-2.5 text-indigo-500 font-bold">•</span>
                                         <span>Grows for family needs</span>
                                     </li>
                                     <li class="flex items-center">
-                                        <span class="mr-2">•</span>
+                                        <span class="mr-2.5 text-indigo-500 font-bold">•</span>
                                         <span>Needs quick loans</span>
                                     </li>
                                     <li class="flex items-center">
-                                        <span class="mr-2">•</span>
+                                        <span class="mr-2.5 text-indigo-500 font-bold">•</span>
                                         <span>Wants tractor for productivity</span>
                                     </li>
                                 </ul>
                             </div>
                             
                             <!-- Persona 3 -->
-                            <div class="persona-card persona-3 bg-gradient-to-br from-purple-50 to-violet-50 dark:from-purple-900/10 dark:to-violet-900/10 rounded-2xl p-6 border border-gray-200 dark:border-gray-800">
+                            <div class="persona-card bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
                                 <div class="text-4xl mb-4">🧑‍🌾</div>
-                                <h3 class="text-xl font-semibold mb-3">Bankelal</h3>
-                                <div class="text-sm text-gray-500 dark:text-gray-400 mb-3">Commercial farmer, early 40s</div>
-                                <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 italic">"The weather is unpredictable, rains are not as good now"</p>
-                                <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                                <h3 class="text-lg font-bold font-heading mb-1 text-gray-900 dark:text-white">Bankelal</h3>
+                                <div class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-3">Commercial farmer, early 40s</div>
+                                <p class="text-gray-600 dark:text-gray-400 text-xs sm:text-sm mb-4 italic leading-relaxed">"The weather is unpredictable, rains are not as good now"</p>
+                                <ul class="space-y-3 text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                                     <li class="flex items-center">
-                                        <span class="mr-2">•</span>
+                                        <span class="mr-2.5 text-indigo-500 font-bold">•</span>
                                         <span>Grows cash crops for market</span>
                                     </li>
                                     <li class="flex items-center">
-                                        <span class="mr-2">•</span>
+                                        <span class="mr-2.5 text-indigo-500 font-bold">•</span>
                                         <span>Needs market updates</span>
                                     </li>
                                     <li class="flex items-center">
-                                        <span class="mr-2">•</span>
+                                        <span class="mr-2.5 text-indigo-500 font-bold">•</span>
                                         <span>Seeks easy crop selling platform</span>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                         
-                        <div class="prose max-w-none">
+                        <div class="prose max-w-none text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
                             <p>
                                 These personas revealed distinct but overlapping needs: Amrit represented tech-adopters who could champion the app, Sunil represented the core user needing simplicity, and Bankelal represented commercial users who needed advanced features. The design had to serve all three while remaining accessible to first-time smartphone users.
                             </p>
@@ -360,40 +397,40 @@
                     </section>
 
                     <!-- Process Analysis -->
-                    <section class="mb-16">
-                        <div class="comparison-card bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 mb-8">
-                            <div class="p-8">
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <section class="space-y-8">
+                        <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl overflow-hidden border border-gray-200/60 dark:border-gray-800/60 shadow-sm minimal-card">
+                            <div class="p-8 sm:p-10 md:p-12">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12">
                                     <!-- Current Process -->
                                     <div>
-                                        <h3 class="text-xl font-semibold mb-4 text-red-600 dark:text-red-400">Current Painful Process</h3>
-                                        <ol class="space-y-3">
+                                        <h3 class="text-xl sm:text-2xl font-bold font-heading mb-6 text-rose-600 dark:text-rose-400">Current Painful Process</h3>
+                                        <ol class="space-y-3 text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
                                             <li class="flex items-start">
-                                                <span class="mr-2">1.</span>
+                                                <span class="mr-3 font-bold text-rose-500">1.</span>
                                                 <span>Search for loan information</span>
                                             </li>
                                             <li class="flex items-start">
-                                                <span class="mr-2">2.</span>
+                                                <span class="mr-3 font-bold text-rose-500">2.</span>
                                                 <span>Call bank or visit branch</span>
                                             </li>
                                             <li class="flex items-start">
-                                                <span class="mr-2">3.</span>
+                                                <span class="mr-3 font-bold text-rose-500">3.</span>
                                                 <span>Wait for appointment</span>
                                             </li>
                                             <li class="flex items-start">
-                                                <span class="mr-2">4.</span>
+                                                <span class="mr-3 font-bold text-rose-500">4.</span>
                                                 <span>Travel to bank (full day)</span>
                                             </li>
                                             <li class="flex items-start">
-                                                <span class="mr-2">5.</span>
+                                                <span class="mr-3 font-bold text-rose-500">5.</span>
                                                 <span>Talk to manager with documents</span>
                                             </li>
                                             <li class="flex items-start">
-                                                <span class="mr-2">6.</span>
+                                                <span class="mr-3 font-bold text-rose-500">6.</span>
                                                 <span>Fill complex forms</span>
                                             </li>
                                             <li class="flex items-start">
-                                                <span class="mr-2">7.</span>
+                                                <span class="mr-3 font-bold text-rose-500">7.</span>
                                                 <span>Wait for approval (days/weeks)</span>
                                             </li>
                                         </ol>
@@ -401,26 +438,26 @@
                                     
                                     <!-- Optimized Process -->
                                     <div>
-                                        <h3 class="text-xl font-semibold mb-4 text-green-600 dark:text-green-400">Optimized Mobile Process</h3>
-                                        <ol class="space-y-3">
+                                        <h3 class="text-xl sm:text-2xl font-bold font-heading mb-6 text-emerald-600 dark:text-emerald-400">Optimized Mobile Process</h3>
+                                        <ol class="space-y-3 text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
                                             <li class="flex items-start">
-                                                <span class="mr-2">1.</span>
+                                                <span class="mr-3 font-bold text-emerald-500">1.</span>
                                                 <span>Check loan info in app</span>
                                             </li>
                                             <li class="flex items-start">
-                                                <span class="mr-2">2.</span>
+                                                <span class="mr-3 font-bold text-emerald-500">2.</span>
                                                 <span>Chat with bot for questions</span>
                                             </li>
                                             <li class="flex items-start">
-                                                <span class="mr-2">3.</span>
+                                                <span class="mr-3 font-bold text-emerald-500">3.</span>
                                                 <span>Authenticate with Aadhaar card</span>
                                             </li>
                                             <li class="flex items-start">
-                                                <span class="mr-2">4.</span>
+                                                <span class="mr-3 font-bold text-emerald-500">4.</span>
                                                 <span>Apply instantly</span>
                                             </li>
                                             <li class="flex items-start">
-                                                <span class="mr-2">5.</span>
+                                                <span class="mr-3 font-bold text-emerald-500">5.</span>
                                                 <span>Receive SMS confirmation</span>
                                             </li>
                                         </ol>
@@ -428,43 +465,43 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="prose max-w-none">
-                            <h3 class="text-2xl font-semibold mb-4">Service Blueprint Analysis</h3>
-                            <p>
+                        <div class="prose max-w-none text-gray-600 dark:text-gray-300 space-y-4">
+                            <h3 class="text-2xl font-bold font-heading text-gray-900 dark:text-white mb-4">Service Blueprint Analysis</h3>
+                            <p class="text-base sm:text-lg leading-relaxed">
                                 Through service blueprinting, we identified critical failure points in the traditional banking process: hidden information in complex navigation, authentication barriers, language issues, and excessive time requirements. The solution focused on making information upfront, simplifying authentication through Aadhaar integration, and providing multilingual support.
                             </p>
                         </div>
-						 <div class="bg-gray-100 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 mb-8">
-					<center><p class="text-gray-500 dark:text-gray-400"><img src="img/RU_img2.png" alt="service blueprint" title="service blueprint"></img></center>
-				</div>
+						<div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl overflow-hidden border border-gray-200/60 dark:border-gray-800/60 p-4 sm:p-6 shadow-sm">
+							<center><img src="img/RU_img2.png" alt="service blueprint" title="service blueprint" class="w-full h-auto rounded-xl md:rounded-2xl"></img></center>
+						</div>
                     </section>
 
                     <!-- Key Design Decisions -->
-                    <section class="mb-16">
-                        <h2 class="text-4xl font-light mb-8">Key Design Decisions</h2>
+                    <section class="space-y-8">
+                        <h2 class="text-3xl sm:text-4xl font-bold font-heading tracking-tight text-gray-900 dark:text-white">Key Design Decisions</h2>
                         
                         <div class="space-y-8">
                             <!-- Decision 1 -->
-                            <div class="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/10 dark:to-emerald-900/10 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800">
-                                <div class="p-8">
+                            <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl overflow-hidden border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                                <div class="p-8 sm:p-10">
                                     <div class="flex items-start mb-6">
-                                        <div class="flex-shrink-0 w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-xl flex items-center justify-center mr-4">
-                                            <span class="text-red-600 dark:text-red-400 text-xl">❌</span>
+                                        <div class="flex-shrink-0 w-12 h-12 bg-rose-100 dark:bg-rose-950/40 rounded-xl flex items-center justify-center mr-4">
+                                            <span class="text-rose-600 dark:text-rose-400 text-xl">❌</span>
                                         </div>
                                         <div>
-                                            <h3 class="text-xl font-semibold mb-2">Problem</h3>
-                                            <p class="text-gray-600 dark:text-gray-400">
+                                            <h3 class="text-lg font-bold font-heading mb-2 text-gray-900 dark:text-white">Problem</h3>
+                                            <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
                                                 Rural users had limited digital literacy and distrusted mobile banking due to security concerns and complex interfaces. Traditional banking apps assumed tech-savvy urban users.
                                             </p>
                                         </div>
                                     </div>
                                     <div class="flex items-start">
-                                        <div class="flex-shrink-0 w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center mr-4">
-                                            <span class="text-green-600 dark:text-green-400 text-xl">✅</span>
+                                        <div class="flex-shrink-0 w-12 h-12 bg-emerald-100 dark:bg-emerald-950/40 rounded-xl flex items-center justify-center mr-4">
+                                            <span class="text-emerald-600 dark:text-emerald-400 text-xl">✅</span>
                                         </div>
                                         <div>
-                                            <h3 class="text-xl font-semibold mb-2">Solution</h3>
-                                            <p class="text-gray-600 dark:text-gray-400">
+                                            <h3 class="text-lg font-bold font-heading mb-2 text-gray-900 dark:text-white">Solution</h3>
+                                            <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
                                                 Implemented dark theme for perceived security, fingerprint authentication for familiarity, and simple language with agricultural terminology. Used large touch targets and minimal navigation to reduce cognitive load.
                                             </p>
                                         </div>
@@ -473,26 +510,26 @@
                             </div>
 
                             <!-- Decision 2 -->
-                            <div class="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/10 dark:to-cyan-900/10 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800">
-                                <div class="p-8">
+                            <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl overflow-hidden border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                                <div class="p-8 sm:p-10">
                                     <div class="flex items-start mb-6">
-                                        <div class="flex-shrink-0 w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-xl flex items-center justify-center mr-4">
-                                            <span class="text-red-600 dark:text-red-400 text-xl">❌</span>
+                                        <div class="flex-shrink-0 w-12 h-12 bg-rose-100 dark:bg-rose-950/40 rounded-xl flex items-center justify-center mr-4">
+                                            <span class="text-rose-600 dark:text-rose-400 text-xl">❌</span>
                                         </div>
                                         <div>
-                                            <h3 class="text-xl font-semibold mb-2">Problem</h3>
-                                            <p class="text-gray-600 dark:text-gray-400">
+                                            <h3 class="text-lg font-bold font-heading mb-2 text-gray-900 dark:text-white">Problem</h3>
+                                            <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
                                                 Loan applications required multiple branch visits, extensive documentation, and long waiting periods impossible for farmers who couldn't leave their farms for entire days.
                                             </p>
                                         </div>
                                     </div>
                                     <div class="flex items-start">
-                                        <div class="flex-shrink-0 w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center mr-4">
-                                            <span class="text-green-600 dark:text-green-400 text-xl">✅</span>
+                                        <div class="flex-shrink-0 w-12 h-12 bg-emerald-100 dark:bg-emerald-950/40 rounded-xl flex items-center justify-center mr-4">
+                                            <span class="text-emerald-600 dark:text-emerald-400 text-xl">✅</span>
                                         </div>
                                         <div>
-                                            <h3 class="text-xl font-semibold mb-2">Solution</h3>
-                                            <p class="text-gray-600 dark:text-gray-400">
+                                            <h3 class="text-lg font-bold font-heading mb-2 text-gray-900 dark:text-white">Solution</h3>
+                                            <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
                                                 Created Aadhaar-based instant loan applications with chatbot pre-qualification. Implemented agricultural-specific loan categories (tractor loans, horticulture loans) with clear interest rates and one-tap applications using biometric authentication.
                                             </p>
                                         </div>
@@ -501,26 +538,26 @@
                             </div>
 
                             <!-- Decision 3 -->
-                            <div class="bg-gradient-to-br from-purple-50 to-violet-50 dark:from-purple-900/10 dark:to-violet-900/10 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800">
-                                <div class="p-8">
+                            <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl overflow-hidden border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                                <div class="p-8 sm:p-10">
                                     <div class="flex items-start mb-6">
-                                        <div class="flex-shrink-0 w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-xl flex items-center justify-center mr-4">
-                                            <span class="text-red-600 dark:text-red-400 text-xl">❌</span>
+                                        <div class="flex-shrink-0 w-12 h-12 bg-rose-100 dark:bg-rose-950/40 rounded-xl flex items-center justify-center mr-4">
+                                            <span class="text-rose-600 dark:text-rose-400 text-xl">❌</span>
                                         </div>
                                         <div>
-                                            <h3 class="text-xl font-semibold mb-2">Problem</h3>
-                                            <p class="text-gray-600 dark:text-gray-400">
+                                            <h3 class="text-lg font-bold font-heading mb-2 text-gray-900 dark:text-white">Problem</h3>
+                                            <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
                                                 Bank call centers were overwhelmed with basic queries about ATM locations, loan information, and procedural questions costing significant operational expenses.
                                             </p>
                                         </div>
                                     </div>
                                     <div class="flex items-start">
-                                        <div class="flex-shrink-0 w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center mr-4">
-                                            <span class="text-green-600 dark:text-green-400 text-xl">✅</span>
+                                        <div class="flex-shrink-0 w-12 h-12 bg-emerald-100 dark:bg-emerald-950/40 rounded-xl flex items-center justify-center mr-4">
+                                            <span class="text-emerald-600 dark:text-emerald-400 text-xl">✅</span>
                                         </div>
                                         <div>
-                                            <h3 class="text-xl font-semibold mb-2">Solution</h3>
-                                            <p class="text-gray-600 dark:text-gray-400">
+                                            <h3 class="text-lg font-bold font-heading mb-2 text-gray-900 dark:text-white">Solution</h3>
+                                            <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
                                                 Implemented intelligent chatbot ("C'kud bots") for basic queries with seamless escalation to human agents. Integrated geolocation-based ATM/branch finder with real-time updates. Made critical information upfront in the interface to prevent unnecessary queries.
                                             </p>
                                         </div>
@@ -531,64 +568,54 @@
                     </section>
 
                     <!-- UI Implementation -->
-                    <section class="mb-16">
-                        <!-- <div class="bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 rounded-2xl overflow-hidden border border-emerald-200 dark:border-emerald-800 mb-8">
-                            <div class="aspect-[21/9] flex items-center justify-center p-12">
-                                <div class="text-center max-w-3xl">
-                                    <div class="text-5xl mb-6">📱</div>
-                                    <p class="text-gray-600 dark:text-gray-400 text-lg">
-                                        [App screens showing dark theme login, agricultural loan categories, ATM locator with map view, and multilingual chatbot interface]
-                                    </p>
-                                </div>
-                            </div>
-                        </div> -->
-                        <div class="prose max-w-none">
-                            <h3 class="text-2xl font-semibold mb-4">Design Principles for Rural Users</h3>
-                            <p>
+                    <section class="space-y-8">
+                        <div class="prose max-w-none text-gray-600 dark:text-gray-300 space-y-4">
+                            <h3 class="text-2xl font-bold font-heading text-gray-900 dark:text-white mb-4">Design Principles for Rural Users</h3>
+                            <p class="text-base sm:text-lg leading-relaxed">
                                 The interface followed five core principles: 1) Easy content discovery with critical information upfront, 2) Trust-building through security cues and simple language, 3) Non-cluttered interface with agricultural imagery, 4) Simple navigation with minimum taps, and 5) User-centric decisions with customization options.
                             </p>
-                            <p class="mt-4">
+                            <p class="text-base sm:text-lg leading-relaxed mt-4">
                                 Specific features included a multilingual interface (starting with Hindi and regional languages), agricultural loan categories with relevant imagery, location-aware ATM finder that prioritized nearby options while traveling, and proactive notifications for payment reminders and relevant offers.
                             </p>
                         </div>
                     </section>
 
                     <!-- Measured Outcome -->
-                    <section class="mb-16">
-                        <h2 class="text-4xl font-light mb-8">Projected Impact & Outcomes</h2>
+                    <section class="space-y-8">
+                        <h2 class="text-3xl sm:text-4xl font-bold font-heading tracking-tight text-gray-900 dark:text-white">Projected Impact & Outcomes</h2>
                         
-                        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-                            <div class="metric-card rounded-2xl p-6 text-center">
-                                <div class="text-3xl font-bold mb-2">80%</div>
-                                <p class="text-sm text-gray-600 dark:text-gray-400">Reduction in call center queries</p>
+                        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                            <div class="bg-cardLight dark:bg-cardDark rounded-2xl p-6 text-center border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                                <div class="text-3xl font-bold font-heading hero-gradient mb-2">80%</div>
+                                <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-medium">Reduction in call center queries</p>
                             </div>
-                            <div class="metric-card rounded-2xl p-6 text-center">
-                                <div class="text-3xl font-bold mb-2">60%</div>
-                                <p class="text-sm text-gray-600 dark:text-gray-400">Reduction in branch visits</p>
+                            <div class="bg-cardLight dark:bg-cardDark rounded-2xl p-6 text-center border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                                <div class="text-3xl font-bold font-heading hero-gradient mb-2">60%</div>
+                                <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-medium">Reduction in branch visits</p>
                             </div>
-                            <div class="metric-card rounded-2xl p-6 text-center">
-                                <div class="text-3xl font-bold mb-2">3→1</div>
-                                <p class="text-sm text-gray-600 dark:text-gray-400">Days for loan approval</p>
+                            <div class="bg-cardLight dark:bg-cardDark rounded-2xl p-6 text-center border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                                <div class="text-3xl font-bold font-heading hero-gradient mb-2">3→1</div>
+                                <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-medium">Days for loan approval</p>
                             </div>
-                            <div class="metric-card rounded-2xl p-6 text-center">
-                                <div class="text-3xl font-bold mb-2">4+</div>
-                                <p class="text-sm text-gray-600 dark:text-gray-400">ATM/Branches located instantly</p>
+                            <div class="bg-cardLight dark:bg-cardDark rounded-2xl p-6 text-center border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                                <div class="text-3xl font-bold font-heading hero-gradient mb-2">4+</div>
+                                <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-medium">ATM/Branches located instantly</p>
                             </div>
                         </div>
 
-                        <div class="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-800">
-                            <h3 class="text-2xl font-semibold mb-6">📈 Strategic Value & Lessons</h3>
-                            <div class="prose max-w-none">
-                                <p>
+                        <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 sm:p-10 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                            <h3 class="text-2xl font-bold font-heading text-gray-900 dark:text-white mb-6">📈 Strategic Value & Lessons</h3>
+                            <div class="prose max-w-none text-gray-600 dark:text-gray-300 space-y-4">
+                                <p class="text-base leading-relaxed">
                                     <strong>Financial inclusion through design:</strong> This project demonstrated how thoughtful UX design could bridge the digital divide for rural populations. By addressing specific agricultural needs and literacy levels, we created a banking solution that was both accessible and empowering.
                                 </p>
-                                <p class="mt-4">
+                                <p class="text-base leading-relaxed">
                                     <strong>Business-User alignment:</strong> The solution successfully aligned user needs (simplicity, accessibility) with business objectives (cost reduction, product promotion). Self-service features reduced operational costs while improving customer satisfaction a rare win-win in traditional banking.
                                 </p>
-                                <p class="mt-4">
+                                <p class="text-base leading-relaxed">
                                     <strong>Context-aware design:</strong> Rural users have unique constraints (limited connectivity, agricultural schedules, language preferences) that urban-focused designs ignore. This project highlighted the importance of field research and persona development for context-specific solutions.
                                 </p>
-                                <p class="mt-4">
+                                <p class="text-base leading-relaxed">
                                     <strong>Pitching innovation to tradition:</strong> Presenting a mobile-first solution to traditional banking stakeholders required framing technology as an enabler rather than a replacement. Success came from demonstrating clear ROI through reduced operational costs and improved customer retention.
                                 </p>
                             </div>
@@ -596,237 +623,164 @@
                     </section>
 
                     <!-- Navigation -->
-                    <div class="pt-8 border-t border-gray-200 dark:border-gray-800">
+                    <div class="pt-8 border-t border-gray-200/60 dark:border-gray-800/60">
                         <div class="flex justify-between items-center">
-                            <!-- <a href="project3.html" class="px-6 py-3 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg transition-colors font-medium">
-                                ← Previous Project
-                            </a> -->
-                            <a href="index.html" class="px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors font-medium">
-                                Back to Portfolio
+                            <a href="portfolio.html" class="inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-semibold hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors shadow-sm">
+                                ← Back to All Projects
                             </a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Sidebar Column -->
-                <div class="lg:col-span-1">
-                    <div class="sticky-sidebar">
-                        <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800 mb-8">
-                            <h3 class="text-lg font-semibold mb-6">Project Highlights</h3>
-                            <ul class="space-y-4">
+                <div class="lg:col-span-1 space-y-8">
+                    <div class="sticky-sidebar space-y-8">
+                        <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                            <h3 class="text-xl font-bold font-heading mb-6 text-gray-900 dark:text-white">Project Highlights</h3>
+                            <ul class="space-y-4 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                                 <li class="flex items-start">
-                                    <span class="mr-3 text-green-600 dark:text-green-400">✓</span>
+                                    <span class="mr-3 text-indigo-500 font-bold">✓</span>
                                     <span>Complete rural banking app concept</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <span class="mr-3 text-green-600 dark:text-green-400">✓</span>
+                                    <span class="mr-3 text-indigo-500 font-bold">✓</span>
                                     <span>Chatbot integration for basic queries</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <span class="mr-3 text-green-600 dark:text-green-400">✓</span>
+                                    <span class="mr-3 text-indigo-500 font-bold">✓</span>
                                     <span>Aadhaar-based instant loan applications</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <span class="mr-3 text-green-600 dark:text-green-400">✓</span>
+                                    <span class="mr-3 text-indigo-500 font-bold">✓</span>
                                     <span>ATM/branch locator with geolocation</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <span class="mr-3 text-green-600 dark:text-green-400">✓</span>
+                                    <span class="mr-3 text-indigo-500 font-bold">✓</span>
                                     <span>Multilingual interface for rural India</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <span class="mr-3 text-green-600 dark:text-green-400">✓</span>
+                                    <span class="mr-3 text-indigo-500 font-bold">✓</span>
                                     <span>Dark theme for perceived security</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <span class="mr-3 text-green-600 dark:text-green-400">✓</span>
+                                    <span class="mr-3 text-indigo-500 font-bold">✓</span>
                                     <span>Service blueprint analysis</span>
                                 </li>
                             </ul>
                         </div>
 
-                        <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800">
-                            <h3 class="text-lg font-semibold mb-6">Tools & Methods</h3>
+                        <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                            <h3 class="text-xl font-bold font-heading mb-6 text-gray-900 dark:text-white">Tools & Methods</h3>
                             <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm">Figma</span>
-                                <span class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm">Marvel App</span>
-                                <span class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm">User Research</span>
-                                <span class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm">Service Blueprinting</span>
-                                <span class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm">Persona Development</span>
-                                <span class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm">Storyboarding</span>
-                                <span class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm">Prototyping</span>
+                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">Figma</span>
+                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">Marvel App</span>
+                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">User Research</span>
+                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">Service Blueprinting</span>
+                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">Persona Development</span>
+                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">Storyboarding</span>
+                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">Prototyping</span>
                             </div>
                         </div>
 
-                        <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800 mt-8">
-                            <h3 class="text-lg font-semibold mb-6">Project Scope</h3>
+                        <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                            <h3 class="text-xl font-bold font-heading mb-6 text-gray-900 dark:text-white">Project Scope</h3>
                             <div class="space-y-4">
                                 <div>
-                                    <div class="text-sm text-gray-500 dark:text-gray-400">Target Audience</div>
-                                    <div class="text-2xl font-bold mt-1">Rural Farmers</div>
+                                    <div class="text-xs text-gray-400 font-semibold uppercase tracking-wider">Target Audience</div>
+                                    <div class="text-xl font-bold font-heading text-gray-900 dark:text-white mt-1">Rural Farmers</div>
                                 </div>
                                 <div>
-                                    <div class="text-sm text-gray-500 dark:text-gray-400">Primary Personas</div>
-                                    <div class="text-2xl font-bold mt-1">3</div>
+                                    <div class="text-xs text-gray-400 font-semibold uppercase tracking-wider">Primary Personas</div>
+                                    <div class="text-xl font-bold font-heading text-gray-900 dark:text-white mt-1">3</div>
                                 </div>
                                 <div>
-                                    <div class="text-sm text-gray-500 dark:text-gray-400">Key Screens Designed</div>
-                                    <div class="text-2xl font-bold mt-1">8+</div>
+                                    <div class="text-xs text-gray-400 font-semibold uppercase tracking-wider">Key Screens Designed</div>
+                                    <div class="text-xl font-bold font-heading text-gray-900 dark:text-white mt-1">8+</div>
                                 </div>
                                 <div>
-                                    <div class="text-sm text-gray-500 dark:text-gray-400">User Flows Mapped</div>
-                                    <div class="text-2xl font-bold mt-1">5+</div>
+                                    <div class="text-xs text-gray-400 font-semibold uppercase tracking-wider">User Flows Mapped</div>
+                                    <div class="text-xl font-bold font-heading text-gray-900 dark:text-white mt-1">5+</div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800 mt-8">
-                            <h3 class="text-lg font-semibold mb-6">Prototype</h3>
-                            <div class="space-y-3">
-                                <a href="https://marvelapp.com/1jj7g5i" target="_blank" rel="noopener noreferrer" class="block w-full px-4 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors font-medium text-center">
+                        <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                            <h3 class="text-xl font-bold font-heading mb-6 text-gray-900 dark:text-white">Prototype</h3>
+                            <div class="space-y-4">
+                                <a href="https://marvelapp.com/1jj7g5i" target="_blank" rel="noopener noreferrer" class="block w-full px-4 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl transition-colors font-semibold text-center text-sm shadow-sm">
                                     View Interactive Prototype →
                                 </a>
-                                <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
                                     Interactive prototype demonstrating the complete user flow from login to loan application
                                 </p>
                             </div>
                         </div>
 
-                        <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800 mt-8">
-                            <h3 class="text-lg font-semibold mb-6">Project Timeline</h3>
-                            <div class="space-y-3">
-                                <div>
-                                    <div class="text-sm text-gray-500 dark:text-gray-400 mb-1">Research & Analysis</div>
-                                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                        <div class="bg-blue-600 h-2 rounded-full" style="width: 30%"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="text-sm text-gray-500 dark:text-gray-400 mb-1">Service Blueprinting</div>
-                                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                        <div class="bg-purple-600 h-2 rounded-full" style="width: 25%"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="text-sm text-gray-500 dark:text-gray-400 mb-1">UI Design & Prototyping</div>
-                                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                        <div class="bg-green-600 h-2 rounded-full" style="width: 35%"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="text-sm text-gray-500 dark:text-gray-400 mb-1">Presentation & Pitch</div>
-                                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                        <div class="bg-amber-600 h-2 rounded-full" style="width: 10%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <a href="portfolio.html" class="inline-flex items-center justify-center w-full px-6 py-3.5 rounded-xl bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-semibold hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors shadow-sm">
+                            ← Back to All Projects
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </main>
 
-   <!-- Footer -->
-    <footer class="py-12 border-t border-gray-200 dark:border-gray-800 mt-20">
-        <div class="max-w-7xl mx-auto px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+    <!-- Footer -->
+        <!-- Footer -->
+    <footer class="py-12 border-t border-gray-200/60 dark:border-gray-800/60 transition-colors mt-20 md:mt-28 relative z-10" aria-label="Site footer">
+        <div class="max-w-6xl mx-auto px-6 sm:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
                 <div>
-                    <div class="text-2xl font-semibold mb-2">Jadvvinder Daudhria</div>
-                    <p class="text-gray-600 dark:text-gray-400">Strategic Senior Product Designer</p>
+                    <div class="text-lg font-bold font-heading text-gray-900 dark:text-white">J. Daudhria</div>
+                    <p class="text-xs text-gray-600 dark:text-gray-400 mt-1">Lead Product Designer & Systems Architect</p>
                 </div>
                 
-                <!-- Footer Icon Links -->
-                <div class="flex items-center space-x-6">
-                    <!-- LinkedIn -->
-                    <div class="relative group">
-                        <a href="https://www.linkedin.com/in/jadvvinder-daudhria-541a3111/" target="_blank" rel="noopener noreferrer" 
-                           class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg inline-block"
-                           aria-label="LinkedIn Profile">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                            </svg>
-                        </a>
-                        <!-- Tooltip -->
-                        <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1.5 bg-gray-900 dark:bg-gray-700 text-white text-xs font-medium rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
-                            My LinkedIn Profile
-                            <div class="absolute top-full left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-700 rotate-45"></div>
-                        </div>
-                    </div>
-                    
-                    <!-- Email -->
-                    <div class="relative group">
-                        <a href="mailto:j.daudhria@gmail.com" 
-                           class="text-gray-600 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition-colors p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg inline-block"
-                           aria-label="Send Email">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                            </svg>
-                        </a>
-                        <!-- Tooltip -->
-                        <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1.5 bg-gray-900 dark:bg-gray-700 text-white text-xs font-medium rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
-                            Email to me
-                            <div class="absolute top-full left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-700 rotate-45"></div>
-                        </div>
-                    </div>
-                    
-                    <!-- Download Resume -->
-                    <div class="relative group">
-                        <a href="path/to/your-resume.pdf" download="Jadvindder_Daudhria_Resume.pdf"
-                           class="text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition-colors p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg inline-block"
-                           aria-label="Download Resume">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" 
-                                      d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                            </svg>
-                        </a>
-                        <!-- Tooltip -->
-                        <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1.5 bg-gray-900 dark:bg-gray-700 text-white text-xs font-medium rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
-                            Download my resume
-                            <div class="absolute top-full left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-700 rotate-45"></div>
-                        </div>
-                    </div>
+                <div class="flex items-center space-x-6 text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-medium">
+                    <a href="https://www.linkedin.com/in/jadvinderd" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">LinkedIn</a>
+                    <span aria-hidden="true">•</span>
+                    <a href="https://www.behance.net/jd132" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Behance</a>
+                    <span aria-hidden="true">•</span>
+                    <a href="mailto:j.daudhria@gmail.com" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Email</a>
                 </div>
-                
-             <!--    <div class="text-sm text-gray-500 dark:text-gray-400 text-center md:text-right">
-                    © 2026. All rights reserved.
-                </div> -->
+            </div>
+            
+            <div class="mt-8 pt-6 border-t border-gray-100 dark:border-gray-800/40 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400 dark:text-gray-500 gap-3">
+                <p>© 2026 J. Daudhria. All rights reserved.</p>
+                <p>Designed for accessibility and performance.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Theme Toggle
         const themeToggle = document.getElementById('themeToggle');
         const sunIcon = document.getElementById('sunIcon');
         const moonIcon = document.getElementById('moonIcon');
         
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
         const currentTheme = localStorage.getItem('theme');
         
-        if (currentTheme === 'dark') {
+        if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
             document.documentElement.classList.add('dark');
-            moonIcon.classList.remove('hidden');
+            if (sunIcon) sunIcon.classList.remove('hidden');
         } else {
-            sunIcon.classList.remove('hidden');
+            if (moonIcon) moonIcon.classList.remove('hidden');
         }
         
-        themeToggle.addEventListener('click', () => {
-            document.documentElement.classList.toggle('dark');
-            
-            if (document.documentElement.classList.contains('dark')) {
-                localStorage.setItem('theme', 'dark');
-                sunIcon.classList.add('hidden');
-                moonIcon.classList.remove('hidden');
-            } else {
-                localStorage.setItem('theme', 'light');
-                moonIcon.classList.add('hidden');
-                sunIcon.classList.remove('hidden');
-            }
-        });
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark');
+                
+                if (document.documentElement.classList.contains('dark')) {
+                    localStorage.setItem('theme', 'dark');
+                    if (moonIcon) moonIcon.classList.add('hidden');
+                    if (sunIcon) sunIcon.classList.remove('hidden');
+                } else {
+                    localStorage.setItem('theme', 'light');
+                    if (sunIcon) sunIcon.classList.add('hidden');
+                    if (moonIcon) moonIcon.classList.remove('hidden');
+                }
+            });
+        }
     </script>
 </body>
-
 </html>
-
-
-

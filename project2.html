@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F127DXH209"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-F127DXH209');
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Fleet Managment, From Paper Registers to a Single Source of Truth | Jadvvinder Daudhria
-    </title>
+    <title>Ola Cabs Fleet Operations & Logistics Case Study | J. Daudhria</title>
+    <meta name="description" content="Case study on creating a single source of truth for fleet operations at Ola Cabs, improving allocation efficiency by ~80%.">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -20,96 +26,68 @@
           extend: {
             colors: {
               light: "#FFFFFF",
-              dark: "#0A0A0A",
-              textLight: "#171717",
-              textDark: "#E5E5E5",
-              grayLight: "#FAFAFA",
-              grayDark: "#1A1A1A",
+              dark: "#08090E",
+              textLight: "#0F172A",
+              textDark: "#F1F5F9",
+              cardLight: "#F8FAFC",
+              cardDark: "#111422",
+              borderLight: "rgba(226, 232, 240, 0.8)",
+              borderDark: "rgba(30, 41, 59, 0.7)"
             },
             fontFamily: {
               sans: ["Inter", "system-ui", "-apple-system", "sans-serif"],
-            },
-            spacing: {
-              18: "4.5rem",
-              88: "22rem",
-              128: "32rem",
-            },
+              heading: ["Plus Jakarta Sans", "Inter", "sans-serif"],
+            }
           },
         },
       };
     </script>
     <style>
       body {
-        font-feature-settings:
-          "kern" 1,
-          "liga" 1,
-          "calt" 1;
+        font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        letter-spacing: -0.011em;
-      }
-
-      .prose {
-        font-size: 1.125rem;
-        line-height: 1.7;
-      }
-
-      .prose p {
-        margin-top: 1.5em;
-        margin-bottom: 1.5em;
-      }
-
-      .section-padding {
-        padding-top: 6rem;
-        padding-bottom: 6rem;
       }
 
       .hero-gradient {
-        background: linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%);
+        background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #EC4899 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
       }
 
-      .card-hover {
-        transition: all 0.3s ease;
+      .ambient-glow {
+        position: absolute;
+        width: 600px;
+        height: 600px;
+        border-radius: 50%;
+        filter: blur(140px);
+        opacity: 0.12;
+        pointer-events: none;
+        z-index: 0;
       }
 
-      .card-hover:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
+      .dark .ambient-glow {
+        opacity: 0.18;
       }
 
-      .dark .card-hover:hover {
-        box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
+      .minimal-card {
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       }
 
-      .metric-card {
-        background: linear-gradient(
-          135deg,
-          rgba(14, 165, 233, 0.1) 0%,
-          rgba(99, 102, 241, 0.1) 100%
-        );
-        border: 1px solid rgba(14, 165, 233, 0.2);
+      .minimal-card:hover {
+        border-color: rgba(99, 102, 241, 0.4);
+        box-shadow: 0 12px 30px -10px rgba(99, 102, 241, 0.08);
+        transform: translateY(-3px);
       }
 
-      .dark .metric-card {
-        background: linear-gradient(
-          135deg,
-          rgba(14, 165, 233, 0.2) 0%,
-          rgba(99, 102, 241, 0.2) 100%
-        );
-        border: 1px solid rgba(14, 165, 233, 0.3);
-      }
-
-      .sticky-sidebar {
-        position: sticky;
-        top: 6rem;
+      .dark .minimal-card:hover {
+        box-shadow: 0 12px 30px -10px rgba(99, 102, 241, 0.15);
       }
 
       .phase-timeline {
         position: relative;
-        padding-left: 2rem;
+        padding-left: 2.25rem;
       }
 
       .phase-timeline::before {
@@ -119,7 +97,7 @@
         top: 8px;
         bottom: 8px;
         width: 2px;
-        background: linear-gradient(to bottom, #0ea5e9, #6366f1);
+        background: linear-gradient(to bottom, #6366F1, #8B5CF6);
         border-radius: 2px;
       }
 
@@ -129,18 +107,18 @@
         width: 18px;
         height: 18px;
         border-radius: 50%;
-        background: linear-gradient(135deg, #0ea5e9, #6366f1);
+        background: linear-gradient(135deg, #6366F1, #8B5CF6);
         border: 3px solid #fff;
         box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.3);
       }
 
       .dark .phase-dot {
-        border-color: #0A0A0A;
+        border-color: #08090E;
       }
 
       .phase-item {
         position: relative;
-        padding-bottom: 2rem;
+        padding-bottom: 2.5rem;
       }
 
       .phase-item:last-child {
@@ -155,58 +133,112 @@
         border-left-color: #818cf8;
       }
 
-      .problem-card-icon {
-        font-size: 1.75rem;
-        margin-bottom: 0.75rem;
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(16px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
+
+      .animate-fadeInUp {
+        animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+    
+        :focus-visible {
+            outline: 2px solid #6366F1 !important;
+            outline-offset: 3px !important;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, ::before, ::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
     </style>
-  </head>
-  <body
-    class="bg-light dark:bg-dark text-textLight dark:text-textDark font-sans transition-colors duration-300"
-  >
-    <!-- Navigation -->
-    <nav
-      class="fixed top-0 left-0 right-0 bg-light/95 dark:bg-dark/95 backdrop-blur-lg z-50 border-b border-gray-200/50 dark:border-gray-800/50"
-    >
-      <div class="max-w-7xl mx-auto px-8 py-5">
+  
+    <meta name="description" content="Digitizing enterprise fleet operations for Ola Cabs: Streamlining vehicle onboarding, driver verification, and audit logs to boost operational efficiency by 80%.">
+    <meta name="keywords" content="Ola Cabs UX, Mobility Logistics UX, Fleet Management System, Driver Onboarding UX, Enterprise Operations Design, Senior Product Designer">
+    <meta name="author" content="Jadvvinder (J.) Daudhria">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#08090E">
+    <link rel="canonical" href="https://jadvvinder.github.io/Jadvvinder/project2.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="J. Daudhria Portfolio">
+    <meta property="og:title" content="Ola Cabs Fleet Operations & Logistics Case Study | J. Daudhria">
+    <meta property="og:description" content="Digitizing enterprise fleet operations for Ola Cabs: Streamlining vehicle onboarding, driver verification, and audit logs to boost operational efficiency by 80%.">
+    <meta property="og:url" content="https://jadvvinder.github.io/Jadvvinder/project2.html">
+    <meta property="og:image" content="https://jadvvinder.github.io/Jadvvinder/img/ola_img1.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ola Cabs Fleet Operations & Logistics Case Study | J. Daudhria">
+    <meta name="twitter:description" content="Digitizing enterprise fleet operations for Ola Cabs: Streamlining vehicle onboarding, driver verification, and audit logs to boost operational efficiency by 80%.">
+    <meta name="twitter:image" content="https://jadvvinder.github.io/Jadvvinder/img/ola_img1.png">
+
+    <!-- JSON-LD Structured Data Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Ola Cabs Fleet Operations & Logistics Enterprise UX Case Study",
+      "description": "Digitizing enterprise fleet operations for Ola Cabs: Streamlining vehicle onboarding, driver verification, and audit logs to boost operational efficiency by 80%.",
+      "image": "https://jadvvinder.github.io/Jadvvinder/img/ola_img1.png",
+      "author": {
+        "@type": "Person",
+        "name": "Jadvvinder (J.) Daudhria"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "J. Daudhria Portfolio"
+      },
+      "mainEntityOfPage": "https://jadvvinder.github.io/Jadvvinder/project2.html"
+    }
+    </script>
+
+</head>
+  <body class="bg-light dark:bg-dark text-textLight dark:text-textDark font-sans transition-colors duration-300 relative overflow-x-hidden">
+
+    <!-- Accessibility Skip Link -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-indigo-600 focus:text-white focus:rounded-lg focus:shadow-lg font-medium text-sm transition-all">
+        Skip to main content
+    </a>
+
+
+    <!-- Ambient Background Glows -->
+    <div class="ambient-glow bg-indigo-500 top-0 left-1/4"></div>
+    <div class="ambient-glow bg-purple-500 top-[1000px] right-10"></div>
+    <div class="ambient-glow bg-blue-500 top-[2200px] left-10"></div>
+
+    <!-- Navigation Header -->
+    <nav  class="fixed top-0 left-0 right-0 bg-white/80 dark:bg-dark/80 backdrop-blur-md z-50 border-b border-gray-200/60 dark:border-gray-800/60 transition-colors" aria-label="Main navigation">
+      <div class="max-w-6xl mx-auto px-6 sm:px-8 py-4">
         <div class="flex items-center justify-between">
-          <a
-            href="index.html"
-            class="text-xl font-semibold tracking-tight hover:opacity-80 transition-opacity"
-            >← Back to Portfolio</a
-          >
-          <div class="flex items-center space-x-10">
-            <button
-              id="themeToggle"
-              class="p-2.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-            >
-              <svg
-                id="sunIcon"
-                class="w-5 h-5 hidden"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.5"
-                  d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-                ></path>
+          <a href="index.html" class="flex items-center space-x-3 group">
+            <span class="text-xl font-bold font-heading tracking-tight text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">JD</span>
+            <span class="text-xs text-gray-500 dark:text-gray-400 font-medium hidden sm:inline-block">/ Case Study</span>
+          </a>
+          <div class="flex items-center space-x-6 sm:space-x-8 text-sm font-medium">
+            <a href="portfolio.html" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors flex items-center gap-1.5">
+              <span>←</span> All Projects
+            </a>
+            <a href="index.html#hero" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors hidden sm:inline-block">Home</a>
+            <a href="index.html#contact" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Contact</a>
+            <button id="themeToggle" aria-label="Toggle light and dark theme" class="p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle theme">
+              <svg id="sunIcon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
               </svg>
-              <svg
-                id="moonIcon"
-                class="w-5 h-5 hidden"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.5"
-                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-                ></path>
+              <svg id="moonIcon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
               </svg>
             </button>
           </div>
@@ -215,105 +247,75 @@
     </nav>
 
     <!-- Case Study Content -->
-    <main class="pt-24">
-      <!-- Hero Section -->
-      <section class="section-padding">
-        <div class="max-w-7xl mx-auto px-8">
-          <div class="mb-12">
-            <div
-              class="inline-flex items-center px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full text-sm font-medium mb-6"
-            >
-              Ola Cabs
-            </div>
-            <h1 class="text-5xl font-light mb-6 tracking-tight leading-[1.1]">
-              Creating a 
-              <span class="hero-gradient font-semibold">Single Source of Truth</span>
-            </h1>
-            <p class="text-5xl font-light text-textLight dark:text-textDark mb-4 tracking-tight">
-              for Fleet Operations
-            </p>
-            <p
-              class="text-xl text-gray-600 dark:text-gray-400 max-w-4xl leading-relaxed"
-            >
-              Led the redesign of Ola's fleet operations ecosystem, replacing fragmented spreadsheets and paper-based workflows with a unified platform that improved allocation efficiency by <span class="font-semibold text-textLight dark:text-textDark">~80%</span>and reduced manual reporting by <span class="font-semibold text-textLight dark:text-textDark">~65%</span>.
-            </p>
+    <main id="main-content"  class="pt-28 md:pt-36 pb-20 md:pb-28 relative z-10">
+      <div class="max-w-6xl mx-auto px-6 sm:px-8">
+        
+        <!-- Hero Section -->
+        <div class="animate-fadeInUp mb-16 md:mb-20 max-w-4xl">
+          <div class="inline-flex items-center px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 border border-indigo-200/60 dark:border-indigo-800/60 mb-6">
+            Ola Cabs Mobility Platform
           </div>
-          <div
-            class="bg-gray-100 dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 mb-8"
-          >
-            <img
-              src="img/ola_img1.png"
-              alt="FleetOS dashboard overview showing fleet lifecycle and driver allocation"
-              class="w-full"
-              onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'flex items-center justify-center h-64 bg-gray-200 dark:bg-gray-800 text-gray-500 dark:text-gray-400 text-sm\'>📊 FleetOS Dashboard — Hero Image Placeholder</div>';"
-            />
-          </div>
+          <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold font-heading tracking-tight mb-6 leading-[1.15] text-gray-900 dark:text-white">
+            Creating a <span class="hero-gradient">Single Source of Truth</span> for Fleet Operations
+          </h1>
+          <p class="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed font-light">
+            Led the redesign of Ola's fleet operations ecosystem, replacing fragmented spreadsheets and paper-based workflows with a unified platform that improved allocation efficiency by <span class="font-semibold text-gray-900 dark:text-white">~80%</span> and reduced manual reporting by <span class="font-semibold text-gray-900 dark:text-white">~65%</span>.
+          </p>
         </div>
-      </section>
 
-      <!-- Content Sections -->
-      <div class="max-w-7xl mx-auto px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <!-- Hero Image -->
+        <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl overflow-hidden border border-gray-200/60 dark:border-gray-800/60 p-4 sm:p-6 mb-20 md:mb-28 animate-fadeInUp shadow-sm">
+          <img
+            src="img/ola_img1.png"
+            alt="FleetOS dashboard overview showing fleet lifecycle and driver allocation"
+            class="w-full h-auto rounded-xl md:rounded-2xl"
+            onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'flex items-center justify-center h-64 bg-gray-200 dark:bg-gray-800 text-gray-500 dark:text-gray-400 text-sm\'>📊 FleetOS Dashboard — Hero Image Placeholder</div>';"
+          />
+        </div>
+
+        <!-- Content Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+          
           <!-- Main Content Column -->
-          <div class="lg:col-span-2">
+          <div class="lg:col-span-2 space-y-20 md:space-y-28">
+            
             <!-- Strategic Context -->
-            <section class="mb-16">
-              <div
-                class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800"
-              >
-                <h2 class="text-3xl font-semibold mb-8">Strategic Context</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div>
-                    <h3
-                      class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2"
-                    >
-                      Role
-                    </h3>
-                    <p class="text-lg">
-                      Senior Product Designer led UX strategy, research, service mapping, workflow redesign, and end-to-end product design for Ola's fleet operations ecosystem.
-                    </p>
-                  </div>
-                  <div>
-                    <h3
-                      class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2"
-                    >
-                      Scope
-                    </h3>
-                    <p class="text-lg">
-                      Fleet Management Platform digitizing vehicle allocation, servicing, tracking, and operational workflows for Ola-owned vehicles.
-                    </p>
-                  </div>
-                  <div>
-                    <h3
-                      class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2"
-                    >
-                      Users
-                    </h3>
-                    <p class="text-lg">
-                      Fleet Operations Teams · Workshop Staff · Garage Managers ·
-                      Leadership Teams · Drivers
-                    </p>
-                  </div>
-                  <div>
-                    <h3
-                      class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2"
-                    >
-                      Challenge
-                    </h3>
-                    <p class="text-lg">
-                      Critical fleet operations relied on paper registers, spreadsheets, emails, and phone calls, resulting in poor visibility, delayed vehicle allocation, and inefficient workflows.
-                    </p>
-                  </div>
+            <section class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 sm:p-10 md:p-12 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+              <h2 class="text-2xl sm:text-3xl font-bold font-heading mb-8 tracking-tight text-gray-900 dark:text-white">Strategic Context</h2>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-10 text-sm sm:text-base leading-relaxed">
+                <div>
+                  <div class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Role</div>
+                  <p class="text-gray-600 dark:text-gray-300">
+                    Senior Product Designer led UX strategy, research, service mapping, workflow redesign, and end-to-end product design for Ola's fleet operations ecosystem.
+                  </p>
+                </div>
+                <div>
+                  <div class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Scope</div>
+                  <p class="text-gray-600 dark:text-gray-300">
+                    Fleet Management Platform digitizing vehicle allocation, servicing, tracking, and operational workflows for Ola-owned vehicles.
+                  </p>
+                </div>
+                <div>
+                  <div class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Users</div>
+                  <p class="text-gray-600 dark:text-gray-300">
+                    Fleet Operations Teams · Workshop Staff · Garage Managers · Leadership Teams · Drivers
+                  </p>
+                </div>
+                <div>
+                  <div class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Challenge</div>
+                  <p class="text-gray-600 dark:text-gray-300">
+                    Critical fleet operations relied on paper registers, spreadsheets, emails, and phone calls, resulting in poor visibility, delayed vehicle allocation, and inefficient workflows.
+                  </p>
                 </div>
               </div>
             </section>
 
-            <!-- The Messy Problem -->
-            <section class="mb-16">
-              <h2 class="text-4xl font-light mb-8">
+            <!-- Understanding the Problem -->
+            <section class="space-y-8">
+              <h2 class="text-3xl sm:text-4xl font-bold font-heading tracking-tight text-gray-900 dark:text-white">
                 Understanding the Problem
               </h2>
-              <div class="prose max-w-none">
+              <div class="prose max-w-none text-gray-600 dark:text-gray-300 space-y-6 text-base sm:text-lg leading-relaxed">
                 <p>
                   As the lead designer for Ola's Fleet Management platform, I was tasked with improving fleet allocation operations for Ola-owned vehicles.
                 </p>
@@ -322,78 +324,55 @@
                 </p>
               </div>
 
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
-                <div
-                  class="bg-red-50 dark:bg-red-900/10 p-6 rounded-xl border border-red-200 dark:border-red-800/30 card-hover"
-                >
-                  <div class="problem-card-icon">📋</div>
-                  <h3 class="text-lg font-semibold mb-2 text-red-700 dark:text-red-300">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 my-8">
+                <div class="bg-rose-50/60 dark:bg-rose-950/20 p-8 rounded-2xl md:rounded-3xl border border-rose-200/60 dark:border-rose-900/40 minimal-card">
+                  <div class="text-3xl mb-3">📋</div>
+                  <h3 class="text-lg font-bold font-heading mb-3 text-rose-700 dark:text-rose-400">
                     Driver Registration
                   </h3>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">
-                    Complex English-heavy forms created onboarding friction for
-                    drivers with varying literacy levels.
+                  <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+                    Complex English-heavy forms created onboarding friction for drivers with varying literacy levels.
                   </p>
                 </div>
 
-                <div
-                  class="bg-amber-50 dark:bg-amber-900/10 p-6 rounded-xl border border-amber-200 dark:border-amber-800/30 card-hover"
-                >
-                  <div class="problem-card-icon">🔧</div>
-                  <h3 class="text-lg font-semibold mb-2 text-amber-700 dark:text-amber-300">
+                <div class="bg-amber-50/60 dark:bg-amber-950/20 p-8 rounded-2xl md:rounded-3xl border border-amber-200/60 dark:border-amber-900/40 minimal-card">
+                  <div class="text-3xl mb-3">🔧</div>
+                  <h3 class="text-lg font-bold font-heading mb-3 text-amber-700 dark:text-amber-400">
                     Workshop Tracking
                   </h3>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">
-                    Vehicle status was maintained in paper registers — no way to
-                    know readiness in real time.
+                  <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+                    Vehicle status was maintained in paper registers — no way to know readiness in real time.
                   </p>
                 </div>
 
-                <div
-                  class="bg-purple-50 dark:bg-purple-900/10 p-6 rounded-xl border border-purple-200 dark:border-purple-800/30 card-hover"
-                >
-                  <div class="problem-card-icon">🚗</div>
-                  <h3 class="text-lg font-semibold mb-2 text-purple-700 dark:text-purple-300">
+                <div class="bg-purple-50/60 dark:bg-purple-950/20 p-8 rounded-2xl md:rounded-3xl border border-purple-200/60 dark:border-purple-900/40 minimal-card">
+                  <div class="text-3xl mb-3">🚗</div>
+                  <h3 class="text-lg font-bold font-heading mb-3 text-purple-700 dark:text-purple-400">
                     Fleet Allocation
                   </h3>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">
-                    Teams lacked accurate visibility into vehicle readiness,
-                    leading to misallocations and delays.
+                  <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+                    Teams lacked accurate visibility into vehicle readiness, leading to misallocations and delays.
                   </p>
                 </div>
 
-                <div
-                  class="bg-blue-50 dark:bg-blue-900/10 p-6 rounded-xl border border-blue-200 dark:border-blue-800/30 card-hover"
-                >
-                  <div class="problem-card-icon">📊</div>
-                  <h3 class="text-lg font-semibold mb-2 text-blue-700 dark:text-blue-300">
+                <div class="bg-indigo-50/60 dark:bg-indigo-950/20 p-8 rounded-2xl md:rounded-3xl border border-indigo-200/60 dark:border-indigo-900/40 minimal-card">
+                  <div class="text-3xl mb-3">📊</div>
+                  <h3 class="text-lg font-bold font-heading mb-3 text-indigo-700 dark:text-indigo-400">
                     Reporting
                   </h3>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">
-                    Daily updates required manually creating spreadsheets and
-                    emailing stakeholders — error-prone and time-consuming.
+                  <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+                    Daily updates required manually creating spreadsheets and emailing stakeholders — error-prone and time-consuming.
                   </p>
                 </div>
               </div>
+            </section>
 
-            <!-- <div
-                class="bg-gray-100 dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 my-8"
-              >
-                <img
-                  src="img/current-state-process-map.jpg"
-                  alt="Before-state journey map showing fragmented workflows"
-                  class="w-full"
-                  onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'flex items-center justify-center h-48 bg-gray-200 dark:bg-gray-800 text-gray-500 dark:text-gray-400 text-sm\'>🗺️ Current State Process Map — Image Placeholder</div>';"
-                />
-              </div> -->
-            </section> 
-
-            <!-- Discovery: Leaving the Office -->
-            <section class="mb-16">
-              <h2 class="text-4xl font-light mb-8">
+            <!-- Discovery: Understanding Operations on the Ground -->
+            <section class="space-y-8">
+              <h2 class="text-3xl sm:text-4xl font-bold font-heading tracking-tight text-gray-900 dark:text-white">
                 Discovery: Understanding Operations on the Ground
               </h2>
-              <div class="prose max-w-none">
+              <div class="prose max-w-none text-gray-600 dark:text-gray-300 space-y-6 text-base sm:text-lg leading-relaxed">
                 <p>
                   Rather than relying on assumptions, I spent four weeks observing how fleet operations worked across workshops and garages.
                 </p>
@@ -402,373 +381,300 @@
                 </p>
               </div>
 
-              <div class="grid grid-cols-2 md:grid-cols-4 gap-4 my-8">
-                <div class="bg-blue-50 dark:bg-blue-900/10 rounded-xl p-5 text-center border border-blue-200 dark:border-blue-800/30">
-                  <div class="text-3xl font-bold text-blue-600 dark:text-blue-400">8</div>
-                  <div class="text-sm text-gray-600 dark:text-gray-400">Workshops Visited</div>
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-6 my-8">
+                <div class="bg-cardLight dark:bg-cardDark rounded-2xl p-6 text-center border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                  <div class="text-4xl font-bold font-heading hero-gradient">8</div>
+                  <div class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-medium mt-2">Workshops Visited</div>
                 </div>
-                <div class="bg-blue-50 dark:bg-blue-900/10 rounded-xl p-5 text-center border border-blue-200 dark:border-blue-800/30">
-                  <div class="text-3xl font-bold text-blue-600 dark:text-blue-400">5</div>
-                  <div class="text-sm text-gray-600 dark:text-gray-400">Garages Visited</div>
+                <div class="bg-cardLight dark:bg-cardDark rounded-2xl p-6 text-center border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                  <div class="text-4xl font-bold font-heading hero-gradient">5</div>
+                  <div class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-medium mt-2">Garages Visited</div>
                 </div>
-                <div class="bg-blue-50 dark:bg-blue-900/10 rounded-xl p-5 text-center border border-blue-200 dark:border-blue-800/30">
-                  <div class="text-3xl font-bold text-blue-600 dark:text-blue-400">30+</div>
-                  <div class="text-sm text-gray-600 dark:text-gray-400">Interviews</div>
+                <div class="bg-cardLight dark:bg-cardDark rounded-2xl p-6 text-center border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                  <div class="text-4xl font-bold font-heading hero-gradient">30+</div>
+                  <div class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-medium mt-2">Interviews</div>
                 </div>
-                <div class="bg-blue-50 dark:bg-blue-900/10 rounded-xl p-5 text-center border border-blue-200 dark:border-blue-800/30">
-                  <div class="text-3xl font-bold text-blue-600 dark:text-blue-400">4</div>
-                  <div class="text-sm text-gray-600 dark:text-gray-400">Weeks Field Research</div>
+                <div class="bg-cardLight dark:bg-cardDark rounded-2xl p-6 text-center border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                  <div class="text-4xl font-bold font-heading hero-gradient">4</div>
+                  <div class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-medium mt-2">Weeks Field Research</div>
                 </div>
               </div>
 
-              <div
-                class="bg-gray-100 dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 mt-8"
-              >
+              <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl overflow-hidden border border-gray-200/60 dark:border-gray-800/60 p-4 sm:p-6 shadow-sm">
                 <img
                   src="img/ola_img2.png"
                   alt="Affinity mapping and research synthesis board"
-                  class="w-full"
+                  class="w-full h-auto rounded-xl md:rounded-2xl"
                   onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'flex items-center justify-center h-48 bg-gray-200 dark:bg-gray-800 text-gray-500 dark:text-gray-400 text-sm\'>📋 Research Synthesis — Image Placeholder</div>';"
                 />
               </div>
             </section>
 
             <!-- What I Learned -->
-            <section class="mb-16">
-              <h2 class="text-4xl font-light mb-8">What I Learned</h2>
+            <section class="space-y-8">
+              <h2 class="text-3xl sm:text-4xl font-bold font-heading tracking-tight text-gray-900 dark:text-white">What I Learned</h2>
 
               <div class="space-y-6">
-                <div class="insight-block pl-6 py-2 border-l-4 border-blue-500 bg-blue-50/50 dark:bg-blue-900/5 rounded-r-xl pr-4">
-                  <h3 class="text-xl font-semibold text-blue-700 dark:text-blue-300">Insight 1: Paper Wasn't the Problem</h3>
-                  <p class="text-gray-600 dark:text-gray-400 mt-2">
-                    Teams needed physical handover records for accountability.
-                    Removing paper entirely would fail — the goal was <strong>digital augmentation</strong>, not replacement.
+                <div class="insight-block pl-6 py-4 border-l-4 border-indigo-500 bg-cardLight dark:bg-cardDark rounded-r-2xl border border-gray-200/60 dark:border-gray-800/60 p-6 minimal-card">
+                  <h3 class="text-lg font-bold font-heading text-indigo-600 dark:text-indigo-400">Insight 1: Paper Wasn't the Problem</h3>
+                  <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 mt-2 leading-relaxed">
+                    Teams needed physical handover records for accountability. Removing paper entirely would fail — the goal was <strong>digital augmentation</strong>, not replacement.
                   </p>
                 </div>
 
-                <div class="insight-block pl-6 py-2 border-l-4 border-indigo-500 bg-indigo-50/50 dark:bg-indigo-900/5 rounded-r-xl pr-4">
-                  <h3 class="text-xl font-semibold text-indigo-700 dark:text-indigo-300">Insight 2: Data Was Entered Multiple Times</h3>
-                  <p class="text-gray-600 dark:text-gray-400 mt-2">
-                    Register → Excel → Email. The same information was repeated
-                    repeatedly across different formats, creating <strong>redundant effort</strong> and opportunities for error.
+                <div class="insight-block pl-6 py-4 border-l-4 border-indigo-500 bg-cardLight dark:bg-cardDark rounded-r-2xl border border-gray-200/60 dark:border-gray-800/60 p-6 minimal-card">
+                  <h3 class="text-lg font-bold font-heading text-indigo-600 dark:text-indigo-400">Insight 2: Data Was Entered Multiple Times</h3>
+                  <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 mt-2 leading-relaxed">
+                    Register → Excel → Email. The same information was repeated repeatedly across different formats, creating <strong>redundant effort</strong> and opportunities for error.
                   </p>
                 </div>
 
-                <div class="insight-block pl-6 py-2 border-l-4 border-purple-500 bg-purple-50/50 dark:bg-purple-900/5 rounded-r-xl pr-4">
-                  <h3 class="text-xl font-semibold text-purple-700 dark:text-purple-300">Insight 3: Nobody Had a Complete Vehicle View</h3>
-                  <p class="text-gray-600 dark:text-gray-400 mt-2">
-                    Vehicle history — service records, ownership changes, allocation
-                    status — lived across <strong>people, paper, and systems</strong>.
-                    No single person had the full picture.
+                <div class="insight-block pl-6 py-4 border-l-4 border-indigo-500 bg-cardLight dark:bg-cardDark rounded-r-2xl border border-gray-200/60 dark:border-gray-800/60 p-6 minimal-card">
+                  <h3 class="text-lg font-bold font-heading text-indigo-600 dark:text-indigo-400">Insight 3: Nobody Had a Complete Vehicle View</h3>
+                  <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 mt-2 leading-relaxed">
+                    Vehicle history — service records, ownership changes, allocation status — lived across <strong>people, paper, and systems</strong>. No single person had the full picture.
                   </p>
                 </div>
 
-                <div class="insight-block pl-6 py-2 border-l-4 border-amber-500 bg-amber-50/50 dark:bg-amber-900/5 rounded-r-xl pr-4">
-                  <h3 class="text-xl font-semibold text-amber-700 dark:text-amber-300">Insight 4: Drivers Had Zero Visibility</h3>
-                  <p class="text-gray-600 dark:text-gray-400 mt-2">
-                    Drivers arrived at garages expecting vehicles that weren't
-                    ready. No notifications, no updates, no <strong>transparency</strong>.
+                <div class="insight-block pl-6 py-4 border-l-4 border-indigo-500 bg-cardLight dark:bg-cardDark rounded-r-2xl border border-gray-200/60 dark:border-gray-800/60 p-6 minimal-card">
+                  <h3 class="text-lg font-bold font-heading text-indigo-600 dark:text-indigo-400">Insight 4: Drivers Had Zero Visibility</h3>
+                  <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 mt-2 leading-relaxed">
+                    Drivers arrived at garages expecting vehicles that weren't ready. No notifications, no updates, no <strong>transparency</strong>.
                   </p>
                 </div>
               </div>
-
-             <!-- <div
-                class="bg-gray-100 dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 mt-8"
-              >
-                <img
-                  src="img/ola_img2.png"
-                  alt="Affinity mapping and research synthesis board"
-                  class="w-full"
-                  onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'flex items-center justify-center h-48 bg-gray-200 dark:bg-gray-800 text-gray-500 dark:text-gray-400 text-sm\'>📋 Research Synthesis — Image Placeholder</div>';"
-                />
-              </div> -->
             </section>
 
             <!-- Reframing the Challenge -->
-            <section class="mb-16">
-              <h2 class="text-4xl font-light mb-8">Reframing the Challenge</h2>
+            <section class="space-y-8">
+              <h2 class="text-3xl sm:text-4xl font-bold font-heading tracking-tight text-gray-900 dark:text-white">Reframing the Challenge</h2>
 
-              <div class="prose max-w-none">
-                <p class="text-xl font-semibold text-blue-600 dark:text-blue-400">
+              <div class="prose max-w-none text-gray-600 dark:text-gray-300 space-y-4">
+                <p class="text-2xl font-bold font-heading hero-gradient">
                   The Problem Wasn't Fleet Allocation.
                 </p>
-                <p>
-                  The real challenge was creating a <strong>single source of truth</strong>
-                  for the entire vehicle lifecycle — one that connected operations,
-                  workshops, garages, and drivers.
+                <p class="text-base sm:text-lg leading-relaxed">
+                  The real challenge was creating a <strong>single source of truth</strong> for the entire vehicle lifecycle — one that connected operations, workshops, garages, and drivers.
                 </p>
               </div>
 
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-8">
-                <div
-                  class="bg-red-50 dark:bg-red-900/10 p-6 rounded-xl border border-red-200 dark:border-red-800/30"
-                >
-                  <h3 class="text-red-700 dark:text-red-300 font-bold mb-3">Before</h3>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 my-8">
+                <div class="bg-rose-50/60 dark:bg-rose-950/20 p-8 rounded-2xl md:rounded-3xl border border-rose-200/60 dark:border-rose-900/40 minimal-card">
+                  <h3 class="text-rose-700 dark:text-rose-400 font-bold font-heading mb-3 text-lg">Before</h3>
+                  <p class="text-base font-semibold text-gray-900 dark:text-white">
                     Improve Fleet Management Tool
                   </p>
-                  <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">
+                  <p class="text-sm text-gray-600 dark:text-gray-300 mt-2 leading-relaxed">
                     Focus on incremental UI improvements to an existing tool.
                   </p>
                 </div>
-                <div
-                  class="bg-green-50 dark:bg-green-900/10 p-6 rounded-xl border border-green-200 dark:border-green-800/30"
-                >
-                  <h3 class="text-green-700 dark:text-green-300 font-bold mb-3">After</h3>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">
+                <div class="bg-emerald-50/60 dark:bg-emerald-950/20 p-8 rounded-2xl md:rounded-3xl border border-emerald-200/60 dark:border-emerald-900/40 minimal-card">
+                  <h3 class="text-emerald-700 dark:text-emerald-400 font-bold font-heading mb-3 text-lg">After</h3>
+                  <p class="text-base font-semibold text-gray-900 dark:text-white">
                     Create an Operational System Connecting People, Vehicles, and Processes
                   </p>
-                  <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">
+                  <p class="text-sm text-gray-600 dark:text-gray-300 mt-2 leading-relaxed">
                     A complete ecosystem transformation — not a feature enhancement.
                   </p>
                 </div>
               </div>
 
-              <div
-                class="bg-grayLight dark:bg-grayDark border-l-4 border-blue-500 rounded-r-xl p-6"
-              >
-                <p class="text-sm text-gray-600 dark:text-gray-400 m-0">
-                  <strong class="text-textLight dark:text-textDark">The reframe:</strong>
-                  this wasn't a tool improvement project. It was an operational
-                  transformation that needed to connect people, vehicles, and
-                  processes through a unified platform.
+              <div class="bg-cardLight dark:bg-cardDark border-l-4 border-indigo-500 rounded-r-2xl p-6 sm:p-8 border border-gray-200/60 dark:border-gray-800/60">
+                <p class="text-base text-gray-600 dark:text-gray-300 m-0 leading-relaxed">
+                  <strong class="text-gray-900 dark:text-white">The reframe:</strong> this wasn't a tool improvement project. It was an operational transformation that needed to connect people, vehicles, and processes through a unified platform.
                 </p>
               </div>
-              <div
-                class="bg-gray-100 dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 mt-8"
-              >
+              <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl overflow-hidden border border-gray-200/60 dark:border-gray-800/60 p-4 sm:p-6 shadow-sm mt-8">
                 <img
                   src="img/ola_img4.png"
                   alt="Affinity mapping and research synthesis board"
-                  class="w-full"
+                  class="w-full h-auto rounded-xl md:rounded-2xl"
                   onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'flex items-center justify-center h-48 bg-gray-200 dark:bg-gray-800 text-gray-500 dark:text-gray-400 text-sm\'>📋 Research Synthesis — Image Placeholder</div>';"
                 />
               </div>
             </section>
 
             <!-- Product Strategy -->
-            <section class="mb-16">
-              <h2 class="text-4xl font-light mb-8">
+            <section class="space-y-8">
+              <h2 class="text-3xl sm:text-4xl font-bold font-heading tracking-tight text-gray-900 dark:text-white">
                 Building for Scale Without Disrupting Operations
               </h2>
-              <div class="prose max-w-none">
-                <p>
-                  Stakeholders agreed with the vision but couldn't stop operations
-                  while a large transformation was underway. I proposed a
-                  <strong>phased roadmap</strong> that delivered value incrementally
-                  — reducing risk and building momentum with each release.
+              <div class="prose max-w-none text-gray-600 dark:text-gray-300">
+                <p class="text-base sm:text-lg leading-relaxed">
+                  Stakeholders agreed with the vision but couldn't stop operations while a large transformation was underway. I proposed a <strong>phased roadmap</strong> that delivered value incrementally — reducing risk and building momentum with each release.
                 </p>
               </div>
 
-              <div class="phase-timeline my-8">
+              <div class="phase-timeline my-8 space-y-6">
                 <div class="phase-item">
-                  <h4 class="font-semibold text-lg">Phase 1: Digitize Workshop Reporting</h4>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">
-                    Replaced paper registers with mobile-friendly digital reporting
-                    — the first step toward real-time visibility.
+                  <h4 class="font-bold font-heading text-lg text-gray-900 dark:text-white">Phase 1: Digitize Workshop Reporting</h4>
+                  <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 mt-2 leading-relaxed">
+                    Replaced paper registers with mobile-friendly digital reporting — the first step toward real-time visibility.
                   </p>
                 </div>
                 <div class="phase-item">
-                  <h4 class="font-semibold text-lg">Phase 2: Fleet Visibility</h4>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">
-                    Gave operations teams real-time visibility into vehicle
-                    readiness and allocation status across all garages.
+                  <h4 class="font-bold font-heading text-lg text-gray-900 dark:text-white">Phase 2: Fleet Visibility</h4>
+                  <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 mt-2 leading-relaxed">
+                    Gave operations teams real-time visibility into vehicle readiness and allocation status across all garages.
                   </p>
                 </div>
                 <div class="phase-item">
-                  <h4 class="font-semibold text-lg">Phase 3: Vehicle History</h4>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">
-                    Built a complete vehicle timeline — service records, ownership
-                    changes, allocation history — in a single view.
+                  <h4 class="font-bold font-heading text-lg text-gray-900 dark:text-white">Phase 3: Vehicle History</h4>
+                  <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 mt-2 leading-relaxed">
+                    Built a complete vehicle timeline — service records, ownership changes, allocation history — in a single view.
                   </p>
                 </div>
                 <div class="phase-item">
-                  <h4 class="font-semibold text-lg">Phase 4: Driver Tracking</h4>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">
-                    Gave drivers visibility into vehicle readiness and allocation
-                    status through notifications and a simple interface.
+                  <h4 class="font-bold font-heading text-lg text-gray-900 dark:text-white">Phase 4: Driver Tracking</h4>
+                  <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 mt-2 leading-relaxed">
+                    Gave drivers visibility into vehicle readiness and allocation status through notifications and a simple interface.
                   </p>
                 </div>
                 <div class="phase-item">
-                  <h4 class="font-semibold text-lg">Phase 5: Unified Fleet Dashboard</h4>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">
-                    A single source of truth for leadership — real-time fleet
-                    performance, utilization, and operational metrics.
+                  <h4 class="font-bold font-heading text-lg text-gray-900 dark:text-white">Phase 5: Unified Fleet Dashboard</h4>
+                  <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 mt-2 leading-relaxed">
+                    A single source of truth for leadership — real-time fleet performance, utilization, and operational metrics.
                   </p>
                 </div>
               </div>
             </section>
 
             <!-- Elevating the Experience Within Operational Constraints -->
-            <section class="mb-16">
-              <h2 class="text-4xl font-light mb-8">
+            <section class="space-y-8">
+              <h2 class="text-3xl sm:text-4xl font-bold font-heading tracking-tight text-gray-900 dark:text-white">
                 Elevating the Experience Within Operational Constraints
               </h2>
 
-              <div class="prose max-w-none text-gray-700 dark:text-gray-300 mb-8">
-                <p>
-                  Users had varying levels of digital literacy. Many workshop
-                  operators were transitioning from paper-based workflows for the
-                  first time. The design needed to be <strong>accessible</strong>,
-                  not sophisticated.
+              <div class="prose max-w-none text-gray-600 dark:text-gray-300">
+                <p class="text-base sm:text-lg leading-relaxed">
+                  Users had varying levels of digital literacy. Many workshop operators were transitioning from paper-based workflows for the first time. The design needed to be <strong>accessible</strong>, not sophisticated.
                 </p>
               </div>
 
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-6 border border-gray-200 dark:border-gray-800 card-hover">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
                   <div class="text-3xl mb-4">🧩</div>
-                  <h3 class="text-xl font-semibold mb-3">The Constraint</h3>
-                  <p class="text-gray-600 dark:text-gray-400">
-                    Users were comfortable with paper-based workflows but had
-                    limited experience with digital tools. Introducing complex
-                    enterprise software behaviors would create adoption barriers.
+                  <h3 class="text-lg font-bold font-heading mb-3 text-gray-900 dark:text-white">The Constraint</h3>
+                  <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                    Users were comfortable with paper-based workflows but had limited experience with digital tools. Introducing complex enterprise software behaviors would create adoption barriers.
                   </p>
                 </div>
 
-                <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-6 border border-gray-200 dark:border-gray-800 card-hover">
+                <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
                   <div class="text-3xl mb-4">🎯</div>
-                  <h3 class="text-xl font-semibold mb-3">Design Decision</h3>
-                  <p class="text-gray-600 dark:text-gray-400">
-                    Prioritized familiar patterns and progressive digitization —
-                    starting with digital equivalents of paper registers and
-                    gradually introducing more sophisticated capabilities.
+                  <h3 class="text-lg font-bold font-heading mb-3 text-gray-900 dark:text-white">Design Decision</h3>
+                  <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                    Prioritized familiar patterns and progressive digitization — starting with digital equivalents of paper registers and gradually introducing more sophisticated capabilities.
                   </p>
                 </div>
 
-                <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-6 border border-gray-200 dark:border-gray-800 card-hover">
+                <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
                   <div class="text-3xl mb-4">🤝</div>
-                  <h3 class="text-xl font-semibold mb-3">Collaboration</h3>
-                  <p class="text-gray-600 dark:text-gray-400">
-                    Worked closely with operations teams and engineers to ensure
-                    every workflow could be adopted with <strong>minimal training</strong>
-                    — often designing alongside the teams who would use it daily.
+                  <h3 class="text-lg font-bold font-heading mb-3 text-gray-900 dark:text-white">Collaboration</h3>
+                  <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                    Worked closely with operations teams and engineers to ensure every workflow could be adopted with <strong>minimal training</strong> — often designing alongside the teams who would use it daily.
                   </p>
                 </div>
 
-                <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-6 border border-gray-200 dark:border-gray-800 card-hover">
+                <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
                   <div class="text-3xl mb-4">🚀</div>
-                  <h3 class="text-xl font-semibold mb-3">Outcome</h3>
-                  <p class="text-gray-600 dark:text-gray-400">
-                    High adoption with limited operational disruption. Users
-                    transitioned from paper to digital without friction — because
-                    the design met them where they were.
+                  <h3 class="text-lg font-bold font-heading mb-3 text-gray-900 dark:text-white">Outcome</h3>
+                  <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                    High adoption with limited operational disruption. Users transitioned from paper to digital without friction — because the design met them where they were.
                   </p>
                 </div>
               </div>
 
-              <div class="mt-8 bg-blue-50 dark:bg-blue-900/10 border-l-4 border-blue-500 rounded-r-xl p-6">
-                <p class="text-sm text-gray-700 dark:text-gray-300 m-0">
-                  <strong>Key takeaway:</strong> Good enterprise design isn't about
-                  adding sophistication. It's about <strong>reducing complexity</strong>
-                  for people doing real work. The most elegant design is the one
-                  that disappears into the workflow.
+              <div class="bg-cardLight dark:bg-cardDark border-l-4 border-indigo-500 rounded-r-2xl p-6 sm:p-8 border border-gray-200/60 dark:border-gray-800/60">
+                <p class="text-base text-gray-600 dark:text-gray-300 m-0 leading-relaxed">
+                  <strong>Key takeaway:</strong> Good enterprise design isn't about adding sophistication. It's about <strong>reducing complexity</strong> for people doing real work. The most elegant design is the one that disappears into the workflow.
                 </p>
               </div>
             </section>
 
             <!-- Edge Cases & Complexity -->
-            <section class="mb-16">
-              <h2 class="text-4xl font-light mb-8">
+            <section class="space-y-8">
+              <h2 class="text-3xl sm:text-4xl font-bold font-heading tracking-tight text-gray-900 dark:text-white">
                 Designing for Operational Reality — Edge Cases That Drove the Design
               </h2>
-              <div class="prose max-w-none">
-                <p>
-                  The platform needed to handle the messy reality of fleet
-                  operations — not just the ideal path. These edge cases shaped
-                  every design decision.
+              <div class="prose max-w-none text-gray-600 dark:text-gray-300">
+                <p class="text-base sm:text-lg leading-relaxed">
+                  The platform needed to handle the messy reality of fleet operations — not just the ideal path. These edge cases shaped every design decision.
                 </p>
               </div>
 
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
-                <div
-                  class="bg-amber-50 dark:bg-amber-900/10 p-5 rounded-xl border border-amber-200 dark:border-amber-800/30"
-                >
-                  <div class="text-2xl mb-2">🔧</div>
-                  <h4 class="font-semibold text-amber-700 dark:text-amber-300">Vehicle Assigned but Under Service</h4>
-                  <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                    A vehicle could be allocated to a driver but still undergoing
-                    maintenance — the system needed to flag this conflict.
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 my-8">
+                <div class="bg-cardLight dark:bg-cardDark p-6 sm:p-8 rounded-2xl md:rounded-3xl border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                  <div class="text-3xl mb-3">🔧</div>
+                  <h4 class="font-bold font-heading text-base text-gray-900 dark:text-white mb-2">Vehicle Assigned but Under Service</h4>
+                  <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                    A vehicle could be allocated to a driver but still undergoing maintenance — the system needed to flag this conflict.
                   </p>
                 </div>
-                <div
-                  class="bg-red-50 dark:bg-red-900/10 p-5 rounded-xl border border-red-200 dark:border-red-800/30"
-                >
-                  <div class="text-2xl mb-2">👥</div>
-                  <h4 class="font-semibold text-red-700 dark:text-red-300">Multiple Drivers Waiting for Same Vehicle</h4>
-                  <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                    When demand exceeded supply, the system needed to manage
-                    prioritization and communicate wait times transparently.
+                <div class="bg-cardLight dark:bg-cardDark p-6 sm:p-8 rounded-2xl md:rounded-3xl border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                  <div class="text-3xl mb-3">👥</div>
+                  <h4 class="font-bold font-heading text-base text-gray-900 dark:text-white mb-2">Multiple Drivers Waiting for Same Vehicle</h4>
+                  <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                    When demand exceeded supply, the system needed to manage prioritization and communicate wait times transparently.
                   </p>
                 </div>
-                <div
-                  class="bg-purple-50 dark:bg-purple-900/10 p-5 rounded-xl border border-purple-200 dark:border-purple-800/30"
-                >
-                  <div class="text-2xl mb-2">⏳</div>
-                  <h4 class="font-semibold text-purple-700 dark:text-purple-300">Workshop Updates Delayed</h4>
-                  <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                    Workshop staff working offline needed to sync updates when
-                    connectivity returned — without data loss.
+                <div class="bg-cardLight dark:bg-cardDark p-6 sm:p-8 rounded-2xl md:rounded-3xl border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                  <div class="text-3xl mb-3">⏳</div>
+                  <h4 class="font-bold font-heading text-base text-gray-900 dark:text-white mb-2">Workshop Updates Delayed</h4>
+                  <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                    Workshop staff working offline needed to sync updates when connectivity returned — without data loss.
                   </p>
                 </div>
-                <div
-                  class="bg-blue-50 dark:bg-blue-900/10 p-5 rounded-xl border border-blue-200 dark:border-blue-800/30"
-                >
-                  <div class="text-2xl mb-2">📍</div>
-                  <h4 class="font-semibold text-blue-700 dark:text-blue-300">Vehicle Transfer Between Locations</h4>
-                  <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                    Vehicles moved between garages and cities — the system needed
-                    to track location and ownership changes seamlessly.
+                <div class="bg-cardLight dark:bg-cardDark p-6 sm:p-8 rounded-2xl md:rounded-3xl border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                  <div class="text-3xl mb-3">📍</div>
+                  <h4 class="font-bold font-heading text-base text-gray-900 dark:text-white mb-2">Vehicle Transfer Between Locations</h4>
+                  <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                    Vehicles moved between garages and cities — the system needed to track location and ownership changes seamlessly.
                   </p>
                 </div>
-                <div
-                  class="bg-green-50 dark:bg-green-900/10 p-5 rounded-xl border border-green-200 dark:border-green-800/30 md:col-span-2"
-                >
-                  <div class="text-2xl mb-2">📄</div>
-                  <h4 class="font-semibold text-green-700 dark:text-green-300">Driver Missing Verification Documents</h4>
-                  <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                    Incomplete documentation stalled onboarding. The system needed
-                    to flag missing documents and guide drivers through completion.
+                <div class="bg-cardLight dark:bg-cardDark p-6 sm:p-8 rounded-2xl md:rounded-3xl border border-gray-200/60 dark:border-gray-800/60 minimal-card sm:col-span-2">
+                  <div class="text-3xl mb-3">📄</div>
+                  <h4 class="font-bold font-heading text-base text-gray-900 dark:text-white mb-2">Driver Missing Verification Documents</h4>
+                  <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                    Incomplete documentation stalled onboarding. The system needed to flag missing documents and guide drivers through completion.
                   </p>
                 </div>
               </div>
-               <div
-                class="bg-gray-100 dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 mt-8"
-              >
+              <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl overflow-hidden border border-gray-200/60 dark:border-gray-800/60 p-4 sm:p-6 shadow-sm mt-8">
                 <img
                   src="img/ola_img5.png"
                   alt="Before and after workflow comparison"
-                  class="w-full"
+                  class="w-full h-auto rounded-xl md:rounded-2xl"
                   onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'flex items-center justify-center h-40 bg-gray-200 dark:bg-gray-800 text-gray-500 dark:text-gray-400 text-sm\'>🔄 Workflow Evolution — Image Placeholder</div>';"
                 />
               </div>
             </section>
 
             <!-- Delivery & Stakeholder Management -->
-            <section class="mb-16">
-              <h2 class="text-4xl font-light mb-8">
+            <section class="space-y-8">
+              <h2 class="text-3xl sm:text-4xl font-bold font-heading tracking-tight text-gray-900 dark:text-white">
                 Driving Alignment Across Teams
               </h2>
-              <div class="prose max-w-none">
-                <p>
-                  This project required coordination across multiple teams with
-                  different priorities and operational constraints.
+              <div class="prose max-w-none text-gray-600 dark:text-gray-300">
+                <p class="text-base sm:text-lg leading-relaxed">
+                  This project required coordination across multiple teams with different priorities and operational constraints.
                 </p>
               </div>
 
-              <div class="flex flex-wrap gap-2 my-8">
-                <span class="px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium">Fleet Operations</span>
-                <span class="px-4 py-2 bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 rounded-full text-sm font-medium">Workshops</span>
-                <span class="px-4 py-2 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full text-sm font-medium">Garages</span>
-                <span class="px-4 py-2 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full text-sm font-medium">Driver Operations</span>
-                <span class="px-4 py-2 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full text-sm font-medium">Product</span>
-                <span class="px-4 py-2 bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-300 rounded-full text-sm font-medium">Engineering</span>
-                <span class="px-4 py-2 bg-slate-100 dark:bg-slate-900/30 text-slate-700 dark:text-slate-300 rounded-full text-sm font-medium">Leadership</span>
+              <div class="flex flex-wrap gap-2.5 my-8">
+                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">Fleet Operations</span>
+                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">Workshops</span>
+                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">Garages</span>
+                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">Driver Operations</span>
+                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">Product</span>
+                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">Engineering</span>
+                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">Leadership</span>
               </div>
 
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
-                <div class="bg-grayLight dark:bg-grayDark rounded-xl p-5 border border-gray-200 dark:border-gray-800">
-                  <h4 class="font-semibold mb-2">📋 What I Facilitated</h4>
-                  <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-1">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 my-8">
+                <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                  <h4 class="font-bold font-heading text-lg mb-4 text-gray-900 dark:text-white">📋 What I Facilitated</h4>
+                  <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-3 leading-relaxed">
                     <li>• Research Reviews &amp; Synthesis</li>
                     <li>• Prioritization Workshops</li>
                     <li>• MVP Planning &amp; Scoping</li>
@@ -776,9 +682,9 @@
                     <li>• Delivery Reviews &amp; Retrospectives</li>
                   </ul>
                 </div>
-                <div class="bg-grayLight dark:bg-grayDark rounded-xl p-5 border border-gray-200 dark:border-gray-800">
-                  <h4 class="font-semibold mb-2">🎯 The Outcome</h4>
-                  <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-1">
+                <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                  <h4 class="font-bold font-heading text-lg mb-4 text-gray-900 dark:text-white">🎯 The Outcome</h4>
+                  <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-3 leading-relaxed">
                     <li>• Aligned 7+ teams around a shared vision</li>
                     <li>• Delivered 5 modules incrementally</li>
                     <li>• Maintained operational continuity throughout</li>
@@ -786,253 +692,173 @@
                   </ul>
                 </div>
               </div>
-
-              <!--<div
-                class="bg-gray-100 dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 my-8"
-              >
-                <img
-                  src="img/stakeholder-map.jpg"
-                  alt="Stakeholder ecosystem map"
-                  class="w-full"
-                  onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'flex items-center justify-center h-40 bg-gray-200 dark:bg-gray-800 text-gray-500 dark:text-gray-400 text-sm\'>🤝 Stakeholder Map — Image Placeholder</div>';"
-                />
-              </div> -->
             </section>
 
             <!-- Business Impact -->
-            <section class="mb-16">
-              <h2 class="text-4xl font-light mb-8">Business Impact</h2>
+            <section class="space-y-8">
+              <h2 class="text-3xl sm:text-4xl font-bold font-heading tracking-tight text-gray-900 dark:text-white">Business Impact</h2>
 
-              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 my-8">
-                <div class="metric-card rounded-2xl p-6 text-center">
-                  <div class="text-4xl font-bold mb-1 text-blue-600 dark:text-blue-400">~80%</div>
-                  <div class="text-sm text-gray-600 dark:text-gray-400">Operational Efficiency Improvement</div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 my-8">
+                <div class="bg-cardLight dark:bg-cardDark rounded-2xl p-6 text-center border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                  <div class="text-3xl font-bold font-heading hero-gradient mb-2">~80%</div>
+                  <div class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-snug">Operational Efficiency Improvement</div>
                 </div>
-                <div class="metric-card rounded-2xl p-6 text-center">
-                  <div class="text-4xl font-bold mb-1 text-indigo-600 dark:text-indigo-400">~65%</div>
-                  <div class="text-sm text-gray-600 dark:text-gray-400">Reduction in Manual Reporting Effort</div>
+                <div class="bg-cardLight dark:bg-cardDark rounded-2xl p-6 text-center border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                  <div class="text-3xl font-bold font-heading hero-gradient mb-2">~65%</div>
+                  <div class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-snug">Reduction in Manual Reporting</div>
                 </div>
-                <div class="metric-card rounded-2xl p-6 text-center">
-                  <div class="text-4xl font-bold mb-1 text-purple-600 dark:text-purple-400">~50%</div>
-                  <div class="text-sm text-gray-600 dark:text-gray-400">Faster Vehicle Allocation Time</div>
+                <div class="bg-cardLight dark:bg-cardDark rounded-2xl p-6 text-center border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                  <div class="text-3xl font-bold font-heading hero-gradient mb-2">~50%</div>
+                  <div class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-snug">Faster Vehicle Allocation Time</div>
                 </div>
-                <div class="metric-card rounded-2xl p-6 text-center">
-                  <div class="text-4xl font-bold mb-1 text-green-600 dark:text-green-400">~30%</div>
-                  <div class="text-sm text-gray-600 dark:text-gray-400">Increase in Successful Driver Onboarding</div>
+                <div class="bg-cardLight dark:bg-cardDark rounded-2xl p-6 text-center border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                  <div class="text-3xl font-bold font-heading hero-gradient mb-2">~30%</div>
+                  <div class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-snug">Increase in Driver Onboarding</div>
                 </div>
               </div>
 
-              <div class="prose max-w-none">
-                <p>
-                  The project transformed fleet operations from fragmented manual
-                  processes into a connected operational platform supporting
-                  drivers, operations teams, workshops, and leadership.
+              <div class="prose max-w-none text-gray-600 dark:text-gray-300">
+                <p class="text-base sm:text-lg leading-relaxed">
+                  The project transformed fleet operations from fragmented manual processes into a connected operational platform supporting drivers, operations teams, workshops, and leadership.
                 </p>
               </div>
 
-              <div
-                class="bg-amber-50 dark:bg-amber-900/10 border border-amber-100 dark:border-amber-900/30 rounded-xl p-6 mt-8"
-              >
-                <p class="text-sm text-gray-700 dark:text-gray-300 m-0">
-                  <strong>A note on these numbers:</strong> figures above are
-                  illustrative, reconstructed to represent the scale and direction
-                  of real impact rather than exact reported metrics. What I can say
-                  with confidence: the platform fundamentally changed how fleet
-                  operations worked — from paper-based to real-time, connected, and
-                  data-driven.
+              <div class="bg-cardLight dark:bg-cardDark border border-gray-200/60 dark:border-gray-800/60 rounded-2xl p-6 sm:p-8 mt-8">
+                <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 m-0 leading-relaxed">
+                  <strong>A note on these numbers:</strong> figures above are illustrative, reconstructed to represent the scale and direction of real impact rather than exact reported metrics. What I can say with confidence: the platform fundamentally changed how fleet operations worked — from paper-based to real-time, connected, and data-driven.
                 </p>
               </div>
             </section>
 
             <!-- Strategic Reflection -->
-            <section class="mb-16">
-              <h2 class="text-4xl font-light mb-8">
+            <section class="space-y-8">
+              <h2 class="text-3xl sm:text-4xl font-bold font-heading tracking-tight text-gray-900 dark:text-white">
                 What This Project Taught Me
               </h2>
 
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div
-                  class="bg-grayLight dark:bg-grayDark rounded-2xl p-6 border border-gray-200 dark:border-gray-800 card-hover"
-                >
-                  <div class="text-3xl mb-3">🧠</div>
-                  <h3 class="text-xl font-semibold mb-2">Systems Thinking</h3>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">
-                    The biggest challenge wasn't screens. It was
-                    <strong>information architecture at an operational level</strong>
-                    — connecting people, vehicles, and processes through a unified
-                    system.
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                  <div class="text-3xl mb-4">🧠</div>
+                  <h3 class="text-lg font-bold font-heading mb-3 text-gray-900 dark:text-white">Systems Thinking</h3>
+                  <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                    The biggest challenge wasn't screens. It was <strong>information architecture at an operational level</strong> — connecting people, vehicles, and processes through a unified system.
                   </p>
                 </div>
 
-                <div
-                  class="bg-grayLight dark:bg-grayDark rounded-2xl p-6 border border-gray-200 dark:border-gray-800 card-hover"
-                >
-                  <div class="text-3xl mb-3">🔍</div>
-                  <h3 class="text-xl font-semibold mb-2">Research</h3>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">
-                    Field visits revealed insights no dashboard analytics could
-                    uncover. <strong>Leaving the office</strong> to observe
-                    workflows in context was the most valuable investment of time.
+                <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                  <div class="text-3xl mb-4">🔍</div>
+                  <h3 class="text-lg font-bold font-heading mb-3 text-gray-900 dark:text-white">Research</h3>
+                  <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                    Field visits revealed insights no dashboard analytics could uncover. <strong>Leaving the office</strong> to observe workflows in context was the most valuable investment of time.
                   </p>
                 </div>
 
-                <div
-                  class="bg-grayLight dark:bg-grayDark rounded-2xl p-6 border border-gray-200 dark:border-gray-800 card-hover"
-                >
-                  <div class="text-3xl mb-3">🔄</div>
-                  <h3 class="text-xl font-semibold mb-2">Change Management</h3>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">
-                    Successful transformation required balancing
-                    <strong>long-term vision</strong> with operational realities.
-                    Phased delivery built momentum and trust without disrupting
-                    daily operations.
+                <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                  <div class="text-3xl mb-4">🔄</div>
+                  <h3 class="text-lg font-bold font-heading mb-3 text-gray-900 dark:text-white">Change Management</h3>
+                  <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                    Successful transformation required balancing <strong>long-term vision</strong> with operational realities. Phased delivery built momentum and trust without disrupting daily operations.
                   </p>
                 </div>
 
-                <div
-                  class="bg-grayLight dark:bg-grayDark rounded-2xl p-6 border border-gray-200 dark:border-gray-800 card-hover"
-                >
-                  <div class="text-3xl mb-3">👥</div>
-                  <h3 class="text-xl font-semibold mb-2">Leadership</h3>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">
-                    Influencing stakeholders and breaking down a large vision into
-                    <strong>achievable milestones</strong> was as important as
-                    designing the product itself. Alignment enabled delivery.
+                <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                  <div class="text-3xl mb-4">👥</div>
+                  <h3 class="text-lg font-bold font-heading mb-3 text-gray-900 dark:text-white">Leadership</h3>
+                  <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                    Influencing stakeholders and breaking down a large vision into <strong>achievable milestones</strong> was as important as designing the product itself. Alignment enabled delivery.
                   </p>
                 </div>
               </div>
             </section>
-
-            <div class="pt-8 border-t border-gray-200 dark:border-gray-800">
-              <div class="flex justify-between items-center">
-                <a
-                  href="index.html"
-                  class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors font-medium"
-                >
-                  Back to Portfolio
-                </a>
-              </div>
-            </div>
           </div>
 
-          <!-- Sidebar -->
-          <div class="lg:col-span-1">
-            <div class="sticky-sidebar">
-              <div
-                class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800 mb-8"
-              >
-                <h3 class="text-lg font-semibold mb-6">Strategic Weight</h3>
-                <ul class="space-y-4">
+          <!-- Sidebar Column -->
+          <div class="lg:col-span-1 space-y-8">
+            <div class="sticky-sidebar space-y-8">
+              <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                <h3 class="text-xl font-bold font-heading mb-6 text-gray-900 dark:text-white">Strategic Weight</h3>
+                <ul class="space-y-4 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                   <li class="flex items-start">
-                    <span class="mr-3 text-blue-600 dark:text-blue-400">✓</span>
+                    <span class="mr-3 text-indigo-500 font-bold">✓</span>
                     <span>1 month of field research — 8 workshops, 5 garages visited</span>
                   </li>
                   <li class="flex items-start">
-                    <span class="mr-3 text-blue-600 dark:text-blue-400">✓</span>
+                    <span class="mr-3 text-indigo-500 font-bold">✓</span>
                     <span>13 operational sites visited in total</span>
                   </li>
                   <li class="flex items-start">
-                    <span class="mr-3 text-blue-600 dark:text-blue-400">✓</span>
+                    <span class="mr-3 text-indigo-500 font-bold">✓</span>
                     <span>End-to-end ecosystem ownership</span>
                   </li>
                   <li class="flex items-start">
-                    <span class="mr-3 text-blue-600 dark:text-blue-400">✓</span>
+                    <span class="mr-3 text-indigo-500 font-bold">✓</span>
                     <span>Multi-stakeholder alignment (7+ teams)</span>
                   </li>
                   <li class="flex items-start">
-                    <span class="mr-3 text-blue-600 dark:text-blue-400">✓</span>
+                    <span class="mr-3 text-indigo-500 font-bold">✓</span>
                     <span>Incremental transformation strategy</span>
                   </li>
                   <li class="flex items-start">
-                    <span class="mr-3 text-blue-600 dark:text-blue-400">✓</span>
+                    <span class="mr-3 text-indigo-500 font-bold">✓</span>
                     <span>Enterprise-scale workflow design</span>
                   </li>
                 </ul>
               </div>
 
-              <div
-                class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800"
-              >
-                <h3 class="text-lg font-semibold mb-6">Key Insight</h3>
-                <p class="text-sm italic text-gray-500">
-                  "The biggest operational problems weren't caused by missing tools.
-                  They were caused by disconnected information."
+              <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                <h3 class="text-xl font-bold font-heading mb-4 text-gray-900 dark:text-white">Key Insight</h3>
+                <p class="text-sm italic text-gray-500 dark:text-gray-400 leading-relaxed">
+                  "The biggest operational problems weren't caused by missing tools. They were caused by disconnected information."
                 </p>
               </div>
 
-              <div
-                class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800 mt-8"
-              >
-                <h3 class="text-lg font-semibold mb-6">Tools &amp; Methods</h3>
+              <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                <h3 class="text-xl font-bold font-heading mb-6 text-gray-900 dark:text-white">Tools &amp; Methods</h3>
                 <div class="flex flex-wrap gap-2">
-                  <span
-                    class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm"
-                    >Field Research</span
-                  >
-                  <span
-                    class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm"
-                    >Service Blueprint</span
-                  >
-                  <span
-                    class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm"
-                    >Journey Mapping</span
-                  >
-                  <span
-                    class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm"
-                    >Workflow Analysis</span
-                  >
-                  <span
-                    class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm"
-                    >Systems Thinking</span
-                  >
-                  <span
-                    class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm"
-                    >Enterprise UX</span
-                  >
-                  <span
-                    class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm"
-                    >Roadmapping</span
-                  >
-                  <span
-                    class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm"
-                    >Stakeholder Workshops</span
-                  >
+                  <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">Field Research</span>
+                  <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">Service Blueprint</span>
+                  <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">Journey Mapping</span>
+                  <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">Workflow Analysis</span>
+                  <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">Systems Thinking</span>
+                  <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">Enterprise UX</span>
+                  <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">Roadmapping</span>
+                  <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">Stakeholder Workshops</span>
                 </div>
               </div>
 
-              <div
-                class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800 mt-8"
-              >
-                <h3 class="text-lg font-semibold mb-6">Project Scale</h3>
+              <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                <h3 class="text-xl font-bold font-heading mb-6 text-gray-900 dark:text-white">Project Scale</h3>
                 <div class="space-y-4">
                   <div>
-                    <div class="text-sm text-gray-500 dark:text-gray-400">Users</div>
-                    <div class="text-2xl font-bold mt-1">1000+</div>
+                    <div class="text-xs text-gray-400 font-semibold uppercase tracking-wider">Users</div>
+                    <div class="text-2xl font-bold font-heading text-gray-900 dark:text-white mt-1">1000+</div>
                   </div>
                   <div>
-                    <div class="text-sm text-gray-500 dark:text-gray-400">Locations</div>
-                    <div class="text-2xl font-bold mt-1">Multi-city</div>
+                    <div class="text-xs text-gray-400 font-semibold uppercase tracking-wider">Locations</div>
+                    <div class="text-2xl font-bold font-heading text-gray-900 dark:text-white mt-1">Multi-city</div>
                   </div>
                   <div>
-                    <div class="text-sm text-gray-500 dark:text-gray-400">Stakeholders</div>
-                    <div class="text-2xl font-bold mt-1">7+ Teams</div>
+                    <div class="text-xs text-gray-400 font-semibold uppercase tracking-wider">Stakeholders</div>
+                    <div class="text-2xl font-bold font-heading text-gray-900 dark:text-white mt-1">7+ Teams</div>
                   </div>
                   <div>
-                    <div class="text-sm text-gray-500 dark:text-gray-400">Modules Delivered</div>
-                    <div class="text-2xl font-bold mt-1">5</div>
+                    <div class="text-xs text-gray-400 font-semibold uppercase tracking-wider">Modules Delivered</div>
+                    <div class="text-2xl font-bold font-heading text-gray-900 dark:text-white mt-1">5</div>
                   </div>
                 </div>
               </div>
 
-              <div
-                class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800 mt-8"
-              >
-                <h3 class="text-lg font-semibold mb-4">🧑‍🏫 Management</h3>
-                <div class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+              <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                <h3 class="text-xl font-bold font-heading mb-4 text-gray-900 dark:text-white">🧑‍🏫 Management</h3>
+                <div class="space-y-2 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                   <p>Managed 2 developers directly throughout the project.</p>
                   <p>Coordinated across Product, Engineering, Operations, and Leadership.</p>
                 </div>
               </div>
+
+              <a href="portfolio.html" class="inline-flex items-center justify-center w-full px-6 py-3.5 rounded-xl bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-semibold hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors shadow-sm">
+                ← Back to All Projects
+              </a>
             </div>
           </div>
         </div>
@@ -1040,136 +866,61 @@
     </main>
 
     <!-- Footer -->
-    <footer class="py-12 border-t border-gray-200 dark:border-gray-800 mt-20">
-      <div class="max-w-7xl mx-auto px-8">
-        <div
-          class="flex flex-col md:flex-row justify-between items-center gap-8"
-        >
-          <div>
-            <div class="text-2xl font-semibold mb-2">Jadvvinder Daudhria</div>
-            <p class="text-gray-600 dark:text-gray-400">
-              Strategic Senior Product Designer
-            </p>
-          </div>
-
-          <div class="flex items-center space-x-6">
-            <div class="relative group">
-              <a
-                href="https://www.linkedin.com/in/jadvvinder-daudhria-541a3111/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg inline-block"
-                aria-label="LinkedIn Profile"
-              >
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
-                  />
-                </svg>
-              </a>
-              <div
-                class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1.5 bg-gray-900 dark:bg-gray-700 text-white text-xs font-medium rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none"
-              >
-                My LinkedIn Profile
-                <div
-                  class="absolute top-full left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-700 rotate-45"
-                ></div>
-              </div>
+        <!-- Footer -->
+    <footer class="py-12 border-t border-gray-200/60 dark:border-gray-800/60 transition-colors mt-20 md:mt-28 relative z-10" aria-label="Site footer">
+        <div class="max-w-6xl mx-auto px-6 sm:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div>
+                    <div class="text-lg font-bold font-heading text-gray-900 dark:text-white">J. Daudhria</div>
+                    <p class="text-xs text-gray-600 dark:text-gray-400 mt-1">Lead Product Designer & Systems Architect</p>
+                </div>
+                
+                <div class="flex items-center space-x-6 text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-medium">
+                    <a href="https://www.linkedin.com/in/jadvinderd" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">LinkedIn</a>
+                    <span aria-hidden="true">•</span>
+                    <a href="https://www.behance.net/jd132" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Behance</a>
+                    <span aria-hidden="true">•</span>
+                    <a href="mailto:j.daudhria@gmail.com" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Email</a>
+                </div>
             </div>
-
-            <div class="relative group">
-              <a
-                href="mailto:j.daudhria@gmail.com"
-                class="text-gray-600 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition-colors p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg inline-block"
-                aria-label="Send Email"
-              >
-                <svg
-                  class="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  />
-                </svg>
-              </a>
-              <div
-                class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1.5 bg-gray-900 dark:bg-gray-700 text-white text-xs font-medium rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none"
-              >
-                Email to me
-                <div
-                  class="absolute top-full left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-700 rotate-45"
-                ></div>
-              </div>
+            
+            <div class="mt-8 pt-6 border-t border-gray-100 dark:border-gray-800/40 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400 dark:text-gray-500 gap-3">
+                <p>© 2026 J. Daudhria. All rights reserved.</p>
+                <p>Designed for accessibility and performance.</p>
             </div>
-
-            <div class="relative group">
-              <a
-                href="path/to/your-resume.pdf"
-                download="Jadvindder_Daudhria_Resume.pdf"
-                class="text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition-colors p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg inline-block"
-                aria-label="Download Resume"
-              >
-                <svg
-                  class="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                  />
-                </svg>
-              </a>
-              <div
-                class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1.5 bg-gray-900 dark:bg-gray-700 text-white text-xs font-medium rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none"
-              >
-                Download my resume
-                <div
-                  class="absolute top-full left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-700 rotate-45"
-                ></div>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
     </footer>
 
     <script>
-      // Theme Toggle
       const themeToggle = document.getElementById("themeToggle");
       const sunIcon = document.getElementById("sunIcon");
       const moonIcon = document.getElementById("moonIcon");
 
+      const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
       const currentTheme = localStorage.getItem("theme");
 
-      if (currentTheme === "dark") {
+      if (currentTheme === "dark" || (!currentTheme && prefersDarkScheme.matches)) {
         document.documentElement.classList.add("dark");
-        moonIcon.classList.remove("hidden");
+        if (sunIcon) sunIcon.classList.remove("hidden");
       } else {
-        sunIcon.classList.remove("hidden");
+        if (moonIcon) moonIcon.classList.remove("hidden");
       }
 
-      themeToggle.addEventListener("click", () => {
-        document.documentElement.classList.toggle("dark");
+      if (themeToggle) {
+        themeToggle.addEventListener("click", () => {
+          document.documentElement.classList.toggle("dark");
 
-        if (document.documentElement.classList.contains("dark")) {
-          localStorage.setItem("theme", "dark");
-          sunIcon.classList.add("hidden");
-          moonIcon.classList.remove("hidden");
-        } else {
-          localStorage.setItem("theme", "light");
-          moonIcon.classList.add("hidden");
-          sunIcon.classList.remove("hidden");
-        }
-      });
+          if (document.documentElement.classList.contains("dark")) {
+            localStorage.setItem("theme", "dark");
+            if (moonIcon) moonIcon.classList.add("hidden");
+            if (sunIcon) sunIcon.classList.remove("hidden");
+          } else {
+            localStorage.setItem("theme", "light");
+            if (sunIcon) sunIcon.classList.remove("hidden");
+            if (moonIcon) moonIcon.classList.add("hidden");
+          }
+        });
+      }
     </script>
   </body>
 </html>

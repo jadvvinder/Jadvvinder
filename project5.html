@@ -12,10 +12,53 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enterprise Design System | Jadvindder Daudhria</title>
+    <meta name="description" content="Building a multi-platform design system for Booking.com: 80+ accessible components used by 200+ designers and 15+ product teams across web and mobile.">
+    <meta name="keywords" content="Booking.com Design System, Design System Architect, Multi Platform Design System, DesignOps Leader, Accessible Component Library, Figma Tokens, Senior UX Architect">
+    <meta name="author" content="Jadvvinder (J.) Daudhria">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#08090E">
+    <link rel="canonical" href="https://jadvvinder.github.io/Jadvvinder/project5.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="J. Daudhria Portfolio">
+    <meta property="og:title" content="Booking.com Global Design System Case Study | J. Daudhria">
+    <meta property="og:description" content="Building a multi-platform design system for Booking.com: 80+ accessible components used by 200+ designers and 15+ product teams across web and mobile.">
+    <meta property="og:url" content="https://jadvvinder.github.io/Jadvvinder/project5.html">
+    <meta property="og:image" content="https://jadvvinder.github.io/Jadvvinder/img/ds_img1.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Booking.com Global Design System Case Study | J. Daudhria">
+    <meta name="twitter:description" content="Building a multi-platform design system for Booking.com: 80+ accessible components used by 200+ designers and 15+ product teams across web and mobile.">
+    <meta name="twitter:image" content="https://jadvvinder.github.io/Jadvvinder/img/ds_img1.png">
+
+    <!-- JSON-LD Structured Data Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Booking.com Global Design System Architecture UX Case Study",
+      "description": "Building a multi-platform design system for Booking.com: 80+ accessible components used by 200+ designers and 15+ product teams across web and mobile.",
+      "image": "https://jadvvinder.github.io/Jadvvinder/img/ds_img1.png",
+      "author": {
+        "@type": "Person",
+        "name": "Jadvvinder (J.) Daudhria"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "J. Daudhria Portfolio"
+      },
+      "mainEntityOfPage": "https://jadvvinder.github.io/Jadvvinder/project5.html"
+    }
+    </script>
+
+    <title>Booking.com Global Design System Case Study | J. Daudhria</title>
+    <meta name="description" content="Case study on scaling the enterprise design system at Booking.com for 200+ global teams, resulting in 65% faster time-to-market.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -24,19 +67,17 @@
                 extend: {
                     colors: {
                         light: '#FFFFFF',
-                        dark: '#0A0A0A',
-                        textLight: '#171717',
-                        textDark: '#E5E5E5',
-                        grayLight: '#FAFAFA',
-                        grayDark: '#1A1A1A'
+                        dark: '#08090E',
+                        textLight: '#0F172A',
+                        textDark: '#F1F5F9',
+                        cardLight: '#F8FAFC',
+                        cardDark: '#111422',
+                        borderLight: 'rgba(226, 232, 240, 0.8)',
+                        borderDark: 'rgba(30, 41, 59, 0.7)'
                     },
                     fontFamily: {
                         'sans': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-                    },
-                    spacing: {
-                        '18': '4.5rem',
-                        '88': '22rem',
-                        '128': '32rem',
+                        'heading': ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
                     }
                 }
             }
@@ -47,103 +88,108 @@
             font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            letter-spacing: -0.011em;
         }
-        
-        .prose {
-            font-size: 1.125rem;
-            line-height: 1.7;
-        }
-        
-        .prose p {
-            margin-top: 1.5em;
-            margin-bottom: 1.5em;
-        }
-        
-        .section-padding {
-            padding-top: 6rem;
-            padding-bottom: 6rem;
-        }
-        
+
         .hero-gradient {
-            background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 100%);
+            background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #EC4899 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .dark .card-hover:hover {
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
-        }
-        
-        .metric-card {
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
-            border: 1px solid rgba(139, 92, 246, 0.2);
-        }
-        
-        .dark .metric-card {
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(59, 130, 246, 0.2) 100%);
-            border: 1px solid rgba(139, 92, 246, 0.3);
-        }
-        
-        .sticky-sidebar {
-            position: sticky;
-            top: 6rem;
-        }
-        
-        .token-architecture {
-            position: relative;
-            padding-left: 2rem;
-        }
-        
-        .token-architecture::before {
-            content: '';
+
+        .ambient-glow {
             position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, #8B5CF6, #3B82F6);
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(140px);
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 0;
         }
-        
-        .component-layer {
-            border-left: 3px solid transparent;
-            padding-left: 1rem;
-            transition: all 0.3s ease;
+
+        .dark .ambient-glow {
+            opacity: 0.18;
         }
-        
-        .component-layer:hover {
-            border-left-color: currentColor;
-            transform: translateX(4px);
+
+        .minimal-card {
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        
-        .layer-foundation { border-left-color: #8B5CF6; }
-        .layer-atoms { border-left-color: #3B82F6; }
-        .layer-molecules { border-left-color: #10B981; }
-        .layer-organisms { border-left-color: #F59E0B; }
+
+        .minimal-card:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            box-shadow: 0 12px 30px -10px rgba(99, 102, 241, 0.08);
+            transform: translateY(-3px);
+        }
+
+        .dark .minimal-card:hover {
+            box-shadow: 0 12px 30px -10px rgba(99, 102, 241, 0.15);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+    
+        :focus-visible {
+            outline: 2px solid #6366F1 !important;
+            outline-offset: 3px !important;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, ::before, ::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
     </style>
 </head>
-<body class="bg-light dark:bg-dark text-textLight dark:text-textDark font-sans transition-colors duration-300">
-    <nav class="fixed top-0 left-0 right-0 bg-light/95 dark:bg-dark/95 backdrop-blur-lg z-50 border-b border-gray-200/50 dark:border-gray-800/50">
-        <div class="max-w-7xl mx-auto px-8 py-5">
+<body class="bg-light dark:bg-dark text-textLight dark:text-textDark font-sans transition-colors duration-300 relative overflow-x-hidden">
+
+    <!-- Accessibility Skip Link -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-indigo-600 focus:text-white focus:rounded-lg focus:shadow-lg font-medium text-sm transition-all">
+        Skip to main content
+    </a>
+
+
+    <!-- Ambient Background Glows -->
+    <div class="ambient-glow bg-indigo-500 top-0 left-1/4"></div>
+    <div class="ambient-glow bg-purple-500 top-[1000px] right-10"></div>
+    <div class="ambient-glow bg-blue-500 top-[2200px] left-10"></div>
+
+    <!-- Navigation Header -->
+    <nav  class="fixed top-0 left-0 right-0 bg-white/80 dark:bg-dark/80 backdrop-blur-md z-50 border-b border-gray-200/60 dark:border-gray-800/60 transition-colors" aria-label="Main navigation">
+        <div class="max-w-6xl mx-auto px-6 sm:px-8 py-4">
             <div class="flex items-center justify-between">
-                <a href="index.html" class="text-xl font-semibold tracking-tight hover:opacity-80 transition-opacity">← Back to Portfolio</a>
-                <div class="flex items-center space-x-10">
-                    <button id="themeToggle" class="p-2.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                        <svg id="sunIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                <a href="index.html" class="flex items-center space-x-3 group">
+                    <span class="text-xl font-bold font-heading tracking-tight text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">JD</span>
+                    <span class="text-xs text-gray-500 dark:text-gray-400 font-medium hidden sm:inline-block">/ Case Study</span>
+                </a>
+                <div class="flex items-center space-x-6 sm:space-x-8 text-sm font-medium">
+                    <a href="portfolio.html" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors flex items-center gap-1.5">
+                        <span>←</span> All Projects
+                    </a>
+                    <a href="index.html#hero" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors hidden sm:inline-block">Home</a>
+                    <a href="index.html#contact" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Contact</a>
+                    <button id="themeToggle" aria-label="Toggle light and dark theme" class="p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle theme">
+                        <svg id="sunIcon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
                         </svg>
-                        <svg id="moonIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        <svg id="moonIcon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
                         </svg>
                     </button>
                 </div>
@@ -151,231 +197,212 @@
         </div>
     </nav>
 
-    <main class="pt-24">
-        <section class="section-padding">
-            <div class="max-w-7xl mx-auto px-8">
-                <div class="mb-12">
-                    <div class="inline-flex items-center px-4 py-2 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-sm font-medium mb-6">
-                        Booking.com
-                    </div>
-                    <h1 class="text-5xl font-light mb-8 tracking-tight leading-[1.1]">
-                        Scaling Adoption: 
-                        <span class="hero-gradient font-semibold">The Infrastructure of Design</span>
-                    </h1>
-                    <p class="text-2xl text-gray-600 dark:text-gray-400 max-w-4xl leading-relaxed">
-                        Moving beyond pixels to manage <span class="text-textLight dark:text-textDark font-semibold">technical debt and cross-functional silos</span> for 200+ global teams, resulting in a 65% faster time-to-market.
-                    </p>
+    <!-- Main Content -->
+    <main id="main-content"  class="pt-28 md:pt-36 pb-20 md:pb-28 relative z-10">
+        <div class="max-w-6xl mx-auto px-6 sm:px-8">
+            
+            <!-- Hero Section -->
+            <div class="animate-fadeInUp mb-16 md:mb-20 max-w-4xl">
+                <div class="inline-flex items-center px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 border border-indigo-200/60 dark:border-indigo-800/60 mb-6">
+                    Booking.com Enterprise Systems
                 </div>
-                 <div class="bg-gray-100 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 mb-8">
-                     <center><img src="img/ds_img1.png" alt="Booking.com Design System Architecture"></img></center>
-                </div>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold font-heading tracking-tight mb-8 leading-[1.15] text-gray-900 dark:text-white">
+                    Scaling Adoption: <span class="hero-gradient">The Infrastructure of Design</span>
+                </h1>
+                <p class="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed font-light">
+                    Moving beyond pixels to manage <span class="font-semibold text-gray-900 dark:text-white">technical debt and cross-functional silos</span> for 200+ global teams, resulting in a 65% faster time-to-market.
+                </p>
             </div>
-        </section>
 
-        <div class="max-w-7xl mx-auto px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-                <div class="lg:col-span-2">
-                    <section class="mb-16">
-                        <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800">
-                            <h2 class="text-3xl font-semibold mb-8">Executive Summary</h2>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm md:text-base">
-                                <div>
-                                    <h3 class="text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">The Mission</h3>
-                                    <p>Joined mid-project to pivot a technically sound library into a culturally accepted "Service."</p>
-                                </div>
-                                <div>
-                                    <h3 class="text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Scope</h3>
-                                    <p>Centralized infrastructure for 200+ product teams across 40+ localized markets.</p>
-                                </div>
-                                <div>
-                                    <h3 class="text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Strategy</h3>
-                                    <p>Replacing "Gatekeeping" with "Consultancy" via robust DesignOps.</p>
-                                </div>
-                                <div>
-                                    <h3 class="text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Metric</h3>
-                                    <p>65% reduction in design-to-dev cycles through component reuse.</p>
-                                </div>
+            <!-- Hero Image -->
+            <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl overflow-hidden border border-gray-200/60 dark:border-gray-800/60 p-4 sm:p-6 mb-20 md:mb-28 animate-fadeInUp shadow-sm">
+                <center><img src="img/ds_img1.png" alt="Booking.com Design System Architecture" class="w-full h-auto rounded-xl md:rounded-2xl"></img></center>
+            </div>
+
+            <!-- Content Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+                
+                <!-- Main Column -->
+                <div class="lg:col-span-2 space-y-20 md:space-y-28">
+
+                    <!-- Executive Summary -->
+                    <section class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 sm:p-10 md:p-12 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                        <h2 class="text-2xl sm:text-3xl font-bold font-heading mb-8 tracking-tight text-gray-900 dark:text-white">Executive Summary</h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-10 text-sm sm:text-base leading-relaxed">
+                            <div>
+                                <div class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">The Mission</div>
+                                <p class="text-gray-600 dark:text-gray-300">Joined mid-project to pivot a technically sound library into a culturally accepted "Service."</p>
+                            </div>
+                            <div>
+                                <div class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Scope</div>
+                                <p class="text-gray-600 dark:text-gray-300">Centralized infrastructure for 200+ product teams across 40+ localized markets.</p>
+                            </div>
+                            <div>
+                                <div class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Strategy</div>
+                                <p class="text-gray-600 dark:text-gray-300">Replacing "Gatekeeping" with "Consultancy" via robust DesignOps.</p>
+                            </div>
+                            <div>
+                                <div class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Metric</div>
+                                <p class="text-indigo-600 dark:text-indigo-400 font-medium">65% reduction in design-to-dev cycles through component reuse.</p>
                             </div>
                         </div>
                     </section>
 
-                    <section class="mb-16">
-                        <h2 class="text-4xl font-light mb-8">The Shift: Culture & Impact</h2>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 prose max-w-none">
-                            <div class="bg-red-50 dark:bg-red-900/10 p-6 rounded-xl border border-red-100 dark:border-red-900/30">
-                                <h3 class="text-red-800 dark:text-red-400 font-bold m-0 mb-4">Before (The Pixel Silos)</h3>
-                                <ul class="text-sm space-y-2 m-0 p-0 list-none">
-                                    <li>• 37+ button variations across product flows.</li>
-                                    <li>• Teams "detached" from the system to avoid rigidity.</li>
-                                    <li>• 30% dev time lost to UI rework and drift.</li>
+                    <!-- The Shift: Culture & Impact -->
+                    <section class="space-y-8">
+                        <h2 class="text-3xl sm:text-4xl font-bold font-heading tracking-tight text-gray-900 dark:text-white">The Shift: Culture & Impact</h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                            <div class="bg-rose-50/60 dark:bg-rose-950/20 p-8 sm:p-10 rounded-2xl md:rounded-3xl border border-rose-200/60 dark:border-rose-900/40 minimal-card">
+                                <h3 class="text-lg font-bold font-heading text-rose-700 dark:text-rose-400 mb-4">Before (The Pixel Silos)</h3>
+                                <ul class="text-sm sm:text-base text-gray-600 dark:text-gray-300 space-y-4 leading-relaxed">
+                                    <li class="flex items-start"><span class="text-rose-500 font-bold mr-3.5">•</span><span>37+ button variations across product flows.</span></li>
+                                    <li class="flex items-start"><span class="text-rose-500 font-bold mr-3.5">•</span><span>Teams "detached" from the system to avoid rigidity.</span></li>
+                                    <li class="flex items-start"><span class="text-rose-500 font-bold mr-3.5">•</span><span>30% dev time lost to UI rework and drift.</span></li>
                                 </ul>
                             </div>
-                            <div class="bg-green-50 dark:bg-green-900/10 p-6 rounded-xl border border-green-100 dark:border-green-900/30">
-                                <h3 class="text-green-800 dark:text-green-400 font-bold m-0 mb-4">After (The Collective)</h3>
-                                <ul class="text-sm space-y-2 m-0 p-0 list-none">
-                                    <li>• 94% UI consistency via unified token architecture.</li>
-                                    <li>• 89% reuse rate—teams now "promote" custom work to the core.</li>
-                                    <li>• 2-hour implementation for complex flows (prev. 3 weeks).</li>
+                            <div class="bg-emerald-50/60 dark:bg-emerald-950/20 p-8 sm:p-10 rounded-2xl md:rounded-3xl border border-emerald-200/60 dark:border-emerald-900/40 minimal-card">
+                                <h3 class="text-lg font-bold font-heading text-emerald-700 dark:text-emerald-400 mb-4">After (The Collective)</h3>
+                                <ul class="text-sm sm:text-base text-gray-600 dark:text-gray-300 space-y-4 leading-relaxed">
+                                    <li class="flex items-start"><span class="text-emerald-500 font-bold mr-3.5">•</span><span>94% UI consistency via unified token architecture.</span></li>
+                                    <li class="flex items-start"><span class="text-emerald-500 font-bold mr-3.5">•</span><span>89% reuse rate—teams now "promote" custom work to the core.</span></li>
+                                    <li class="flex items-start"><span class="text-emerald-500 font-bold mr-3.5">•</span><span>2-hour implementation for complex flows (prev. 3 weeks).</span></li>
                                 </ul>
                             </div>
                         </div>
                     </section>
 
-                    <section class="mb-16">
-                        <h2 class="text-4xl font-light mb-8">DesignOps: Bridging the Silos</h2>
-                        <div class="prose max-w-none text-gray-700 dark:text-gray-300">
+                    <!-- DesignOps: Bridging the Silos -->
+                    <section class="space-y-8">
+                        <h2 class="text-3xl sm:text-4xl font-bold font-heading tracking-tight text-gray-900 dark:text-white">DesignOps: Bridging the Silos</h2>
+                        <div class="prose max-w-none text-gray-600 dark:text-gray-300 space-y-6 text-base sm:text-lg leading-relaxed">
                             <p>To win the "Cross-functional Politics," I built a support tier that treated internal teams as customers. This wasn't just documentation; it was a service model.</p>
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
-                                <div class="bg-grayLight dark:bg-grayDark p-6 rounded-xl border border-gray-200 dark:border-gray-800">
-                                    <h4 class="font-bold mb-2">Slack Tier-1</h4>
-                                    <p class="text-sm text-gray-500">Real-time triage for implementation blockers. Guaranteed response in under 2 hours.</p>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 my-8">
+                                <div class="bg-cardLight dark:bg-cardDark p-8 rounded-2xl md:rounded-3xl border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                                    <h4 class="font-bold font-heading text-lg text-gray-900 dark:text-white mb-3">Slack Tier-1</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Real-time triage for implementation blockers. Guaranteed response in under 2 hours.</p>
                                 </div>
-                                <div class="bg-grayLight dark:bg-grayDark p-6 rounded-xl border border-gray-200 dark:border-gray-800">
-                                    <h4 class="font-bold mb-2">Office Hours</h4>
-                                    <p class="text-sm text-gray-500">Bi-weekly consultation for teams building "Custom" patterns to ensure alignment.</p>
+                                <div class="bg-cardLight dark:bg-cardDark p-8 rounded-2xl md:rounded-3xl border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                                    <h4 class="font-bold font-heading text-lg text-gray-900 dark:text-white mb-3">Office Hours</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Bi-weekly consultation for teams building "Custom" patterns to ensure alignment.</p>
                                 </div>
-                                <div class="bg-grayLight dark:bg-grayDark p-6 rounded-xl border border-gray-200 dark:border-gray-800">
-                                    <h4 class="font-bold mb-2">The Hub</h4>
-                                    <p class="text-sm text-gray-500">Integrated Storybook & Figma documentation that serves as the single source of truth.</p>
+                                <div class="bg-cardLight dark:bg-cardDark p-8 rounded-2xl md:rounded-3xl border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                                    <h4 class="font-bold font-heading text-lg text-gray-900 dark:text-white mb-3">The Hub</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Integrated Storybook & Figma documentation that serves as the single source of truth.</p>
                                 </div>
                             </div>
                         </div>
                     </section>
 
-                    <section class="mb-16">
-                        <h2 class="text-4xl font-light mb-8">Strategic Assessment (SWOT)</h2>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-                            <div class="p-6 border border-gray-200 dark:border-gray-800 rounded-xl">
-                                <h4 class="font-bold text-purple-600 mb-2">Strengths</h4>
-                                <p class="text-gray-500">High adoption due to low-friction support systems and robust token logic.</p>
+                    <!-- Strategic Assessment (SWOT) -->
+                    <section class="space-y-8">
+                        <h2 class="text-3xl sm:text-4xl font-bold font-heading tracking-tight text-gray-900 dark:text-white">Strategic Assessment (SWOT)</h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm sm:text-base">
+                            <div class="p-8 border border-gray-200/60 dark:border-gray-800/60 rounded-2xl md:rounded-3xl bg-cardLight dark:bg-cardDark minimal-card">
+                                <h4 class="font-bold font-heading text-lg text-indigo-600 dark:text-indigo-400 mb-3">Strengths</h4>
+                                <p class="text-gray-600 dark:text-gray-400 leading-relaxed">High adoption due to low-friction support systems and robust token logic.</p>
                             </div>
-                            <div class="p-6 border border-gray-200 dark:border-gray-800 rounded-xl">
-                                <h4 class="font-bold text-blue-600 mb-2">Opportunities</h4>
-                                <p class="text-gray-500">Potential to automate Design Tokens directly into CI/CD pipelines for engineers.</p>
+                            <div class="p-8 border border-gray-200/60 dark:border-gray-800/60 rounded-2xl md:rounded-3xl bg-cardLight dark:bg-cardDark minimal-card">
+                                <h4 class="font-bold font-heading text-lg text-blue-600 dark:text-blue-400 mb-3">Opportunities</h4>
+                                <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Potential to automate Design Tokens directly into CI/CD pipelines for engineers.</p>
                             </div>
-                            <div class="p-6 border border-gray-200 dark:border-gray-800 rounded-xl">
-                                <h4 class="font-bold text-amber-600 mb-2">Weaknesses</h4>
-                                <p class="text-gray-500">High human-support overhead; required scaling the support team alongside adoption.</p>
+                            <div class="p-8 border border-gray-200/60 dark:border-gray-800/60 rounded-2xl md:rounded-3xl bg-cardLight dark:bg-cardDark minimal-card">
+                                <h4 class="font-bold font-heading text-lg text-amber-600 dark:text-amber-400 mb-3">Weaknesses</h4>
+                                <p class="text-gray-600 dark:text-gray-400 leading-relaxed">High human-support overhead; required scaling the support team alongside adoption.</p>
                             </div>
-                            <div class="p-6 border border-gray-200 dark:border-gray-800 rounded-xl">
-                                <h4 class="font-bold text-red-600 mb-2">Threats</h4>
-                                <p class="text-gray-500">Technical debt in legacy platforms made 100% parity difficult without refactoring.</p>
+                            <div class="p-8 border border-gray-200/60 dark:border-gray-800/60 rounded-2xl md:rounded-3xl bg-cardLight dark:bg-cardDark minimal-card">
+                                <h4 class="font-bold font-heading text-lg text-rose-600 dark:text-rose-400 mb-3">Threats</h4>
+                                <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Technical debt in legacy platforms made 100% parity difficult without refactoring.</p>
                             </div>
                         </div>
                     </section>
 
-                    <section class="mb-16">
-                        <div class="bg-gray-100 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 mb-8">
-                            <center><img src="img/ds_img2.png" alt="Collaborative Governance Framework"></img></center>
+                    <!-- Governance Framework Image -->
+                    <section>
+                        <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl overflow-hidden border border-gray-200/60 dark:border-gray-800/60 p-4 sm:p-6 shadow-sm">
+                            <center><img src="img/ds_img2.png" alt="Collaborative Governance Framework" class="w-full h-auto rounded-xl md:rounded-2xl"></img></center>
                         </div>
                     </section>
 
-                    <div class="pt-8 border-t border-gray-200 dark:border-gray-800">
+                    <!-- Navigation -->
+                    <div class="pt-8 border-t border-gray-200/60 dark:border-gray-800/60">
                         <div class="flex justify-between items-center">
-                            <a href="index.html" class="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors font-medium">
-                                Back to Portfolio
+                            <a href="portfolio.html" class="inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-semibold hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors shadow-sm">
+                                ← Back to All Projects
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <div class="lg:col-span-1">
-                    <div class="sticky-sidebar">
-                        <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800 mb-8">
-                            <h3 class="text-lg font-semibold mb-6">Strategic Highlights</h3>
-                            <ul class="space-y-4">
+                <!-- Sidebar Column -->
+                <div class="lg:col-span-1 space-y-8">
+                    <div class="sticky-sidebar space-y-8">
+                        <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                            <h3 class="text-xl font-bold font-heading mb-6 text-gray-900 dark:text-white">Strategic Highlights</h3>
+                            <ul class="space-y-4 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                                 <li class="flex items-start">
-                                    <span class="mr-3 text-purple-600 dark:text-purple-400">✓</span>
+                                    <span class="mr-3 text-indigo-500 font-bold">✓</span>
                                     <span>Managed technical debt reduction</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <span class="mr-3 text-purple-600 dark:text-purple-400">✓</span>
+                                    <span class="mr-3 text-indigo-500 font-bold">✓</span>
                                     <span>Built scalable DesignOps model</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <span class="mr-3 text-purple-600 dark:text-purple-400">✓</span>
+                                    <span class="mr-3 text-indigo-500 font-bold">✓</span>
                                     <span>Unified 40+ localized markets</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <span class="mr-3 text-purple-600 dark:text-purple-400">✓</span>
+                                    <span class="mr-3 text-indigo-500 font-bold">✓</span>
                                     <span>Led cross-functional governance</span>
                                 </li>
                             </ul>
                         </div>
 
-                        <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800">
-                            <h3 class="text-lg font-semibold mb-6">Key Lesson</h3>
-                            <div class="space-y-4">
-                                <p class="text-sm italic text-gray-500">
-                                    "Joining a system mid-stream is about empathy for current debt. You can't just ship new pixels; you have to fix the broken trust from the old ones."
-                                </p>
-                            </div>
+                        <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                            <h3 class="text-xl font-bold font-heading mb-4 text-gray-900 dark:text-white">Key Lesson</h3>
+                            <p class="text-sm italic text-gray-500 dark:text-gray-400 leading-relaxed">
+                                "Joining a system mid-stream is about empathy for current debt. You can't just ship new pixels; you have to fix the broken trust from the old ones."
+                            </p>
                         </div>
 
-                        <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800 mt-8">
-                            <h3 class="text-lg font-semibold mb-6 italic text-purple-600 dark:text-purple-400">"Adoption is the only metric that matters."</h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">
+                        <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                            <h3 class="text-xl font-bold font-heading mb-4 italic hero-gradient">"Adoption is the only metric that matters."</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                                 A design system is a service, not a project. If your support system fails, your system fails.
                             </p>
                         </div>
+
+                        <a href="portfolio.html" class="inline-flex items-center justify-center w-full px-6 py-3.5 rounded-xl bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-semibold hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors shadow-sm">
+                            ← Back to All Projects
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </main>
 
-    <footer class="py-12 border-t border-gray-200 dark:border-gray-800 mt-20">
-        <div class="max-w-7xl mx-auto px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+    <!-- Footer -->
+        <!-- Footer -->
+    <footer class="py-12 border-t border-gray-200/60 dark:border-gray-800/60 transition-colors mt-20 md:mt-28 relative z-10" aria-label="Site footer">
+        <div class="max-w-6xl mx-auto px-6 sm:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
                 <div>
-                    <div class="text-2xl font-semibold mb-2">Jadvvinder Daudhria</div>
-                    <p class="text-gray-600 dark:text-gray-400">Strategic Senior Product Designer</p>
+                    <div class="text-lg font-bold font-heading text-gray-900 dark:text-white">J. Daudhria</div>
+                    <p class="text-xs text-gray-600 dark:text-gray-400 mt-1">Lead Product Designer & Systems Architect</p>
                 </div>
                 
-                <div class="flex items-center space-x-6">
-                    <div class="relative group">
-                        <a href="https://www.linkedin.com/in/jadvvinder-daudhria-541a3111/" target="_blank" rel="noopener noreferrer" 
-                           class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg inline-block"
-                           aria-label="LinkedIn Profile">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                            </svg>
-                        </a>
-                        <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1.5 bg-gray-900 dark:bg-gray-700 text-white text-xs font-medium rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
-                            My LinkedIn Profile
-                            <div class="absolute top-full left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-700 rotate-45"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="relative group">
-                        <a href="mailto:j.daudhria@gmail.com" 
-                           class="text-gray-600 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition-colors p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg inline-block"
-                           aria-label="Send Email">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                            </svg>
-                        </a>
-                        <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1.5 bg-gray-900 dark:bg-gray-700 text-white text-xs font-medium rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
-                            Email to me
-                            <div class="absolute top-full left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-700 rotate-45"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="relative group">
-                        <a href="path/to/your-resume.pdf" download="Jadvindder_Daudhria_Resume.pdf"
-                           class="text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition-colors p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg inline-block"
-                           aria-label="Download Resume">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" 
-                                      d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                            </svg>
-                        </a>
-                        <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1.5 bg-gray-900 dark:bg-gray-700 text-white text-xs font-medium rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
-                            Download my resume
-                            <div class="absolute top-full left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-700 rotate-45"></div>
-                        </div>
-                    </div>
+                <div class="flex items-center space-x-6 text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-medium">
+                    <a href="https://www.linkedin.com/in/jadvinderd" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">LinkedIn</a>
+                    <span aria-hidden="true">•</span>
+                    <a href="https://www.behance.net/jd132" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Behance</a>
+                    <span aria-hidden="true">•</span>
+                    <a href="mailto:j.daudhria@gmail.com" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Email</a>
                 </div>
+            </div>
+            
+            <div class="mt-8 pt-6 border-t border-gray-100 dark:border-gray-800/40 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400 dark:text-gray-500 gap-3">
+                <p>© 2026 J. Daudhria. All rights reserved.</p>
+                <p>Designed for accessibility and performance.</p>
             </div>
         </div>
     </footer>
@@ -385,29 +412,31 @@
         const sunIcon = document.getElementById('sunIcon');
         const moonIcon = document.getElementById('moonIcon');
         
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
         const currentTheme = localStorage.getItem('theme');
         
-        if (currentTheme === 'dark') {
+        if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
             document.documentElement.classList.add('dark');
-            moonIcon.classList.remove('hidden');
+            if (sunIcon) sunIcon.classList.remove('hidden');
         } else {
-            sunIcon.classList.remove('hidden');
+            if (moonIcon) moonIcon.classList.remove('hidden');
         }
         
-        themeToggle.addEventListener('click', () => {
-            document.documentElement.classList.toggle('dark');
-            
-            if (document.documentElement.classList.contains('dark')) {
-                localStorage.setItem('theme', 'dark');
-                sunIcon.classList.add('hidden');
-                moonIcon.classList.remove('hidden');
-            } else {
-                localStorage.setItem('theme', 'light');
-                moonIcon.classList.add('hidden');
-                sunIcon.classList.remove('hidden');
-            }
-        });
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark');
+                
+                if (document.documentElement.classList.contains('dark')) {
+                    localStorage.setItem('theme', 'dark');
+                    if (moonIcon) moonIcon.classList.add('hidden');
+                    if (sunIcon) sunIcon.classList.remove('hidden');
+                } else {
+                    localStorage.setItem('theme', 'light');
+                    if (sunIcon) sunIcon.classList.add('hidden');
+                    if (moonIcon) moonIcon.classList.remove('hidden');
+                }
+            });
+        }
     </script>
 </body>
 </html>
-

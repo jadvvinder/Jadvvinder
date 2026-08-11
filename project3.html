@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F127DXH209"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-F127DXH209');
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Learning Beyond Screen Time | Jadvvinder Daudhria</title>
+    <title>Appystore EdTech Learning Ecosystem Case Study | J. Daudhria</title>
+    <meta name="description" content="Case study on building a trusted learning ecosystem for 1M+ users at Appystore, improving retention by 70%.">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com">
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             darkMode: "class",
@@ -16,19 +26,17 @@
                 extend: {
                     colors: {
                         light: "#FFFFFF",
-                        dark: "#0A0A0A",
-                        textLight: "#171717",
-                        textDark: "#E5E5E5",
-                        grayLight: "#FAFAFA",
-                        grayDark: "#1A1A1A",
+                        dark: "#08090E",
+                        textLight: "#0F172A",
+                        textDark: "#F1F5F9",
+                        cardLight: "#F8FAFC",
+                        cardDark: "#111422",
+                        borderLight: "rgba(226, 232, 240, 0.8)",
+                        borderDark: "rgba(30, 41, 59, 0.7)"
                     },
                     fontFamily: {
                         sans: ["Inter", "system-ui", "-apple-system", "sans-serif"],
-                    },
-                    spacing: {
-                        18: "4.5rem",
-                        88: "22rem",
-                        128: "32rem",
+                        heading: ["Plus Jakarta Sans", "Inter", "sans-serif"],
                     },
                 },
             },
@@ -39,86 +47,55 @@
             font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            letter-spacing: -0.011em;
-        }
-
-        .prose {
-            font-size: 1.125rem;
-            line-height: 1.7;
-        }
-
-        .prose p {
-            margin-top: 1.5em;
-            margin-bottom: 1.5em;
-        }
-
-        .prose p:first-child {
-            margin-top: 0;
-        }
-
-        .prose ul,
-        .prose ol {
-            margin-top: 1.25em;
-            margin-bottom: 1.25em;
-            padding-left: 1.5em;
-        }
-
-        .prose li {
-            margin-top: 0.5em;
-            margin-bottom: 0.5em;
-        }
-
-        .section-padding {
-            padding-top: 6rem;
-            padding-bottom: 6rem;
         }
 
         .hero-gradient {
-            background: linear-gradient(135deg, #f472b6 0%, #8b5cf6 100%);
+            background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #EC4899 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .card-hover {
-            transition: all 0.3s ease;
+        .ambient-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(140px);
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 0;
         }
 
-        .card-hover:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
+        .dark .ambient-glow {
+            opacity: 0.18;
         }
 
-        .dark .card-hover:hover {
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
+        .minimal-card {
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .metric-card {
-            background: linear-gradient(135deg, rgba(244, 114, 182, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
-            border: 1px solid rgba(244, 114, 182, 0.2);
+        .minimal-card:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            box-shadow: 0 12px 30px -10px rgba(99, 102, 241, 0.08);
+            transform: translateY(-3px);
         }
 
-        .dark .metric-card {
-            background: linear-gradient(135deg, rgba(244, 114, 182, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
-            border: 1px solid rgba(244, 114, 182, 0.25);
-        }
-
-        .sticky-sidebar {
-            position: sticky;
-            top: 6rem;
+        .dark .minimal-card:hover {
+            box-shadow: 0 12px 30px -10px rgba(99, 102, 241, 0.15);
         }
 
         .insight-block {
-            border-left: 4px solid #8b5cf6;
+            border-left: 4px solid #6366f1;
         }
 
         .dark .insight-block {
-            border-left-color: #a78bfa;
+            border-left-color: #818cf8;
         }
 
         .phase-timeline {
             position: relative;
-            padding-left: 2rem;
+            padding-left: 2.25rem;
         }
 
         .phase-timeline::before {
@@ -128,70 +105,125 @@
             top: 8px;
             bottom: 8px;
             width: 2px;
-            background: linear-gradient(to bottom, #f472b6, #8b5cf6);
+            background: linear-gradient(to bottom, #6366F1, #8B5CF6);
             border-radius: 2px;
-        }
-
-        .phase-dot {
-            position: absolute;
-            left: -2px;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #f472b6, #8b5cf6);
-            border: 3px solid #fff;
-            box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.3);
-        }
-
-        .dark .phase-dot {
-            border-color: #0A0A0A;
         }
 
         .phase-item {
             position: relative;
-            padding-bottom: 2rem;
+            padding-bottom: 2.5rem;
         }
 
         .phase-item:last-child {
             padding-bottom: 0;
         }
 
-        .img-grid-2col {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        .img-grid-3col {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 1rem;
-        }
-
-        @media (max-width: 768px) {
-            .img-grid-2col,
-            .img-grid-3col {
-                grid-template-columns: 1fr;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
-    </style>
-</head>
-<body class="bg-light dark:bg-dark text-textLight dark:text-textDark font-sans transition-colors duration-300">
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 bg-light/95 dark:bg-dark/95 backdrop-blur-lg z-50 border-b border-gray-200/50 dark:border-gray-800/50">
-        <div class="max-w-7xl mx-auto px-8 py-5">
+        .animate-fadeInUp {
+            animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+    
+        :focus-visible {
+            outline: 2px solid #6366F1 !important;
+            outline-offset: 3px !important;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, ::before, ::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+    </style>
+
+    <meta name="description" content="Orchestrating the UX vision for Appystore: Evolving a kids' video app into an engaging, multi-platform early learning ecosystem for over 1M young learners.">
+    <meta name="keywords" content="Appystore EdTech UX, Early Childhood Learning UX, Kids App Design, EdTech Platform Design, People Group Design Lead, Senior UX Case Study">
+    <meta name="author" content="Jadvvinder (J.) Daudhria">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#08090E">
+    <link rel="canonical" href="https://jadvvinder.github.io/Jadvvinder/project3.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="J. Daudhria Portfolio">
+    <meta property="og:title" content="Appystore EdTech Learning Ecosystem Case Study | J. Daudhria">
+    <meta property="og:description" content="Orchestrating the UX vision for Appystore: Evolving a kids' video app into an engaging, multi-platform early learning ecosystem for over 1M young learners.">
+    <meta property="og:url" content="https://jadvvinder.github.io/Jadvvinder/project3.html">
+    <meta property="og:image" content="https://jadvvinder.github.io/Jadvvinder/img/apy_img1.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Appystore EdTech Learning Ecosystem Case Study | J. Daudhria">
+    <meta name="twitter:description" content="Orchestrating the UX vision for Appystore: Evolving a kids' video app into an engaging, multi-platform early learning ecosystem for over 1M young learners.">
+    <meta name="twitter:image" content="https://jadvvinder.github.io/Jadvvinder/img/apy_img1.png">
+
+    <!-- JSON-LD Structured Data Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "EdTech Ecosystem Transformation: Evolving Appystore for Early Learners",
+      "description": "Orchestrating the UX vision for Appystore: Evolving a kids' video app into an engaging, multi-platform early learning ecosystem for over 1M young learners.",
+      "image": "https://jadvvinder.github.io/Jadvvinder/img/apy_img1.png",
+      "author": {
+        "@type": "Person",
+        "name": "Jadvvinder (J.) Daudhria"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "J. Daudhria Portfolio"
+      },
+      "mainEntityOfPage": "https://jadvvinder.github.io/Jadvvinder/project3.html"
+    }
+    </script>
+
+</head>
+<body class="bg-light dark:bg-dark text-textLight dark:text-textDark font-sans transition-colors duration-300 relative overflow-x-hidden">
+
+    <!-- Accessibility Skip Link -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-indigo-600 focus:text-white focus:rounded-lg focus:shadow-lg font-medium text-sm transition-all">
+        Skip to main content
+    </a>
+
+
+    <!-- Ambient Background Glows -->
+    <div class="ambient-glow bg-indigo-500 top-0 left-1/4"></div>
+    <div class="ambient-glow bg-purple-500 top-[1000px] right-10"></div>
+    <div class="ambient-glow bg-blue-500 top-[2200px] left-10"></div>
+
+    <!-- Navigation Header -->
+    <nav  class="fixed top-0 left-0 right-0 bg-white/80 dark:bg-dark/80 backdrop-blur-md z-50 border-b border-gray-200/60 dark:border-gray-800/60 transition-colors" aria-label="Main navigation">
+        <div class="max-w-6xl mx-auto px-6 sm:px-8 py-4">
             <div class="flex items-center justify-between">
-                <a href="index.html" class="text-xl font-semibold tracking-tight hover:opacity-80 transition-opacity">
-                    ← Back to Portfolio
+                <a href="index.html" class="flex items-center space-x-3 group">
+                    <span class="text-xl font-bold font-heading tracking-tight text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">JD</span>
+                    <span class="text-xs text-gray-500 dark:text-gray-400 font-medium hidden sm:inline-block">/ Case Study</span>
                 </a>
-                <div class="flex items-center space-x-10">
-                    <button id="themeToggle" class="p-2.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                        <svg id="sunIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                <div class="flex items-center space-x-6 sm:space-x-8 text-sm font-medium">
+                    <a href="portfolio.html" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors flex items-center gap-1.5">
+                        <span>←</span> All Projects
+                    </a>
+                    <a href="index.html#hero" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors hidden sm:inline-block">Home</a>
+                    <a href="index.html#contact" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Contact</a>
+                    <button id="themeToggle" aria-label="Toggle light and dark theme" class="p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle theme">
+                        <svg id="sunIcon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
                         </svg>
-                        <svg id="moonIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        <svg id="moonIcon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
                         </svg>
                     </button>
                 </div>
@@ -200,109 +232,100 @@
     </nav>
 
     <!-- Main Content -->
-    <main class="pt-24">
+    <main id="main-content"  class="pt-28 md:pt-36 pb-20 md:pb-28 relative z-10">
+        <div class="max-w-6xl mx-auto px-6 sm:px-8">
 
-        <!-- Hero Section -->
-        <section class="section-padding">
-            <div class="max-w-7xl mx-auto px-8">
-                <div class="mb-12">
-                    <div class="inline-flex items-center px-4 py-2 bg-pink-100 dark:bg-pink-900/30 text-pink-800 dark:text-pink-300 rounded-full text-sm font-medium mb-6">
-                        Children's EdTech Platform
-                    </div>
-                    <h1 class="text-5xl font-light mb-8 tracking-tight leading-[1.1]">
-                        Driving UX Strategy to Build a Trusted 
-                        <span class="hero-gradient font-semibold">Learning Ecosystem for 1M+ Users</span>
-                    </h1>
-                    <p class="text-2xl text-gray-600 dark:text-gray-400 max-w-4xl leading-relaxed">
-                        Orchestrating a trust‑first, safety‑driven UX vision that  
-                        <span class="font-semibold text-textLight dark:text-textDark">united product, engineering, and content teams</span>
-                       , turning a video platform into a complete evolving a simple video platform into a holistic learning ecosystem that parents trust and kids love.
-                    </p>
+            <!-- Hero Section -->
+            <div class="animate-fadeInUp mb-16 md:mb-20 max-w-4xl">
+                <div class="inline-flex items-center px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 border border-indigo-200/60 dark:border-indigo-800/60 mb-6">
+                    Children's EdTech Platform
                 </div>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold font-heading tracking-tight mb-8 leading-[1.15] text-gray-900 dark:text-white">
+                    Driving UX Strategy to Build a Trusted <span class="hero-gradient">Learning Ecosystem for 1M+ Users</span>
+                </h1>
+                <p class="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed font-light">
+                    Orchestrating a trust‑first, safety‑driven UX vision that <span class="font-semibold text-gray-900 dark:text-white">united product, engineering, and content teams</span>, evolving a simple video platform into a holistic learning ecosystem that parents trust and kids love.
+                </p>
+            </div>
 
-                <!-- Hero Image Grid -->
-                   <div class="bg-gray-100 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 mb-8">
-					<center><p class="text-gray-500 dark:text-gray-400"><img src="img/apy_img1.png" alt="Appystore Product Ecosystem Overview" title="Appystore Product Ecosystem Overview"></img></center>
+            <!-- Hero Image Grid -->
+            <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl overflow-hidden border border-gray-200/60 dark:border-gray-800/60 p-4 sm:p-6 mb-12 animate-fadeInUp shadow-sm">
+                <center><img src="img/apy_img1.png" alt="Appystore Product Ecosystem Overview" title="Appystore Product Ecosystem Overview" class="w-full h-auto rounded-xl md:rounded-2xl"></img></center>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20 md:mb-28">
+                <div class="bg-cardLight dark:bg-cardDark rounded-2xl p-6 border border-gray-200/60 dark:border-gray-800/60 text-center minimal-card">
+                    <div class="text-3xl font-bold font-heading hero-gradient">70%</div>
+                    <div class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-2 font-medium">Retention improvement with worksheets</div>
                 </div>
-
-                <!-- Quick Stats -->
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mt-6">
-                    <div class="bg-grayLight dark:bg-grayDark rounded-xl p-5 border border-gray-200 dark:border-gray-800 text-center">
-                        <div class="text-2xl font-bold text-pink-600 dark:text-pink-400">70%</div>
-                        <div class="text-sm text-gray-500 dark:text-gray-400">Retention improvement with worksheets</div>
-                    </div>
-                    <div class="bg-grayLight dark:bg-grayDark rounded-xl p-5 border border-gray-200 dark:border-gray-800 text-center">
-                        <div class="text-2xl font-bold text-purple-600 dark:text-purple-400">50</div>
-                        <div class="text-sm text-gray-500 dark:text-gray-400">Families in MVP pilot</div>
-                    </div>
-                    <div class="bg-grayLight dark:bg-grayDark rounded-xl p-5 border border-gray-200 dark:border-gray-800 text-center">
-                        <div class="text-2xl font-bold text-amber-600 dark:text-amber-400">2</div>
-                        <div class="text-sm text-gray-500 dark:text-gray-400">User groups designed for</div>
-                    </div>
-                    <div class="bg-grayLight dark:bg-grayDark rounded-xl p-5 border border-gray-200 dark:border-gray-800 text-center">
-                        <div class="text-2xl font-bold text-green-600 dark:text-green-400">3</div>
-                        <div class="text-sm text-gray-500 dark:text-gray-400">Designers mentored</div>
-                    </div>
+                <div class="bg-cardLight dark:bg-cardDark rounded-2xl p-6 border border-gray-200/60 dark:border-gray-800/60 text-center minimal-card">
+                    <div class="text-3xl font-bold font-heading hero-gradient">50</div>
+                    <div class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-2 font-medium">Families in MVP pilot</div>
+                </div>
+                <div class="bg-cardLight dark:bg-cardDark rounded-2xl p-6 border border-gray-200/60 dark:border-gray-800/60 text-center minimal-card">
+                    <div class="text-3xl font-bold font-heading hero-gradient">2</div>
+                    <div class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-2 font-medium">User groups designed for</div>
+                </div>
+                <div class="bg-cardLight dark:bg-cardDark rounded-2xl p-6 border border-gray-200/60 dark:border-gray-800/60 text-center minimal-card">
+                    <div class="text-3xl font-bold font-heading hero-gradient">3</div>
+                    <div class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-2 font-medium">Designers mentored</div>
                 </div>
             </div>
-        </section>
 
-        <!-- Content Grid -->
-        <div class="max-w-7xl mx-auto px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <!-- Content Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
 
                 <!-- Main Column -->
-                <div class="lg:col-span-2">
+                <div class="lg:col-span-2 space-y-20 md:space-y-28">
 
                     <!-- Strategic Context -->
-                    <section class="mb-16">
-                        <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800">
-                            <h2 class="text-3xl font-semibold mb-8">Strategic Context</h2>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                <div>
-                                    <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Role</h3>
-                                    <p class="text-lg">Lead Product Designer, led end-to-end from discovery through delivery, managing a team of 3 designers</p>
-                                </div>
-                                <div>
-                                    <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Team &amp; Stakeholders</h3>
-                                    <p class="text-lg">Product Management · Engineering · Research Agency · Freelance Teachers · Content Vendors · Business Leadership</p>
-                                </div>
-                                <div>
-                                    <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Users</h3>
-                                    <p class="text-lg"><span class="font-semibold">Primary:</span> Children aged 1 - 9 years<br /><span class="font-semibold">Secondary:</span> Parents and guardians</p>
-                                </div>
-                                <div>
-                                    <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Business Challenge</h3>
-                                    <p class="text-lg">A saturated market of free content (YouTube Kids, learning apps), how to create a paid platform parents would choose?</p>
-                                </div>
+                    <section class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 sm:p-10 md:p-12 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                        <h2 class="text-2xl sm:text-3xl font-bold font-heading mb-8 tracking-tight text-gray-900 dark:text-white">Strategic Context</h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-10 text-sm sm:text-base leading-relaxed">
+                            <div>
+                                <div class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Role</div>
+                                <p class="text-gray-600 dark:text-gray-300">Lead Product Designer, led end-to-end from discovery through delivery, managing a team of 3 designers</p>
+                            </div>
+                            <div>
+                                <div class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Team &amp; Stakeholders</div>
+                                <p class="text-gray-600 dark:text-gray-300">Product Management · Engineering · Research Agency · Freelance Teachers · Content Vendors · Business Leadership</p>
+                            </div>
+                            <div>
+                                <div class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Users</div>
+                                <p class="text-gray-600 dark:text-gray-300"><span class="font-semibold text-gray-900 dark:text-white">Primary:</span> Children aged 1 - 9 years<br /><span class="font-semibold text-gray-900 dark:text-white">Secondary:</span> Parents and guardians</p>
+                            </div>
+                            <div>
+                                <div class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Business Challenge</div>
+                                <p class="text-gray-600 dark:text-gray-300">A saturated market of free content (YouTube Kids, learning apps), how to create a paid platform parents would choose?</p>
                             </div>
                         </div>
                     </section>
 
                     <!-- The Problem -->
-                    <section class="mb-16">
-                        <h2 class="text-4xl font-light mb-8">The Problem Wasn't a Lack of Content</h2>
-                        <div class="prose max-w-none">
+                    <section class="space-y-8">
+                        <h2 class="text-3xl sm:text-4xl font-bold font-heading tracking-tight text-gray-900 dark:text-white">The Problem Wasn't a Lack of Content</h2>
+                        <div class="prose max-w-none text-gray-600 dark:text-gray-300 space-y-6 text-base sm:text-lg leading-relaxed">
                             <p>
                                 Before building anything, we needed to validate our core assumption. Children already had access to YouTube Kids, educational channels, learning apps, and streaming platforms. The challenge wasn't creating more content, it was understanding why parents still felt dissatisfied with existing solutions.
                             </p>
-                            <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-6 my-8">
-                                <h3 class="text-lg font-semibold text-amber-800 dark:text-amber-300 mb-4">Critical Questions We Started With</h3>
-                                <ul class="space-y-3">
+                            <div class="bg-cardLight dark:bg-cardDark border border-gray-200/60 dark:border-gray-800/60 rounded-2xl md:rounded-3xl p-8 my-8 minimal-card">
+                                <h3 class="text-xl font-bold font-heading text-gray-900 dark:text-white mb-4">Critical Questions We Started With</h3>
+                                <ul class="space-y-4 text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
                                     <li class="flex items-start">
-                                        <span class="mr-3">•</span>
+                                        <span class="mr-3 text-indigo-500 font-bold">•</span>
                                         <span>Would parents pay for educational content already available online for free?</span>
                                     </li>
                                     <li class="flex items-start">
-                                        <span class="mr-3">•</span>
+                                        <span class="mr-3 text-indigo-500 font-bold">•</span>
                                         <span>What concerns existed around children's screen usage?</span>
                                     </li>
                                     <li class="flex items-start">
-                                        <span class="mr-3">•</span>
+                                        <span class="mr-3 text-indigo-500 font-bold">•</span>
                                         <span>What prevented parents from fully trusting existing platforms?</span>
                                     </li>
                                     <li class="flex items-start">
-                                        <span class="mr-3">•</span>
+                                        <span class="mr-3 text-indigo-500 font-bold">•</span>
                                         <span>How could we create differentiated value in a highly competitive market?</span>
                                     </li>
                                 </ul>
@@ -314,219 +337,219 @@
                     </section>
 
                     <!-- Discovery & Research -->
-                    <section class="mb-16">
-                        <h2 class="text-4xl font-light mb-8">Discovery &amp; Research</h2>
-                        <div class="prose max-w-none">
+                    <section class="space-y-8">
+                        <h2 class="text-3xl sm:text-4xl font-bold font-heading tracking-tight text-gray-900 dark:text-white">Discovery &amp; Research</h2>
+                        <div class="prose max-w-none text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
                             <p>
                                 Designing for children meant designing for two very different user groups. Children and parents often had different goals, motivations, and expectations. The success of the product depended on understanding both.
                             </p>
                         </div>
 
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
-                            <div class="bg-pink-50 dark:bg-pink-900/10 rounded-xl p-6 border border-pink-200 dark:border-pink-800/30 card-hover">
-                                <div class="text-3xl mb-3">👨‍👩‍👦</div>
-                                <h3 class="text-lg font-semibold mb-2">Parent Research</h3>
-                                <p class="text-sm text-gray-600 dark:text-gray-400">Interviews &amp; moderated sessions exploring screen-time concerns, safety expectations, trust factors, and willingness to pay.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 my-8">
+                            <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                                <div class="text-3xl mb-4">👨‍👩‍👦</div>
+                                <h3 class="text-lg font-bold font-heading mb-3 text-gray-900 dark:text-white">Parent Research</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Interviews &amp; moderated sessions exploring screen-time concerns, safety expectations, trust factors, and willingness to pay.</p>
                             </div>
-                            <div class="bg-purple-50 dark:bg-purple-900/10 rounded-xl p-6 border border-purple-200 dark:border-purple-800/30 card-hover">
-                                <div class="text-3xl mb-3">🧒</div>
-                                <h3 class="text-lg font-semibold mb-2">Child Observation</h3>
-                                <p class="text-sm text-gray-600 dark:text-gray-400">Observed navigation behavior, attention spans, interaction patterns, engagement triggers, and age-specific needs.</p>
+                            <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                                <div class="text-3xl mb-4">🧒</div>
+                                <h3 class="text-lg font-bold font-heading mb-3 text-gray-900 dark:text-white">Child Observation</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Observed navigation behavior, attention spans, interaction patterns, engagement triggers, and age-specific needs.</p>
                             </div>
-                            <div class="bg-amber-50 dark:bg-amber-900/10 rounded-xl p-6 border border-amber-200 dark:border-amber-800/30 card-hover">
-                                <div class="text-3xl mb-3">👩‍🏫</div>
-                                <h3 class="text-lg font-semibold mb-2">Educator Collaboration</h3>
-                                <p class="text-sm text-gray-600 dark:text-gray-400">Worked with freelance teachers and content partners to define learning objectives, curriculum structure, and age-based progression.</p>
+                            <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                                <div class="text-3xl mb-4">👩‍🏫</div>
+                                <h3 class="text-lg font-bold font-heading mb-3 text-gray-900 dark:text-white">Educator Collaboration</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Worked with freelance teachers and content partners to define learning objectives, curriculum structure, and age-based progression.</p>
                             </div>
                         </div>
 
-                        <div class="bg-gray-100 dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 my-8">
-                            <img src="img/appy_exploration1.png" alt="Children's learning interface showing workshop and play options" class="w-full" />
-                            <div class="p-4 text-sm text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-800/50 border-t border-gray-200 dark:border-gray-800">
+                        <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl overflow-hidden border border-gray-200/60 dark:border-gray-800/60 p-4 sm:p-6 mt-8 shadow-sm">
+                            <img src="img/appy_exploration1.png" alt="Children's learning interface showing workshop and play options" class="w-full h-auto rounded-xl md:rounded-2xl" />
+                            <div class="p-4 text-xs sm:text-sm text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-900/50 border-t border-gray-200/60 dark:border-gray-800/60 rounded-b-xl mt-4">
                                 Early interface exploration, testing navigation patterns for young children
                             </div>
                         </div>
                     </section>
 
                     <!-- Key Insights -->
-                    <section class="mb-16">
-                        <h2 class="text-4xl font-light mb-8">Key Insights</h2>
+                    <section class="space-y-8">
+                        <h2 class="text-3xl sm:text-4xl font-bold font-heading tracking-tight text-gray-900 dark:text-white">Key Insights</h2>
 
                         <div class="space-y-6">
-                            <div class="insight-block pl-6 py-2 border-l-4 border-pink-500 bg-pink-50/50 dark:bg-pink-900/5 rounded-r-xl pr-4">
-                                <h3 class="text-xl font-semibold text-pink-700 dark:text-pink-300">Insight 1: Parents Were Not Buying Content</h3>
-                                <p class="text-gray-600 dark:text-gray-400 mt-2">Parents were looking for <strong>trust</strong>, safety, educational value, age appropriateness, control, and visibility into learning progress. Not another video platform.</p>
+                            <div class="insight-block pl-6 py-4 border-l-4 border-indigo-500 bg-cardLight dark:bg-cardDark rounded-r-2xl border border-gray-200/60 dark:border-gray-800/60 p-6 minimal-card">
+                                <h3 class="text-lg font-bold font-heading text-indigo-600 dark:text-indigo-400">Insight 1: Parents Were Not Buying Content</h3>
+                                <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 mt-2 leading-relaxed">Parents were looking for <strong>trust</strong>, safety, educational value, age appropriateness, control, and visibility into learning progress. Not another video platform.</p>
                             </div>
 
-                            <div class="insight-block pl-6 py-2 border-l-4 border-purple-500 bg-purple-50/50 dark:bg-purple-900/5 rounded-r-xl pr-4">
-                                <h3 class="text-xl font-semibold text-purple-700 dark:text-purple-300">Insight 2: Children Needed Simplicity</h3>
-                                <p class="text-gray-600 dark:text-gray-400 mt-2">Traditional navigation patterns created friction for younger users. The experience needed to feel <strong>intuitive, visual, rewarding, and age-appropriate</strong>.</p>
+                            <div class="insight-block pl-6 py-4 border-l-4 border-indigo-500 bg-cardLight dark:bg-cardDark rounded-r-2xl border border-gray-200/60 dark:border-gray-800/60 p-6 minimal-card">
+                                <h3 class="text-lg font-bold font-heading text-indigo-600 dark:text-indigo-400">Insight 2: Children Needed Simplicity</h3>
+                                <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 mt-2 leading-relaxed">Traditional navigation patterns created friction for younger users. The experience needed to feel <strong>intuitive, visual, rewarding, and age-appropriate</strong>.</p>
                             </div>
 
-                            <div class="insight-block pl-6 py-2 border-l-4 border-amber-500 bg-amber-50/50 dark:bg-amber-900/5 rounded-r-xl pr-4">
-                                <h3 class="text-xl font-semibold text-amber-700 dark:text-amber-300">Insight 3: Learning Outcomes Matter More Than Viewing Time</h3>
-                                <p class="text-gray-600 dark:text-gray-400 mt-2">Parents cared less about how much content children consumed and more about whether <strong>meaningful learning</strong> was happening. This became the most important strategic driver.</p>
+                            <div class="insight-block pl-6 py-4 border-l-4 border-indigo-500 bg-cardLight dark:bg-cardDark rounded-r-2xl border border-gray-200/60 dark:border-gray-800/60 p-6 minimal-card">
+                                <h3 class="text-lg font-bold font-heading text-indigo-600 dark:text-indigo-400">Insight 3: Learning Outcomes Matter More Than Viewing Time</h3>
+                                <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 mt-2 leading-relaxed">Parents cared less about how much content children consumed and more about whether <strong>meaningful learning</strong> was happening. This became the most important strategic driver.</p>
                             </div>
                         </div>
                     </section>
 
                     <!-- Product Strategy -->
-                    <section class="mb-16">
-                        <h2 class="text-4xl font-light mb-8">Defining the Product Strategy</h2>
-                        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">Based on research findings, we established three strategic pillars that shaped everything that followed.</p>
+                    <section class="space-y-8">
+                        <h2 class="text-3xl sm:text-4xl font-bold font-heading tracking-tight text-gray-900 dark:text-white">Defining the Product Strategy</h2>
+                        <p class="text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">Based on research findings, we established three strategic pillars that shaped everything that followed.</p>
 
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <div class="bg-gradient-to-br from-pink-50 to-pink-100/50 dark:from-pink-900/20 dark:to-pink-800/10 rounded-2xl p-6 border border-pink-200 dark:border-pink-800/30 card-hover text-center">
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+                            <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card text-center">
                                 <div class="text-4xl mb-4">🛡️</div>
-                                <h3 class="text-xl font-semibold mb-2">Safe Learning</h3>
-                                <p class="text-sm text-gray-600 dark:text-gray-400">Children should only access age-appropriate educational content in a secure environment.</p>
+                                <h3 class="text-lg font-bold font-heading mb-3 text-gray-900 dark:text-white">Safe Learning</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Children should only access age-appropriate educational content in a secure environment.</p>
                             </div>
-                            <div class="bg-gradient-to-br from-purple-50 to-purple-100/50 dark:from-purple-900/20 dark:to-purple-800/10 rounded-2xl p-6 border border-purple-200 dark:border-purple-800/30 card-hover text-center">
+                            <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card text-center">
                                 <div class="text-4xl mb-4">📈</div>
-                                <h3 class="text-xl font-semibold mb-2">Guided Growth</h3>
-                                <p class="text-sm text-gray-600 dark:text-gray-400">Content should support developmental learning objectives rather than endless browsing.</p>
+                                <h3 class="text-lg font-bold font-heading mb-3 text-gray-900 dark:text-white">Guided Growth</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Content should support developmental learning objectives rather than endless browsing.</p>
                             </div>
-                            <div class="bg-gradient-to-br from-amber-50 to-amber-100/50 dark:from-amber-900/20 dark:to-amber-800/10 rounded-2xl p-6 border border-amber-200 dark:border-amber-800/30 card-hover text-center">
+                            <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card text-center">
                                 <div class="text-4xl mb-4">💪</div>
-                                <h3 class="text-xl font-semibold mb-2">Parent Confidence</h3>
-                                <p class="text-sm text-gray-600 dark:text-gray-400">Parents should feel informed, empowered, and in control of their child's learning journey.</p>
+                                <h3 class="text-lg font-bold font-heading mb-3 text-gray-900 dark:text-white">Parent Confidence</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Parents should feel informed, empowered, and in control of their child's learning journey.</p>
                             </div>
                         </div>
                     </section>
 
                     <!-- Designing the Ecosystem -->
-                    <section class="mb-16">
-                        <h2 class="text-4xl font-light mb-8">Designing the Learning Ecosystem</h2>
-                        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">The product was designed around two connected experiences, one for children, one for parents.</p>
+                    <section class="space-y-8">
+                        <h2 class="text-3xl sm:text-4xl font-bold font-heading tracking-tight text-gray-900 dark:text-white">Designing the Learning Ecosystem</h2>
+                        <p class="text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">The product was designed around two connected experiences, one for children, one for parents.</p>
 
-                        <!-- Child Experience with screenshots -->
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-                            <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-6 border border-gray-200 dark:border-gray-800">
+                        <!-- Child & Parent Experience -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-8">
+                            <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
                                 <div class="text-3xl mb-4">🧸</div>
-                                <h3 class="text-2xl font-semibold mb-4">Child Experience</h3>
-                                <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-                                    <li class="flex items-start"><span class="mr-2">•</span> Age-based content recommendations</li>
-                                    <li class="flex items-start"><span class="mr-2">•</span> Educational videos, alphabet, numbers, poems</li>
-                                    <li class="flex items-start"><span class="mr-2">•</span> Engaging interactions &amp; motion</li>
-                                    <li class="flex items-start"><span class="mr-2">•</span> Visual-first, low cognitive load</li>
-                                    <li class="flex items-start"><span class="mr-2">•</span> Large touch targets for younger children</li>
+                                <h3 class="text-xl font-bold font-heading mb-4 text-gray-900 dark:text-white">Child Experience</h3>
+                                <ul class="space-y-3 text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+                                    <li class="flex items-start"><span class="mr-3 text-indigo-500 font-bold">•</span> Age-based content recommendations</li>
+                                    <li class="flex items-start"><span class="mr-3 text-indigo-500 font-bold">•</span> Educational videos, alphabet, numbers, poems</li>
+                                    <li class="flex items-start"><span class="mr-3 text-indigo-500 font-bold">•</span> Engaging interactions &amp; motion</li>
+                                    <li class="flex items-start"><span class="mr-3 text-indigo-500 font-bold">•</span> Visual-first, low cognitive load</li>
+                                    <li class="flex items-start"><span class="mr-3 text-indigo-500 font-bold">•</span> Large touch targets for younger children</li>
                                 </ul>
                             </div>
 
-                            <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-6 border border-gray-200 dark:border-gray-800">
+                            <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
                                 <div class="text-3xl mb-4">👨‍👩‍👧</div>
-                                <h3 class="text-2xl font-semibold mb-4">Parent Experience</h3>
-                                <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-                                    <li class="flex items-start"><span class="mr-2">•</span> Track learning progress</li>
-                                    <li class="flex items-start"><span class="mr-2">•</span> Monitor viewing history &amp; engagement</li>
-                                    <li class="flex items-start"><span class="mr-2">•</span> Manage subscriptions</li>
-                                    <li class="flex items-start"><span class="mr-2">•</span> Set usage limits &amp; screen-time controls</li>
-                                    <li class="flex items-start"><span class="mr-2">•</span> Clear, actionable dashboards</li>
+                                <h3 class="text-xl font-bold font-heading mb-4 text-gray-900 dark:text-white">Parent Experience</h3>
+                                <ul class="space-y-3 text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+                                    <li class="flex items-start"><span class="mr-3 text-indigo-500 font-bold">•</span> Track learning progress</li>
+                                    <li class="flex items-start"><span class="mr-3 text-indigo-500 font-bold">•</span> Monitor viewing history &amp; engagement</li>
+                                    <li class="flex items-start"><span class="mr-3 text-indigo-500 font-bold">•</span> Manage subscriptions</li>
+                                    <li class="flex items-start"><span class="mr-3 text-indigo-500 font-bold">•</span> Set usage limits &amp; screen-time controls</li>
+                                    <li class="flex items-start"><span class="mr-3 text-indigo-500 font-bold">•</span> Clear, actionable dashboards</li>
                                 </ul>
                             </div>
                         </div>
 
-                        <!-- Child Experience Screenshots -->
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                            <div class="bg-gray-100 dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800">
-                                <img src="img/Appystore_UI-02 1.png" alt="Child profile with videos, songs, history" class="w-full" />
-                                <div class="p-3 text-xs text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-800/50 border-t border-gray-200 dark:border-gray-800 text-center">
+                        <!-- Child Screenshots -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+                            <div class="bg-cardLight dark:bg-cardDark rounded-2xl overflow-hidden border border-gray-200/60 dark:border-gray-800/60 p-3 shadow-sm">
+                                <img src="img/Appystore_UI-02 1.png" alt="Child profile with videos, songs, history" class="w-full h-auto rounded-xl" />
+                                <div class="p-3 text-xs text-gray-500 dark:text-gray-400 text-center font-medium mt-1">
                                     App landing page
                                 </div>
                             </div>
-                            <div class="bg-gray-100 dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800">
-                                <img src="img/Appystore_UI-23.jpg" alt="Offline content and nursery rhymes" class="w-full" />
-                                <div class="p-3 text-xs text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-800/50 border-t border-gray-200 dark:border-gray-800 text-center">
+                            <div class="bg-cardLight dark:bg-cardDark rounded-2xl overflow-hidden border border-gray-200/60 dark:border-gray-800/60 p-3 shadow-sm">
+                                <img src="img/Appystore_UI-23.jpg" alt="Offline content and nursery rhymes" class="w-full h-auto rounded-xl" />
+                                <div class="p-3 text-xs text-gray-500 dark:text-gray-400 text-center font-medium mt-1">
                                     Offline content, nursery rhymes
                                 </div>
                             </div>
-                            <div class="bg-gray-100 dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800">
-                                <img src="img/Appystore_UI-10.jpg" alt="Rhyme detail with save to offline" class="w-full" />
-                                <div class="p-3 text-xs text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-800/50 border-t border-gray-200 dark:border-gray-800 text-center">
+                            <div class="bg-cardLight dark:bg-cardDark rounded-2xl overflow-hidden border border-gray-200/60 dark:border-gray-800/60 p-3 shadow-sm">
+                                <img src="img/Appystore_UI-10.jpg" alt="Rhyme detail with save to offline" class="w-full h-auto rounded-xl" />
+                                <div class="p-3 text-xs text-gray-500 dark:text-gray-400 text-center font-medium mt-1">
                                     Rhyme detail, "One two buckle my shoe"
                                 </div>
                             </div>
                         </div>
 
                         <!-- Progress Tracking -->
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                            <div class="bg-gray-100 dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800">
-                                <img src="img/Appystore_UI-15 1.png" alt="Child progress dashboard showing Aahana and Amrit" class="w-full" />
-                                <div class="p-3 text-xs text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-800/50 border-t border-gray-200 dark:border-gray-800 text-center">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+                            <div class="bg-cardLight dark:bg-cardDark rounded-2xl overflow-hidden border border-gray-200/60 dark:border-gray-800/60 p-3 shadow-sm">
+                                <img src="img/Appystore_UI-15 1.png" alt="Child progress dashboard showing Aahana and Amrit" class="w-full h-auto rounded-xl" />
+                                <div class="p-3 text-xs text-gray-500 dark:text-gray-400 text-center font-medium mt-1">
                                     Progress dashboard, tracking learning outcomes
                                 </div>
                             </div>
-                            <div class="bg-gray-100 dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800">
-                                <img src="img/Appystore_UI-08 1.png" alt="Video player with save to offline" class="w-full" />
-                                <div class="p-3 text-xs text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-800/50 border-t border-gray-200 dark:border-gray-800 text-center">
+                            <div class="bg-cardLight dark:bg-cardDark rounded-2xl overflow-hidden border border-gray-200/60 dark:border-gray-800/60 p-3 shadow-sm">
+                                <img src="img/Appystore_UI-08 1.png" alt="Video player with save to offline" class="w-full h-auto rounded-xl" />
+                                <div class="p-3 text-xs text-gray-500 dark:text-gray-400 text-center font-medium mt-1">
                                     Video playback, save to offline for learning anywhere
                                 </div>
                             </div>
                         </div>
 
-                        <div class="bg-blue-50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-900/30 rounded-xl p-6">
-                            <h3 class="text-blue-800 dark:text-blue-400 font-bold mb-3">The Design Challenge</h3>
-                            <p class="text-sm text-gray-700 dark:text-gray-300 m-0">
+                        <div class="bg-cardLight dark:bg-cardDark border-l-4 border-indigo-500 rounded-r-2xl p-8 border border-gray-200/60 dark:border-gray-800/60">
+                            <h3 class="text-gray-900 dark:text-white font-bold font-heading mb-3 text-lg">The Design Challenge</h3>
+                            <p class="text-base text-gray-600 dark:text-gray-300 m-0 leading-relaxed">
                                 Transforming large amounts of behavioral and learning data into dashboards that were easy to understand and act upon, for parents who weren't data analysts.
                             </p>
                         </div>
                     </section>
 
                     <!-- Cross-Functional Leadership -->
-                    <section class="mb-16">
-                        <h2 class="text-4xl font-light mb-8">Cross-Functional Leadership</h2>
-                        <div class="prose max-w-none">
+                    <section class="space-y-8">
+                        <h2 class="text-3xl sm:text-4xl font-bold font-heading tracking-tight text-gray-900 dark:text-white">Cross-Functional Leadership</h2>
+                        <div class="prose max-w-none text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
                             <p>
                                 This project extended beyond product design. I coordinated and collaborated across multiple teams and partners:
                             </p>
                         </div>
 
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
-                            <div class="bg-grayLight dark:bg-grayDark rounded-xl p-6 border border-gray-200 dark:border-gray-800">
-                                <h3 class="font-semibold mb-2">📚 Content Development</h3>
-                                <p class="text-sm text-gray-600 dark:text-gray-400">Worked with teachers, curriculum experts, and content partners to define course structures, learning objectives, and educational frameworks.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 my-8">
+                            <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                                <h3 class="font-bold font-heading text-lg mb-3 text-gray-900 dark:text-white">📚 Content Development</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Worked with teachers, curriculum experts, and content partners to define course structures, learning objectives, and educational frameworks.</p>
                             </div>
-                            <div class="bg-grayLight dark:bg-grayDark rounded-xl p-6 border border-gray-200 dark:border-gray-800">
-                                <h3 class="font-semibold mb-2">🤝 Vendor Management</h3>
-                                <p class="text-sm text-gray-600 dark:text-gray-400">Coordinated with external vendors to create original content, source educational materials, and maintain consistency across experiences.</p>
+                            <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                                <h3 class="font-bold font-heading text-lg mb-3 text-gray-900 dark:text-white">🤝 Vendor Management</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Coordinated with external vendors to create original content, source educational materials, and maintain consistency across experiences.</p>
                             </div>
-                            <div class="bg-grayLight dark:bg-grayDark rounded-xl p-6 border border-gray-200 dark:border-gray-800">
-                                <h3 class="font-semibold mb-2">👥 Team Leadership</h3>
-                                <p class="text-sm text-gray-600 dark:text-gray-400">Led 1 Senior Designer and 2 Junior Designers through design reviews, mentorship, quality assurance, and delivery alignment.</p>
+                            <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                                <h3 class="font-bold font-heading text-lg mb-3 text-gray-900 dark:text-white">👥 Team Leadership</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Led 1 Senior Designer and 2 Junior Designers through design reviews, mentorship, quality assurance, and delivery alignment.</p>
                             </div>
                         </div>
 
-                        <div class="bg-green-50 dark:bg-green-900/10 border border-green-100 dark:border-green-900/30 rounded-xl p-6">
-                            <p class="text-sm text-gray-700 dark:text-gray-300 m-0">
-                                <strong class="text-green-700 dark:text-green-400">Team impact:</strong> One designer progressed into a Design Lead role; two designers were promoted to Senior Designer positions.
+                        <div class="bg-emerald-50/60 dark:bg-emerald-950/20 border border-emerald-200/60 dark:border-emerald-900/40 rounded-2xl p-8 minimal-card">
+                            <p class="text-base text-gray-600 dark:text-gray-300 m-0 leading-relaxed">
+                                <strong class="text-emerald-700 dark:text-emerald-400">Team impact:</strong> One designer progressed into a Design Lead role; two designers were promoted to Senior Designer positions.
                             </p>
                         </div>
                     </section>
 
                     <!-- MVP Launch -->
-                    <section class="mb-16">
-                        <h2 class="text-4xl font-light mb-8">Launching the MVP</h2>
-                        <div class="prose max-w-none">
+                    <section class="space-y-8">
+                        <h2 class="text-3xl sm:text-4xl font-bold font-heading tracking-tight text-gray-900 dark:text-white">Launching the MVP</h2>
+                        <div class="prose max-w-none text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
                             <p>
                                 To validate the solution before scaling, we launched an MVP with a focused group of <strong>50 families</strong>. The goal was to understand engagement, learning outcomes, parent satisfaction, and product-market fit.
                             </p>
                         </div>
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
-                            <div class="bg-pink-50 dark:bg-pink-900/10 rounded-xl p-6 border border-pink-200 dark:border-pink-800/30">
-                                <div class="text-2xl mb-2">📊</div>
-                                <h4 class="font-semibold">What We Measured</h4>
-                                <ul class="text-sm text-gray-600 dark:text-gray-400 mt-2 space-y-1">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 my-8">
+                            <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                                <div class="text-3xl mb-3">📊</div>
+                                <h4 class="font-bold font-heading text-lg mb-3 text-gray-900 dark:text-white">What We Measured</h4>
+                                <ul class="text-sm sm:text-base text-gray-600 dark:text-gray-300 space-y-3 leading-relaxed">
                                     <li>• Engagement &amp; daily active usage</li>
                                     <li>• Learning outcomes &amp; progress</li>
                                     <li>• Parent satisfaction &amp; feedback</li>
                                     <li>• Subscription interest &amp; willingness to pay</li>
                                 </ul>
                             </div>
-                            <div class="bg-green-50 dark:bg-green-900/10 rounded-xl p-6 border border-green-200 dark:border-green-800/30">
-                                <div class="text-2xl mb-2">✅</div>
-                                <h4 class="font-semibold">What We Observed</h4>
-                                <ul class="text-sm text-gray-600 dark:text-gray-400 mt-2 space-y-1">
+                            <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                                <div class="text-3xl mb-3">✅</div>
+                                <h4 class="font-bold font-heading text-lg mb-3 text-gray-900 dark:text-white">What We Observed</h4>
+                                <ul class="text-sm sm:text-base text-gray-600 dark:text-gray-300 space-y-3 leading-relaxed">
                                     <li>• Strong engagement across age groups</li>
                                     <li>• Positive parent feedback</li>
                                     <li>• High perceived educational value</li>
@@ -535,21 +558,21 @@
                             </div>
                         </div>
 
-                        <div class="bg-amber-50 dark:bg-amber-900/10 border border-amber-100 dark:border-amber-900/30 rounded-xl p-6">
-                            <p class="text-sm text-gray-700 dark:text-gray-300 m-0">
+                        <div class="bg-cardLight dark:bg-cardDark border border-gray-200/60 dark:border-gray-800/60 rounded-2xl p-8">
+                            <p class="text-base text-gray-600 dark:text-gray-300 m-0 leading-relaxed">
                                 <strong>Outcome:</strong> Based on the success of the pilot, the product moved into broader rollout. A subscription model was introduced to support long-term growth.
                             </p>
                         </div>
                     </section>
 
                     <!-- The Retention Problem -->
-                    <section class="mb-16">
-                        <h2 class="text-4xl font-light mb-8">When Success Revealed a New Problem</h2>
-                        <div class="prose max-w-none">
+                    <section class="space-y-8">
+                        <h2 class="text-3xl sm:text-4xl font-bold font-heading tracking-tight text-gray-900 dark:text-white">When Success Revealed a New Problem</h2>
+                        <div class="prose max-w-none text-gray-600 dark:text-gray-300 space-y-6 text-base sm:text-lg leading-relaxed">
                             <p>
                                 Although engagement and adoption were encouraging, <strong>retention began declining after subscription</strong>. This created an important question:
                             </p>
-                            <blockquote class="text-xl italic text-gray-600 dark:text-gray-400 border-l-4 border-pink-500 pl-6 my-6">
+                            <blockquote class="text-xl font-heading font-semibold italic text-indigo-600 dark:text-indigo-400 border-l-4 border-indigo-500 pl-6 my-8">
                                 Why were users leaving despite positive feedback?
                             </blockquote>
                             <p>
@@ -557,59 +580,59 @@
                             </p>
                         </div>
 
-                        <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800 my-8">
-                            <h3 class="text-2xl font-semibold mb-4">Follow-up Interviews Revealed an Unexpected Insight</h3>
-                            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 sm:p-10 border border-gray-200/60 dark:border-gray-800/60 minimal-card my-8 space-y-4">
+                            <h3 class="text-xl font-bold font-heading text-gray-900 dark:text-white mb-4">Follow-up Interviews Revealed an Unexpected Insight</h3>
+                            <p class="text-base text-gray-600 dark:text-gray-300 leading-relaxed">
                                 Parents consistently told us: <strong>"The content is good."</strong>
                             </p>
-                            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                            <p class="text-base text-gray-600 dark:text-gray-300 leading-relaxed">
                                 However, many also shared: <strong>"Similar videos already exist on YouTube."</strong>
                             </p>
-                            <p class="text-gray-600 dark:text-gray-400">
+                            <p class="text-base text-gray-600 dark:text-gray-300 leading-relaxed">
                                 The content itself was not enough to create long-term differentiation.
                             </p>
                         </div>
 
-                        <div class="bg-red-50 dark:bg-red-900/10 border border-red-200 dark:border-red-800/30 rounded-xl p-6">
-                            <h3 class="text-red-800 dark:text-red-400 font-bold mb-2">Another Recurring Theme</h3>
-                            <p class="text-sm text-gray-700 dark:text-gray-300 m-0">
+                        <div class="bg-rose-50/60 dark:bg-rose-950/20 border border-rose-200/60 dark:border-rose-900/40 rounded-2xl p-8 minimal-card">
+                            <h3 class="text-rose-700 dark:text-rose-400 font-bold font-heading mb-3 text-lg">Another Recurring Theme</h3>
+                            <p class="text-base text-gray-600 dark:text-gray-300 m-0 leading-relaxed">
                                 Parents wanted their children to spend <strong>less time on screens</strong>. They appreciated educational content, but they also wanted opportunities for physical activity and offline learning.
                             </p>
-                            <p class="text-sm text-gray-700 dark:text-gray-300 mt-3 m-0 font-semibold text-red-700 dark:text-red-300">
+                            <p class="text-base text-rose-700 dark:text-rose-400 mt-4 m-0 font-bold">
                                 This became the breakthrough insight.
                             </p>
                         </div>
                     </section>
 
                     <!-- The Strategic Reframe -->
-                    <section class="mb-16">
-                        <h2 class="text-4xl font-light mb-8">The Strategic Reframe</h2>
-                        <div class="prose max-w-none">
+                    <section class="space-y-8">
+                        <h2 class="text-3xl sm:text-4xl font-bold font-heading tracking-tight text-gray-900 dark:text-white">The Strategic Reframe</h2>
+                        <div class="prose max-w-none text-gray-600 dark:text-gray-300 space-y-6 text-base sm:text-lg leading-relaxed">
                             <p>
                                 The problem was not content quality. The problem was that we were still competing as a video platform.
                             </p>
-                            <p class="text-xl font-semibold text-purple-600 dark:text-purple-400">
+                            <p class="text-xl font-bold font-heading hero-gradient">
                                 If we wanted to create unique value, learning needed to continue beyond the screen.
                             </p>
                         </div>
 
-                        <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl p-8 border border-purple-200 dark:border-purple-800/30 my-8">
-                            <h3 class="text-2xl font-semibold mb-4">💡 The Worksheet Experiment</h3>
-                            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 sm:p-10 border border-gray-200/60 dark:border-gray-800/60 minimal-card my-8">
+                            <h3 class="text-2xl font-bold font-heading text-gray-900 dark:text-white mb-6">💡 The Worksheet Experiment</h3>
+                            <p class="text-base text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
                                 I proposed introducing <strong>printable worksheets</strong> connected to educational videos.
                             </p>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
                                 <div>
-                                    <h4 class="font-semibold text-purple-700 dark:text-purple-300">For Children</h4>
-                                    <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-1">
+                                    <h4 class="font-bold font-heading text-lg text-gray-900 dark:text-white mb-3">For Children</h4>
+                                    <ul class="text-sm sm:text-base text-gray-600 dark:text-gray-300 space-y-3 leading-relaxed">
                                         <li>• Watch educational content</li>
                                         <li>• Practice concepts offline</li>
                                         <li>• Reinforce learning through physical activities</li>
                                     </ul>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-pink-700 dark:text-pink-300">For Parents</h4>
-                                    <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-1">
+                                    <h4 class="font-bold font-heading text-lg text-gray-900 dark:text-white mb-3">For Parents</h4>
+                                    <ul class="text-sm sm:text-base text-gray-600 dark:text-gray-300 space-y-3 leading-relaxed">
                                         <li>• See tangible learning outcomes</li>
                                         <li>• Reduce screen dependency</li>
                                         <li>• Participate more actively in learning</li>
@@ -620,19 +643,19 @@
                     </section>
 
                     <!-- Influencing Leadership -->
-                    <section class="mb-16">
-                        <h2 class="text-4xl font-light mb-8">Influencing Leadership</h2>
-                        <div class="prose max-w-none">
+                    <section class="space-y-8">
+                        <h2 class="text-3xl sm:text-4xl font-bold font-heading tracking-tight text-gray-900 dark:text-white">Influencing Leadership</h2>
+                        <div class="prose max-w-none text-gray-600 dark:text-gray-300 space-y-6 text-base sm:text-lg leading-relaxed">
                             <p>
                                 The proposal initially received pushback. Leadership was focused on improving retention while minimizing investment and operational complexity.
                             </p>
-                            <div class="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-6 my-6">
-                                <h3 class="text-amber-800 dark:text-amber-300 font-semibold mb-3">Concerns Raised</h3>
-                                <ul class="space-y-2">
-                                    <li class="flex items-start"><span class="mr-3">•</span> Production costs</li>
-                                    <li class="flex items-start"><span class="mr-3">•</span> Logistics &amp; distribution</li>
-                                    <li class="flex items-start"><span class="mr-3">•</span> Scalability</li>
-                                    <li class="flex items-start"><span class="mr-3">•</span> Uncertain impact on retention</li>
+                            <div class="bg-cardLight dark:bg-cardDark border border-gray-200/60 dark:border-gray-800/60 rounded-2xl md:rounded-3xl p-8 my-6 minimal-card">
+                                <h3 class="text-gray-900 dark:text-white font-bold font-heading mb-4 text-lg">Concerns Raised</h3>
+                                <ul class="space-y-3 text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+                                    <li class="flex items-start"><span class="mr-3 text-indigo-500 font-bold">•</span> Production costs</li>
+                                    <li class="flex items-start"><span class="mr-3 text-indigo-500 font-bold">•</span> Logistics &amp; distribution</li>
+                                    <li class="flex items-start"><span class="mr-3 text-indigo-500 font-bold">•</span> Scalability</li>
+                                    <li class="flex items-start"><span class="mr-3 text-indigo-500 font-bold">•</span> Uncertain impact on retention</li>
                                 </ul>
                             </div>
                             <p>
@@ -642,126 +665,126 @@
                     </section>
 
                     <!-- Testing the Hypothesis -->
-                    <section class="mb-16">
-                        <h2 class="text-4xl font-light mb-8">Testing the Hypothesis</h2>
-                        <div class="prose max-w-none">
+                    <section class="space-y-8">
+                        <h2 class="text-3xl sm:text-4xl font-bold font-heading tracking-tight text-gray-900 dark:text-white">Testing the Hypothesis</h2>
+                        <div class="prose max-w-none text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
                             <p>
                                 We launched a small experiment with approximately <strong>20 users</strong>.
                             </p>
                         </div>
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-8">
-                            <div>
-                                <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-3">To Reduce Risk &amp; Cost</h3>
-                                <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-                                    <li class="flex items-start"><span class="mr-2">•</span> Worksheets were produced internally</li>
-                                    <li class="flex items-start"><span class="mr-2">•</span> Distribution was managed manually</li>
-                                    <li class="flex items-start"><span class="mr-2">•</span> Success measured through retention and engagement</li>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 my-8">
+                            <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                                <h3 class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-4">To Reduce Risk &amp; Cost</h3>
+                                <ul class="space-y-3 text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+                                    <li class="flex items-start"><span class="mr-2.5 text-indigo-500">•</span> Worksheets were produced internally</li>
+                                    <li class="flex items-start"><span class="mr-2.5 text-indigo-500">•</span> Distribution was managed manually</li>
+                                    <li class="flex items-start"><span class="mr-2.5 text-indigo-500">•</span> Success measured through retention and engagement</li>
                                 </ul>
                             </div>
-                            <div>
-                                <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-3">The Objective</h3>
-                                <p class="text-gray-600 dark:text-gray-400">
+                            <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                                <h3 class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-4">The Objective</h3>
+                                <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
                                     Would offline learning increase perceived value and improve retention?
                                 </p>
                             </div>
                         </div>
 
                         <!-- Results -->
-                        <div class="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-2xl p-8 border border-green-200 dark:border-green-800/30 my-8">
-                            <h3 class="text-2xl font-semibold text-green-700 dark:text-green-300 mb-4">📈 Results Exceeded Expectations</h3>
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 sm:p-10 border border-gray-200/60 dark:border-gray-800/60 minimal-card my-8">
+                            <h3 class="text-2xl font-bold font-heading text-gray-900 dark:text-white mb-6">📈 Results Exceeded Expectations</h3>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
                                 <div class="text-center">
-                                    <div class="text-4xl font-bold text-green-600 dark:text-green-400">70%</div>
-                                    <div class="text-sm text-gray-600 dark:text-gray-400">Retention among worksheet recipients</div>
+                                    <div class="text-4xl font-bold font-heading hero-gradient mb-2">70%</div>
+                                    <div class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Retention among worksheet recipients</div>
                                 </div>
                                 <div class="text-center">
-                                    <div class="text-4xl font-bold text-purple-600 dark:text-purple-400">⬆</div>
-                                    <div class="text-sm text-gray-600 dark:text-gray-400">Significantly higher than baseline</div>
+                                    <div class="text-4xl font-bold font-heading hero-gradient mb-2">⬆</div>
+                                    <div class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Significantly higher than baseline</div>
                                 </div>
                                 <div class="text-center">
-                                    <div class="text-4xl font-bold text-amber-600 dark:text-amber-400">📊</div>
-                                    <div class="text-sm text-gray-600 dark:text-gray-400">Parents reported higher educational value &amp; satisfaction</div>
+                                    <div class="text-4xl font-bold font-heading hero-gradient mb-2">📊</div>
+                                    <div class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Parents reported higher educational value &amp; satisfaction</div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="bg-blue-50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-900/30 rounded-xl p-6">
-                            <p class="text-sm text-gray-700 dark:text-gray-300 m-0">
+                        <div class="bg-cardLight dark:bg-cardDark border-l-4 border-indigo-500 rounded-r-2xl p-8 border border-gray-200/60 dark:border-gray-800/60">
+                            <p class="text-base text-gray-600 dark:text-gray-300 m-0 leading-relaxed">
                                 <strong>The experiment validated the hypothesis.</strong> Offline learning wasn't just a nice-to-have, it was the differentiator that parents were looking for.
                             </p>
                         </div>
                     </section>
 
                     <!-- Scaling -->
-                    <section class="mb-16">
-                        <h2 class="text-4xl font-light mb-8">Scaling the Solution</h2>
-                        <div class="prose max-w-none">
+                    <section class="space-y-8">
+                        <h2 class="text-3xl sm:text-4xl font-bold font-heading tracking-tight text-gray-900 dark:text-white">Scaling the Solution</h2>
+                        <div class="prose max-w-none text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
                             <p>
                                 To minimize operational risk, I recommended a <strong>phased rollout strategy</strong>, expanding city-by-city before committing to a national launch.
                             </p>
                         </div>
 
-                        <div class="phase-timeline my-8">
+                        <div class="phase-timeline my-8 space-y-6">
                             <div class="phase-item">
-                                <h4 class="font-semibold text-lg">Phase 1: City-by-City Rollout</h4>
-                                <p class="text-sm text-gray-600 dark:text-gray-400">Expanded gradually to test logistics and gather feedback at each stage.</p>
+                                <h4 class="font-bold font-heading text-lg text-gray-900 dark:text-white">Phase 1: City-by-City Rollout</h4>
+                                <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 mt-2 leading-relaxed">Expanded gradually to test logistics and gather feedback at each stage.</p>
                             </div>
                             <div class="phase-item">
-                                <h4 class="font-semibold text-lg">Phase 2: Subscription Model Adjustment</h4>
-                                <p class="text-sm text-gray-600 dark:text-gray-400">Bundled worksheet experiences alongside digital content.</p>
+                                <h4 class="font-bold font-heading text-lg text-gray-900 dark:text-white">Phase 2: Subscription Model Adjustment</h4>
+                                <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 mt-2 leading-relaxed">Bundled worksheet experiences alongside digital content.</p>
                             </div>
                             <div class="phase-item">
-                                <h4 class="font-semibold text-lg">Phase 3: Resource Allocation</h4>
-                                <p class="text-sm text-gray-600 dark:text-gray-400">Additional design resources and new content resources approved as confidence grew.</p>
+                                <h4 class="font-bold font-heading text-lg text-gray-900 dark:text-white">Phase 3: Resource Allocation</h4>
+                                <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 mt-2 leading-relaxed">Additional design resources and new content resources approved as confidence grew.</p>
                             </div>
                             <div class="phase-item">
-                                <h4 class="font-semibold text-lg">Phase 4: National Launch</h4>
-                                <p class="text-sm text-gray-600 dark:text-gray-400">The experience was launched across India as a core part of the product roadmap.</p>
+                                <h4 class="font-bold font-heading text-lg text-gray-900 dark:text-white">Phase 4: National Launch</h4>
+                                <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 mt-2 leading-relaxed">The experience was launched across India as a core part of the product roadmap.</p>
                             </div>
                         </div>
 
-                        <div class="bg-gray-100 dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 my-8">
-                            <img src="img/appy_worksheets.png" alt="Printable worksheets showing numbers 1-134 for offline learning" class="w-full" />
-                            <div class="p-4 text-sm text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-800/50 border-t border-gray-200 dark:border-gray-800">
+                        <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl overflow-hidden border border-gray-200/60 dark:border-gray-800/60 p-4 sm:p-6 my-8 shadow-sm">
+                            <img src="img/appy_worksheets.png" alt="Printable worksheets showing numbers 1-134 for offline learning" class="w-full h-auto rounded-xl md:rounded-2xl" />
+                            <div class="p-4 text-xs sm:text-sm text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-900/50 border-t border-gray-200/60 dark:border-gray-800/60 rounded-b-xl mt-4">
                                 Worksheets became a tangible extension of the digital learning experience, and a key differentiator.
                             </div>
                         </div>
                     </section>
 
                     <!-- Business Impact -->
-                    <section class="mb-16">
-                        <h2 class="text-4xl font-light mb-8">Business Impact</h2>
+                    <section class="space-y-8">
+                        <h2 class="text-3xl sm:text-4xl font-bold font-heading tracking-tight text-gray-900 dark:text-white">Business Impact</h2>
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="metric-card rounded-2xl p-6">
-                                <h4 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">📦 Product Impact</h4>
-                                <ul class="text-sm text-gray-600 dark:text-gray-400 mt-2 space-y-1">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                            <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                                <h4 class="text-base font-bold font-heading text-gray-900 dark:text-white mb-4">📦 Product Impact</h4>
+                                <ul class="text-sm sm:text-base text-gray-600 dark:text-gray-300 space-y-3 leading-relaxed">
                                     <li>• Improved retention significantly</li>
                                     <li>• Increased parent satisfaction</li>
                                     <li>• Stronger perceived educational value</li>
                                     <li>• More differentiated offering</li>
                                 </ul>
                             </div>
-                            <div class="metric-card rounded-2xl p-6">
-                                <h4 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">📈 Business Impact</h4>
-                                <ul class="text-sm text-gray-600 dark:text-gray-400 mt-2 space-y-1">
+                            <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                                <h4 class="text-base font-bold font-heading text-gray-900 dark:text-white mb-4">📈 Business Impact</h4>
+                                <ul class="text-sm sm:text-base text-gray-600 dark:text-gray-300 space-y-3 leading-relaxed">
                                     <li>• National product rollout</li>
                                     <li>• Expanded subscription offering</li>
                                     <li>• Increased investment in content development</li>
                                     <li>• New roadmap initiatives approved</li>
                                 </ul>
                             </div>
-                            <div class="metric-card rounded-2xl p-6">
-                                <h4 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">🏢 Organizational Impact</h4>
-                                <ul class="text-sm text-gray-600 dark:text-gray-400 mt-2 space-y-1">
+                            <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                                <h4 class="text-base font-bold font-heading text-gray-900 dark:text-white mb-4">🏢 Organizational Impact</h4>
+                                <ul class="text-sm sm:text-base text-gray-600 dark:text-gray-300 space-y-3 leading-relaxed">
                                     <li>• Research became a stronger driver of decision-making</li>
                                     <li>• Leadership gained confidence in experimentation-led development</li>
                                 </ul>
                             </div>
-                            <div class="metric-card rounded-2xl p-6">
-                                <h4 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">👥 Team Impact</h4>
-                                <ul class="text-sm text-gray-600 dark:text-gray-400 mt-2 space-y-1">
+                            <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                                <h4 class="text-base font-bold font-heading text-gray-900 dark:text-white mb-4">👥 Team Impact</h4>
+                                <ul class="text-sm sm:text-base text-gray-600 dark:text-gray-300 space-y-3 leading-relaxed">
                                     <li>• 1 designer progressed to Design Lead</li>
                                     <li>• 2 designers promoted to Senior Designers</li>
                                 </ul>
@@ -770,169 +793,163 @@
                     </section>
 
                     <!-- What This Project Demonstrates -->
-                    <section class="mb-16">
-                        <h2 class="text-4xl font-light mb-8">Project Highlights</h2>
-                        <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800">
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                    <section class="space-y-8">
+                        <h2 class="text-3xl sm:text-4xl font-bold font-heading tracking-tight text-gray-900 dark:text-white">Project Highlights</h2>
+                        <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm sm:text-base">
                                 <div class="flex items-start">
-                                    <span class="mr-3 text-purple-600 dark:text-purple-400">✓</span>
+                                    <span class="mr-3 text-indigo-500 font-bold">✓</span>
                                     <span>End-to-end product ownership</span>
                                 </div>
                                 <div class="flex items-start">
-                                    <span class="mr-3 text-purple-600 dark:text-purple-400">✓</span>
+                                    <span class="mr-3 text-indigo-500 font-bold">✓</span>
                                     <span>User research leadership</span>
                                 </div>
                                 <div class="flex items-start">
-                                    <span class="mr-3 text-purple-600 dark:text-purple-400">✓</span>
+                                    <span class="mr-3 text-indigo-500 font-bold">✓</span>
                                     <span>Product strategy development</span>
                                 </div>
                                 <div class="flex items-start">
-                                    <span class="mr-3 text-purple-600 dark:text-purple-400">✓</span>
+                                    <span class="mr-3 text-indigo-500 font-bold">✓</span>
                                     <span>Cross-functional collaboration</span>
                                 </div>
                                 <div class="flex items-start">
-                                    <span class="mr-3 text-purple-600 dark:text-purple-400">✓</span>
+                                    <span class="mr-3 text-indigo-500 font-bold">✓</span>
                                     <span>Stakeholder management</span>
                                 </div>
                                 <div class="flex items-start">
-                                    <span class="mr-3 text-purple-600 dark:text-purple-400">✓</span>
+                                    <span class="mr-3 text-indigo-500 font-bold">✓</span>
                                     <span>Experimentation and validation</span>
                                 </div>
                                 <div class="flex items-start">
-                                    <span class="mr-3 text-purple-600 dark:text-purple-400">✓</span>
+                                    <span class="mr-3 text-indigo-500 font-bold">✓</span>
                                     <span>Designing for multiple user groups</span>
                                 </div>
                                 <div class="flex items-start">
-                                    <span class="mr-3 text-purple-600 dark:text-purple-400">✓</span>
+                                    <span class="mr-3 text-indigo-500 font-bold">✓</span>
                                     <span>Team leadership and mentorship</span>
                                 </div>
                                 <div class="flex items-start">
-                                    <span class="mr-3 text-purple-600 dark:text-purple-400">✓</span>
+                                    <span class="mr-3 text-indigo-500 font-bold">✓</span>
                                     <span>Retention optimization</span>
                                 </div>
                                 <div class="flex items-start">
-                                    <span class="mr-3 text-purple-600 dark:text-purple-400">✓</span>
+                                    <span class="mr-3 text-indigo-500 font-bold">✓</span>
                                     <span>Business impact through design</span>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl p-8 border border-purple-200 dark:border-purple-800/30 mt-8">
-                            <p class="text-lg text-gray-700 dark:text-gray-300 italic">
+                        <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 sm:p-10 border border-gray-200/60 dark:border-gray-800/60 minimal-card mt-8">
+                            <p class="text-base sm:text-lg text-gray-600 dark:text-gray-300 italic leading-relaxed">
                                 "Most importantly, this project demonstrates how research can uncover opportunities that fundamentally reshape a product strategy. The biggest breakthrough wasn't improving the video experience, it was recognizing that parents wanted learning <strong>beyond the screen</strong> and turning that insight into a scalable product strategy."
                             </p>
                         </div>
                     </section>
-
-                    <!-- Back to Portfolio -->
-                    <div class="pt-8 border-t border-gray-200 dark:border-gray-800">
-                        <div class="flex justify-between items-center">
-                            <a href="index.html" class="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors font-medium">
-                                Back to Portfolio
-                            </a>
-                        </div>
-                    </div>
                 </div>
 
-                <!-- Sidebar -->
-                <div class="lg:col-span-1">
-                    <div class="sticky-sidebar">
+                <!-- Sidebar Column -->
+                <div class="lg:col-span-1 space-y-8">
+                    <div class="sticky-sidebar space-y-8">
 
                         <!-- Strategic Weight -->
-                        <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800 mb-8">
-                            <h3 class="text-lg font-semibold mb-6">Strategic Weight</h3>
-                            <ul class="space-y-4">
+                        <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                            <h3 class="text-xl font-bold font-heading mb-6 text-gray-900 dark:text-white">Strategic Weight</h3>
+                            <ul class="space-y-4 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                                 <li class="flex items-start">
-                                    <span class="mr-3 text-pink-600 dark:text-pink-400">✓</span>
+                                    <span class="mr-3 text-indigo-500 font-bold">✓</span>
                                     <span>Reframed the problem from "content quality" to "trust and differentiation"</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <span class="mr-3 text-pink-600 dark:text-pink-400">✓</span>
+                                    <span class="mr-3 text-indigo-500 font-bold">✓</span>
                                     <span>Led research that uncovered the offline learning opportunity</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <span class="mr-3 text-pink-600 dark:text-pink-400">✓</span>
+                                    <span class="mr-3 text-indigo-500 font-bold">✓</span>
                                     <span>Designed for two distinct user groups with different needs</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <span class="mr-3 text-pink-600 dark:text-pink-400">✓</span>
+                                    <span class="mr-3 text-indigo-500 font-bold">✓</span>
                                     <span>Influenced leadership through experimentation, not persuasion</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <span class="mr-3 text-pink-600 dark:text-pink-400">✓</span>
+                                    <span class="mr-3 text-indigo-500 font-bold">✓</span>
                                     <span>Scaled a validated concept into a national product</span>
                                 </li>
                             </ul>
                         </div>
 
                         <!-- Key Insight -->
-                        <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800 mb-8">
-                            <h3 class="text-lg font-semibold mb-6">Key Insight</h3>
-                            <p class="text-sm italic text-gray-500">
+                        <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                            <h3 class="text-xl font-bold font-heading mb-4 text-gray-900 dark:text-white">Key Insight</h3>
+                            <p class="text-sm italic text-gray-500 dark:text-gray-400 leading-relaxed">
                                 "Parents weren't looking for another video platform. They were looking for trust, and for learning that didn't end when the screen turned off."
                             </p>
                         </div>
 
                         <!-- The Pivot -->
-                        <div class="bg-gradient-to-br from-pink-50 to-purple-50 dark:from-pink-900/20 dark:to-purple-900/20 rounded-2xl p-8 border border-pink-200 dark:border-pink-800/30 mb-8">
-                            <h3 class="text-lg font-semibold mb-4 text-purple-700 dark:text-purple-300">🔄 The Pivot</h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">
-                                <span class="font-bold text-pink-600 dark:text-pink-400">From:</span> Video platform<br />
-                                <span class="font-bold text-purple-600 dark:text-purple-400">To:</span> Learning ecosystem with offline extension
+                        <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                            <h3 class="text-xl font-bold font-heading mb-4 text-gray-900 dark:text-white">🔄 The Pivot</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                                <span class="font-bold text-gray-900 dark:text-white">From:</span> Video platform<br />
+                                <span class="font-bold hero-gradient">To:</span> Learning ecosystem with offline extension
                             </p>
-                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-3">
+                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-4 leading-relaxed">
                                 The shift that changed retention from declining to 70% improvement.
                             </p>
                         </div>
 
                         <!-- Tools & Methods -->
-                        <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800 mb-8">
-                            <h3 class="text-lg font-semibold mb-6">Tools &amp; Methods</h3>
+                        <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                            <h3 class="text-xl font-bold font-heading mb-6 text-gray-900 dark:text-white">Tools &amp; Methods</h3>
                             <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm">User Research</span>
-                                <span class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm">Persona Definition</span>
-                                <span class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm">Journey Mapping</span>
-                                <span class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm">Rapid Prototyping</span>
-                                <span class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm">User Testing</span>
-                                <span class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm">Figma</span>
-                                <span class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm">Experimentation</span>
-                                <span class="px-3 py-2 bg-light dark:bg-dark border border-gray-200 dark:border-gray-800 rounded-lg text-sm">Cross-functional Leadership</span>
+                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">User Research</span>
+                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">Persona Definition</span>
+                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">Journey Mapping</span>
+                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">Rapid Prototyping</span>
+                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">User Testing</span>
+                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">Figma</span>
+                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">Experimentation</span>
+                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">Cross-functional Leadership</span>
                             </div>
                         </div>
 
                         <!-- Project Scale -->
-                        <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800">
-                            <h3 class="text-lg font-semibold mb-6">Project Scale</h3>
+                        <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                            <h3 class="text-xl font-bold font-heading mb-6 text-gray-900 dark:text-white">Project Scale</h3>
                             <div class="space-y-4">
                                 <div>
-                                    <div class="text-sm text-gray-500 dark:text-gray-400">Core Team</div>
-                                    <div class="text-2xl font-bold mt-1">Design + PM + Eng + Research + Content</div>
+                                    <div class="text-xs text-gray-400 font-semibold uppercase tracking-wider">Core Team</div>
+                                    <div class="text-lg font-bold font-heading text-gray-900 dark:text-white mt-1">Design + PM + Eng + Research + Content</div>
                                 </div>
                                 <div>
-                                    <div class="text-sm text-gray-500 dark:text-gray-400">Primary Users</div>
-                                    <div class="text-2xl font-bold mt-1">Children 1 - 9 + Parents</div>
+                                    <div class="text-xs text-gray-400 font-semibold uppercase tracking-wider">Primary Users</div>
+                                    <div class="text-lg font-bold font-heading text-gray-900 dark:text-white mt-1">Children 1 - 9 + Parents</div>
                                 </div>
                                 <div>
-                                    <div class="text-sm text-gray-500 dark:text-gray-400">Design Team</div>
-                                    <div class="text-2xl font-bold mt-1">1 Lead + 1 Senior + 2 Juniors</div>
+                                    <div class="text-xs text-gray-400 font-semibold uppercase tracking-wider">Design Team</div>
+                                    <div class="text-lg font-bold font-heading text-gray-900 dark:text-white mt-1">1 Lead + 1 Senior + 2 Juniors</div>
                                 </div>
                                 <div>
-                                    <div class="text-sm text-gray-500 dark:text-gray-400">Rollout</div>
-                                    <div class="text-2xl font-bold mt-1">MVP → City-by-City → National</div>
+                                    <div class="text-xs text-gray-400 font-semibold uppercase tracking-wider">Rollout</div>
+                                    <div class="text-lg font-bold font-heading text-gray-900 dark:text-white mt-1">MVP → City-by-City → National</div>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Mentorship Note -->
-                        <div class="bg-grayLight dark:bg-grayDark rounded-2xl p-8 border border-gray-200 dark:border-gray-800 mt-8">
-                            <h3 class="text-lg font-semibold mb-4">🧑‍🏫 Mentorship Impact</h3>
-                            <div class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                        <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                            <h3 class="text-xl font-bold font-heading mb-4 text-gray-900 dark:text-white">🧑‍🏫 Mentorship Impact</h3>
+                            <div class="space-y-2 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                                 <p>Led a team of 3 designers through the full product lifecycle.</p>
-                                <p class="text-green-600 dark:text-green-400 font-semibold">→ 1 promoted to Design Lead</p>
-                                <p class="text-green-600 dark:text-green-400 font-semibold">→ 2 promoted to Senior Designers</p>
+                                <p class="text-emerald-600 dark:text-emerald-400 font-semibold">→ 1 promoted to Design Lead</p>
+                                <p class="text-emerald-600 dark:text-emerald-400 font-semibold">→ 2 promoted to Senior Designers</p>
                             </div>
                         </div>
 
+                        <a href="portfolio.html" class="inline-flex items-center justify-center w-full px-6 py-3.5 rounded-xl bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-semibold hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors shadow-sm">
+                            ← Back to All Projects
+                        </a>
                     </div>
                 </div>
 
@@ -942,81 +959,61 @@
     </main>
 
     <!-- Footer -->
-    <footer class="py-12 border-t border-gray-200 dark:border-gray-800 mt-20">
-        <div class="max-w-7xl mx-auto px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+        <!-- Footer -->
+    <footer class="py-12 border-t border-gray-200/60 dark:border-gray-800/60 transition-colors mt-20 md:mt-28 relative z-10" aria-label="Site footer">
+        <div class="max-w-6xl mx-auto px-6 sm:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
                 <div>
-                    <div class="text-2xl font-semibold mb-2">Jadvvinder Daudhria</div>
-                    <p class="text-gray-600 dark:text-gray-400">Strategic Senior Product Designer</p>
+                    <div class="text-lg font-bold font-heading text-gray-900 dark:text-white">J. Daudhria</div>
+                    <p class="text-xs text-gray-600 dark:text-gray-400 mt-1">Lead Product Designer & Systems Architect</p>
                 </div>
-                <div class="flex items-center space-x-6">
-                    <div class="relative group">
-                        <a href="https://www.linkedin.com/in/jadvvinder-daudhria-541a3111/" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg inline-block" aria-label="LinkedIn Profile">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                            </svg>
-                        </a>
-                        <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1.5 bg-gray-900 dark:bg-gray-700 text-white text-xs font-medium rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
-                            My LinkedIn Profile
-                            <div class="absolute top-full left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-700 rotate-45"></div>
-                        </div>
-                    </div>
-                    <div class="relative group">
-                        <a href="mailto:j.daudhria@gmail.com" class="text-gray-600 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition-colors p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg inline-block" aria-label="Send Email">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                            </svg>
-                        </a>
-                        <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1.5 bg-gray-900 dark:bg-gray-700 text-white text-xs font-medium rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
-                            Email me
-                            <div class="absolute top-full left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-700 rotate-45"></div>
-                        </div>
-                    </div>
-                    <div class="relative group">
-                        <a href="path/to/your-resume.pdf" download="Jadvindder_Daudhria_Resume.pdf" class="text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition-colors p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg inline-block" aria-label="Download Resume">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                            </svg>
-                        </a>
-                        <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1.5 bg-gray-900 dark:bg-gray-700 text-white text-xs font-medium rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
-                            Download my resume
-                            <div class="absolute top-full left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-900 dark:bg-gray-700 rotate-45"></div>
-                        </div>
-                    </div>
+                
+                <div class="flex items-center space-x-6 text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-medium">
+                    <a href="https://www.linkedin.com/in/jadvinderd" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">LinkedIn</a>
+                    <span aria-hidden="true">•</span>
+                    <a href="https://www.behance.net/jd132" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Behance</a>
+                    <span aria-hidden="true">•</span>
+                    <a href="mailto:j.daudhria@gmail.com" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Email</a>
                 </div>
+            </div>
+            
+            <div class="mt-8 pt-6 border-t border-gray-100 dark:border-gray-800/40 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400 dark:text-gray-500 gap-3">
+                <p>© 2026 J. Daudhria. All rights reserved.</p>
+                <p>Designed for accessibility and performance.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Theme Toggle
         const themeToggle = document.getElementById("themeToggle");
         const sunIcon = document.getElementById("sunIcon");
         const moonIcon = document.getElementById("moonIcon");
 
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
         const currentTheme = localStorage.getItem("theme");
 
-        if (currentTheme === "dark") {
+        if (currentTheme === "dark" || (!currentTheme && prefersDarkScheme.matches)) {
             document.documentElement.classList.add("dark");
-            moonIcon.classList.remove("hidden");
+            if (sunIcon) sunIcon.classList.remove("hidden");
         } else {
-            sunIcon.classList.remove("hidden");
+            if (moonIcon) moonIcon.classList.remove("hidden");
         }
 
-        themeToggle.addEventListener("click", () => {
-            document.documentElement.classList.toggle("dark");
+        if (themeToggle) {
+            themeToggle.addEventListener("click", () => {
+                document.documentElement.classList.toggle("dark");
 
-            if (document.documentElement.classList.contains("dark")) {
-                localStorage.setItem("theme", "dark");
-                sunIcon.classList.add("hidden");
-                moonIcon.classList.remove("hidden");
-            } else {
-                localStorage.setItem("theme", "light");
-                moonIcon.classList.add("hidden");
-                sunIcon.classList.remove("hidden");
-            }
-        });
+                if (document.documentElement.classList.contains("dark")) {
+                    localStorage.setItem("theme", "dark");
+                    if (moonIcon) moonIcon.classList.add("hidden");
+                    if (sunIcon) sunIcon.classList.remove("hidden");
+                } else {
+                    localStorage.setItem("theme", "light");
+                    if (sunIcon) sunIcon.classList.remove("hidden");
+                    if (moonIcon) moonIcon.classList.add("hidden");
+                }
+            });
+        }
     </script>
-
 </body>
 </html>
