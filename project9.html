@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F127DXH209"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-F127DXH209');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Designing a smart event and high-demand parking mobile app: Real-time spot discovery, radius filtering, indoor/AR level navigation, and automated session billing.">
+    <meta name="keywords" content="Smart Parking App UX, Event Parking Solution, Mobile Mobility UX, Location-Based Services Design, Turn-by-Turn Navigation UX, Senior Product Designer">
+    <meta name="author" content="Jadvvinder (J.) Daudhria">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#08090E">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="canonical" href="https://jadvvinder.github.io/Jadvvinder/project9.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="J. Daudhria Portfolio">
+    <meta property="og:title" content="High-Demand Event Parking Mobile App Case Study | J. Daudhria">
+    <meta property="og:description" content="Designing a smart event and high-demand parking mobile app: Real-time spot discovery, radius filtering, indoor/AR level navigation, and automated session billing.">
+    <meta property="og:url" content="https://jadvvinder.github.io/Jadvvinder/project9.html">
+    <meta property="og:image" content="https://jadvvinder.github.io/Jadvvinder/img/parking_img3.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="High-Demand Event Parking Mobile App Case Study | J. Daudhria">
+    <meta name="twitter:description" content="Designing a smart event and high-demand parking mobile app: Real-time spot discovery, radius filtering, indoor/AR level navigation, and automated session billing.">
+    <meta name="twitter:image" content="https://jadvvinder.github.io/Jadvvinder/img/parking_img3.jpg">
+
+    <!-- JSON-LD Structured Data Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "High-Demand Event & Attraction Parking Mobile App UX Case Study",
+      "description": "Designing a smart event and high-demand parking mobile app: Real-time spot discovery, radius filtering, indoor/AR level navigation, and automated session billing.",
+      "image": "https://jadvvinder.github.io/Jadvvinder/img/parking_img3.jpg",
+      "author": {
+        "@type": "Person",
+        "name": "Jadvvinder (J.) Daudhria"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "J. Daudhria Portfolio"
+      },
+      "mainEntityOfPage": "https://jadvvinder.github.io/Jadvvinder/project9.html"
+    }
+    </script>
+
+    <title>High-Demand Event Parking Mobile App Case Study | J. Daudhria</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        light: '#FFFFFF',
+                        dark: '#08090E',
+                        textLight: '#0F172A',
+                        textDark: '#F1F5F9',
+                        cardLight: '#F8FAFC',
+                        cardDark: '#111422',
+                        borderLight: 'rgba(226, 232, 240, 0.8)',
+                        borderDark: 'rgba(30, 41, 59, 0.7)'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        'heading': ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #EC4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .ambient-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(140px);
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .dark .ambient-glow {
+            opacity: 0.18;
+        }
+
+        .minimal-card {
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .minimal-card:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            box-shadow: 0 12px 30px -10px rgba(99, 102, 241, 0.08);
+            transform: translateY(-3px);
+        }
+
+        .dark .minimal-card:hover {
+            box-shadow: 0 12px 30px -10px rgba(99, 102, 241, 0.15);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+    
+        :focus-visible {
+            outline: 2px solid #6366F1 !important;
+            outline-offset: 3px !important;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, ::before, ::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+    </style>
+</head>
+<body class="bg-light dark:bg-dark text-textLight dark:text-textDark font-sans transition-colors duration-300 relative overflow-x-hidden">
+
+    <!-- Accessibility Skip Link -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-indigo-600 focus:text-white focus:rounded-lg focus:shadow-lg font-medium text-sm transition-all">
+        Skip to main content
+    </a>
+
+    <!-- Ambient Background Glows -->
+    <div class="ambient-glow bg-indigo-500 top-0 left-1/4" aria-hidden="true"></div>
+    <div class="ambient-glow bg-purple-500 top-[1000px] right-10" aria-hidden="true"></div>
+    <div class="ambient-glow bg-blue-500 top-[2200px] left-10" aria-hidden="true"></div>
+
+    <!-- Navigation Header -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/80 dark:bg-dark/80 backdrop-blur-md z-50 border-b border-gray-200/60 dark:border-gray-800/60 transition-colors" aria-label="Main navigation">
+        <div class="max-w-6xl mx-auto px-6 sm:px-8 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center space-x-3 group" aria-label="J. Daudhria Homepage">
+                    <span class="text-xl font-bold font-heading tracking-tight text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">JD</span>
+                    <span class="text-xs text-gray-500 dark:text-gray-400 font-medium hidden sm:inline-block">/ Case Study</span>
+                </a>
+                <div class="flex items-center space-x-6 sm:space-x-8 text-sm font-medium">
+                    <a href="portfolio.html" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors flex items-center gap-1.5">
+                        <span aria-hidden="true">←</span> All Projects
+                    </a>
+                    <a href="index.html#hero" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors hidden sm:inline-block">Home</a>
+                    <a href="index.html#contact" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Contact</a>
+                    <button id="themeToggle" type="button" aria-label="Toggle light and dark theme" class="p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                        <svg id="sunIcon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                        <svg id="moonIcon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Case Study Content -->
+    <main id="main-content" class="pt-28 md:pt-36 pb-20 md:pb-28 relative z-10">
+        <div class="max-w-6xl mx-auto px-6 sm:px-8">
+            
+            <!-- Hero Section -->
+            <div class="animate-fadeInUp mb-16 md:mb-20 max-w-4xl">
+                <div class="inline-flex items-center px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 border border-indigo-200/60 dark:border-indigo-800/60 mb-6">
+                    Urban Mobility & Smart Parking Concept • Mobile UX
+                </div>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold font-heading tracking-tight mb-8 leading-[1.15] text-gray-900 dark:text-white">
+                    Smart Event Parking: <span class="hero-gradient">Solving High-Demand Urban Congestion</span>
+                </h1>
+                <p class="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed font-light">
+                    Designing an end-to-end mobile parking experience to seamlessly handle <span class="font-semibold text-gray-900 dark:text-white">high-demand parking spaces around major attractions, stadiums, and city events</span>—from radius-based discovery and indoor bay guidance to live session tracking.
+                </p>
+            </div>
+
+            <!-- Hero Showcase Mockups -->
+            <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl overflow-hidden border border-gray-200/60 dark:border-gray-800/60 p-6 sm:p-10 mb-20 md:mb-28 animate-fadeInUp shadow-sm">
+                <div class="text-xs font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 mb-2 text-center">Core Mobile Workflow Preview</div>
+                <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 text-center mb-8">Event radius discovery → Cluster spot selection → Spot details → Indoor multi-level bay navigation</p>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 items-start">
+                    <div class="text-center">
+                        <img src="img/parking_hero1.jpg" alt="Landing Page Map highlighting city events" class="w-full h-auto rounded-xl border border-gray-200/80 dark:border-gray-800 shadow-md" />
+                        <span class="block text-xs font-medium text-gray-500 dark:text-gray-400 mt-2.5">1. Event Map</span>
+                    </div>
+                    <div class="text-center">
+                        <img src="img/parking_hero2.jpg" alt="Event Radius and Available Spots Bottom Sheet" class="w-full h-auto rounded-xl border border-gray-200/80 dark:border-gray-800 shadow-md" />
+                        <span class="block text-xs font-medium text-gray-500 dark:text-gray-400 mt-2.5">2. Radius & Spots</span>
+                    </div>
+                    <div class="text-center">
+                        <img src="img/parking_hero3.jpg" alt="Parking Spot Details Page" class="w-full h-auto rounded-xl border border-gray-200/80 dark:border-gray-800 shadow-md" />
+                        <span class="block text-xs font-medium text-gray-500 dark:text-gray-400 mt-2.5">3. Spot Detail</span>
+                    </div>
+                    <div class="text-center">
+                        <img src="img/parking_hero4.jpg" alt="Indoor Multi-level Bay Navigation" class="w-full h-auto rounded-xl border border-gray-200/80 dark:border-gray-800 shadow-md" />
+                        <span class="block text-xs font-medium text-gray-500 dark:text-gray-400 mt-2.5">4. Indoor Bay Map</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+                
+                <!-- Main Content Column -->
+                <div class="lg:col-span-2 space-y-20 md:space-y-28">
+
+                    <!-- Strategic Context -->
+                    <section class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 sm:p-10 md:p-12 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                        <h2 class="text-2xl sm:text-3xl font-bold font-heading mb-8 tracking-tight text-gray-900 dark:text-white">Strategic Context</h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-10 text-sm sm:text-base leading-relaxed">
+                            <div>
+                                <div class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Role</div>
+                                <p class="text-gray-600 dark:text-gray-300">Product Designer (End-to-End UX, Interaction Design & Prototyping)</p>
+                            </div>
+                            <div>
+                                <div class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Domain</div>
+                                <p class="text-gray-600 dark:text-gray-300">Urban Mobility, Event Logistics & Smart City Parking</p>
+                            </div>
+                            <div>
+                                <div class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Target Locations</div>
+                                <p class="text-gray-600 dark:text-gray-300">Museums, Stadiums, Festivals, Malls & High-Traffic Restaurants</p>
+                            </div>
+                            <div>
+                                <div class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Core Deliverable</div>
+                                <p class="text-gray-600 dark:text-gray-300">11-Screen Interactive Mobile Flow & Marvel Prototype</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- The Core Problem -->
+                    <section class="space-y-8">
+                        <h2 class="text-3xl sm:text-4xl font-bold font-heading tracking-tight text-gray-900 dark:text-white">The Core Problem</h2>
+                        <div class="prose max-w-none text-gray-600 dark:text-gray-300 space-y-6 text-base sm:text-lg leading-relaxed">
+                            <p>
+                                Finding a parking spot near places of major attractions—such as museums, stadiums, cultural festivals, or popular restaurants—is a major source of frustration for urban drivers. The problem compounds exponentially during special events and occasions when thousands of visitors converge on the same destination simultaneously.
+                            </p>
+                            <div class="bg-rose-50/60 dark:bg-rose-950/20 border border-rose-200/60 dark:border-rose-900/40 rounded-2xl md:rounded-3xl p-8 my-8 minimal-card">
+                                <h3 class="text-xl font-bold font-heading text-rose-700 dark:text-rose-400 mb-4">High-Demand Event Parking Pain Points</h3>
+                                <ul class="space-y-4 text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+                                    <li class="flex items-start">
+                                        <span class="mr-3 text-rose-500 font-bold">•</span>
+                                        <span><strong>Zero visibility into surge capacity:</strong> Drivers arrive at stadiums or festival venues (like Kala Ghoda Fest or Wankhede Stadium) without knowing which nearby lots still have open bays.</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="mr-3 text-rose-500 font-bold">•</span>
+                                        <span><strong>Opaque pricing & parking types:</strong> No easy way to distinguish between free street spots, paid lots, open grounds, or indoor mall parking within walking distance.</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="mr-3 text-rose-500 font-bold">•</span>
+                                        <span><strong>Vehicle-type mismatch:</strong> Two-wheeler (bike) and four-wheeler (car) capacities are rarely separated in standard map searches.</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="mr-3 text-rose-500 font-bold">•</span>
+                                        <span><strong>Last-100-meters confusion:</strong> Standard GPS drops drivers at the venue gate, offering no guidance inside multi-level parking structures or large event grounds.</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="mr-3 text-rose-500 font-bold">•</span>
+                                        <span><strong>Manual time & fee anxiety:</strong> Drivers lose track of how long they've parked and lack transparent hourly receipt calculations.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <p>
+                                The design challenge was to create a frictionless, real-time mobile experience that handles peak event demand—guiding users from initial destination discovery all the way to an exact indoor bay and automated checkout.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- Strategic Goals -->
+                    <section class="space-y-8">
+                        <h2 class="text-3xl sm:text-4xl font-bold font-heading tracking-tight text-gray-900 dark:text-white">Strategic Design Goals</h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+                            <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                                <div class="text-3xl mb-4" aria-hidden="true">📍</div>
+                                <h3 class="text-lg font-bold font-heading mb-3 text-gray-900 dark:text-white">Event-Aware Discovery</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                                    Proactively highlight major city events within a 10km radius alongside instant location search.
+                                </p>
+                            </div>
+                            <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                                <div class="text-3xl mb-4" aria-hidden="true">🧭</div>
+                                <h3 class="text-lg font-bold font-heading mb-3 text-gray-900 dark:text-white">Door-to-Bay Navigation</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                                    Bridge outdoor turn-by-turn GPS with indoor multi-floor bay mapping and AR path overlays.
+                                </p>
+                            </div>
+                            <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                                <div class="text-3xl mb-4" aria-hidden="true">⏱️</div>
+                                <h3 class="text-lg font-bold font-heading mb-3 text-gray-900 dark:text-white">Transparent Session Lifecycle</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                                    Provide live parking duration timers, automated hourly billing receipts, and community spot ratings.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- End-to-End Screen Architecture -->
+                    <section class="space-y-8">
+                        <h2 class="text-3xl sm:text-4xl font-bold font-heading tracking-tight text-gray-900 dark:text-white">End-to-End Screen Architecture & User Flow</h2>
+                        <div class="prose max-w-none text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
+                            <p>
+                                Rather than treating parking as a static directory, I structured the application around the driver's real-time context—from pre-trip planning to arriving at a crowded venue, finding an exact bay, and checking out.
+                            </p>
+                        </div>
+
+                        <div class="space-y-10">
+                            <!-- Phase 1: Landing & Search -->
+                            <div class="bg-cardLight dark:bg-cardDark p-8 sm:p-10 rounded-2xl md:rounded-3xl border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-10 h-10 bg-indigo-600 text-white rounded-xl flex items-center justify-center font-bold mr-4 text-lg">1</div>
+                                    <h3 class="text-xl sm:text-2xl font-bold font-heading text-gray-900 dark:text-white m-0">Landing Map & Event-First Search</h3>
+                                </div>
+                                <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
+                                    When the user opens the app, the landing screen immediately renders an interactive map highlighting all major events happening within a configurable radius (e.g., 10km) or across the city as the user pans (such as <em>Lakme Fashion Show</em>, <em>Kala Ghoda Fest</em>, <em>Musical Night</em>, and <em>Sunburn</em>).
+                                </p>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 items-start">
+                                    <div class="bg-white dark:bg-dark/60 p-6 rounded-2xl border border-gray-200/60 dark:border-gray-800/60">
+                                        <img src="img/parking_img1.jpg" alt="Landing Page Map Screen" class="w-full max-w-[260px] mx-auto h-auto rounded-xl border border-gray-200/80 dark:border-gray-800 shadow-sm mb-5" />
+                                        <h4 class="font-bold font-heading text-gray-900 dark:text-white text-base mb-2">Landing Page</h4>
+                                        <ul class="space-y-2.5 text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                                            <li class="flex items-start"><span class="mr-2.5 text-indigo-500 font-bold">•</span><span>Highlights major events with date badges directly on the map</span></li>
+                                            <li class="flex items-start"><span class="mr-2.5 text-indigo-500 font-bold">•</span><span>Prominent "Where you want to go?" search bar at the top</span></li>
+                                            <li class="flex items-start"><span class="mr-2.5 text-indigo-500 font-bold">•</span><span>Quick-access GPS recenter and floating filter trigger</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-white dark:bg-dark/60 p-6 rounded-2xl border border-gray-200/60 dark:border-gray-800/60">
+                                        <img src="img/parking_img2.jpg" alt="Search Page with Auto-Suggest and Top City Events" class="w-full max-w-[260px] mx-auto h-auto rounded-xl border border-gray-200/80 dark:border-gray-800 shadow-sm mb-5" />
+                                        <h4 class="font-bold font-heading text-gray-900 dark:text-white text-base mb-2">Search & Auto-Suggest</h4>
+                                        <ul class="space-y-2.5 text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                                            <li class="flex items-start"><span class="mr-2.5 text-indigo-500 font-bold">•</span><span>Real-time location auto-suggest dropdown as the user types</span></li>
+                                            <li class="flex items-start"><span class="mr-2.5 text-indigo-500 font-bold">•</span><span>Dedicated <strong>"Events in Your City"</strong> quick-list (e.g., <em>IPL match at Wankhede Stadium</em>, <em>National Museum Gallery</em>)</span></li>
+                                            <li class="flex items-start"><span class="mr-2.5 text-indigo-500 font-bold">•</span><span>One-tap focus zooms the map directly to the event zone</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Phase 2: Event/Spot Landing & Smart Filter -->
+                            <div class="bg-cardLight dark:bg-cardDark p-8 sm:p-10 rounded-2xl md:rounded-3xl border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-10 h-10 bg-indigo-600 text-white rounded-xl flex items-center justify-center font-bold mr-4 text-lg">2</div>
+                                    <h3 class="text-xl sm:text-2xl font-bold font-heading text-gray-900 dark:text-white m-0">Event Radius Focus, Filtering & Spot Clusters</h3>
+                                </div>
+                                <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
+                                    Selecting an event card or destination zooms the map into a highlighted radius around the venue, displaying all available paid, free, and event-specific parking pins—including numbered cluster markers where multiple spots exist.
+                                </p>
+                                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 items-start">
+                                    <div class="bg-white dark:bg-dark/60 p-5 rounded-2xl border border-gray-200/60 dark:border-gray-800/60">
+                                        <img src="img/parking_img3.jpg" alt="Event/Spot Landing Page with Radius and Meta" class="w-full h-auto rounded-xl border border-gray-200/80 dark:border-gray-800 shadow-sm mb-4" />
+                                        <h4 class="font-bold font-heading text-gray-900 dark:text-white text-base mb-2">Event/Spot Bottom Sheet</h4>
+                                        <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                                            Displays distance (22.3 KM), instant navigation button, event rating & date, live count of available spots (<em>25 Spots Available</em>), and a <strong>Car vs. Bike toggle switch</strong>.
+                                        </p>
+                                    </div>
+                                    <div class="bg-white dark:bg-dark/60 p-5 rounded-2xl border border-gray-200/60 dark:border-gray-800/60">
+                                        <img src="img/parking_img4.jpg" alt="Filter Popup for Free, Paid, Open, Indoor and Radius" class="w-full h-auto rounded-xl border border-gray-200/80 dark:border-gray-800 shadow-sm mb-4" />
+                                        <h4 class="font-bold font-heading text-gray-900 dark:text-white text-base mb-2">Granular Filter Popup</h4>
+                                        <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                                            Allows drivers to narrow results by <strong>Free, Paid, Open, or Indoor (Mall)</strong> parking, plus an interactive <strong>0–10 km radius slider</strong> to trade off walking distance vs. availability.
+                                        </p>
+                                    </div>
+                                    <div class="bg-white dark:bg-dark/60 p-5 rounded-2xl border border-gray-200/60 dark:border-gray-800/60">
+                                        <img src="img/parking_img5.jpg" alt="Spot Listing Page showing multiple parking options" class="w-full h-auto rounded-xl border border-gray-200/80 dark:border-gray-800 shadow-sm mb-4" />
+                                        <h4 class="font-bold font-heading text-gray-900 dark:text-white text-base mb-2">Swipe-Up Spot Listing</h4>
+                                        <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                                            Tapping a numbered map cluster (2+ spots) reveals a scannable list (<em>Mahaveer Parking - FREE</em>, <em>NR Studios Parking - Rs.60/hr</em>) with hours, ratings, and direct navigation CTAs.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Phase 3: Spot Detail & Turn-by-Turn Navigation -->
+                            <div class="bg-cardLight dark:bg-cardDark p-8 sm:p-10 rounded-2xl md:rounded-3xl border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-10 h-10 bg-indigo-600 text-white rounded-xl flex items-center justify-center font-bold mr-4 text-lg">3</div>
+                                    <h3 class="text-xl sm:text-2xl font-bold font-heading text-gray-900 dark:text-white m-0">Spot Detail Verification & Multi-Modal Navigation</h3>
+                                </div>
+                                <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
+                                    Drivers can either launch navigation immediately from the list or tap a card to inspect full facility metadata before committing. Once en route, the app transitions from street-level GPS to proactive arrival notifications and indoor bay guidance.
+                                </p>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 items-start">
+                                    <div class="bg-white dark:bg-dark/60 p-6 rounded-2xl border border-gray-200/60 dark:border-gray-800/60">
+                                        <img src="img/parking_img6.jpg" alt="Spot Landing Page with facility details and Park Here CTA" class="w-full max-w-[240px] mx-auto h-auto rounded-xl border border-gray-200/80 dark:border-gray-800 shadow-sm mb-5" />
+                                        <h4 class="font-bold font-heading text-gray-900 dark:text-white text-base mb-2">Spot Landing Page</h4>
+                                        <ul class="space-y-2.5 text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                                            <li class="flex items-start"><span class="mr-2.5 text-indigo-500 font-bold">•</span><span>Facility photo, full address, price tier, and real-time capacity (<em>OPEN NOW • 3/58 Available</em>)</span></li>
+                                            <li class="flex items-start"><span class="mr-2.5 text-indigo-500 font-bold">•</span><span>Amenity icons (attendant/toll booth, CCTV security, Wi-Fi, wheelchair accessibility)</span></li>
+                                            <li class="flex items-start"><span class="mr-2.5 text-indigo-500 font-bold">•</span><span>Dual CTAs: floating top direction button and primary bottom <strong>"PARK HERE"</strong> action</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-white dark:bg-dark/60 p-6 rounded-2xl border border-gray-200/60 dark:border-gray-800/60">
+                                        <img src="img/parking_img7.jpg" alt="Turn-by-Turn Street Navigation Page" class="w-full max-w-[240px] mx-auto h-auto rounded-xl border border-gray-200/80 dark:border-gray-800 shadow-sm mb-5" />
+                                        <h4 class="font-bold font-heading text-gray-900 dark:text-white text-base mb-2">Turn-by-Turn Street Navigation</h4>
+                                        <ul class="space-y-2.5 text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                                            <li class="flex items-start"><span class="mr-2.5 text-indigo-500 font-bold">•</span><span>Directions from current location to the selected parking facility</span></li>
+                                            <li class="flex items-start"><span class="mr-2.5 text-indigo-500 font-bold">•</span><span>Live traffic updates including roadwork or maintenance alerts</span></li>
+                                            <li class="flex items-start"><span class="mr-2.5 text-indigo-500 font-bold">•</span><span>Alternative route selection and voice-over turn-by-turn guidance</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-white dark:bg-dark/60 p-6 rounded-2xl border border-gray-200/60 dark:border-gray-800/60">
+                                        <img src="img/parking_img10.jpg" alt="GPS Geofence Push Notification at Phoenix Mills" class="w-full max-w-[240px] mx-auto h-auto rounded-xl border border-gray-200/80 dark:border-gray-800 shadow-sm mb-5" />
+                                        <h4 class="font-bold font-heading text-gray-900 dark:text-white text-base mb-2">Proactive GPS Notification</h4>
+                                        <ul class="space-y-2.5 text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                                            <li class="flex items-start"><span class="mr-2.5 text-indigo-500 font-bold">•</span><span>Detects when a user enters a major mall or event parking zone (e.g., <em>Phoenix Mills</em>)</span></li>
+                                            <li class="flex items-start"><span class="mr-2.5 text-indigo-500 font-bold">•</span><span>Prompts instant <strong>"START NAVIGATION"</strong> to guide the driver directly to open bays</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-white dark:bg-dark/60 p-6 rounded-2xl border border-gray-200/60 dark:border-gray-800/60">
+                                        <img src="img/parking_img11.jpg" alt="Indoor Multi-level Parking Bay Navigation" class="w-full max-w-[240px] mx-auto h-auto rounded-xl border border-gray-200/80 dark:border-gray-800 shadow-sm mb-5" />
+                                        <h4 class="font-bold font-heading text-gray-900 dark:text-white text-base mb-2">Indoor Bay & AR Navigation</h4>
+                                        <ul class="space-y-2.5 text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                                            <li class="flex items-start"><span class="mr-2.5 text-indigo-500 font-bold">•</span><span>Displays exact internal driveway path to the nearest available bay (AR-ready)</span></li>
+                                            <li class="flex items-start"><span class="mr-2.5 text-indigo-500 font-bold">•</span><span>Tap any other unoccupied bay to dynamically re-route</span></li>
+                                            <li class="flex items-start"><span class="mr-2.5 text-indigo-500 font-bold">•</span><span><strong>Multi-Level Floor Selector (1, 2, 3, 4)</strong> to check availability across parking levels</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Phase 4: Active Timer & Receipt -->
+                            <div class="bg-cardLight dark:bg-cardDark p-8 sm:p-10 rounded-2xl md:rounded-3xl border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-10 h-10 bg-indigo-600 text-white rounded-xl flex items-center justify-center font-bold mr-4 text-lg">4</div>
+                                    <h3 class="text-xl sm:text-2xl font-bold font-heading text-gray-900 dark:text-white m-0">Active Parking Timer, Automated Billing & Reviews</h3>
+                                </div>
+                                <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
+                                    The experience doesn't end when the car stops. As the user parks and steps out, the app transitions into an active session tracker and closes the loop with a transparent digital receipt.
+                                </p>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 items-start">
+                                    <div class="bg-white dark:bg-dark/60 p-6 rounded-2xl border border-gray-200/60 dark:border-gray-800/60">
+                                        <img src="img/parking_img8.jpg" alt="Tracking Parking Time Screen with Circular Timer" class="w-full max-w-[260px] mx-auto h-auto rounded-xl border border-gray-200/80 dark:border-gray-800 shadow-sm mb-5" />
+                                        <h4 class="font-bold font-heading text-gray-900 dark:text-white text-base mb-2">Tracking Parking Time</h4>
+                                        <ul class="space-y-2.5 text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                                            <li class="flex items-start"><span class="mr-2.5 text-indigo-500 font-bold">•</span><span>High-contrast circular progress timer (<strong>00:24:40</strong>) with exact parked timestamp (<strong>Vehicle parked at: 14:20</strong>)</span></li>
+                                            <li class="flex items-start"><span class="mr-2.5 text-indigo-500 font-bold">•</span><span>Pinned location footer with direction link so users can easily navigate back to their parked vehicle after the event</span></li>
+                                            <li class="flex items-start"><span class="mr-2.5 text-indigo-500 font-bold">•</span><span>Single prominent <strong>"STOP PARKING"</strong> CTA to end the session</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-white dark:bg-dark/60 p-6 rounded-2xl border border-gray-200/60 dark:border-gray-800/60">
+                                        <img src="img/parking_img9.jpg" alt="Parking Receipt Page with Cost Breakdown and Review CTA" class="w-full max-w-[260px] mx-auto h-auto rounded-xl border border-gray-200/80 dark:border-gray-800 shadow-sm mb-5" />
+                                        <h4 class="font-bold font-heading text-gray-900 dark:text-white text-base mb-2">Parking Receipt & Feedback</h4>
+                                        <ul class="space-y-2.5 text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                                            <li class="flex items-start"><span class="mr-2.5 text-indigo-500 font-bold">•</span><span>Itemized digital ticket with Booking ID, hourly rate (<strong>₹60 /Hr.</strong>), total amount (<strong>₹60.68</strong>), and start/end timestamps</span></li>
+                                            <li class="flex items-start"><span class="mr-2.5 text-indigo-500 font-bold">•</span><span>Quick actions to <strong>Save as Favorite</strong> (heart icon) or <strong>Share spot</strong></span></li>
+                                            <li class="flex items-start"><span class="mr-2.5 text-indigo-500 font-bold">•</span><span><strong>"POST YOUR REVIEW"</strong> CTA to appreciate good service or flag facility issues for the community and authorities</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Key Design Decisions -->
+                    <section class="space-y-8">
+                        <h2 class="text-3xl sm:text-4xl font-bold font-heading tracking-tight text-gray-900 dark:text-white">Key Design Decisions</h2>
+                        
+                        <div class="space-y-8">
+                            <!-- Decision 1 -->
+                            <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl overflow-hidden border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                                <div class="p-8 sm:p-10">
+                                    <div class="flex items-start mb-6">
+                                        <div class="flex-shrink-0 w-12 h-12 bg-rose-100 dark:bg-rose-950/40 rounded-xl flex items-center justify-center mr-4" aria-hidden="true">
+                                            <span class="text-rose-600 dark:text-rose-400 text-xl">❌</span>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-lg font-bold font-heading mb-2 text-gray-900 dark:text-white">Problem: Event-Day Search Friction</h3>
+                                            <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+                                                During major concerts, matches, or festivals, users often know the event name rather than the exact street address or surrounding parking lot names. Standard map apps force users to search the venue first and then manually hunt for parking nearby.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="flex-shrink-0 w-12 h-12 bg-emerald-100 dark:bg-emerald-950/40 rounded-xl flex items-center justify-center mr-4" aria-hidden="true">
+                                            <span class="text-emerald-600 dark:text-emerald-400 text-xl">✅</span>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-lg font-bold font-heading mb-2 text-gray-900 dark:text-white">Solution: Event-First Map Pins & Search Suggestions</h3>
+                                            <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+                                                Surfaced live city events both as floating callout badges on the initial map (within a 10km radius) and as a dedicated "Events in Your City" section inside the search dropdown—allowing 1-tap zooming to pre-configured event parking zones.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Decision 2 -->
+                            <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl overflow-hidden border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                                <div class="p-8 sm:p-10">
+                                    <div class="flex items-start mb-6">
+                                        <div class="flex-shrink-0 w-12 h-12 bg-rose-100 dark:bg-rose-950/40 rounded-xl flex items-center justify-center mr-4" aria-hidden="true">
+                                            <span class="text-rose-600 dark:text-rose-400 text-xl">❌</span>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-lg font-bold font-heading mb-2 text-gray-900 dark:text-white">Problem: High-Cognitive Load While Driving</h3>
+                                            <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+                                                Drivers approaching a congested area cannot safely read dense text pages to compare prices, check if a lot accepts cars vs. two-wheelers, or start directions.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="flex-shrink-0 w-12 h-12 bg-emerald-100 dark:bg-emerald-950/40 rounded-xl flex items-center justify-center mr-4" aria-hidden="true">
+                                            <span class="text-emerald-600 dark:text-emerald-400 text-xl">✅</span>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-lg font-bold font-heading mb-2 text-gray-900 dark:text-white">Solution: Persistent Car/Bike Toggle & 1-Tap Navigation Cards</h3>
+                                            <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+                                                Placed a visual Car/Bike toggle and direct turn-by-turn navigation buttons right on the summary bottom sheet and list cards. Drivers who want immediate routing can tap the direction icon directly from the list, while researchers can tap the card body for full details.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Decision 3 -->
+                            <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl overflow-hidden border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                                <div class="p-8 sm:p-10">
+                                    <div class="flex items-start mb-6">
+                                        <div class="flex-shrink-0 w-12 h-12 bg-rose-100 dark:bg-rose-950/40 rounded-xl flex items-center justify-center mr-4" aria-hidden="true">
+                                            <span class="text-rose-600 dark:text-rose-400 text-xl">❌</span>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-lg font-bold font-heading mb-2 text-gray-900 dark:text-white">Problem: Indoor Multi-Level Lot Disorientation</h3>
+                                            <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+                                                Entering a large mall or stadium parking structure often results in circling endlessly across floors to find the few remaining unoccupied bays.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="flex-shrink-0 w-12 h-12 bg-emerald-100 dark:bg-emerald-950/40 rounded-xl flex items-center justify-center mr-4" aria-hidden="true">
+                                            <span class="text-emerald-600 dark:text-emerald-400 text-xl">✅</span>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-lg font-bold font-heading mb-2 text-gray-900 dark:text-white">Solution: Proactive Geofence Notification & Multi-Floor Bay Map</h3>
+                                            <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+                                                Combined GPS geofencing (pushing a lock-screen notification upon entering a parking zone like Phoenix Mills) with an indoor schematic map showing occupied vs. free bays, floor switcher (Levels 1–4), interactive bay re-selection, and AR-ready path lines.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Strategic Assessment (SWOT) -->
+                    <section class="space-y-8">
+                        <h2 class="text-3xl sm:text-4xl font-bold font-heading tracking-tight text-gray-900 dark:text-white">
+                            Strategic Assessment (SWOT)
+                        </h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm sm:text-base">
+                            <div class="p-8 border border-gray-200/60 dark:border-gray-800/60 rounded-2xl md:rounded-3xl bg-cardLight dark:bg-cardDark minimal-card">
+                                <h4 class="font-bold font-heading text-lg text-indigo-600 dark:text-indigo-400 mb-3">Strengths</h4>
+                                <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Covers the complete parking journey (pre-trip discovery, outdoor GPS, indoor floor bay routing, active timer, and post-session receipt) in a clean, low-friction UI.</p>
+                            </div>
+                            <div class="p-8 border border-gray-200/60 dark:border-gray-800/60 rounded-2xl md:rounded-3xl bg-cardLight dark:bg-cardDark minimal-card">
+                                <h4 class="font-bold font-heading text-lg text-blue-600 dark:text-blue-400 mb-3">Opportunities</h4>
+                                <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Expand into pre-booking/reserving guaranteed bays tied to event ticket purchases, plus camera-based Augmented Reality (AR) windshield/phone overlays.</p>
+                            </div>
+                            <div class="p-8 border border-gray-200/60 dark:border-gray-800/60 rounded-2xl md:rounded-3xl bg-cardLight dark:bg-cardDark minimal-card">
+                                <h4 class="font-bold font-heading text-lg text-amber-600 dark:text-amber-400 mb-3">Weaknesses</h4>
+                                <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Real-time bay-level accuracy inside indoor structures relies on IoT sensor infrastructure or operator integration at partner venues.</p>
+                            </div>
+                            <div class="p-8 border border-gray-200/60 dark:border-gray-800/60 rounded-2xl md:rounded-3xl bg-cardLight dark:bg-cardDark minimal-card">
+                                <h4 class="font-bold font-heading text-lg text-rose-600 dark:text-rose-400 mb-3">Threats</h4>
+                                <p class="text-gray-600 dark:text-gray-400 leading-relaxed">High concurrency during stadium-scale events can cause spot contention between the moment a driver selects a bay and physically arrives.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Navigation -->
+                    <div class="pt-8 border-t border-gray-200/60 dark:border-gray-800/60">
+                        <div class="flex justify-between items-center">
+                            <a href="portfolio.html" class="inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-semibold hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors shadow-sm">
+                                ← Back to All Projects
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar Column -->
+                <div class="lg:col-span-1 space-y-8">
+                    <div class="sticky-sidebar space-y-8">
+                        <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                            <h3 class="text-xl font-bold font-heading mb-6 text-gray-900 dark:text-white">Project Highlights</h3>
+                            <ul class="space-y-4 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                                <li class="flex items-start">
+                                    <span class="mr-3 text-indigo-500 font-bold" aria-hidden="true">✓</span>
+                                    <span>Event-first map discovery within a 10km radius</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="mr-3 text-indigo-500 font-bold" aria-hidden="true">✓</span>
+                                    <span>Auto-suggest search with city event quick-links</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="mr-3 text-indigo-500 font-bold" aria-hidden="true">✓</span>
+                                    <span>Smart filtering (Free, Paid, Open, Indoor/Mall & KM radius)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="mr-3 text-indigo-500 font-bold" aria-hidden="true">✓</span>
+                                    <span>Car vs. Bike capacity toggle</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="mr-3 text-indigo-500 font-bold" aria-hidden="true">✓</span>
+                                    <span>Voice turn-by-turn GPS with live traffic alerts</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="mr-3 text-indigo-500 font-bold" aria-hidden="true">✓</span>
+                                    <span>Multi-level indoor bay navigation (AR-ready)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="mr-3 text-indigo-500 font-bold" aria-hidden="true">✓</span>
+                                    <span>Live parking timer, digital receipt & community reviews</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                            <h3 class="text-xl font-bold font-heading mb-4 text-gray-900 dark:text-white">Key Insight</h3>
+                            <p class="text-sm italic text-gray-500 dark:text-gray-400 leading-relaxed">
+                                "Event parking isn't just a map problem—it's an anxiety problem across four distinct moments: finding an available zone near the venue, navigating indoor floors to an open bay, tracking active time, and paying a fair, transparent fare."
+                            </p>
+                        </div>
+
+                        <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                            <h3 class="text-xl font-bold font-heading mb-6 text-gray-900 dark:text-white">Tools & Methods</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">User Flow Mapping</span>
+                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">Wireframing</span>
+                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">Interaction Design</span>
+                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">Marvel App</span>
+                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">Location-Based UX</span>
+                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">Mobile Prototyping</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                            <h3 class="text-xl font-bold font-heading mb-6 text-gray-900 dark:text-white">Project Scope</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="text-xs text-gray-400 font-semibold uppercase tracking-wider">Target Use Case</div>
+                                    <div class="text-xl font-bold font-heading text-gray-900 dark:text-white mt-1">Events & Major Attractions</div>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-gray-400 font-semibold uppercase tracking-wider">Key Screens Designed</div>
+                                    <div class="text-xl font-bold font-heading text-gray-900 dark:text-white mt-1">11 Core Screens</div>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-gray-400 font-semibold uppercase tracking-wider">Vehicle Modes</div>
+                                    <div class="text-xl font-bold font-heading text-gray-900 dark:text-white mt-1">Car & Bike</div>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-gray-400 font-semibold uppercase tracking-wider">Navigation Depth</div>
+                                    <div class="text-xl font-bold font-heading text-gray-900 dark:text-white mt-1">Street GPS + Indoor Bay AR</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-cardLight dark:bg-cardDark rounded-2xl md:rounded-3xl p-8 border border-gray-200/60 dark:border-gray-800/60 minimal-card">
+                            <h3 class="text-xl font-bold font-heading mb-6 text-gray-900 dark:text-white">Prototype</h3>
+                            <div class="space-y-4">
+                                <a href="https://marvelapp.com/5593a0h" target="_blank" rel="noopener noreferrer" class="block w-full px-4 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl transition-colors font-semibold text-center text-sm shadow-sm">
+                                    View Interactive Prototype →
+                                </a>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+                                    Interactive Marvel prototype demonstrating the end-to-end event parking discovery, indoor navigation, active timer, and receipt flow.
+                                </p>
+                            </div>
+                        </div>
+
+                        <a href="portfolio.html" class="inline-flex items-center justify-center w-full px-6 py-3.5 rounded-xl bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-semibold hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors shadow-sm">
+                            ← Back to All Projects
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-gray-200/60 dark:border-gray-800/60 transition-colors mt-20 md:mt-28 relative z-10" aria-label="Site footer">
+        <div class="max-w-6xl mx-auto px-6 sm:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div>
+                    <div class="text-lg font-bold font-heading text-gray-900 dark:text-white">J. Daudhria</div>
+                    <p class="text-xs text-gray-600 dark:text-gray-400 mt-1">Lead Product Designer & Systems Architect</p>
+                </div>
+                
+                <div class="flex items-center space-x-6 text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-medium">
+                    <a href="https://www.linkedin.com/in/jadvinderd" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">LinkedIn</a>
+                    <span aria-hidden="true">•</span>
+                    <a href="https://www.behance.net/jd132" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Behance</a>
+                    <span aria-hidden="true">•</span>
+                    <a href="mailto:j.daudhria@gmail.com" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Email</a>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-6 border-t border-gray-100 dark:border-gray-800/40 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400 dark:text-gray-500 gap-3">
+                <p>© 2026 J. Daudhria. All rights reserved.</p>
+                <p>Designed for accessibility and performance.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const sunIcon = document.getElementById('sunIcon');
+        const moonIcon = document.getElementById('moonIcon');
+        
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        const currentTheme = localStorage.getItem('theme');
+        
+        if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
+            document.documentElement.classList.add('dark');
+            if (sunIcon) sunIcon.classList.remove('hidden');
+        } else {
+            if (moonIcon) moonIcon.classList.remove('hidden');
+        }
+        
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark');
+                
+                if (document.documentElement.classList.contains('dark')) {
+                    localStorage.setItem('theme', 'dark');
+                    if (moonIcon) moonIcon.classList.add('hidden');
+                    if (sunIcon) sunIcon.classList.remove('hidden');
+                } else {
+                    localStorage.setItem('theme', 'light');
+                    if (sunIcon) sunIcon.classList.add('hidden');
+                    if (moonIcon) moonIcon.classList.remove('hidden');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
